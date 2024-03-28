@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{41503935-0cd8-44f5-bd2c-3a4f46e0d197}</ProjectGuid>
+    <RootNamespace>SoloLevelling</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>SoloLevelling</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;SoloLevelling_EXPORTS;_WINDOWS;_USRDLL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)vendor\CommandMenu\include\;$(ProjectDir)vendor\imgui\;$(ProjectDir)vendor\detours\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <ModuleDefinitionFile>Exports/Exports.def</ModuleDefinitionFile>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /f /y "$(TargetDir)$(ProjectName).dll" "D:\Games\SoloLevelling\Netmarble Game\sololv\winhttp.dll*"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="appdata\helpers.cpp" />
+    <ClCompile Include="appdata\il2cpp-init.cpp" />
+    <ClCompile Include="cheat\cheat.cpp" />
+    <ClCompile Include="cheat\features\NoCooldown.cpp" />
+    <ClCompile Include="cheat\features\PlayerSpeed.cpp" />
+    <ClCompile Include="Core\Core.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Exports\Exports.cpp" />
+    <ClCompile Include="Memory.cpp" />
+    <ClCompile Include="Render\Backend\DX11Hook.cpp" />
+    <ClCompile Include="Render\Backend\DX12Hook.cpp" />
+    <ClCompile Include="Render\Gui\gui.cpp" />
+    <ClCompile Include="Render\Gui\utils\gui-util.cpp" />
+    <ClCompile Include="Render\Renderer.cpp" />
+    <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="vendor\CommandMenu\src\Menu.cpp" />
+    <ClCompile Include="vendor\CommandMenu\src\SliderFloat.cpp" />
+    <ClCompile Include="vendor\CommandMenu\src\SliderInt.cpp" />
+    <ClCompile Include="vendor\CommandMenu\src\Tab.cpp" />
+    <ClCompile Include="vendor\CommandMenu\src\Text.cpp" />
+    <ClCompile Include="vendor\CommandMenu\src\Toggle.cpp" />
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_dx11.cpp" />
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_dx12.cpp" />
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_win32.cpp" />
+    <ClCompile Include="vendor\imgui\imgui.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_draw.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_tables.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="vendor\imgui\misc\cpp\imgui_stdlib.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="appdata\helpers.h" />
+    <ClInclude Include="appdata\il2cpp-api-functions-ptr.h" />
+    <ClInclude Include="appdata\il2cpp-api-functions.h" />
+    <ClInclude Include="appdata\il2cpp-appdata.h" />
+    <ClInclude Include="appdata\il2cpp-functions.h" />
+    <ClInclude Include="appdata\il2cpp-init.h" />
+    <ClInclude Include="appdata\il2cpp-metadata-version.h" />
+    <ClInclude Include="appdata\il2cpp-types-ptr.h" />
+    <ClInclude Include="appdata\il2cpp-types.h" />
+    <ClInclude Include="cheat\cheat.h" />
+    <ClInclude Include="cheat\features\NoCooldown.h" />
+    <ClInclude Include="cheat\features\PlayerSpeed.h" />
+    <ClInclude Include="Core\Core.h" />
+    <ClInclude Include="Exports\Exports.h" />
+    <ClInclude Include="Exports\Resources.h" />
+    <ClInclude Include="global.h" />
+    <ClInclude Include="HookManager.h" />
+    <ClInclude Include="Memory.h" />
+    <ClInclude Include="Module.h" />
+    <ClInclude Include="ModuleManager.h" />
+    <ClInclude Include="Render\Backend\DX11Hook.h" />
+    <ClInclude Include="Render\Backend\DX12Hook.h" />
+    <ClInclude Include="Render\Gui\gui.h" />
+    <ClInclude Include="Render\Gui\utils\color.hpp" />
+    <ClInclude Include="Render\Gui\utils\gui-util.hpp" />
+    <ClInclude Include="Render\Renderer.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Utils.h" />
+    <ClInclude Include="vendor\CommandMenu\include\CommandMenu.h" />
+    <ClInclude Include="vendor\CommandMenu\include\ElementBase.h" />
+    <ClInclude Include="vendor\CommandMenu\include\Menu.h" />
+    <ClInclude Include="vendor\CommandMenu\include\SliderFloat.h" />
+    <ClInclude Include="vendor\CommandMenu\include\SliderInt.h" />
+    <ClInclude Include="vendor\CommandMenu\include\Tab.h" />
+    <ClInclude Include="vendor\CommandMenu\include\Text.h" />
+    <ClInclude Include="vendor\CommandMenu\include\Toggle.h" />
+    <ClInclude Include="vendor\detours\detours.h" />
+    <ClInclude Include="vendor\detours\detver.h" />
+    <ClInclude Include="vendor\imgui\backends\imgui_impl_dx11.h" />
+    <ClInclude Include="vendor\imgui\backends\imgui_impl_dx12.h" />
+    <ClInclude Include="vendor\imgui\backends\imgui_impl_win32.h" />
+    <ClInclude Include="vendor\imgui\imconfig.h" />
+    <ClInclude Include="vendor\imgui\imgui.h" />
+    <ClInclude Include="vendor\imgui\imgui_internal.h" />
+    <ClInclude Include="vendor\imgui\misc\cpp\imgui_stdlib.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SoloLevelling.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="Exports\Exports.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="Exports\psapi.asm" />
+    <MASM Include="Exports\version.asm" />
+    <MASM Include="Exports\winhttp.asm" />
+    <MASM Include="Exports\winmm.asm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="vendor\detours\detours-x64.lib" />
+    <Library Include="vendor\detours\detours-x86.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

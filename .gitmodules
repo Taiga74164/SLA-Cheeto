@@ -1,0 +1,9 @@
+[submodule "vendor/CommandMenu"]
+	path = vendor/CommandMenu
+	url = https://github.com/Taiga74164/CommandMenu
+[submodule "vendor/imgui"]
+	path = vendor/imgui
+	url = https://github.com/Taiga74164/imgui.git
+[submodule "vendor/magic_enum"]
+	path = vendor/magic_enum
+	url = https://github.com/Neargye/magic_enum

@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{8c8488ce-183e-41e2-bfae-4b39fb8e9c67}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="vendor">
+      <UniqueIdentifier>{bcdc7311-ad6a-41d3-b453-33b3e974fad0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\CommandMenu">
+      <UniqueIdentifier>{b8c0f976-4abb-4582-bc33-28a9bf0e82b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\detours">
+      <UniqueIdentifier>{307d7541-df30-4cc9-91d2-65fd5d5d82b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\imgui">
+      <UniqueIdentifier>{0edc6f09-32f6-4a50-8370-bfb5d1898155}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="appdata">
+      <UniqueIdentifier>{7c2c0557-7bbc-4d6b-afdf-a43a77b4d752}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="features">
+      <UniqueIdentifier>{745e433a-4d2c-4e00-8066-c94dd7c95d3e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Core\Core.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Exports\Exports.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Memory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\CommandMenu\src\Menu.cpp">
+      <Filter>vendor\CommandMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\CommandMenu\src\SliderFloat.cpp">
+      <Filter>vendor\CommandMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\CommandMenu\src\SliderInt.cpp">
+      <Filter>vendor\CommandMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\CommandMenu\src\Tab.cpp">
+      <Filter>vendor\CommandMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\CommandMenu\src\Text.cpp">
+      <Filter>vendor\CommandMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\CommandMenu\src\Toggle.cpp">
+      <Filter>vendor\CommandMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\Backend\DX11Hook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\Backend\DX12Hook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui.cpp">
+      <Filter>vendor\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui_draw.cpp">
+      <Filter>vendor\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_dx11.cpp">
+      <Filter>vendor\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_dx12.cpp">
+      <Filter>vendor\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_win32.cpp">
+      <Filter>vendor\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\misc\cpp\imgui_stdlib.cpp">
+      <Filter>vendor\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui_tables.cpp">
+      <Filter>vendor\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui_widgets.cpp">
+      <Filter>vendor\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="appdata\helpers.cpp">
+      <Filter>appdata</Filter>
+    </ClCompile>
+    <ClCompile Include="appdata\il2cpp-init.cpp">
+      <Filter>appdata</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheat\cheat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheat\Features\PlayerSpeed.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\Core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Exports\Exports.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Exports\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Memory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\CommandMenu\include\CommandMenu.h">
+      <Filter>vendor\CommandMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\CommandMenu\include\ElementBase.h">
+      <Filter>vendor\CommandMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\CommandMenu\include\Menu.h">
+      <Filter>vendor\CommandMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\CommandMenu\include\SliderFloat.h">
+      <Filter>vendor\CommandMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\CommandMenu\include\SliderInt.h">
+      <Filter>vendor\CommandMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\CommandMenu\include\Tab.h">
+      <Filter>vendor\CommandMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\CommandMenu\include\Text.h">
+      <Filter>vendor\CommandMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\CommandMenu\include\Toggle.h">
+      <Filter>vendor\CommandMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="HookManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\Backend\DX11Hook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\Backend\DX12Hook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\Renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\detours\detver.h">
+      <Filter>vendor\detours</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\detours\detours.h">
+      <Filter>vendor\detours</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imconfig.h">
+      <Filter>vendor\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imgui.h">
+      <Filter>vendor\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\backends\imgui_impl_dx11.h">
+      <Filter>vendor\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\backends\imgui_impl_dx12.h">
+      <Filter>vendor\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\backends\imgui_impl_win32.h">
+      <Filter>vendor\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imgui_internal.h">
+      <Filter>vendor\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\misc\cpp\imgui_stdlib.h">
+      <Filter>vendor\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="appdata\il2cpp-init.h">
+      <Filter>appdata</Filter>
+    </ClInclude>
+    <ClInclude Include="appdata\il2cpp-metadata-version.h">
+      <Filter>appdata</Filter>
+    </ClInclude>
+    <ClInclude Include="appdata\il2cpp-types.h">
+      <Filter>appdata</Filter>
+    </ClInclude>
+    <ClInclude Include="appdata\il2cpp-types-ptr.h">
+      <Filter>appdata</Filter>
+    </ClInclude>
+    <ClInclude Include="appdata\helpers.h">
+      <Filter>appdata</Filter>
+    </ClInclude>
+    <ClInclude Include="appdata\il2cpp-api-functions.h">
+      <Filter>appdata</Filter>
+    </ClInclude>
+    <ClInclude Include="appdata\il2cpp-api-functions-ptr.h">
+      <Filter>appdata</Filter>
+    </ClInclude>
+    <ClInclude Include="appdata\il2cpp-appdata.h">
+      <Filter>appdata</Filter>
+    </ClInclude>
+    <ClInclude Include="appdata\il2cpp-functions.h">
+      <Filter>appdata</Filter>
+    </ClInclude>
+    <ClInclude Include="global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheat\cheat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheat\Features\PlayerSpeed.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Module.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="Exports\winmm.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="Exports\version.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="Exports\winhttp.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="Exports\psapi.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Exports\Exports.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SoloLevelling.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="vendor\detours\detours-x64.lib">
+      <Filter>vendor\detours</Filter>
+    </Library>
+    <Library Include="vendor\detours\detours-x86.lib">
+      <Filter>vendor\detours</Filter>
+    </Library>
+  </ItemGroup>
+</Project>
