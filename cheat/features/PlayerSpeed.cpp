@@ -43,35 +43,6 @@ namespace Cheat::Features
 					continue;
 				}
 			}
-
-			//auto list = TO_UNI_LIST(app::PJKMAOEINNH_BGEJLBHLGJP(manager, nullptr), app::ENNEJEPMJLJ*);
-			//if (list == nullptr)
-			//{
-			//	LOG("list is null!");
-			//	return;
-			//}
-
-			//for (auto& entity : *list)
-			//{
-			//	if (entity == nullptr)
-			//	{
-			//		LOG("entity is null!");
-			//		continue;
-			//	}
-
-
-			//	auto player = entity->fields.KFIFBINFDPB;
-			//	if (player == nullptr)
-			//	{
-			//		LOG("player is null!");
-			//		continue;
-			//	}
-
-			//	LOG("player: %s", il2cppi_to_string(player->fields.m_CharacterNameStringID));
-
-			//	//player->fields.m_WalkSpeed = 100000;
-			//	//player->fields.m_MoveSpd = 100000;
-			//}
 		}
 	}
 }
