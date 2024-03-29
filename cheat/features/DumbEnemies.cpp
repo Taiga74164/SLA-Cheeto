@@ -23,22 +23,25 @@ namespace Cheat::Features
 		if (character->fields.FHNGHHPLPGD == app::eCharGroup__Enum::ENEMY ||
 			character->fields.AJEHLIOMMJN == app::ECharacterType__Enum::Monster)
 		{
-			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_SidewalkMinTime = std::numeric_limits<float>::infinity() * -1.0f;
-			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_SidewalkMaxTime = std::numeric_limits<float>::infinity() * -1.0f;
-			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_BackwalkMinTime = std::numeric_limits<float>::infinity() * -1.0f;
-			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_BackwalkMaxTime = std::numeric_limits<float>::infinity() * -1.0f;
-			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_DetectingRange = std::numeric_limits<float>::infinity() * -1.0f;
-			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_BattleDistance = std::numeric_limits<float>::infinity() * -1.0f;
-			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_WalkDistance = std::numeric_limits<float>::infinity() * -1.0f;
-			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_CloseRangeJudgment = std::numeric_limits<float>::infinity() * -1.0f;
-			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityCloseRangeAttack = std::numeric_limits<float>::infinity() * -1.0f;
-			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityCloseRangeWander = std::numeric_limits<float>::infinity() * -1.0f;
-			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityCloseRangeBackWalk = std::numeric_limits<float>::infinity() * -1.0f;
-			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ImpossibleWanderCloseRange = std::numeric_limits<float>::infinity() * -1.0f;
-			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityLongRangeAttack = std::numeric_limits<float>::infinity() * -1.0f;
-			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityLongRangeWander = std::numeric_limits<float>::infinity() * -1.0f;
-			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityLongRangeBackWalk = std::numeric_limits<float>::infinity() * -1.0f;
-			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ImpossibleWanderLongRange = std::numeric_limits<float>::infinity() * -1.0f;
+			if (vars.v_DumbEnemies)
+			{
+				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_SidewalkMinTime = std::numeric_limits<float>::infinity() * -1.0f;
+				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_SidewalkMaxTime = std::numeric_limits<float>::infinity() * -1.0f;
+				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_BackwalkMinTime = std::numeric_limits<float>::infinity() * -1.0f;
+				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_BackwalkMaxTime = std::numeric_limits<float>::infinity() * -1.0f;
+				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_DetectingRange = std::numeric_limits<float>::infinity() * -1.0f;
+				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_BattleDistance = std::numeric_limits<float>::infinity() * -1.0f;
+				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_WalkDistance = std::numeric_limits<float>::infinity() * -1.0f;
+				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_CloseRangeJudgment = std::numeric_limits<float>::infinity() * -1.0f;
+				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityCloseRangeAttack = std::numeric_limits<float>::infinity() * -1.0f;
+				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityCloseRangeWander = std::numeric_limits<float>::infinity() * -1.0f;
+				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityCloseRangeBackWalk = std::numeric_limits<float>::infinity() * -1.0f;
+				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ImpossibleWanderCloseRange = std::numeric_limits<float>::infinity() * -1.0f;
+				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityLongRangeAttack = std::numeric_limits<float>::infinity() * -1.0f;
+				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityLongRangeWander = std::numeric_limits<float>::infinity() * -1.0f;
+				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityLongRangeBackWalk = std::numeric_limits<float>::infinity() * -1.0f;
+				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ImpossibleWanderLongRange = std::numeric_limits<float>::infinity() * -1.0f;
+			}
 		}
 
 		// LOG("resourceName %s", il2cppi_to_string(character->fields.PEFKKKBMDKN->fields.m_ResourceName).c_str());

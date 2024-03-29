@@ -17,36 +17,32 @@ namespace Cheat::Features
 		if (__this->fields.IGFILCLEFHH->fields.EJBODHBGPMG != nullptr)
 		{
 			auto entity = __this->fields.IGFILCLEFHH->fields.EJBODHBGPMG;
+			//LOG("%s", magic_enum::enum_name(entity->fields.FHNGHHPLPGD).data());
+			//LOG("resourceName %s", il2cppi_to_string(entity->fields.PEFKKKBMDKN->fields.m_ResourceName).c_str());
+			//LOG("specialState %s", magic_enum::enum_name(specialState).data());
+			//LOG("int1 %d", someInt1);
+			//LOG("int2 %d", someInt2);
+			//LOG("int3 %d", someInt3);
+			//LOG("someStr %s", il2cppi_to_string(buffName).c_str());
+
 			if (entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
 			{
-				//LOG("%s", magic_enum::enum_name(entity->fields.FHNGHHPLPGD).data());
-				//LOG("resourceName %s", il2cppi_to_string(entity->fields.PEFKKKBMDKN->fields.m_ResourceName).c_str());
-				//LOG("specialState %s", magic_enum::enum_name(specialState).data());
-				//LOG("int1 %d", someInt1);
-				//LOG("int2 %d", someInt2);
-				//LOG("int3 %d", someInt3);
-				//LOG("someStr %s", il2cppi_to_string(buffName).c_str());
+				// God Mode
+				if (vars.v_GodMode)
+				{
+					if (specialState == app::ESpecialState__Enum::None ||
+						specialState == app::ESpecialState__Enum::DotDamage)
+						CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Invincible, someInt1, 3500i64, 4000i64, buffName, method);
 
-				if (specialState == app::ESpecialState__Enum::None ||
-					specialState == app::ESpecialState__Enum::DotDamage)
-					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Invincible, someInt1, 3500i64, 4000i64, buffName, method);
-
-				if (specialState == app::ESpecialState__Enum::HpRecovery ||
-					specialState == app::ESpecialState__Enum::MpRecovery ||
-					specialState == app::ESpecialState__Enum::PgRecovery)
-					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, specialState, 2i64, 99999999i64, 0i64, buffName, method);
+					if (specialState == app::ESpecialState__Enum::HpRecovery ||
+						specialState == app::ESpecialState__Enum::MpRecovery ||
+						specialState == app::ESpecialState__Enum::PgRecovery)
+						CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, specialState, 2i64, 99999999i64, 0i64, buffName, method);
+				}
 			}
 
 			if (entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::ENEMY)
 			{
-				//LOG("%s", magic_enum::enum_name(entity->fields.FHNGHHPLPGD).data());
-				//LOG("resourceName %s", il2cppi_to_string(entity->fields.PEFKKKBMDKN->fields.m_ResourceName).c_str());
-				//LOG("specialState %s", magic_enum::enum_name(specialState).data());
-				//LOG("int1 %d", someInt1);
-				//LOG("int2 %d", someInt2);
-				//LOG("int3 %d", someInt3);
-				//LOG("someStr %s", il2cppi_to_string(buffName).c_str());
-
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Crash, 2i64, 99999999i64, 0i64, buffName, method);
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Stun, 2i64, 1000i64, 0i64, buffName, method);
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::BodyStop, 2i64, 1000i64, 0i64, buffName, method);
@@ -75,12 +71,15 @@ namespace Cheat::Features
 			//LOG("damageRatio %f", damageRatio);
 			//LOG("damageRatioTotalValue %f", damageRatioTotalValue);
 
-			skillIdentity->fields.SkillRange = 500.0f;
-			skillIdentity->fields.SkillMinRange = 500.0f;
-			targetHitData->fields._reaction = app::eReactionType__Enum::Max;
-			targetHitData->fields.PreventSkillCancel = true;
-			targetHitData->fields.damageRatio = 500.0f;
-			targetHitData->fields.damageRatioTotalValue = 500.0f;
+			if (vars.v_DamageHack)
+			{
+				skillIdentity->fields.SkillRange = 500.0f;
+				skillIdentity->fields.SkillMinRange = 500.0f;
+				targetHitData->fields._reaction = app::eReactionType__Enum::Max;
+				targetHitData->fields.PreventSkillCancel = true;
+				targetHitData->fields.damageRatio = 500.0f;
+				targetHitData->fields.damageRatioTotalValue = 500.0f;
+			}
 		}
 
 		if (skillIdentity->fields.entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::ENEMY || 
@@ -101,11 +100,14 @@ namespace Cheat::Features
 			//LOG("damageRatio %f", damageRatio);
 			//LOG("damageRatioTotalValue %f", damageRatioTotalValue);
 
-			skillIdentity->fields.SkillRange = -1.0f;
-			skillIdentity->fields.SkillMinRange = -1.0f;
-			targetHitData->fields._reaction = app::eReactionType__Enum::None;
-			targetHitData->fields.damageRatio = std::numeric_limits<float>::infinity() * -1.0f;
-			targetHitData->fields.damageRatioTotalValue = std::numeric_limits<float>::infinity() * -1.0f;
+			if (vars.v_GodMode)
+			{
+				skillIdentity->fields.SkillRange = -1.0f;
+				skillIdentity->fields.SkillMinRange = -1.0f;
+				targetHitData->fields._reaction = app::eReactionType__Enum::None;
+				targetHitData->fields.damageRatio = std::numeric_limits<float>::infinity() * -1.0f;
+				targetHitData->fields.damageRatioTotalValue = std::numeric_limits<float>::infinity() * -1.0f;
+			}
 		}
 
 		return CALL_ORIGIN(GHINOEFFMPN_EKHGIHBHEPL_Hook, skillIdentity, FKJDKGJBGOD, targetHitData, method);

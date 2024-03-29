@@ -9,3 +9,4 @@
 
 #include "appdata/helpers.h"
 #include "magic_enum.hpp"
+#include "cheat/vars.h"

@@ -6,9 +6,19 @@
 #include "Memory.h"
 
 #include "appdata/il2cpp-init.h"
-#include "Cheat/cheat.h"
-
+#include "cheat/cheat.h"
+#include "cheat/vars.h"
+#include "CommandMenu.h"
 #include "Render/Renderer.h"
+
+template<typename T>
+std::unique_ptr<CommandMenu::Toggle> CreateToggle(const std::string& name, T& var)
+{
+	return std::make_unique<CommandMenu::Toggle>(name, [&var](bool value)
+	{
+		var = value;
+	});
+}
 
 void Core::Start()
 {
@@ -23,9 +33,31 @@ void Core::Start()
 	init_il2cpp();
 	init_cheat();
 
+	// Command Menu
+	CommandMenu::Menu menu;
+
+	// Initialize tabs
+	auto featuresTab = std::make_unique<CommandMenu::Tab>("Features");
+	auto aboutTab = std::make_unique<CommandMenu::Tab>("About");
+
+	// Features tab content
+	featuresTab->AddElement(CreateToggle("No Cooldown", vars.v_NoCooldown));
+	featuresTab->AddElement(CreateToggle("God Mode", vars.v_GodMode));
+	featuresTab->AddElement(CreateToggle("Damage Hack", vars.v_DamageHack));
+	featuresTab->AddElement(CreateToggle("Dumb Enemies", vars.v_DumbEnemies));
+
+	// About tab content
+	aboutTab->AddElement(std::make_unique<CommandMenu::Text>("Credits to:"));
+	aboutTab->AddElement(std::make_unique<CommandMenu::Text>("- Taiga74164"));
+
+	menu.AddTab(std::move(featuresTab));
+	menu.AddTab(std::move(aboutTab));
+	menu.Display();
+
 	while (true)
 	{
 		run_cheat();
+		menu.ProcessInput();
 
 		Sleep(50);
 	}
