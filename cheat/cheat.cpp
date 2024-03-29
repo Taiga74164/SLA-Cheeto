@@ -4,6 +4,7 @@
 
 #include "features/PlayerSpeed.h"
 #include "features/NoCooldown.h"
+#include "features/DamageHack.h"
 
 using namespace Cheat::Features;
 
@@ -14,6 +15,7 @@ void init_cheat()
 #define REGISTER(Class) ModuleManager::GetInstance().RegisterModule(std::make_unique<Class>());
 	REGISTER(PlayerSpeed);
 	REGISTER(NoCooldown);
+	REGISTER(DamageHack);
 #undef REGISTER
 
 	manager.LoadAllModules();

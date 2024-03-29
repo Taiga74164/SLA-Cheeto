@@ -3344,6 +3344,377 @@ namespace app {
 		struct List_1_ENNEJEPMJLJ___Fields fields;
 	};
 
+	struct Object_1__Array
+	{
+		struct Object_1__Array__Class* klass;
+		MonitorData* monitor;
+		Il2CppArrayBounds* bounds;
+		il2cpp_array_size_t max_length;
+		struct Object_1* vector[32];
+	};
+
+	struct Assembly
+	{
+		struct Assembly__Class* klass;
+		MonitorData* monitor;
+	};
+
+	struct Char3DIdentity__Fields
+	{
+		struct MonoBehaviour__Fields _;
+		struct ENNEJEPMJLJ* EJBODHBGPMG;
+	};
+
+	struct Char3DIdentity
+	{
+		struct Char3DIdentity__Class* klass;
+		MonitorData* monitor;
+		struct Char3DIdentity__Fields fields;
+	};
+
+	struct Scene
+	{
+		int32_t m_Handle;
+	};
+
+	enum class DJNPAKOJGIN__Enum : int32_t
+	{
+		Normal = 0x00000000,
+		StackMaxAdd = 0x00000001,
+		HighLevelAdd = 0x00000002,
+		Dispel = 0x00000003,
+	};
+
+	struct __declspec(align(8)) JKJNJFEMOGK__Fields
+	{
+		struct ENNEJEPMJLJ* EJBODHBGPMG;
+		struct Dictionary_2_System_UInt64_PIPHNBOBFEF_* HADDFFCOCPC;
+		struct List_1_NCommon_EBuffLargeType_* DJLMLBCLKED;
+		struct List_1_System_Int64_* FMJJNGBIKNF;
+		struct List_1_NCommon_ESpecialState_* PAHAKNBIIOD;
+		struct List_1_PIPHNBOBFEF_* NCLDGALGGGM;
+		struct Dictionary_2_NCommon_ESpecialState_List_1_EKNOFMDFHGJ_* FMHMOIHKFBM;
+		struct MLBDNJLOKFL* NLKNKMOBCFL;
+		struct DDPFOIGOFCN* DJNIKOPKJGJ;
+		struct GameObject* OAAOABGJGBC;
+		int32_t ECMHCFPJBNL;
+	};
+
+	struct JKJNJFEMOGK
+	{
+		struct JKJNJFEMOGK__Class* klass;
+		MonitorData* monitor;
+		struct JKJNJFEMOGK__Fields fields;
+	};
+
+	struct __declspec(align(8)) GJGFPGJIDNG__Fields
+	{
+		struct ENNEJEPMJLJ* JNNMMAAAOJB;
+		struct ENNEJEPMJLJ* FHFMEKNCKOO;
+		float NFBBJIJBBEC;
+		float NDOADBEIFKC;
+		int64_t HFLFANDAJMO;
+		int64_t PLBCBJGLEPB;
+		int64_t DHHEGCPEDEJ;
+		int64_t FNFNJJAEFGP;
+		int64_t GBCGIOGHEJC;
+		struct String* DIBDBFDIDII;
+		float AKDGBHHLPCD;
+		bool JDONIILBMLO;
+		float AFDNFNKBGBB;
+	};
+
+	struct GJGFPGJIDNG
+	{
+		struct GJGFPGJIDNG__Class* klass;
+		MonitorData* monitor;
+		struct GJGFPGJIDNG__Fields fields;
+	};
+
+	struct __declspec(align(8)) PIPHNBOBFEF__Fields
+	{
+		uint64_t IJONAPJBFEK;
+		struct HGPCCPIIIGG* DFFMKDJPPPL;
+		bool DKPHBKCEAFA;
+		float ICJEKNCLMJF;
+		DJNPAKOJGIN__Enum CKEGENFBMAP;
+		struct JKJNJFEMOGK* IGFILCLEFHH; // Has pointer to entity class
+		struct GJGFPGJIDNG* AGDPKHPPCNP; // Has pointer to entity class
+		struct List_1_GJGFPGJIDNG_* NOEAHDOPANM;
+		struct List_1_EKNOFMDFHGJ_* OOPGJABIBCA;
+		struct List_1_PIPHNBOBFEF_NLGJGGJEHEN_* LHDIFNGNDDL;
+		float PKGNHLJDBNI;
+		bool NGEPOFMGICN;
+		bool AMMFIGCPJLN;
+		bool OJJPEOKGEIF;
+	};
+
+	struct PIPHNBOBFEF
+	{
+		struct PIPHNBOBFEF__Class* klass;
+		MonitorData* monitor;
+		struct PIPHNBOBFEF__Fields fields;
+	};
+
+	enum class ESpecialState__Enum : int32_t
+	{
+		None = 0x00000000,
+		DotMpChange = 0x00000001,
+		Dispel = 0x00000002,
+		MoveAnimationSpeed = 0x00000003,
+		HPConditionBuffControl = 0x00000004,
+		DamageReduce = 0x00000005,
+		SkillDamageIncreaseOnBuffedTarget = 0x00000006,
+		DotDamage = 0x00000007,
+		DotPgChange = 0x00000008,
+		DamageDistribution = 0x00000009,
+		SkillCast = 0x0000000a,
+		AfterCoolTimeSkill = 0x0000000b,
+		DecreaseCoolTime = 0x0000000c,
+		Barrier = 0x0000000d,
+		HpRecovery = 0x0000000e,
+		MpRecovery = 0x0000000f,
+		Stigmatization = 0x00000010,
+		AttackReactiveGiveBuff = 0x00000011,
+		AttackGiveBuff = 0x00000012,
+		CanNotTargetable = 0x00000013,
+		Crash = 0x00000014,
+		Stun = 0x00000015,
+		BodyStop = 0x00000016,
+		ForbidAll = 0x00000017,
+		Invincible = 0x00000018,
+		MesImmune = 0x00000019,
+		ReactionImmune = 0x0000001a,
+		ForcedMoveImmune = 0x0000001b,
+		DamageImmune = 0x0000001c,
+		SkillChange = 0x0000001d,
+		OnlyProjectileDamageAble = 0x0000001e,
+		PeriodGiveBuff = 0x0000001f,
+		ElementResistanceWeak = 0x00000020,
+		ElementResistanceStrong = 0x00000021,
+		ElementResistanceImmune = 0x00000022,
+		Suicide = 0x00000023,
+		SkillMaxCoolReduce = 0x00000024,
+		Shield = 0x00000025,
+		FixDamage = 0x00000026,
+		Undying = 0x00000027,
+		ObjectSpawn = 0x00000028,
+		PgRecovery = 0x00000029,
+		ForcePlayerBuff = 0x0000002a,
+		ForceCharBuff = 0x0000002b,
+		EnhanceSkillDamage = 0x0000002c,
+		BuffSubtitle = 0x0000002d,
+		CrashImmune = 0x0000002e,
+		StatConversion = 0x0000002f,
+		PGGainRate = 0x00000030,
+		FastRun = 0x00000031,
+		DotBreak = 0x00000032,
+		EvadeOff = 0x00000033,
+		BlockExtremeAvoid = 0x00000034,
+		DashMaxCount = 0x00000035,
+		HideSkillIndicator = 0x00000036,
+		EnhanceHpRecovery = 0x00000037,
+		AddCG = 0x00000038,
+		LimitSkillUseCount = 0x00000039,
+		EnhanceMpRecovery = 0x0000003a,
+		DecreaseHpRecovery = 0x0000003b,
+		DecreaseMpRecovery = 0x0000003c,
+		IncreaseDotDamage = 0x0000003d,
+		ChangeDamageOnBuffTypeCount = 0x0000003e,
+		ChangeDamageOnElementType = 0x0000003f,
+		AddBuffInRange = 0x00000040,
+		ForceApplyReactionOnAttack = 0x00000041,
+		BaseStatConversion = 0x00000042,
+		BuffStatAdd = 0x00000043,
+		Stealth = 0x00000044,
+		AbsorbElementDamage = 0x00000045,
+		InstantBarrier = 0x00000046,
+		ReflectDamage = 0x00000047,
+		ReflectDebuff = 0x00000048,
+		Fear = 0x00000049,
+		MonsterGradeDamage = 0x0000004a,
+		CriticalRate = 0x0000004b,
+		MPUseAmount = 0x0000004c,
+		DamageOnReaction = 0x0000004d,
+		HPCheckLow = 0x0000004e,
+		BaseStatConversionOnSkillDamage = 0x0000004f,
+		BreakModifier = 0x00000050,
+		BreakRecovery = 0x00000051,
+		RemainHpDamageUp = 0x00000052,
+		RemainHpHitDamageUp = 0x00000053,
+		WeaknessElementDamage = 0x00000054,
+		ForceCG = 0x00000055,
+		DefPenOnSkill = 0x00000056,
+		BuffGroupDuration = 0x00000057,
+		EnhanceBackDamage = 0x00000058,
+		EnhanceDotDamage = 0x00000059,
+		IncreaseDamageByTargetBuff = 0x0000005a,
+		DamageByDistance = 0x0000005b,
+		EnhanceTypeDamage = 0x0000005c,
+		MonsterGradeHitDamage = 0x0000005d,
+		WeaknessElementSkillDamage = 0x0000005e,
+		WeaknessElementBreakModifier = 0x0000005f,
+		WeaknessElementCriRate = 0x00000060,
+		WeaknessElementCriDamage = 0x00000061,
+		CriRateOnBuffedTarget = 0x00000062,
+		CriDamOnBuffedTarget = 0x00000063,
+		IncreaseDamageByTargetSpecialState = 0x00000064,
+		StackDispel = 0x00000065,
+		PGGainRateAdd = 0x00000066,
+		AddOrDispel = 0x00000067,
+		AddShadowBuff = 0x00000068,
+		ShadowStatIncrease = 0x00000069,
+		SkillTypeMaxCoolReduce = 0x0000006a,
+		EnhanceSkillTypeDamage = 0x0000006b,
+		HPRateHitReceiveBuff = 0x0000006c,
+		Resurrection = 0x0000006d,
+		ShieldModifier = 0x0000006e,
+		EnhanceSkillDamageByStat = 0x0000006f,
+		HPRecoveryByDamegeRate = 0x00000070,
+		CheckBuff = 0x00000071,
+		DamageByDamageRate = 0x00000072,
+		HPComparisonDamage = 0x00000073,
+		IncreaseHitDamageBySkillType = 0x00000074,
+		ManaLeak = 0x00000075,
+		IncreaseMHP = 0x00000076,
+		IncreaseMMP = 0x00000077,
+		FixReaction = 0x00000078,
+		DispelSpecialState = 0x00000079,
+		ActiveQTESkill = 0x0000007a,
+		Max = 0x0000007b,
+	};
+
+	struct SkillIdentity__Fields
+	{
+		struct MonoBehaviour__Fields _;
+		struct ENNEJEPMJLJ* entity;
+		struct KAAIFMKPKAG* CCKLMEPBGFN;
+		struct OKDBDHFKIKF* LIMALOMLOMH;
+		struct SkillCameraImpulse* CFLJBNPIKBA;
+		struct List_1_UnityEngine_Collider_* NNHKPPDKHOB;
+		struct IJIAGCJJCJC* AMFLIMLDLNL;
+		int32_t SkipFrontBlendingFrame;
+		float SkillRange;
+		float SkillMinRange;
+		int32_t SkillRef;
+		int32_t KIIMDHGDKJP;
+	};
+
+	struct SkillIdentity
+	{
+		struct SkillIdentity__Class* klass;
+		MonitorData* monitor;
+		struct SkillIdentity__Fields fields;
+	};
+
+	enum class eTargetImpactType__Enum : int32_t
+	{
+		Normal = 0x00000001,
+		NonExtreme = 0x00000002,
+	};
+
+	enum class eReactionType__Enum : int32_t
+	{
+		None = 0x00000000,
+		Damaged_Random = 0x00000001,
+		Damaged_A = 0x00000002,
+		Damaged_B = 0x00000003,
+		Damaged_C = 0x00000004,
+		Float = 0x00000005,
+		Grabbed = 0x00000006,
+		KnockDown = 0x00000007,
+		Damaged_B_Left = 0x00000008,
+		Damaged_B_Right = 0x00000009,
+		Float_B = 0x0000000a,
+		Damaged_UpperOnly = 0x0000000b,
+		Damaged_D = 0x0000000c,
+		BreakFall = 0x0000000d,
+		Max = 0x0000000e,
+	};
+
+	enum class TargetHitData_GMGLGFEKPNL__Enum : int32_t
+	{
+		Normal = 0x00000001,
+		BiggerText = 0x00000002,
+	};
+
+	struct __declspec(align(8)) TargetHitData__Fields
+	{
+		struct HitEffectData* hitEffectData;
+		struct HitEffectData__Array* extraHitEffectDatas;
+		eTargetImpactType__Enum targetImpactType;
+		bool targetStiff;
+		bool cancelHolding;
+		bool resetForce;
+		bool noRotationForce;
+		struct Vector3 force;
+		struct Vector3 airborneForce;
+		float forceDrag;
+		bool upperOnly;
+		eReactionType__Enum _reaction;
+		struct HitDelayData* hitDelay;
+		bool PreventSkillCancel;
+		int64_t buffDataID;
+		int32_t buffGroupIndex;
+		float damageRatio;
+		float damageRatioTotalValue;
+		TargetHitData_GMGLGFEKPNL__Enum damageTextSettingType;
+		struct AssetAddressReference_1_AddressableAssetReferenceAuidoClip_* hitSoundRef;
+		struct RandomAudioClip* randomHitSound;
+		struct AssetAddressReference_1_AddressableAssetReferenceAuidoClip_* secondHitSoundRef;
+		struct RandomAudioClip* secondRandomHitSound;
+		float pitch;
+		float volume;
+		int32_t hitSoundMaxPlayCount;
+		int32_t hitSoundSkipCount;
+		float hitSoundSkipMinTime;
+		int32_t impactGroup;
+		int32_t hitSoundSkipRemainCount;
+		int32_t hitSoundMaxPlayRemainCount;
+		float hitSoundSkipNextCheckTime;
+		bool ignoreProjectileHitSound;
+		bool IsFirstHitSound;
+		int32_t m_HashAddValue;
+		struct GKAudioClipData* specificHitSoundData;
+	};
+
+	struct TargetHitData
+	{
+		struct TargetHitData__Class* klass;
+		MonitorData* monitor;
+		struct TargetHitData__Fields fields;
+	};
+
+	enum class CEAFGMIHCCL__Enum : int32_t
+	{
+		None = 0x00000000,
+		Projectile = 0x00000001,
+		GuidedProjectile = 0x00000002,
+		ParabolaProjectile = 0x00000003,
+		PadImpact = 0x00000004,
+		AutoUse = 0x00000005,
+		ComeBackProjectile = 0x00000006,
+		Max = 0x00000007,
+	};
+
+	struct SkillUnitIdentity__Fields
+	{
+		struct SkillIdentity__Fields _;
+		CEAFGMIHCCL__Enum GKNIKFBNHDH;
+		struct GameObject* FJFGAAFNLCK;
+		struct IJIAGCJJCJC* IDGEGHPDOIJ;
+		bool GBFLDJPAEHE;
+		struct SkillIdentity* JMIFEKKOAMF;
+		struct Action_1_Boolean_* HNJGPAKCCMJ;
+	};
+
+	struct SkillUnitIdentity
+	{
+		struct SkillUnitIdentity__Class* klass;
+		MonitorData* monitor;
+		struct SkillUnitIdentity__Fields fields;
+	};
+
 #if !defined(_GHIDRA_) && !defined(_IDA_)
 }
 #endif

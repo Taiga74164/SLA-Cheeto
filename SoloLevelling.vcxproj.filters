@@ -31,6 +31,9 @@
     <Filter Include="features">
       <UniqueIdentifier>{745e433a-4d2c-4e00-8066-c94dd7c95d3e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vendor\magic_enum">
+      <UniqueIdentifier>{2a119d21-8c9d-4511-8a47-58d1fc8f7710}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Core.cpp">
@@ -108,8 +111,23 @@
     <ClCompile Include="Cheat\cheat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Cheat\Features\PlayerSpeed.cpp">
+    <ClCompile Include="Render\Gui\gui.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\Gui\utils\gui-util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cheat\features\DamageHack.cpp">
+      <Filter>features</Filter>
+    </ClCompile>
+    <ClCompile Include="cheat\features\NoCooldown.cpp">
+      <Filter>features</Filter>
+    </ClCompile>
+    <ClCompile Include="cheat\features\PlayerSpeed.cpp">
+      <Filter>features</Filter>
+    </ClCompile>
+    <ClCompile Include="cheat\features\DumbEnemies.cpp">
+      <Filter>features</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -230,14 +248,62 @@
     <ClInclude Include="Cheat\cheat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Cheat\Features\PlayerSpeed.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Module.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ModuleManager.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\Gui\gui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\Gui\utils\color.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\Gui\utils\gui-util.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game-utils.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\features\DamageHack.h">
+      <Filter>features</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\features\NoCooldown.h">
+      <Filter>features</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\features\PlayerSpeed.h">
+      <Filter>features</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum.hpp">
+      <Filter>vendor\magic_enum</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_all.hpp">
+      <Filter>vendor\magic_enum</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_containers.hpp">
+      <Filter>vendor\magic_enum</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_flags.hpp">
+      <Filter>vendor\magic_enum</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_format.hpp">
+      <Filter>vendor\magic_enum</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_fuse.hpp">
+      <Filter>vendor\magic_enum</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_iostream.hpp">
+      <Filter>vendor\magic_enum</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_switch.hpp">
+      <Filter>vendor\magic_enum</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_utility.hpp">
+      <Filter>vendor\magic_enum</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\features\DumbEnemies.h">
+      <Filter>features</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

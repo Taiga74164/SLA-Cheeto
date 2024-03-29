@@ -4,10 +4,10 @@
 
 namespace Cheat::Features
 {
-	class PlayerSpeed : public Module
+	class DumbEnemies : public Module
 	{
 	public:
-		PlayerSpeed();
+		DumbEnemies();
 
 		void Load() override {}
 		void Update() override;

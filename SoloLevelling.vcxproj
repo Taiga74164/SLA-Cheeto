@@ -46,7 +46,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)vendor\CommandMenu\include\;$(ProjectDir)vendor\imgui\;$(ProjectDir)vendor\detours\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)vendor\CommandMenu\include\;$(ProjectDir)vendor\imgui\;$(ProjectDir)vendor\detours\;$(ProjectDir)vendor\magic_enum\include\magic_enum</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -65,6 +65,8 @@
     <ClCompile Include="appdata\helpers.cpp" />
     <ClCompile Include="appdata\il2cpp-init.cpp" />
     <ClCompile Include="cheat\cheat.cpp" />
+    <ClCompile Include="cheat\features\DamageHack.cpp" />
+    <ClCompile Include="cheat\features\DumbEnemies.cpp" />
     <ClCompile Include="cheat\features\NoCooldown.cpp" />
     <ClCompile Include="cheat\features\PlayerSpeed.cpp" />
     <ClCompile Include="Core\Core.cpp" />
@@ -103,11 +105,14 @@
     <ClInclude Include="appdata\il2cpp-types-ptr.h" />
     <ClInclude Include="appdata\il2cpp-types.h" />
     <ClInclude Include="cheat\cheat.h" />
+    <ClInclude Include="cheat\features\DamageHack.h" />
+    <ClInclude Include="cheat\features\DumbEnemies.h" />
     <ClInclude Include="cheat\features\NoCooldown.h" />
     <ClInclude Include="cheat\features\PlayerSpeed.h" />
     <ClInclude Include="Core\Core.h" />
     <ClInclude Include="Exports\Exports.h" />
     <ClInclude Include="Exports\Resources.h" />
+    <ClInclude Include="game-utils.hpp" />
     <ClInclude Include="global.h" />
     <ClInclude Include="HookManager.h" />
     <ClInclude Include="Memory.h" />
@@ -139,6 +144,15 @@
     <ClInclude Include="vendor\imgui\imgui.h" />
     <ClInclude Include="vendor\imgui\imgui_internal.h" />
     <ClInclude Include="vendor\imgui\misc\cpp\imgui_stdlib.h" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_all.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_containers.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_flags.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_format.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_fuse.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_iostream.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_switch.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_utility.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SoloLevelling.rc" />

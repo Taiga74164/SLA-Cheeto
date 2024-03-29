@@ -1,11 +1,11 @@
-#include "PlayerSpeed.h"
+#include "DumbEnemies.h"
 #include "HookManager.h"
 #include "Utils.h"
 #include "game-utils.hpp"
 
 namespace Cheat::Features
 {
-	void PlayerSpeed::Char3DIdentity_Init_Hook(app::Char3DIdentity* __this, app::ENNEJEPMJLJ* IGBKKNODEGM, MethodInfo* method)
+	void DumbEnemies::Char3DIdentity_Init_Hook(app::Char3DIdentity* __this, app::ENNEJEPMJLJ* IGBKKNODEGM, MethodInfo* method)
 	{
 		CALL_ORIGIN(Char3DIdentity_Init_Hook, __this, IGBKKNODEGM, method);
 
@@ -24,12 +24,12 @@ namespace Cheat::Features
 		}
 	}
 
-	PlayerSpeed::PlayerSpeed()
+	DumbEnemies::DumbEnemies()
 	{
 		// HookManager::install(app::Char3DIdentity_Init, Char3DIdentity_Init_Hook);
 	}
 
-	void PlayerSpeed::Update()
+	void DumbEnemies::Update()
 	{
 		//if (GetAsyncKeyState(VK_F1) & 1)
 		//{
