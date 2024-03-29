@@ -15,7 +15,8 @@ namespace Backend
 	DX11Hook* DX11Hook::m_instance = nullptr;
 	static IDXGISwapChainPresent fnIDXGISwapChainPresent;
 	static ID3D11Device* pDevice = nullptr;
-	
+	WNDPROC oWndProc;
+
 	DX11Hook::DX11Hook()
 	{
 		m_instance = this;
@@ -33,6 +34,14 @@ namespace Backend
 		return m_instance;
 	}
 
+	LRESULT WINAPI WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+	{
+		if (ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wParam, lParam))
+			return true;
+
+		return CallWindowProcA(oWndProc, hWnd, uMsg, wParam, lParam);
+	}
+
 	HRESULT __stdcall DX11Hook::PresentHook(IDXGISwapChain* pSwapChain, UINT syncInterval, UINT flags)
 	{
 		static bool init = false;
@@ -47,8 +56,9 @@ namespace Backend
 				pDevice->GetImmediateContext(&pContext);
 				DXGI_SWAP_CHAIN_DESC sd;
 				pSwapChain->GetDesc(&sd);
-
-				m_instance->OnInit(sd.OutputWindow, pDevice, pContext, pSwapChain);
+				auto window = sd.OutputWindow;
+				oWndProc = (WNDPROC)SetWindowLongPtr(window, GWLP_WNDPROC, (LONG_PTR)WndProc);
+				m_instance->OnInit(window, pDevice, pContext, pSwapChain);
 
 				init = true;
 			}

@@ -23,6 +23,7 @@ namespace Renderer
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 		ImFontConfig fontConfig;
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+		// ImGui::GetIO().WantCaptureMouse || ImGui::GetIO().WantTextInput || ImGui::GetIO().WantCaptureKeyboard;
 		io.ImeWindowHandle = hWnd;
 		
 		ImGui_ImplWin32_Init(hWnd);

@@ -28,7 +28,7 @@ void Core::Start()
 		Sleep(3000);
 	}
 
-	// Init(Renderer::DXVersion::D3D11);
+	Init(Renderer::DXVersion::D3D11);
 
 	init_il2cpp();
 	init_cheat();
