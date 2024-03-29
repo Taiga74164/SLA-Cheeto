@@ -35,6 +35,8 @@ namespace Utils
 	bool KeyDown(std::uint16_t vk);
 	bool KeyPressed(std::uint16_t vk);
 
+	void OpenURL(const std::string& url);
+
 	template<typename T>
 	void SetToHex(T value, uint8_t* hexPtr)
 	{

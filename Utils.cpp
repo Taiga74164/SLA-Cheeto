@@ -174,4 +174,9 @@ namespace Utils
 
 		return (GetAsyncKeyState(vk) & 1) != 0;
     }
+
+	void OpenURL(const std::string& url)
+    {
+    	ShellExecuteA(nullptr, "open", url.c_str(), nullptr, nullptr, SW_SHOWNORMAL);
+	}
 }

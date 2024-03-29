@@ -1,6 +1,29 @@
 #include "gui-util.hpp"
 #include "Utils.h"
 
+void ImGui::TextURL(const char* text, const char* url)
+{
+	auto textSize = CalcTextSize(text);
+
+	PushID(text);
+	PushStyleColor(ImGuiCol_Button, ImVec4(0, 0, 0, 0));
+	PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0, 0, 0, 0));
+	PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0, 0, 0, 0));
+	if (InvisibleButton(text, textSize))
+		Utils::OpenURL(url);
+	PopStyleColor(3);
+	PopID();
+
+	if (IsItemHovered())
+	{
+		SetMouseCursor(ImGuiMouseCursor_Hand);
+		SetTooltip("Open in browser\n%s", url);
+	}
+
+	SetCursorPosY(GetCursorPosY() - textSize.y);
+	TextColored(ImVec4(0.0f, 0.5f, 1.0f, 1.0f), "%s", text);
+}
+
 bool ImGui::CheckboxFill(const char* label, bool* v)
 {
 	ImGuiWindow* window = GetCurrentWindow();

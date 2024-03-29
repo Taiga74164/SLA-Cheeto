@@ -3921,6 +3921,64 @@ namespace app
 		MonitorData* monitor;
 		struct EvadeProxy__Fields fields;
 	};
+
+	struct __declspec(align(8)) DungeonStageData__Fields
+	{
+		struct List_1_NLib_DungeonMonsterIndicatorData_* m_pDungeonMonsterIndicatorDatas;
+		struct List_1_NLib_DungeonBuffData_* m_lstDungeonBuffDatas;
+		struct List_1_KPBLHMGMKMK_* m_strongBuffDataList;
+		struct List_1_KPBLHMGMKMK_* m_weakBuffDataList;
+		struct List_1_KPBLHMGMKMK_* m_bossMetaBuffDataList;
+		int32_t m_ID;
+		struct String* m_IconResourceName;
+		struct String* m_StageMainText;
+		struct String* m_StageSubText;
+		struct String* m_StageDescription;
+		struct String* m_LoadingThumbnail;
+		struct String* m_BgmListSet;
+		int32_t m_Timelimit;
+		int32_t m_BossInfo1;
+		int32_t m_BossInfo2;
+		int32_t m_BossInfo3;
+		struct String* m_BGSceneName1;
+		struct String* m_BGAddSceneName1;
+		struct String* m_TriggerScene1;
+		struct String* m_TriggerName1;
+		struct String* m_ActiveScene1;
+		struct String* m_LightScene1;
+		struct String* m_LightAddScene1;
+		struct String* m_ActiveAddScene1;
+		struct String* m_BGSceneName2;
+		struct String* m_BGAddSceneName2;
+		struct String* m_TriggerScene2;
+		struct String* m_TriggerName2;
+		struct String* m_ActiveScene2;
+		struct String* m_LightScene2;
+		struct String* m_ActiveAddScene2;
+		struct String* m_LightAddScene2;
+		struct String* m_BGAddSceneName3;
+		struct String* m_BGSceneName3;
+		struct String* m_TriggerScene3;
+		struct String* m_TriggerName3;
+		struct String* m_ActiveScene3;
+		struct String* m_LightScene3;
+		struct String* m_ActiveAddScene3;
+		struct String* m_LightAddScene3;
+		int32_t m_RandomizeSpawnID;
+		struct List_1_System_Int32_* m_nLstDungeonBuff;
+		int32_t m_nMonsterIndicatorGroupID;
+		struct List_1_System_Int64_* m_StrongAttribute;
+		struct List_1_System_Int64_* m_WeakAttribute;
+		struct List_1_System_Int64_* m_BossMetaInfo;
+	};
+
+	struct DungeonStageData
+	{
+		struct DungeonStageData__Class* klass;
+		MonitorData* monitor;
+		struct DungeonStageData__Fields fields;
+	};
+
 #if !defined(_GHIDRA_) && !defined(_IDA_)
 }
 #endif

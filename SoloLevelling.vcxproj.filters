@@ -129,6 +129,15 @@
     <ClCompile Include="cheat\features\DumbEnemies.cpp">
       <Filter>features</Filter>
     </ClCompile>
+    <ClCompile Include="cheat\vars.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cheat\features\InfiniteMissionTime.cpp">
+      <Filter>features</Filter>
+    </ClCompile>
+    <ClCompile Include="cheat\features\TimeScale.cpp">
+      <Filter>features</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Core.h">
@@ -303,6 +312,15 @@
       <Filter>vendor\magic_enum</Filter>
     </ClInclude>
     <ClInclude Include="cheat\features\DumbEnemies.h">
+      <Filter>features</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\vars.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\features\InfiniteMissionTime.h">
+      <Filter>features</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\features\TimeScale.h">
       <Filter>features</Filter>
     </ClInclude>
   </ItemGroup>

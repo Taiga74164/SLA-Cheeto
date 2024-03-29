@@ -13,10 +13,10 @@
 
 namespace Renderer
 {
-	#pragma region DX11
+#pragma region DX11
 
 	ID3D11RenderTargetView* mainRenderTargetView;
-	
+
 	void OnInitDX11(HWND hWnd, ID3D11Device* pDevice, ID3D11DeviceContext* pContext, IDXGISwapChain* pSwapChain)
 	{
 		ImGui::CreateContext();
@@ -25,16 +25,16 @@ namespace Renderer
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 		// ImGui::GetIO().WantCaptureMouse || ImGui::GetIO().WantTextInput || ImGui::GetIO().WantCaptureKeyboard;
 		io.ImeWindowHandle = hWnd;
-		
+
 		ImGui_ImplWin32_Init(hWnd);
 		ImGui_ImplDX11_Init(pDevice, pContext);
-		
+
 		ID3D11Texture2D* pBackBuffer;
 		pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), reinterpret_cast<LPVOID*>(&pBackBuffer));
 		pDevice->CreateRenderTargetView(pBackBuffer, nullptr, &mainRenderTargetView);
 		pBackBuffer->Release();
 
-		io.SetPlatformImeDataFn = nullptr; 
+		io.SetPlatformImeDataFn = nullptr;
 	}
 
 	void OnRenderDX11(ID3D11DeviceContext* pContext)
@@ -60,10 +60,10 @@ namespace Renderer
 		ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 	}
 
-	#pragma endregion
-	
-	#pragma region DX12
-	
+#pragma endregion
+
+#pragma region DX12
+
 	void OnInitDX12(HWND hWnd, ID3D12Device* pDevice, UINT buffferCount, ID3D12DescriptorHeap* pDescriptorHeap)
 	{
 		ImGui::CreateContext();
@@ -71,13 +71,13 @@ namespace Renderer
 		ImFontConfig fontConfig;
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 		io.ImeWindowHandle = hWnd;
-		
-		
+
+
 		ImGui_ImplWin32_Init(hWnd);
 		ImGui_ImplDX12_Init(pDevice, buffferCount, DXGI_FORMAT_R8G8B8A8_UNORM, pDescriptorHeap, pDescriptorHeap->GetCPUDescriptorHandleForHeapStart(), pDescriptorHeap->GetGPUDescriptorHandleForHeapStart());
 		ImGui_ImplDX12_CreateDeviceObjects();
 	}
-	
+
 	void OnPreRenderDX12()
 	{
 		ImGui_ImplDX12_NewFrame();
@@ -85,7 +85,7 @@ namespace Renderer
 
 		ImGui::NewFrame();
 		InitTheme();
-		
+
 		ImGui::Render();
 	}
 
@@ -94,8 +94,8 @@ namespace Renderer
 		ImGui_ImplDX12_RenderDrawData(ImGui::GetDrawData(), pCommandList);
 	}
 
-	#pragma endregion
-	
+#pragma endregion
+
 	void Init(DXVersion version)
 	{
 		switch (version)
@@ -108,7 +108,7 @@ namespace Renderer
 			Backend::DX11Hook::GetInstance()->OnRender = [](ID3D11DeviceContext* pContext) {
 				OnRenderDX11(pContext);
 			};
-			
+
 			Backend::DX11Hook::InitializeHooks();
 			break;
 		case DXVersion::D3D12:
@@ -156,10 +156,10 @@ namespace Renderer
 		Style.CurveTessellationTol = 1.5f;                 // Tessellation tolerance. Decrease for highly tessellated curves (higher quality, more polygons), increase to reduce qual
 		colors[ImGuiCol_Text] = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
 		colors[ImGuiCol_TextDisabled] = ImVec4(0.60f, 0.60f, 0.60f, 1.00f);
-		colors[ImGuiCol_WindowBg] = ImVec4(0.40f, 0.40f, 0.40f, 1.00f);
-		colors[ImGuiCol_ChildBg] = ImVec4(0.44f, 0.44f, 0.44f, 0.80f);
-		colors[ImGuiCol_PopupBg] = ImVec4(0.10f, 0.10f, 0.10f, 1.00f);
-		colors[ImGuiCol_Border] = ImVec4(0.08f, 0.08f, 0.08f, 0.04f);//
+		colors[ImGuiCol_WindowBg] = ImVec4(0.25f, 0.25f, 0.25f, 1.00f);
+		colors[ImGuiCol_ChildBg] = ImVec4(0.34f, 0.34f, 0.34f, 0.10f);
+		colors[ImGuiCol_PopupBg] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+		colors[ImGuiCol_Border] = ImVec4(0.08f, 0.08f, 0.08f, 0.50f);//
 		colors[ImGuiCol_BorderShadow] = ImVec4(0.01f, 0.01f, 0.01f, 0.01f);
 		colors[ImGuiCol_FrameBg] = ImVec4(0.40f, 0.40f, 0.40f, 1.00f);
 		colors[ImGuiCol_FrameBgHovered] = ImVec4(0.60f, 0.60f, 0.60f, 0.06f);
@@ -172,12 +172,12 @@ namespace Renderer
 		colors[ImGuiCol_ScrollbarGrab] = ImVec4(0.07f, 0.07f, 0.07f, 0.08f);
 		colors[ImGuiCol_ScrollbarGrabHovered] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
 		colors[ImGuiCol_ScrollbarGrabActive] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
-		colors[ImGuiCol_CheckMark] = ImVec4(0.50f, 0.03f, 0.03f, 0.85f);
-		colors[ImGuiCol_SliderGrab] = ImVec4(0.40f, 0.04f, 0.04f, 1.00f);
-		colors[ImGuiCol_SliderGrabActive] = ImVec4(0.40f, 0.04f, 0.04f, 1.00f);
+		colors[ImGuiCol_CheckMark] = ImVec4(0.60f, 0.05f, 0.05f, 1.00f);
+		colors[ImGuiCol_SliderGrab] = ImVec4(0.60f, 0.05f, 0.05f, 1.00f);
+		colors[ImGuiCol_SliderGrabActive] = ImVec4(0.80f, 0.10f, 0.10f, 1.00f);
 		colors[ImGuiCol_Button] = ImVec4(0.55f, 0.55f, 0.55f, 1.00f);
 		colors[ImGuiCol_ButtonHovered] = ImVec4(0.80f, 0.80f, 0.80f, 1.00f);
-		colors[ImGuiCol_ButtonActive] = ImVec4(0.32f, 0.32f, 0.32f, 0.90f);//
+		colors[ImGuiCol_ButtonActive] = ImVec4(0.32f, 0.32f, 0.32f, 1.00f);//
 		colors[ImGuiCol_Header] = ImVec4(0.06f, 0.06f, 0.06f, 0.50f);
 		colors[ImGuiCol_HeaderHovered] = ImVec4(0.06f, 0.06f, 0.06f, 0.50f);
 		colors[ImGuiCol_HeaderActive] = ImVec4(0.06f, 0.06f, 0.06f, 0.50f);

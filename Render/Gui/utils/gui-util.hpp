@@ -24,6 +24,7 @@ const int WINDOW_HEIGHT = 900;
 
 namespace ImGui
 {
+	void TextURL(const char* label, const char* url);
 	bool CheckboxFill(const char* label, bool* v);
     // Combo box helper allowing to pass an array of strings.
     bool Combo(const char* label, int* currIndex, std::vector<std::string>& values);

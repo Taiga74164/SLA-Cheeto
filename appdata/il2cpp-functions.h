@@ -31,6 +31,8 @@ DO_APP_FUNC(0x0073D410, void, PIPHNBOBFEF_KBCIIEFLPGB, (PIPHNBOBFEF* __this, ESp
 DO_APP_FUNC(0x00956020, int32_t, GHINOEFFMPN_EKHGIHBHEPL, (SkillIdentity* EKPKPIJBPKE, void/*IEnumerable_1_UnityEngine_Component_*/* FKJDKGJBGOD, TargetHitData* COFCDKGCOGJ, MethodInfo* method));
 DO_APP_FUNC(0x009E4270, void, EvadeProxy_Init, (EvadeProxy* __this, ENNEJEPMJLJ* IGBKKNODEGM, EvadePenetration* DHPMEMDBDMC, MethodInfo* method)); // Can hook this for Entity Manager
 
+DO_APP_FUNC(0x00661B60, bool, DungeonStageData_DoAfterLoad, (DungeonStageData* __this, MethodInfo* method));
+
 // Singletons
 DO_APP_FUNC(0x00344840, void*, TSingleton_GetInstance, (MethodInfo* method)); // Search for this in IDA
 // DO_APP_FUNC_METHODINFO(0x0403AC70, TSingleton_1_PJKMAOEINNH__get_Instance__MethodInfo); // Probably EntityManager or something similar

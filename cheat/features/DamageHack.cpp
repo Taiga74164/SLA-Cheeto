@@ -28,7 +28,7 @@ namespace Cheat::Features
 			if (entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
 			{
 				// God Mode
-				if (vars.v_GodMode)
+				if (vars.b_GodMode)
 				{
 					if (specialState == app::ESpecialState__Enum::None ||
 						specialState == app::ESpecialState__Enum::DotDamage)
@@ -43,6 +43,8 @@ namespace Cheat::Features
 
 			if (entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::ENEMY)
 			{
+				if (vars.b_DamageHack)
+					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::CriticalRate, 2i64, 99999999i64, 0i64, buffName, method);
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Crash, 2i64, 99999999i64, 0i64, buffName, method);
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Stun, 2i64, 1000i64, 0i64, buffName, method);
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::BodyStop, 2i64, 1000i64, 0i64, buffName, method);
@@ -71,11 +73,11 @@ namespace Cheat::Features
 			//LOG("damageRatio %f", damageRatio);
 			//LOG("damageRatioTotalValue %f", damageRatioTotalValue);
 
-			if (vars.v_DamageHack)
+			if (vars.b_DamageHack)
 			{
 				skillIdentity->fields.SkillRange = 500.0f;
 				skillIdentity->fields.SkillMinRange = 500.0f;
-				targetHitData->fields._reaction = app::eReactionType__Enum::Max;
+				targetHitData->fields._reaction = app::eReactionType__Enum::Float;
 				targetHitData->fields.PreventSkillCancel = true;
 				targetHitData->fields.damageRatio = 500.0f;
 				targetHitData->fields.damageRatioTotalValue = 500.0f;
@@ -100,7 +102,7 @@ namespace Cheat::Features
 			//LOG("damageRatio %f", damageRatio);
 			//LOG("damageRatioTotalValue %f", damageRatioTotalValue);
 
-			if (vars.v_GodMode)
+			if (vars.b_GodMode)
 			{
 				skillIdentity->fields.SkillRange = -1.0f;
 				skillIdentity->fields.SkillMinRange = -1.0f;

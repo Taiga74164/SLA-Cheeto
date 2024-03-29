@@ -10,7 +10,7 @@ namespace Cheat::Features
 
 	void* NoCooldown::KAAIFMKPKAG_IOFMGMJCCFO_Hook(app::KAAIFMKPKAG* __this, bool DEJNILEHENL, MethodInfo* method)
 	{
-		if (vars.v_NoCooldown)
+		if (vars.b_NoCooldown)
 		{
 			__this->fields.HPHOOEPCBOJ = 0;
 			__this->fields.JCJJDJGOBJL = 0;
