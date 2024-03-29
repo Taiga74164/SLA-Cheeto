@@ -10,9 +10,9 @@ namespace Cheat::Features
 		DumbEnemies();
 
 		void Load() override {}
-		void Update() override;
+		void Update() override {}
 
 	private:
-		static void Char3DIdentity_Init_Hook(app::Char3DIdentity* __this, app::ENNEJEPMJLJ* IGBKKNODEGM, MethodInfo* method);
+		static void EvadeProxy_Init_Hook(app::EvadeProxy* __this, app::ENNEJEPMJLJ* character, app::EvadePenetration* DHPMEMDBDMC, MethodInfo* method);
 	};
 }

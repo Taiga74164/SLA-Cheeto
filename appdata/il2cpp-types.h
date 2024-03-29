@@ -1378,7 +1378,8 @@ typedef struct Il2CppClass
 	VirtualInvokeData vtable[32];
 } Il2CppClass;
 
-typedef struct Il2CppClass_0 {
+typedef struct Il2CppClass_0
+{
 	const Il2CppImage* image;
 	void* gc_desc;
 	const char* name;
@@ -1401,7 +1402,8 @@ typedef struct Il2CppClass_0 {
 	Il2CppClass** implementedInterfaces;
 } Il2CppClass_0;
 
-typedef struct Il2CppClass_1 {
+typedef struct Il2CppClass_1
+{
 	struct Il2CppClass** typeHierarchy;
 	void* unity_user_data;
 	uint32_t initializationExceptionGCHandle;
@@ -1453,7 +1455,8 @@ typedef struct Il2CppClass_1 {
 	uint8_t is_byref_like : 1;
 } Il2CppClass_1;
 
-typedef struct __declspec(align(8)) Il2CppClass_Merged {
+typedef struct __declspec(align(8)) Il2CppClass_Merged
+{
 	struct Il2CppClass_0 _0;
 	Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
 	void* static_fields;
@@ -2456,33 +2459,38 @@ typedef struct Il2CppByReference
 #pragma warning(disable : 4309)
 #pragma warning(disable : 4359)
 #if !defined(_GHIDRA_) && !defined(_IDA_)
-namespace app {
+namespace app
+{
 #endif
 
-    // ******************************************************************************
-    // * Application types from method calls
-    // ******************************************************************************
+	// ******************************************************************************
+	// * Application types from method calls
+	// ******************************************************************************
 
-    struct Object__VTable {
-        VirtualInvokeData Equals;
-        VirtualInvokeData Finalize;
-        VirtualInvokeData GetHashCode;
-        VirtualInvokeData ToString;
-    };
+	struct Object__VTable
+	{
+		VirtualInvokeData Equals;
+		VirtualInvokeData Finalize;
+		VirtualInvokeData GetHashCode;
+		VirtualInvokeData ToString;
+	};
 
-    struct Object__StaticFields {
-    };
+	struct Object__StaticFields
+	{
+	};
 
-    struct Object__Class {
-        Il2CppClass_0 _0;
-        Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
-        struct Object__StaticFields* static_fields;
-        const Il2CppRGCTXData* rgctx_data;
-        Il2CppClass_1 _1;
-        struct Object__VTable vtable;
-    };
+	struct Object__Class
+	{
+		Il2CppClass_0 _0;
+		Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
+		struct Object__StaticFields* static_fields;
+		const Il2CppRGCTXData* rgctx_data;
+		Il2CppClass_1 _1;
+		struct Object__VTable vtable;
+	};
 
-	struct Type__VTable {
+	struct Type__VTable
+	{
 		VirtualInvokeData Equals;
 		VirtualInvokeData Finalize;
 		VirtualInvokeData GetHashCode;
@@ -2623,7 +2631,8 @@ namespace app {
 		VirtualInvokeData InternalGetNameIfAvailable;
 	};
 
-	struct Type__StaticFields {
+	struct Type__StaticFields
+	{
 		struct Binder* s_defaultBinder;
 		uint16_t Delimiter;
 		struct Type__Array* EmptyTypes;
@@ -2633,7 +2642,8 @@ namespace app {
 		struct MemberFilter* FilterNameIgnoreCase;
 	};
 
-	struct Type__Class {
+	struct Type__Class
+	{
 		Il2CppClass_0 _0;
 		Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
 		struct Type__StaticFields* static_fields;
@@ -2642,375 +2652,440 @@ namespace app {
 		struct Type__VTable vtable;
 	};
 
-    struct Object {
-        struct Object__Class* klass;
-        MonitorData* monitor;
-    };
+	struct Object
+	{
+		struct Object__Class* klass;
+		MonitorData* monitor;
+	};
 
-    struct RuntimeTypeHandle__VTable {
-        VirtualInvokeData Equals;
-        VirtualInvokeData Finalize;
-        VirtualInvokeData GetHashCode;
-        VirtualInvokeData ToString;
-        VirtualInvokeData GetObjectData;
-    };
+	struct RuntimeTypeHandle__VTable
+	{
+		VirtualInvokeData Equals;
+		VirtualInvokeData Finalize;
+		VirtualInvokeData GetHashCode;
+		VirtualInvokeData ToString;
+		VirtualInvokeData GetObjectData;
+	};
 
-    struct RuntimeTypeHandle__StaticFields {
-    };
+	struct RuntimeTypeHandle__StaticFields
+	{
+	};
 
-    struct RuntimeTypeHandle__Class {
-        Il2CppClass_0 _0;
-        Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
-        struct RuntimeTypeHandle__StaticFields* static_fields;
-        const Il2CppRGCTXData* rgctx_data;
-        Il2CppClass_1 _1;
-        struct RuntimeTypeHandle__VTable vtable;
-    };
+	struct RuntimeTypeHandle__Class
+	{
+		Il2CppClass_0 _0;
+		Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
+		struct RuntimeTypeHandle__StaticFields* static_fields;
+		const Il2CppRGCTXData* rgctx_data;
+		Il2CppClass_1 _1;
+		struct RuntimeTypeHandle__VTable vtable;
+	};
 
-    struct Char__Array__VTable {
-    };
+	struct Char__Array__VTable
+	{
+	};
 
-    struct Char__Array__StaticFields {
-    };
+	struct Char__Array__StaticFields
+	{
+	};
 
-    struct Char__Array__Class {
-        Il2CppClass_0 _0;
-        Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
-        struct Char__Array__StaticFields* static_fields;
-        const Il2CppRGCTXData* rgctx_data;
-        Il2CppClass_1 _1;
-        struct Char__Array__VTable vtable;
-    };
+	struct Char__Array__Class
+	{
+		Il2CppClass_0 _0;
+		Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
+		struct Char__Array__StaticFields* static_fields;
+		const Il2CppRGCTXData* rgctx_data;
+		Il2CppClass_1 _1;
+		struct Char__Array__VTable vtable;
+	};
 
-    struct __declspec(align(8)) Encoding__Fields {
-        int32_t codePage;
-        int32_t windows_code_page;
-        bool is_readonly;
-        struct DecoderFallback* decoder_fallback;
-        struct EncoderFallback* encoder_fallback;
-        struct String* body_name;
-        struct String* encoding_name;
-        struct String* header_name;
-        bool is_mail_news_display;
-        bool is_mail_news_save;
-        bool is_browser_save;
-        bool is_browser_display;
-        struct String* web_name;
-    };
+	struct __declspec(align(8)) Encoding__Fields
+	{
+		int32_t codePage;
+		int32_t windows_code_page;
+		bool is_readonly;
+		struct DecoderFallback* decoder_fallback;
+		struct EncoderFallback* encoder_fallback;
+		struct String* body_name;
+		struct String* encoding_name;
+		struct String* header_name;
+		bool is_mail_news_display;
+		bool is_mail_news_save;
+		bool is_browser_save;
+		bool is_browser_display;
+		struct String* web_name;
+	};
 
-    struct Encoding__VTable {
-        VirtualInvokeData Equals;
-        VirtualInvokeData Finalize;
-        VirtualInvokeData GetHashCode;
-        VirtualInvokeData ToString;
-        VirtualInvokeData Clone;
-        VirtualInvokeData __unknown;
-        VirtualInvokeData GetByteCount;
-        VirtualInvokeData GetByteCount_1;
-        VirtualInvokeData __unknown_1;
-        VirtualInvokeData GetBytes;
-        VirtualInvokeData GetBytes_1;
-        VirtualInvokeData GetBytes_2;
-        VirtualInvokeData GetBytes_3;
-        VirtualInvokeData __unknown_2;
-        VirtualInvokeData __unknown_3;
-        VirtualInvokeData GetChars;
-        VirtualInvokeData GetChars_1;
-        VirtualInvokeData GetDecoder;
-        VirtualInvokeData Clone_1;
-        VirtualInvokeData __unknown_4;
-        VirtualInvokeData __unknown_5;
-        VirtualInvokeData GetPreamble;
-        VirtualInvokeData GetString;
-        VirtualInvokeData GetString_1;
-        VirtualInvokeData get_HeaderName;
-        VirtualInvokeData get_WebName;
-        VirtualInvokeData GetByteCount_2;
-        VirtualInvokeData GetBytes_4;
-    };
+	struct Encoding__VTable
+	{
+		VirtualInvokeData Equals;
+		VirtualInvokeData Finalize;
+		VirtualInvokeData GetHashCode;
+		VirtualInvokeData ToString;
+		VirtualInvokeData Clone;
+		VirtualInvokeData __unknown;
+		VirtualInvokeData GetByteCount;
+		VirtualInvokeData GetByteCount_1;
+		VirtualInvokeData __unknown_1;
+		VirtualInvokeData GetBytes;
+		VirtualInvokeData GetBytes_1;
+		VirtualInvokeData GetBytes_2;
+		VirtualInvokeData GetBytes_3;
+		VirtualInvokeData __unknown_2;
+		VirtualInvokeData __unknown_3;
+		VirtualInvokeData GetChars;
+		VirtualInvokeData GetChars_1;
+		VirtualInvokeData GetDecoder;
+		VirtualInvokeData Clone_1;
+		VirtualInvokeData __unknown_4;
+		VirtualInvokeData __unknown_5;
+		VirtualInvokeData GetPreamble;
+		VirtualInvokeData GetString;
+		VirtualInvokeData GetString_1;
+		VirtualInvokeData get_HeaderName;
+		VirtualInvokeData get_WebName;
+		VirtualInvokeData GetByteCount_2;
+		VirtualInvokeData GetBytes_4;
+	};
 
-    struct Encoding__StaticFields {
-        struct Assembly* i18nAssembly;
-        bool i18nDisabled;
-        struct EncodingInfo__Array* encoding_infos;
-        struct Object__Array* encodings;
-        struct Encoding* asciiEncoding;
-        struct Encoding* bigEndianEncoding;
-        struct Encoding* defaultEncoding;
-        struct Encoding* utf7Encoding;
-        struct Encoding* utf8EncodingWithMarkers;
-        struct Encoding* utf8EncodingWithoutMarkers;
-        struct Encoding* unicodeEncoding;
-        struct Encoding* isoLatin1Encoding;
-        struct Encoding* utf8EncodingUnsafe;
-        struct Encoding* utf32Encoding;
-        struct Encoding* bigEndianUTF32Encoding;
-        struct Object* lockobj;
-    };
+	struct Encoding__StaticFields
+	{
+		struct Assembly* i18nAssembly;
+		bool i18nDisabled;
+		struct EncodingInfo__Array* encoding_infos;
+		struct Object__Array* encodings;
+		struct Encoding* asciiEncoding;
+		struct Encoding* bigEndianEncoding;
+		struct Encoding* defaultEncoding;
+		struct Encoding* utf7Encoding;
+		struct Encoding* utf8EncodingWithMarkers;
+		struct Encoding* utf8EncodingWithoutMarkers;
+		struct Encoding* unicodeEncoding;
+		struct Encoding* isoLatin1Encoding;
+		struct Encoding* utf8EncodingUnsafe;
+		struct Encoding* utf32Encoding;
+		struct Encoding* bigEndianUTF32Encoding;
+		struct Object* lockobj;
+	};
 
-    struct Encoding {
-        struct Encoding__Class* klass;
-        MonitorData* monitor;
-        struct Encoding__Fields fields;
-    };
+	struct Encoding
+	{
+		struct Encoding__Class* klass;
+		MonitorData* monitor;
+		struct Encoding__Fields fields;
+	};
 
-    struct Encoding__Class {
-        Il2CppClass_0 _0;
-        Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
-        struct Encoding__StaticFields* static_fields;
-        const Il2CppRGCTXData* rgctx_data;
-        Il2CppClass_1 _1;
-        struct Encoding__VTable vtable;
-    };
+	struct Encoding__Class
+	{
+		Il2CppClass_0 _0;
+		Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
+		struct Encoding__StaticFields* static_fields;
+		const Il2CppRGCTXData* rgctx_data;
+		Il2CppClass_1 _1;
+		struct Encoding__VTable vtable;
+	};
 
-    struct Char__Array {
-        struct Char__Array__Class* klass;
-        MonitorData* monitor;
-        Il2CppArrayBounds* bounds;
-        il2cpp_array_size_t max_length;
-        uint16_t vector[32];
-    };
+	struct Char__Array
+	{
+		struct Char__Array__Class* klass;
+		MonitorData* monitor;
+		Il2CppArrayBounds* bounds;
+		il2cpp_array_size_t max_length;
+		uint16_t vector[32];
+	};
 
-    struct RuntimeTypeHandle {
-        void* value;
-    };
+	struct RuntimeTypeHandle
+	{
+		void* value;
+	};
 
-    struct RuntimeTypeHandle__Boxed {
-        struct RuntimeTypeHandle__Class* klass;
-        MonitorData* monitor;
-        struct RuntimeTypeHandle fields;
-    };
+	struct RuntimeTypeHandle__Boxed
+	{
+		struct RuntimeTypeHandle__Class* klass;
+		MonitorData* monitor;
+		struct RuntimeTypeHandle fields;
+	};
 
 
 
-    struct __declspec(align(8)) Type__Fields {
-        struct RuntimeTypeHandle _impl;
-    };
+	struct __declspec(align(8)) Type__Fields
+	{
+		struct RuntimeTypeHandle _impl;
+	};
 
-    struct Type {
-        struct Type__Class* klass;
-        MonitorData* monitor;
-        struct Type__Fields fields;
-    };
+	struct Type
+	{
+		struct Type__Class* klass;
+		MonitorData* monitor;
+		struct Type__Fields fields;
+	};
 
-    struct String__VTable {
-        VirtualInvokeData Equals;
-        VirtualInvokeData Finalize;
-        VirtualInvokeData GetHashCode;
-        VirtualInvokeData ToString;
-        VirtualInvokeData GetTypeCode;
-        VirtualInvokeData System_IConvertible_ToBoolean;
-        VirtualInvokeData System_IConvertible_ToByte;
-        VirtualInvokeData System_IConvertible_ToChar;
-        VirtualInvokeData System_IConvertible_ToDateTime;
-        VirtualInvokeData System_IConvertible_ToDecimal;
-        VirtualInvokeData System_IConvertible_ToDouble;
-        VirtualInvokeData System_IConvertible_ToInt16;
-        VirtualInvokeData System_IConvertible_ToInt32;
-        VirtualInvokeData System_IConvertible_ToInt64;
-        VirtualInvokeData System_IConvertible_ToSByte;
-        VirtualInvokeData System_IConvertible_ToSingle;
-        VirtualInvokeData ToString_1;
-        VirtualInvokeData System_IConvertible_ToType;
-        VirtualInvokeData System_IConvertible_ToUInt16;
-        VirtualInvokeData System_IConvertible_ToUInt32;
-        VirtualInvokeData System_IConvertible_ToUInt64;
-        VirtualInvokeData CompareTo;
-        VirtualInvokeData System_Collections_IEnumerable_GetEnumerator;
-        VirtualInvokeData Clone;
-        VirtualInvokeData CompareTo_1;
-        VirtualInvokeData Equals_1;
-        VirtualInvokeData System_Collections_Generic_IEnumerable_char__GetEnumerator;
-    };
+	struct String__VTable
+	{
+		VirtualInvokeData Equals;
+		VirtualInvokeData Finalize;
+		VirtualInvokeData GetHashCode;
+		VirtualInvokeData ToString;
+		VirtualInvokeData GetTypeCode;
+		VirtualInvokeData System_IConvertible_ToBoolean;
+		VirtualInvokeData System_IConvertible_ToByte;
+		VirtualInvokeData System_IConvertible_ToChar;
+		VirtualInvokeData System_IConvertible_ToDateTime;
+		VirtualInvokeData System_IConvertible_ToDecimal;
+		VirtualInvokeData System_IConvertible_ToDouble;
+		VirtualInvokeData System_IConvertible_ToInt16;
+		VirtualInvokeData System_IConvertible_ToInt32;
+		VirtualInvokeData System_IConvertible_ToInt64;
+		VirtualInvokeData System_IConvertible_ToSByte;
+		VirtualInvokeData System_IConvertible_ToSingle;
+		VirtualInvokeData ToString_1;
+		VirtualInvokeData System_IConvertible_ToType;
+		VirtualInvokeData System_IConvertible_ToUInt16;
+		VirtualInvokeData System_IConvertible_ToUInt32;
+		VirtualInvokeData System_IConvertible_ToUInt64;
+		VirtualInvokeData CompareTo;
+		VirtualInvokeData System_Collections_IEnumerable_GetEnumerator;
+		VirtualInvokeData Clone;
+		VirtualInvokeData CompareTo_1;
+		VirtualInvokeData Equals_1;
+		VirtualInvokeData System_Collections_Generic_IEnumerable_char__GetEnumerator;
+	};
 
-    struct String__StaticFields {
-        struct String* Empty;
-        struct Char__Array* WhiteChars;
-    };
+	struct String__StaticFields
+	{
+		struct String* Empty;
+		struct Char__Array* WhiteChars;
+	};
 
-    struct String__Class {
-        Il2CppClass_0 _0;
-        Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
-        struct String__StaticFields* static_fields;
-        const Il2CppRGCTXData* rgctx_data;
-        Il2CppClass_1 _1;
-        struct String__VTable vtable;
-    };
+	struct String__Class
+	{
+		Il2CppClass_0 _0;
+		Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
+		struct String__StaticFields* static_fields;
+		const Il2CppRGCTXData* rgctx_data;
+		Il2CppClass_1 _1;
+		struct String__VTable vtable;
+	};
 
-    struct __declspec(align(8)) String__Fields {
-        int32_t length;
-        uint16_t start_char;
-    };
+	struct __declspec(align(8)) String__Fields
+	{
+		int32_t length;
+		uint16_t start_char;
+	};
 
-    struct String {
-        struct String__Class* klass;
-        MonitorData* monitor;
-        struct String__Fields fields;
-    };
+	struct String
+	{
+		struct String__Class* klass;
+		MonitorData* monitor;
+		struct String__Fields fields;
+	};
 
-    struct IFormatProvider {
-        struct IFormatProvider__Class* klass;
-        MonitorData* monitor;
-    };
+	struct IFormatProvider
+	{
+		struct IFormatProvider__Class* klass;
+		MonitorData* monitor;
+	};
 
-    struct IFormatProvider__VTable {
-        VirtualInvokeData GetFormat;
-    };
+	struct IFormatProvider__VTable
+	{
+		VirtualInvokeData GetFormat;
+	};
 
-    struct IFormatProvider__StaticFields {
-    };
+	struct IFormatProvider__StaticFields
+	{
+	};
 
-    struct IFormatProvider__Class {
-        Il2CppClass_0 _0;
-        Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
-        struct IFormatProvider__StaticFields* static_fields;
-        const Il2CppRGCTXData* rgctx_data;
-        Il2CppClass_1 _1;
-        struct IFormatProvider__VTable vtable;
-    };
+	struct IFormatProvider__Class
+	{
+		Il2CppClass_0 _0;
+		Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
+		struct IFormatProvider__StaticFields* static_fields;
+		const Il2CppRGCTXData* rgctx_data;
+		Il2CppClass_1 _1;
+		struct IFormatProvider__VTable vtable;
+	};
 
-    struct Byte__Array__VTable {
-    };
+	struct Byte__Array__VTable
+	{
+	};
 
-    struct Byte__Array__StaticFields {
-    };
+	struct Byte__Array__StaticFields
+	{
+	};
 
-    struct Byte__Array__Class {
-        Il2CppClass_0 _0;
-        Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
-        struct Byte__Array__StaticFields* static_fields;
-        const Il2CppRGCTXData* rgctx_data;
-        Il2CppClass_1 _1;
-        struct Byte__Array__VTable vtable;
-    };
+	struct Byte__Array__Class
+	{
+		Il2CppClass_0 _0;
+		Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
+		struct Byte__Array__StaticFields* static_fields;
+		const Il2CppRGCTXData* rgctx_data;
+		Il2CppClass_1 _1;
+		struct Byte__Array__VTable vtable;
+	};
 
-    struct Byte__Array {
-        struct Byte__Array__Class* klass;
-        MonitorData* monitor;
-        Il2CppArrayBounds* bounds;
-        il2cpp_array_size_t max_length;
-        uint8_t vector[32];
-    };
+	struct Byte__Array
+	{
+		struct Byte__Array__Class* klass;
+		MonitorData* monitor;
+		Il2CppArrayBounds* bounds;
+		il2cpp_array_size_t max_length;
+		uint8_t vector[32];
+	};
 
-    struct __declspec(align(8)) Object_1__Fields {
-        void* m_CachedPtr;
-    };
+	struct __declspec(align(8)) Object_1__Fields
+	{
+		void* m_CachedPtr;
+	};
 
-	struct Object_1 {
+	struct Object_1
+	{
 		struct Object_1__Class* klass;
 		MonitorData* monitor;
 		struct Object_1__Fields fields;
 	};
 
-	struct Component__Fields {
+	struct Component__Fields
+	{
 		struct Object_1__Fields _;
 	};
 
-	struct Component {
+	struct Component
+	{
 		struct Component__Class* klass;
 		MonitorData* monitor;
 		struct Component__Fields fields;
 	};
 
-    enum class CursorLockMode__Enum : int32_t {
-        None = 0x00000000,
-        Locked = 0x00000001,
-        Confined = 0x00000002,
-    };
+	struct ScriptableObject__Fields
+	{
+		struct Object_1__Fields _;
+	};
 
-    struct Component_1__Fields {
-        struct Object_1__Fields _;
-    };
+	struct ScriptableObject
+	{
+		struct ScriptableObject__Class* klass;
+		MonitorData* monitor;
+		struct ScriptableObject__Fields fields;
+	};
 
-    struct Component_1 {
-        struct Component_1__Class* klass;
-        MonitorData* monitor;
-        struct Component_1__Fields fields;
-    };
+	enum class CursorLockMode__Enum : int32_t
+	{
+		None = 0x00000000,
+		Locked = 0x00000001,
+		Confined = 0x00000002,
+	};
 
-    struct Behaviour__Fields {
-        struct Component_1__Fields _;
-    };
+	struct Component_1__Fields
+	{
+		struct Object_1__Fields _;
+	};
 
-    struct Behaviour {
-        struct Behaviour__Class* klass;
-        MonitorData* monitor;
-        struct Behaviour__Fields fields;
-    };
+	struct Component_1
+	{
+		struct Component_1__Class* klass;
+		MonitorData* monitor;
+		struct Component_1__Fields fields;
+	};
 
-    struct Camera__Fields {
-        struct Behaviour__Fields _;
-    };
+	struct Behaviour__Fields
+	{
+		struct Component_1__Fields _;
+	};
 
-    struct Camera {
-        struct Camera__Class* klass;
-        MonitorData* monitor;
-        struct Camera__Fields fields;
-    };
+	struct Behaviour
+	{
+		struct Behaviour__Class* klass;
+		MonitorData* monitor;
+		struct Behaviour__Fields fields;
+	};
 
-    struct GameObject__Fields {
-        struct Object_1__Fields _;
-    };
+	struct Camera__Fields
+	{
+		struct Behaviour__Fields _;
+	};
 
-    struct GameObject {
-        struct GameObject__Class* klass;
-        MonitorData* monitor;
-        struct GameObject__Fields fields;
-    };
+	struct Camera
+	{
+		struct Camera__Class* klass;
+		MonitorData* monitor;
+		struct Camera__Fields fields;
+	};
 
-    struct Transform__Fields {
-        struct Component_1__Fields _;
-    };
+	struct GameObject__Fields
+	{
+		struct Object_1__Fields _;
+	};
 
-    struct Transform {
-        struct Transform__Class* klass;
-        MonitorData* monitor;
-        struct Transform__Fields fields;
-    };
+	struct GameObject
+	{
+		struct GameObject__Class* klass;
+		MonitorData* monitor;
+		struct GameObject__Fields fields;
+	};
 
-    struct Vector2 {
-        float x;
-        float y;
-    };
+	struct Transform__Fields
+	{
+		struct Component_1__Fields _;
+	};
 
-    struct Vector3 {
-        float x;
-        float y;
-        float z;
-    };
+	struct Transform
+	{
+		struct Transform__Class* klass;
+		MonitorData* monitor;
+		struct Transform__Fields fields;
+	};
 
-    struct Quaternion {
-        float x;
-        float y;
-        float z;
-        float w;
-    };
+	struct Vector2
+	{
+		float x;
+		float y;
+	};
 
-    struct Nullable_1_UnityEngine_Vector3_ {
-        struct Vector3 value;
-        bool has_value;
-    };
+	struct Vector3
+	{
+		float x;
+		float y;
+		float z;
+	};
 
-    enum class RotationOrder__Enum : int32_t {
-        OrderXYZ = 0x00000000,
-        OrderXZY = 0x00000001,
-        OrderYZX = 0x00000002,
-        OrderYXZ = 0x00000003,
-        OrderZXY = 0x00000004,
-        OrderZYX = 0x00000005,
-    };
+	struct Quaternion
+	{
+		float x;
+		float y;
+		float z;
+		float w;
+	};
 
-    struct MonoBehaviour__Fields {
-        struct Behaviour__Fields _;
-    };
+	struct Nullable_1_UnityEngine_Vector3_
+	{
+		struct Vector3 value;
+		bool has_value;
+	};
 
-    struct MonoBehaviour {
-        struct MonoBehaviour__Class* klass;
-        MonitorData* monitor;
-        struct MonoBehaviour__Fields fields;
-    };
+	enum class RotationOrder__Enum : int32_t
+	{
+		OrderXYZ = 0x00000000,
+		OrderXZY = 0x00000001,
+		OrderYZX = 0x00000002,
+		OrderYXZ = 0x00000003,
+		OrderZXY = 0x00000004,
+		OrderZYX = 0x00000005,
+	};
 
-	struct SimplePlayerController__Fields {
+	struct MonoBehaviour__Fields
+	{
+		struct Behaviour__Fields _;
+	};
+
+	struct MonoBehaviour
+	{
+		struct MonoBehaviour__Class* klass;
+		MonitorData* monitor;
+		struct MonoBehaviour__Fields fields;
+	};
+
+	struct SimplePlayerController__Fields
+	{
 		struct MonoBehaviour__Fields _;
 		struct Camera* playerCamera;
 		float walkSpeed;
@@ -3024,33 +3099,39 @@ namespace app {
 		bool canMove;
 	};
 
-	struct SimplePlayerController {
+	struct SimplePlayerController
+	{
 		struct SimplePlayerController__Class* klass;
 		MonitorData* monitor;
 		struct SimplePlayerController__Fields fields;
 	};
 
-	struct Collider__Fields {
+	struct Collider__Fields
+	{
 		struct Component__Fields _;
 	};
 
-	struct Collider {
+	struct Collider
+	{
 		struct Collider__Class* klass;
 		MonitorData* monitor;
 		struct Collider__Fields fields;
 	};
 
-	struct CharacterController__Fields {
+	struct CharacterController__Fields
+	{
 		struct Collider__Fields _;
 	};
 
-	struct CharacterController {
+	struct CharacterController
+	{
 		struct CharacterController__Class* klass;
 		MonitorData* monitor;
 		struct CharacterController__Fields fields;
 	};
 
-	struct PlayerController__Fields {
+	struct PlayerController__Fields
+	{
 		struct MonoBehaviour__Fields _;
 		struct CharacterController* thisCharacterController;
 		struct Transform* cameraTransform;
@@ -3068,13 +3149,15 @@ namespace app {
 		float mouseSpeed;
 	};
 
-	struct PlayerController {
+	struct PlayerController
+	{
 		struct PlayerController__Class* klass;
 		MonitorData* monitor;
 		struct PlayerController__Fields fields;
 	};
 
-	enum class eCharGroup__Enum : uint8_t {
+	enum class eCharGroup__Enum : uint8_t
+	{
 		PLAYER = 0x00,
 		ENEMY = 0x01,
 		SUPPORTER_HUNTER = 0x02,
@@ -3085,7 +3168,8 @@ namespace app {
 		Max = 0x07,
 	};
 
-	enum class ECharacterType__Enum : uint8_t {
+	enum class ECharacterType__Enum : uint8_t
+	{
 		None = 0x00,
 		Hunter = 0x01,
 		Monster = 0x02,
@@ -3101,7 +3185,8 @@ namespace app {
 		Max = 0x0c,
 	};
 
-	enum class eCharDeadStep__Enum : uint8_t {
+	enum class eCharDeadStep__Enum : uint8_t
+	{
 		None = 0x00,
 		DeadAnimationWait = 0x01,
 		DeadAction = 0x02,
@@ -3109,7 +3194,8 @@ namespace app {
 		Max = 0x04,
 	};
 
-	enum class EAffinityType__Enum : uint8_t {
+	enum class EAffinityType__Enum : uint8_t
+	{
 		None = 0x00,
 		Red = 0x01,
 		Blue = 0x02,
@@ -3118,7 +3204,8 @@ namespace app {
 		Max = 0x05,
 	};
 
-	enum class EElementType__Enum : uint8_t {
+	enum class EElementType__Enum : uint8_t
+	{
 		None = 0x00,
 		Fire = 0x01,
 		Water = 0x02,
@@ -3129,7 +3216,40 @@ namespace app {
 		Max = 0x07,
 	};
 
-	struct __declspec(align(8)) CharCommonInfoData__Fields {
+	struct __declspec(align(8)) CharBattleInfoData__Fields
+	{
+		struct List_1_KPBLHMGMKMK_* m_startBuffDataList;
+		int32_t m_ID;
+		float m_SidewalkMinTime;
+		float m_SidewalkMaxTime;
+		float m_BackwalkMinTime;
+		float m_BackwalkMaxTime;
+		float m_DetectingRange;
+		float m_BattleDistance;
+		float m_WalkDistance;
+		float m_CloseRangeJudgment;
+		float m_ProbabilityCloseRangeAttack;
+		float m_ProbabilityCloseRangeWander;
+		float m_ProbabilityCloseRangeBackWalk;
+		float m_ImpossibleWanderCloseRange;
+		float m_ProbabilityLongRangeAttack;
+		float m_ProbabilityLongRangeWander;
+		float m_ProbabilityLongRangeBackWalk;
+		float m_ImpossibleWanderLongRange;
+		struct List_1_System_Int64_* m_StartBuffID;
+		int32_t m_LockOnPriority;
+		int32_t m_LockOnCameraIndex;
+	};
+
+	struct CharBattleInfoData
+	{
+		struct CharBattleInfoData__Class* klass;
+		MonitorData* monitor;
+		struct CharBattleInfoData__Fields fields;
+	};
+
+	struct __declspec(align(8)) CharCommonInfoData__Fields
+	{
 		struct CharBattleInfoData* m_pCharBattleInfo;
 		int32_t m_ID;
 		ECharacterType__Enum m_CharacterType;
@@ -3152,13 +3272,15 @@ namespace app {
 		bool m_CanNotTargetable;
 	};
 
-	struct CharCommonInfoData {
+	struct CharCommonInfoData
+	{
 		struct CharCommonInfoData__Class* klass;
 		MonitorData* monitor;
 		struct CharCommonInfoData__Fields fields;
 	};
 
-	enum class EHunterStatSize__Enum : uint8_t {
+	enum class EHunterStatSize__Enum : uint8_t
+	{
 		VerySmall = 0x00,
 		Small = 0x01,
 		Normal = 0x02,
@@ -3169,14 +3291,16 @@ namespace app {
 		Max = 0x07,
 	};
 
-	enum class EInCharBaseType__Enum : uint8_t {
+	enum class EInCharBaseType__Enum : uint8_t
+	{
 		Hunter = 0x00,
 		Monster = 0x01,
 		Gimmick = 0x02,
 		Max = 0x03,
 	};
 
-	struct __declspec(align(8)) CharResourceData__Fields {
+	struct __declspec(align(8)) CharResourceData__Fields
+	{
 		int32_t m_ID;
 		struct String* m_ResourceName;
 		int32_t m_ConfigData;
@@ -3199,13 +3323,15 @@ namespace app {
 		bool m_UnusedLOD;
 	};
 
-	struct CharResourceData {
+	struct CharResourceData
+	{
 		struct CharResourceData__Class* klass;
 		MonitorData* monitor;
 		struct CharResourceData__Fields fields;
 	};
 
-	struct __declspec(align(8)) ENNEJEPMJLJ__Fields {
+	struct __declspec(align(8)) ENNEJEPMJLJ__Fields
+	{
 		struct EMECKMAKBDH* GICJDEIKDCI;
 		eCharGroup__Enum FHNGHHPLPGD;
 		ECharacterType__Enum AJEHLIOMMJN;
@@ -3248,13 +3374,15 @@ namespace app {
 		struct GDGHJFBGAKC* FFDMOEIKOLA;
 	};
 
-	struct ENNEJEPMJLJ {
+	struct ENNEJEPMJLJ
+	{
 		struct ENNEJEPMJLJ__Class* klass;
 		MonitorData* monitor;
 		struct ENNEJEPMJLJ__Fields fields;
 	};
 
-	struct __declspec(align(8)) KAAIFMKPKAG__Fields {
+	struct __declspec(align(8)) KAAIFMKPKAG__Fields
+	{
 		struct ENNEJEPMJLJ* KCBLLGODKIE;
 		struct OIAMFLMIEGP* EGIPHDFEGFO;
 		struct GameObject* LPIKHHCMOJJ;
@@ -3298,7 +3426,8 @@ namespace app {
 		struct IJIAGCJJCJC* _DBFNJAMNBNI_k__BackingField;
 	};
 
-	struct KAAIFMKPKAG {
+	struct KAAIFMKPKAG
+	{
 		struct KAAIFMKPKAG__Class* klass;
 		MonitorData* monitor;
 		struct KAAIFMKPKAG__Fields fields;
@@ -3327,6 +3456,15 @@ namespace app {
 		struct PJKMAOEINNH__Class* klass;
 		MonitorData* monitor;
 		struct PJKMAOEINNH__Fields fields;
+	};
+
+	struct ENNEJEPMJLJ__Array
+	{
+		struct ENNEJEPMJLJ__Array__Class* klass;
+		MonitorData* monitor;
+		Il2CppArrayBounds* bounds;
+		il2cpp_array_size_t max_length;
+		struct ENNEJEPMJLJ* vector[32];
 	};
 
 	struct __declspec(align(8)) List_1_ENNEJEPMJLJ___Fields
@@ -3715,6 +3853,74 @@ namespace app {
 		struct SkillUnitIdentity__Fields fields;
 	};
 
+	enum EvadePenetration_MEPJNDGOKMK__Enum
+	{
+		EvadePenetration_MEPJNDGOKMK__Enum_Sphere = 0x00000000,
+		EvadePenetration_MEPJNDGOKMK__Enum_Box = 0x00000001,
+		EvadePenetration_MEPJNDGOKMK__Enum_Capsule = 0x00000002,
+	};
+
+	enum class EvadePenetration_APIPHPLNIJD__Enum : int32_t
+	{
+		Push = 0x00000000,
+		Pull = 0x00000001,
+	};
+
+	struct EvadePenetration__Fields
+	{
+		struct ScriptableObject__Fields _;
+		EvadePenetration_MEPJNDGOKMK__Enum evadeType;
+		EvadePenetration_APIPHPLNIJD__Enum actionType;
+		bool isAlwaysCheck;
+		int32_t evadeLevel;
+		bool uplevelPush;
+		bool forceToOther;
+		struct List_1_NGame_EvadePenetration_* m_lstNeighborhoodFromOther;
+		float priority;
+		float originPriority;
+		bool justBackForce;
+		float mass;
+		float radius;
+		struct RaycastHit__Array* hitResult;
+		struct Transform* _BJMFKFLLGDE_k__BackingField;
+		struct Collider* _LAGKKCEGHDD_k__BackingField;
+		struct ENNEJEPMJLJ* m_own;
+		int32_t _GEEJJDMHKJO_k__BackingField;
+	};
+
+	struct EvadePenetration
+	{
+		struct EvadePenetration__Class* klass;
+		MonitorData* monitor;
+		struct EvadePenetration__Fields fields;
+	};
+
+	struct EvadeProxyBase__Fields
+	{
+		struct MonoBehaviour__Fields _;
+		struct EvadePenetration* evadePenetration;
+		struct BLPDABOMDPF* CLJOMEFBEGL;
+	};
+
+	struct EvadeProxyBase
+	{
+		struct EvadeProxyBase__Class* klass;
+		MonitorData* monitor;
+		struct EvadeProxyBase__Fields fields;
+	};
+
+	struct EvadeProxy__Fields
+	{
+		struct EvadeProxyBase__Fields _;
+		struct ENNEJEPMJLJ* EJBODHBGPMG;
+	};
+
+	struct EvadeProxy
+	{
+		struct EvadeProxy__Class* klass;
+		MonitorData* monitor;
+		struct EvadeProxy__Fields fields;
+	};
 #if !defined(_GHIDRA_) && !defined(_IDA_)
 }
 #endif

@@ -5,69 +5,44 @@
 
 namespace Cheat::Features
 {
-	void DumbEnemies::Char3DIdentity_Init_Hook(app::Char3DIdentity* __this, app::ENNEJEPMJLJ* IGBKKNODEGM, MethodInfo* method)
-	{
-		CALL_ORIGIN(Char3DIdentity_Init_Hook, __this, IGBKKNODEGM, method);
-
-		if (__this != nullptr && IGBKKNODEGM != nullptr && IGBKKNODEGM->fields.KFIFBINFDPB != nullptr)
-		{
-			if (IGBKKNODEGM->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
-			{
-				// if (Config.MovementSpeed)
-				if (GetAsyncKeyState(VK_F1) & 1)
-				{
-					LOG("BALLS");
-					IGBKKNODEGM->fields.PEFKKKBMDKN->fields.m_WalkSpeed *= 100000;
-					IGBKKNODEGM->fields.PEFKKKBMDKN->fields.m_MoveSpd *= 100000;
-				}
-			}
-		}
-	}
-
 	DumbEnemies::DumbEnemies()
 	{
-		// HookManager::install(app::Char3DIdentity_Init, Char3DIdentity_Init_Hook);
+		HookManager::install(app::EvadeProxy_Init, EvadeProxy_Init_Hook);
 	}
 
-	void DumbEnemies::Update()
+	void DumbEnemies::EvadeProxy_Init_Hook(app::EvadeProxy* __this, app::ENNEJEPMJLJ* character, app::EvadePenetration* DHPMEMDBDMC, MethodInfo* method)
 	{
-		//if (GetAsyncKeyState(VK_F1) & 1)
-		//{
-		//	LOG("BALLS");
+		// Player Speed
+		if (character->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
+		{
+			character->fields.PEFKKKBMDKN->fields.m_WalkSpeed = 10000000;
+			character->fields.PEFKKKBMDKN->fields.m_MoveSpd = 10000000;
+		}
 
-		//	auto char3dType = GetUnityType("NGame.Char3DIdentity");
-		//	auto objs = app::Object_1_FindObjectsOfType_1(char3dType, true, nullptr);
-		//	if (objs == nullptr)
-		//	{
-		//		LOG("objs is null");
-		//		return;
-		//	}
+		// Dumb Enemies
+		if (character->fields.FHNGHHPLPGD == app::eCharGroup__Enum::ENEMY ||
+			character->fields.AJEHLIOMMJN == app::ECharacterType__Enum::Monster)
+		{
+			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_SidewalkMinTime = std::numeric_limits<float>::infinity() * -1.0f;
+			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_SidewalkMaxTime = std::numeric_limits<float>::infinity() * -1.0f;
+			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_BackwalkMinTime = std::numeric_limits<float>::infinity() * -1.0f;
+			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_BackwalkMaxTime = std::numeric_limits<float>::infinity() * -1.0f;
+			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_DetectingRange = std::numeric_limits<float>::infinity() * -1.0f;
+			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_BattleDistance = std::numeric_limits<float>::infinity() * -1.0f;
+			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_WalkDistance = std::numeric_limits<float>::infinity() * -1.0f;
+			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_CloseRangeJudgment = std::numeric_limits<float>::infinity() * -1.0f;
+			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityCloseRangeAttack = std::numeric_limits<float>::infinity() * -1.0f;
+			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityCloseRangeWander = std::numeric_limits<float>::infinity() * -1.0f;
+			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityCloseRangeBackWalk = std::numeric_limits<float>::infinity() * -1.0f;
+			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ImpossibleWanderCloseRange = std::numeric_limits<float>::infinity() * -1.0f;
+			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityLongRangeAttack = std::numeric_limits<float>::infinity() * -1.0f;
+			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityLongRangeWander = std::numeric_limits<float>::infinity() * -1.0f;
+			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ProbabilityLongRangeBackWalk = std::numeric_limits<float>::infinity() * -1.0f;
+			character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_ImpossibleWanderLongRange = std::numeric_limits<float>::infinity() * -1.0f;
+		}
 
-		//	for (auto& obj : *TO_UNI_ARRAY(objs, app::Object_1*))
-		//	{
-		//		auto char3dIdentity = reinterpret_cast<app::Char3DIdentity*>(obj);
-		//		if (char3dIdentity == nullptr)
-		//		{
-		//			LOG("char3dIdentity is null");
-		//			continue;
-		//		}
+		// LOG("resourceName %s", il2cppi_to_string(character->fields.PEFKKKBMDKN->fields.m_ResourceName).c_str());
 
-		//		auto entity = char3dIdentity->fields.EJBODHBGPMG;
-		//		if (entity == nullptr)
-		//		{
-		//			LOG("Entity is null");
-		//			continue;
-		//		}
-
-		//		if (entity->fields.FHNGHHPLPGD != app::eCharGroup__Enum::PLAYER)
-		//		{
-		//			LOG("Entity is not a player");
-		//			continue;
-		//		}
-
-		//		entity->fields.PEFKKKBMDKN->fields.m_WalkSpeed = 100000;
-		//		entity->fields.PEFKKKBMDKN->fields.m_MoveSpd = 100000;
-		//	}
-		//}
+		CALL_ORIGIN(EvadeProxy_Init_Hook, __this, character, DHPMEMDBDMC, method);
 	}
 }

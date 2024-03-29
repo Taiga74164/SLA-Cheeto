@@ -6,6 +6,12 @@
 
 namespace Cheat::Features
 {
+	DamageHack::DamageHack()
+	{
+		HookManager::install(app::PIPHNBOBFEF_KBCIIEFLPGB, PIPHNBOBFEF_KBCIIEFLPGB_Hook);
+		HookManager::install(app::GHINOEFFMPN_EKHGIHBHEPL, GHINOEFFMPN_EKHGIHBHEPL_Hook);
+	}
+
 	void DamageHack::PIPHNBOBFEF_KBCIIEFLPGB_Hook(app::PIPHNBOBFEF* __this, app::ESpecialState__Enum specialState, int64_t someInt1, int64_t someInt2, int64_t someInt3, app::String* buffName, MethodInfo* method)
 	{
 		if (__this->fields.IGFILCLEFHH->fields.EJBODHBGPMG != nullptr)
@@ -27,26 +33,23 @@ namespace Cheat::Features
 
 				if (specialState == app::ESpecialState__Enum::HpRecovery ||
 					specialState == app::ESpecialState__Enum::MpRecovery ||
-					specialState == app::ESpecialState__Enum::PgRecovery /*||
-					specialState == app::ESpecialState__Enum::EnhanceBackDamage ||
-					specialState == app::ESpecialState__Enum::EnhanceDotDamage ||
-					specialState == app::ESpecialState__Enum::EnhanceHpRecovery ||
-					specialState == app::ESpecialState__Enum::EnhanceMpRecovery ||
-					specialState == app::ESpecialState__Enum::EnhanceSkillDamage ||
-					specialState == app::ESpecialState__Enum::EnhanceSkillTypeDamage ||
-					specialState == app::ESpecialState__Enum::EnhanceTypeDamage*/)
+					specialState == app::ESpecialState__Enum::PgRecovery)
 					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, specialState, 2i64, 99999999i64, 0i64, buffName, method);
 			}
 
 			if (entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::ENEMY)
 			{
-				LOG("%s", magic_enum::enum_name(entity->fields.FHNGHHPLPGD).data());
-				LOG("resourceName %s", il2cppi_to_string(entity->fields.PEFKKKBMDKN->fields.m_ResourceName).c_str());
-				LOG("specialState %s", magic_enum::enum_name(specialState).data());
-				LOG("int1 %d", someInt1);
-				LOG("int2 %d", someInt2);
-				LOG("int3 %d", someInt3);
-				LOG("someStr %s", il2cppi_to_string(buffName).c_str());
+				//LOG("%s", magic_enum::enum_name(entity->fields.FHNGHHPLPGD).data());
+				//LOG("resourceName %s", il2cppi_to_string(entity->fields.PEFKKKBMDKN->fields.m_ResourceName).c_str());
+				//LOG("specialState %s", magic_enum::enum_name(specialState).data());
+				//LOG("int1 %d", someInt1);
+				//LOG("int2 %d", someInt2);
+				//LOG("int3 %d", someInt3);
+				//LOG("someStr %s", il2cppi_to_string(buffName).c_str());
+
+				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Crash, 2i64, 99999999i64, 0i64, buffName, method);
+				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Stun, 2i64, 1000i64, 0i64, buffName, method);
+				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::BodyStop, 2i64, 1000i64, 0i64, buffName, method);
 			}
 		}
 
@@ -106,11 +109,5 @@ namespace Cheat::Features
 		}
 
 		return CALL_ORIGIN(GHINOEFFMPN_EKHGIHBHEPL_Hook, skillIdentity, FKJDKGJBGOD, targetHitData, method);
-	}
-
-	DamageHack::DamageHack()
-	{
-		HookManager::install(app::PIPHNBOBFEF_KBCIIEFLPGB, PIPHNBOBFEF_KBCIIEFLPGB_Hook);
-		HookManager::install(app::GHINOEFFMPN_EKHGIHBHEPL, GHINOEFFMPN_EKHGIHBHEPL_Hook);
 	}
 }

@@ -5,6 +5,7 @@
 #include "features/PlayerSpeed.h"
 #include "features/NoCooldown.h"
 #include "features/DamageHack.h"
+#include "features/DumbEnemies.h"
 
 using namespace Cheat::Features;
 
@@ -16,6 +17,7 @@ void init_cheat()
 	REGISTER(PlayerSpeed);
 	REGISTER(NoCooldown);
 	REGISTER(DamageHack);
+	REGISTER(DumbEnemies);
 #undef REGISTER
 
 	manager.LoadAllModules();
