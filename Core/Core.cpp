@@ -45,6 +45,7 @@ void Core::Start()
 	featuresTab->AddElement(CreateToggle("God Mode", vars.v_GodMode));
 	featuresTab->AddElement(CreateToggle("Damage Hack", vars.v_DamageHack));
 	featuresTab->AddElement(CreateToggle("Dumb Enemies", vars.v_DumbEnemies));
+	featuresTab->AddElement(std::make_unique<CommandMenu::SliderFloat>("Time Scale", &vars.f_TimeScale, 1.0f, 10.0f, 0.5f));
 
 	// About tab content
 	aboutTab->AddElement(std::make_unique<CommandMenu::Text>("Credits to:"));

@@ -69,6 +69,7 @@
     <ClCompile Include="cheat\features\DumbEnemies.cpp" />
     <ClCompile Include="cheat\features\NoCooldown.cpp" />
     <ClCompile Include="cheat\features\PlayerSpeed.cpp" />
+    <ClCompile Include="cheat\features\TimeScale.cpp" />
     <ClCompile Include="cheat\vars.cpp" />
     <ClCompile Include="Core\Core.cpp" />
     <ClCompile Include="dllmain.cpp" />
@@ -110,6 +111,7 @@
     <ClInclude Include="cheat\features\DumbEnemies.h" />
     <ClInclude Include="cheat\features\NoCooldown.h" />
     <ClInclude Include="cheat\features\PlayerSpeed.h" />
+    <ClInclude Include="cheat\features\TimeScale.h" />
     <ClInclude Include="cheat\vars.h" />
     <ClInclude Include="Core\Core.h" />
     <ClInclude Include="Exports\Exports.h" />

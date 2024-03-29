@@ -6,6 +6,7 @@
 #include "features/NoCooldown.h"
 #include "features/DamageHack.h"
 #include "features/DumbEnemies.h"
+#include "features/TimeScale.h"
 
 using namespace Cheat::Features;
 
@@ -18,6 +19,7 @@ void init_cheat()
 	REGISTER(NoCooldown);
 	REGISTER(DamageHack);
 	REGISTER(DumbEnemies);
+	REGISTER(TimeScale);
 #undef REGISTER
 
 	manager.LoadAllModules();
