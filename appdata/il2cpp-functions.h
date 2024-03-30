@@ -10,7 +10,10 @@ DO_APP_FUNC(0x0202DAF0, String*, Marshal_PtrToStringAnsi, (void* ptr, MethodInfo
 DO_APP_FUNC(0x0202DB10, String*, Marshal_PtrToStringUni, (void* ptr, MethodInfo* method));
 
 // FPSUnlock
+DO_APP_FUNC(0x03015300, int, Application_get_targetFrameRate, (MethodInfo* method));
 DO_APP_FUNC(0x03015A20, void, Application_set_targetFrameRate, (int value, MethodInfo* method));
+
+DO_APP_FUNC(0x3039880, void, QualitySettings_set_vSyncCount, (int value, MethodInfo* method));
 
 // TimeScale
 DO_APP_FUNC(0x03071EC0, float, Time_get_timeScale, (MethodInfo* method));
