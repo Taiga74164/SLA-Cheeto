@@ -4,15 +4,15 @@
 
 namespace Cheat::Features
 {
-	class InfiniteMissionTime : public Module
+	class MissionTime : public Module
 	{
 	public:
-		InfiniteMissionTime();
+		MissionTime();
 
 		void Load() override {}
 		void Update() override {}
 
 	private:
-		static bool DungeonStageData_DoAfterLoad_Hook(app::DungeonStageData* __this, MethodInfo* method);
+		static void StageReadyPage_EnterUI_Hook(app::StageReadyPage* __this, MethodInfo* method);
 	};
 }

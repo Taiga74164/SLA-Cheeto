@@ -13,7 +13,7 @@
 #pragma warning(disable: 26812 26815)
 
 #define MAX_RGB 255.0
-#define HELPMAKER(str) ImGui::SameLine(); ImGui::TextColored(ImColor(220, 10, 10, 255), "[?]")); if (ImGui::IsItemHovered()) ImGui::SetTooltip(str)
+#define HELPMAKER(str) ImGui::SameLine(); ImGui::TextColored(ImColor(220, 10, 10, 255), "[?]"); if (ImGui::IsItemHovered()) ImGui::SetTooltip(str);
 // #define HOTKEYMAKER(key) ImGui::SameLine(); ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(100, 10, 220, 255)); ImGui::Hotkey("", key); ImGui::PopStyleColor() 
 // ImGui::PushAllowKeyboardFocus(false); ImGui::PopAllowKeyboardFocus()
 

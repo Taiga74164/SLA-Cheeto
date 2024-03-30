@@ -10,7 +10,7 @@ void Gui::Render()
         ImGui::BeginGroup();
         {
             ImGui::PushStyleColor(ImGuiCol_ChildBg, IM_COL32(0, 0, 0, 0));
-            GuiUtil::CenterText("Solo Levelling Cheeto", 0, 0);
+            GuiUtil::CenterText("Solo Leveling Cheeto", 0, 0);
             ImGui::Spacing();
             ImGui::Spacing();
             ImGui::PopStyleColor();
@@ -50,12 +50,19 @@ void Gui::Render()
 			ImGui::BeginGroup();
 
 			ImGui::CheckboxFill("No Cooldown", &vars.b_NoCooldown);
+
 			ImGui::CheckboxFill("God Mode", &vars.b_GodMode);
+
 			ImGui::CheckboxFill("Damage Hack", &vars.b_DamageHack);
 			if (vars.b_DamageHack)
 				ImGui::SliderFloat("Value", &vars.f_DamageHackValue, 200.0f, 5000.0f, "%1.0f");
+
 			ImGui::CheckboxFill("Dumb Enemies", &vars.b_DumbEnemies);
-			ImGui::CheckboxFill("Infinite Mission Time", &vars.b_InfiniteMissionTime);
+
+			ImGui::CheckboxFill("Mission Time", &vars.b_MissionTime); HELPMAKER("Make sure this is enabled before starting a mission");
+			if (vars.b_MissionTime)
+				ImGui::SliderInt("Time (ms)", &vars.i_InfiniteMissionTimeMs, 180000, 3600000, "%d");
+
 			ImGui::CheckboxFill("Time Scale", &vars.b_TimeScale);
 			if (vars.b_TimeScale)
 				ImGui::SliderFloat("Speed", &vars.f_TimeScaleSpeed, 1.0f, 10.0f, "%.1f");

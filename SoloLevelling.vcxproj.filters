@@ -132,7 +132,7 @@
     <ClCompile Include="cheat\vars.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cheat\features\InfiniteMissionTime.cpp">
+    <ClCompile Include="cheat\features\MissionTime.cpp">
       <Filter>features</Filter>
     </ClCompile>
     <ClCompile Include="cheat\features\TimeScale.cpp">
@@ -317,7 +317,7 @@
     <ClInclude Include="cheat\vars.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cheat\features\InfiniteMissionTime.h">
+    <ClInclude Include="cheat\features\MissionTime.h">
       <Filter>features</Filter>
     </ClInclude>
     <ClInclude Include="cheat\features\TimeScale.h">

@@ -7,7 +7,8 @@ struct Vars
 	bool b_DamageHack = true;
 	float f_DamageHackValue = 500.0f;
 	bool b_DumbEnemies = true;
-	bool b_InfiniteMissionTime = true;
+	bool b_MissionTime = true;
+	int i_InfiniteMissionTimeMs = 180000;
 	bool b_TimeScale;
 	float f_TimeScaleSpeed = 2.0f;
 };
