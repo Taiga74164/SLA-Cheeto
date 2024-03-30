@@ -138,6 +138,9 @@
     <ClCompile Include="cheat\features\TimeScale.cpp">
       <Filter>features</Filter>
     </ClCompile>
+    <ClCompile Include="cheat\features\SkipIntroMovie.cpp">
+      <Filter>features</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Core.h">
@@ -321,6 +324,9 @@
       <Filter>features</Filter>
     </ClInclude>
     <ClInclude Include="cheat\features\TimeScale.h">
+      <Filter>features</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\features\SkipIntroMovie.h">
       <Filter>features</Filter>
     </ClInclude>
   </ItemGroup>

@@ -30,8 +30,8 @@ void Gui::Render()
 		     ImGui::PopStyleColor()
 
 			MENU_MODULES("Features", 0);
-			//MENU_MODULES("Debug", 1);
-			MENU_MODULES("About", 1);
+			MENU_MODULES("Misc", 1);
+			MENU_MODULES("About", 2);
 
 #undef MENU_MODULES
 		}
@@ -45,7 +45,7 @@ void Gui::Render()
 		ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImGuiCol_Button ? active : inactive);
 		switch (m_MenuTab)
 		{
-		case 0: // Cheats
+		case 0: // Features
 			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(2, 2));
 			ImGui::BeginGroup();
 
@@ -70,13 +70,16 @@ void Gui::Render()
 			ImGui::EndGroup();
 			ImGui::PopStyleVar();
 			break;
-		//case 1: // Debug
-		//	ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(2, 2));
-		//	ImGui::BeginGroup();
-		//	ImGui::EndGroup();
-		//	ImGui::PopStyleVar();
-		//	break;
-		case 1: // About
+		case 1: // Misc
+			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(2, 2));
+			ImGui::BeginGroup();
+
+			ImGui::CheckboxFill("Skip Intro Movie", &vars.b_SkipIntroMovie); HELPMAKER("This will skip the intro movie when you start the game");
+
+			ImGui::EndGroup();
+			ImGui::PopStyleVar();
+			break;
+		case 2: // About
 			ImGui::Spacing();
 			ImGui::Text("Created by: Taiga74164");
 			ImGui::TextURL("Unknown Cheats thread", "https://www.unknowncheats.me/forum/other-mmorpg-and-strategy/629636-solo-leveling-arise-cheeto.html");

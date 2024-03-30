@@ -33,6 +33,9 @@ DO_APP_FUNC(0x009E4270, void, EvadeProxy_Init, (EvadeProxy* __this, ENNEJEPMJLJ*
 
 DO_APP_FUNC(0x00D87DD0, void, StageReadyPage_EnterUI, (StageReadyPage* __this, MethodInfo* method));
 
+DO_APP_FUNC(0x00A9AE20, void, GameMovie_Update, (GameMovie* __this, MethodInfo* method));
+DO_APP_FUNC(0x00A9C720, void, IntroMovie_Update, (IntroMovie* __this, MethodInfo* method));
+
 // Singletons
 DO_APP_FUNC(0x00344840, void*, TSingleton_GetInstance, (MethodInfo* method)); // Search for this in IDA
 // DO_APP_FUNC_METHODINFO(0x0403AC70, TSingleton_1_PJKMAOEINNH__get_Instance__MethodInfo); // Probably EntityManager or something similar

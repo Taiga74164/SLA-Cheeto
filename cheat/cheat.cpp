@@ -8,6 +8,7 @@
 #include "features/DumbEnemies.h"
 #include "features/MissionTime.h"
 #include "features/TimeScale.h"
+#include "features/SkipIntroMovie.h"
 
 using namespace Cheat::Features;
 
@@ -22,6 +23,7 @@ void init_cheat()
 	REGISTER(DumbEnemies);
 	REGISTER(MissionTime);
 	REGISTER(TimeScale);
+	REGISTER(SkipIntroMovie);
 #undef REGISTER
 
 	manager.LoadAllModules();

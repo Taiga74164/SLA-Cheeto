@@ -70,6 +70,7 @@
     <ClCompile Include="cheat\features\MissionTime.cpp" />
     <ClCompile Include="cheat\features\NoCooldown.cpp" />
     <ClCompile Include="cheat\features\PlayerSpeed.cpp" />
+    <ClCompile Include="cheat\features\SkipIntroMovie.cpp" />
     <ClCompile Include="cheat\features\TimeScale.cpp" />
     <ClCompile Include="cheat\vars.cpp" />
     <ClCompile Include="Core\Core.cpp" />
@@ -113,6 +114,7 @@
     <ClInclude Include="cheat\features\MissionTime.h" />
     <ClInclude Include="cheat\features\NoCooldown.h" />
     <ClInclude Include="cheat\features\PlayerSpeed.h" />
+    <ClInclude Include="cheat\features\SkipIntroMovie.h" />
     <ClInclude Include="cheat\features\TimeScale.h" />
     <ClInclude Include="cheat\vars.h" />
     <ClInclude Include="Core\Core.h" />

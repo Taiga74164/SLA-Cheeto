@@ -4506,6 +4506,61 @@ namespace app
 		struct StageReadyPage__Fields fields;
 	};
 
+	enum class GameMovie_PHMCJCHPFEF__Enum : int32_t
+	{
+		INIT = 0x00000000,
+		PREPARE = 0x00000001,
+		MOVIEPLAY = 0x00000002,
+		LOGOSHOW = 0x00000003,
+		FINISH = 0x00000004,
+		END = 0x00000005,
+	};
+
+	struct GameMovie__Fields
+	{
+		struct MonoBehaviour__Fields _;
+		struct Camera* pkCamera;
+		struct Image* pkMovieMask;
+		struct Button* pkSkipMovie;
+		struct VideoPlayer* EOOLJGDCGNF;
+		GameMovie_PHMCJCHPFEF__Enum EGHCFMDLNAB;
+		bool NFNHAJGMBKH;
+	};
+
+	struct GameMovie
+	{
+		struct GameMovie__Class* klass;
+		MonitorData* monitor;
+		struct GameMovie__Fields fields;
+	};
+
+	enum class IntroMovie_MHCMCCIDDCE__Enum : int32_t
+	{
+		INIT = 0x00000000,
+		PREPARE = 0x00000001,
+		MOVIEPLAY = 0x00000002,
+		LOGOSHOW = 0x00000003,
+		FINISH = 0x00000004,
+		END = 0x00000005,
+	};
+
+	struct IntroMovie__Fields
+	{
+		struct MonoBehaviour__Fields _;
+		struct SequentialPlayer* _player;
+		struct Image* pkIntroBG;
+		struct Button* pkSkipButton;
+		IntroMovie_MHCMCCIDDCE__Enum GFOGMEGIEJN;
+		bool NFNHAJGMBKH;
+	};
+
+	struct IntroMovie
+	{
+		struct IntroMovie__Class* klass;
+		MonitorData* monitor;
+		struct IntroMovie__Fields fields;
+	};
+
 #if !defined(_GHIDRA_) && !defined(_IDA_)
 }
 #endif
