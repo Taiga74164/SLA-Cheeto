@@ -6,6 +6,7 @@
 #include <cstdarg>
 #include <format>
 #include <psapi.h>
+#include <mutex>
 
 std::mutex mutex;
 
