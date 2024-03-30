@@ -53,23 +53,19 @@ void Gui::Render()
 
 			ImGui::CheckboxFill("God Mode", &vars.b_GodMode);
 
-			ImGui::CheckboxFill("Damage Hack", &vars.b_DamageHack);
+			ImGui::CheckboxFill("Damage Hack", &vars.b_DamageHack); HELPMAKER("Only works for certain weapons");
 			if (vars.b_DamageHack)
 				ImGui::SliderFloat("Value", &vars.f_DamageHackValue, 200.0f, 5000.0f, "%1.0f");
 
-			ImGui::CheckboxFill("Dumb Enemies", &vars.b_DumbEnemies);
+			ImGui::CheckboxFill("Dumb Enemies", &vars.b_DumbEnemies); HELPMAKER("This will prevent enemies from attacking or moving towards you");
 
 			ImGui::CheckboxFill("Mission Time", &vars.b_MissionTime); HELPMAKER("Make sure this is enabled before starting a mission");
 			if (vars.b_MissionTime)
-				ImGui::SliderInt("Time (ms)", &vars.i_InfiniteMissionTimeMs, 180000, 3600000, "%d");
+				ImGui::SliderInt("Time (ms)", &vars.i_MissionTimeMs, 180000, 3600000, "%d");
 
 			ImGui::CheckboxFill("Time Scale", &vars.b_TimeScale);
 			if (vars.b_TimeScale)
 				ImGui::SliderFloat("Speed", &vars.f_TimeScaleSpeed, 1.0f, 10.0f, "%.1f");
-
-			ImGui::CheckboxFill("FPS Unlock", &vars.b_FPSUnlock);
-			if (vars.b_FPSUnlock)
-				ImGui::SliderInt("FPS", &vars.i_FPS, 5, 360, "%d");
 			
 			ImGui::EndGroup();
 			ImGui::PopStyleVar();
@@ -77,6 +73,10 @@ void Gui::Render()
 		case 1: // Misc
 			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(2, 2));
 			ImGui::BeginGroup();
+
+			ImGui::CheckboxFill("FPS Unlock", &vars.b_FPSUnlock);
+			if (vars.b_FPSUnlock)
+				ImGui::SliderInt("FPS", &vars.i_FPS, 5, 360, "%d");
 
 			ImGui::CheckboxFill("Skip Intro Movie", &vars.b_SkipIntroMovie); HELPMAKER("This will skip the intro movie when you start the game");
 

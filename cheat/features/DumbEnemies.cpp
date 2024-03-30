@@ -12,13 +12,6 @@ namespace Cheat::Features
 
 	void DumbEnemies::EvadeProxy_Init_Hook(app::EvadeProxy* __this, app::ENNEJEPMJLJ* character, app::EvadePenetration* DHPMEMDBDMC, MethodInfo* method)
 	{
-		// Player Speed
-		if (character->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
-		{
-			character->fields.PEFKKKBMDKN->fields.m_WalkSpeed = 10000000;
-			character->fields.PEFKKKBMDKN->fields.m_MoveSpd = 10000000;
-		}
-
 		// Dumb Enemies
 		if (character->fields.FHNGHHPLPGD == app::eCharGroup__Enum::ENEMY ||
 			character->fields.AJEHLIOMMJN == app::ECharacterType__Enum::Monster)

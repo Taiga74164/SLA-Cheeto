@@ -1,6 +1,7 @@
 #include "cheat.h"
 #include "ModuleManager.h"
 #include "global.h"
+#include "HookManager.h"
 
 #include "features/PlayerSpeed.h"
 #include "features/NoCooldown.h"
@@ -12,6 +13,8 @@
 #include "features/SkipIntroMovie.h"
 
 using namespace Cheat::Features;
+
+static void GameFrameWork_Update_Hook(app::GameFrameWork* __this, MethodInfo* method);
 
 void init_cheat()
 {
@@ -29,11 +32,29 @@ void init_cheat()
 #undef REGISTER
 
 	manager.LoadAllModules();
+
+	HookManager::install(app::GameFrameWork_Update, GameFrameWork_Update_Hook);
 }
 
+// TODO: Replace this later with event system
 void run_cheat()
 {
 	SAFE_BEGIN();
 	ModuleManager::GetInstance().UpdateAllModules();
 	SAFE_EEND();
+}
+
+// Event Handler
+void GameFrameWork_Update_Hook(app::GameFrameWork* __this, MethodInfo* method)
+{
+	SAFE_BEGIN();
+	//LOG("GameFrameWork::Update");
+	//LOG("ITS LOGGING GOOD JOB WOW !!!!!!!!!!");
+	//LOG("ITS LOGGING GOOD JOB WOW !!!!!!!!!!");
+	//LOG("ITS LOGGING GOOD JOB WOW !!!!!!!!!!");
+	//LOG("ITS LOGGING GOOD JOB WOW !!!!!!!!!!");
+	//LOG("ITS LOGGING GOOD JOB WOW !!!!!!!!!!");
+	//LOG("ITS LOGGING GOOD JOB WOW !!!!!!!!!!");
+	SAFE_EEND();
+	CALL_ORIGIN(GameFrameWork_Update_Hook, __this, method);
 }

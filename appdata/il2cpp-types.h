@@ -3330,6 +3330,43 @@ namespace app
 		struct CharResourceData__Fields fields;
 	};
 
+	enum class ADKDDHHEOGP__Enum : int32_t
+	{
+		None = 0x00000000,
+		SkillCharGroupHide = 0x00000001,
+		CharGroupHide = 0x00000002,
+		DialogPageCall = 0x00000004,
+		DungeonPotal = 0x00000008,
+		CharGroupHideCode = 0x00000010,
+	};
+
+	struct __declspec(align(8)) CDCHBPIDJCD__Fields
+	{
+		struct ENNEJEPMJLJ* EJBODHBGPMG;
+		struct GameObject* JOLJGBMKIFJ;
+		struct GameObject* KGLDOGCNCKN;
+		struct Char3DIdentity* KCGPELIKJKK;
+		struct CharResourceContainer* BLHAMCDGFPB;
+		struct ModelContainer* JOJBJOHCOAI;
+		struct NPPEDAMJEJN* AAOCNMODFHJ;
+		struct EvadeProxy__Array* IDEJDAPCFEG;
+		struct Dictionary_2_System_Int32_NOCEDPLNEKJ_* HMDPJFGKCNO;
+		struct Dictionary_2_System_Int32_LONIDPABIBC_* KAPAAHIFNKK;
+		struct CCOAEFGKDKM* IALANALADIL;
+		struct GEMHNHHBHLD* PHHOLCNPAPD;
+		struct NeoLODDynamic* ALCLGACGIDC;
+		struct String* MABAHPIELIM;
+		bool EHNNGCOFBPO;
+		ADKDDHHEOGP__Enum KMBBIGNMCFO;
+	};
+
+	struct CDCHBPIDJCD
+	{
+		struct CDCHBPIDJCD__Class* klass;
+		MonitorData* monitor;
+		struct CDCHBPIDJCD__Fields fields;
+	};
+
 	struct __declspec(align(8)) ENNEJEPMJLJ__Fields
 	{
 		struct EMECKMAKBDH* GICJDEIKDCI;
@@ -4559,6 +4596,258 @@ namespace app
 		struct IntroMovie__Class* klass;
 		MonitorData* monitor;
 		struct IntroMovie__Fields fields;
+	};
+
+	struct CinemachineBlendDefinition
+	{
+		//CinemachineBlendDefinition_Style__Enum m_Style;
+		//float m_Time;
+		//struct AnimationCurve* m_CustomCurve;
+	};
+
+	struct BattleCamRootControl__Fields
+	{
+		struct MonoBehaviour__Fields _;
+		struct String* findTargetBoneName;
+		struct CinemachineTargetGroup* m_pTargetGroupObject;
+		struct BattleCamMomentLockOn* m_pMomentLockOnCam;
+		struct BattleCamManual* m_pManualCam;
+		struct InteractionCamera* m_pInteractionCam;
+		struct TargetGroupDefault* m_pTargetGroupDefaultCam;
+		struct List_1_NGame_TargetGroupLockOn_* m_lstLockOnMember;
+		struct BattleResultCam* m_BattleResultCam;
+		struct SpecialLockOnCam* m_SpecialLockOnCam;
+		bool GOGIGFKDGCK;
+		bool LJPAGNLFGCG;
+		float JJKBHIAFDEI;
+		int32_t m_nNormalLockOnCamIndex;
+		float m_fCameraActionCharRotTime;
+		struct CinemachineBlendDefinition m_InputBackBlend;
+		struct Vector2 m_vInputLimitDelta;
+		struct Vector2 LDOHJMNOFOP;
+		float m_DeltaMulValue;
+		float m_fInputCheckTime;
+		float DNFFIGKPGPH;
+		struct TargetGroupLockOn* CFOLHNFGNGP;
+		struct GameObject* NLIHDFDMKOG;
+		struct CinemachineVirtualCameraBase* NAAMFHLDGKI;
+		struct GameObject* GPMICBKMPEH;
+		int32_t JBHOKGKNOOO;
+		struct ENNEJEPMJLJ* player;
+		struct Transform* FLHGBKCGEEJ;
+		struct ENNEJEPMJLJ* target;
+		float NENNLECCLBP;
+		struct GameObject* PDGDNGJOMII;
+		struct Coroutine* LOMGCDOILPH;
+		float DBPKALIOBOG;
+		bool OLJIIFFBAHM;
+		bool HNKKNLBPIGE;
+		bool CALIDDKBNNH;
+		bool OJJOIMNEFPD;
+		int32_t LOHMOFNPJKI;
+		struct List_1_ENNEJEPMJLJ_* PEIBANIEKIE;
+		struct SortedDictionary_2_System_Int32_List_1_ENNEJEPMJLJ_* AFPBKILHMAH;
+		struct List_1_ENNEJEPMJLJ_* KNGFNGGJAGL;
+		struct List_1_ENNEJEPMJLJ_* PFIPCAFNJMC;
+		struct List_1_ENNEJEPMJLJ_* NIONMPMHJAM;
+		struct List_1_UnityEngine_GameObject_* ONHIHPLOJMK;
+		struct List_1_Cinemachine_CinemachineVirtualCamera_* MDCFJMCKNPK;
+		struct Vector3 DDJOHJJLPHF;
+		struct Vector3 NBBHGFDODFP;
+		bool CBAAAMGOKBL;
+		struct Vector3 GGGAAILLHGE;
+		struct Quaternion KIEIHCGHOOE;
+		struct Quaternion DHJDFMIDALJ;
+		bool KCAILMDKHMF;
+		float LMAAFNMNDBB;
+		float MHLLMIDCFNH;
+		float KIEPJGILPEO;
+		float m_fCurrentCamRotationTime;
+		struct FXBase* KAHMMHAOLMD;
+		struct String* JCIBEIPKAKF;
+		struct CameraTargetChecker* HFECCDEFDAF;
+		struct MapFixCamera* CFAEHEJDNIH;
+		float HJNBPAJEPBO;
+		struct CinemachineFramingTransposer* OBHIKGDBAHK;
+		float NNGPEJFMOBE;
+		bool NOCMCOLDEFN;
+		float m_AutoZoomChangeDist;
+		float m_AutoZoomChangeTime;
+		float FHPAOBIJEAG;
+		bool CFBBHAGBGOA;
+		bool HOAAENPFOKI;
+	};
+
+	struct BattleCamRootControl
+	{
+		struct BattleCamRootControl__Class* klass;
+		MonitorData* monitor;
+		struct BattleCamRootControl__Fields fields;
+	};
+
+	struct __declspec(align(8)) IFCGLMJJCGF__Fields // BattleConfig
+	{
+		float HNJHJDJHOGP;
+		float NMBDKEDIBBE;
+		int32_t IEJLCNKFHFP;
+		int32_t LCCGPOIHPIJ;
+		float EIJPGMGMKNF;
+		float CEOCOGLPAEA;
+		float JEGMDJFBOGM;
+		float KAGPOAIOBCA;
+		float IFALNCPAMEM;
+		float BIDEFNFJJMN;
+		float IHPECEFOLCE;
+		float BOKOCDCOCMB;
+		int32_t CINFGBIOACJ;
+		int32_t EHEEAJGGIAB;
+		int32_t OEEDPJCNNHN;
+		int32_t MHPAIFPBPBC;
+		float LFGGEKJELAI;
+		float ACPLALBPHPG;
+		float KJECCBCPJOL;
+		float AMLMGAJBECK;
+		int32_t ANFLCFMKGHD;
+		int32_t HGOMFNIIPDF;
+		int32_t OMOFKFDOLFP;
+		float FMKMMHPMMGO;
+		int32_t BFMGBDPFJCN;
+		float MGIJIIBNPFG;
+		int64_t JIODEFOCKPP;
+		float CBGINNHFAAH;
+		int64_t LFOCINOLENF;
+		float ECALFEONCLK;
+		float AMFOJHPPIDN;
+		float LICKIOEFEJO;
+		float CNNFHNBCMPD;
+		float KGFAFMKPICK;
+		float PLEHPCECGOH;
+		float PCCFOMNBAIE;
+		float BCLHPGLIBLF;
+		float BNOHFCIMEBA;
+		float LLJCDAFODCD;
+		float IELCKNGOKGD;
+		float IBLPBLJDOEP;
+		int32_t GGIDCGOJNKG;
+		int32_t AJLIMGHGELA;
+		float LBGDPIJDHBD;
+		float PHDPLOPLCMH;
+		int64_t IHEGJPGDOFO;
+		struct String* AKIDDPPCHCO;
+		struct String* OGHKKHNPIMP;
+		float GKCFPHPPKKL;
+		struct String* ANPKMHAKDFH;
+		struct String* CIAAGDGNKIB;
+		float AJLLKEJCEIO;
+		float JJCIFBCIBIH;
+		float KCPGKBCIEBC;
+		struct String* HFCNFCHFFBP;
+		struct String* JOHIKIDOGKM;
+		struct String* JMJCOAOFLFI;
+		struct String* BPPHEJPBFPJ;
+		struct String* PJAPILAAHHB;
+		int64_t POCDCHCHKNM;
+		int64_t PAHFNNPOGOP;
+		float OBMBGGJAFKM;
+		int32_t FNNHAHNLAPJ;
+		struct List_1_System_Single_* NJLNEDGDFLL;
+		float LCMJMHJCHIP;
+		float HNDGFGOLNKA;
+		float MKLBMMOKNFJ;
+		float LDMCMKPOJBG;
+		float BKPGFABLCMG;
+		struct List_1_System_Int64_* BHHAAHMBBIC;
+		float DGKNEKLDALE;
+		float GAIPJFLDIOO;
+		float KMBCFOKDDCJ;
+		int32_t JOEDAHPCBLP;
+		float MIAJCPMEFBN;
+		float HBCLFDIFOII;
+		struct List_1_System_Single_* GDGHKCNIAHB;
+		struct List_1_System_Int32_* NDOJEMJBCPL;
+		float ABNPNFNFDBF;
+		float OBFAHAIICHD;
+		float GAHMBGENNLL;
+		float HKEOMEIKELG;
+		float JLNAGOONLDB;
+		float AGIFJAMDKHB;
+		struct List_1_System_Single_* MBBDMOFMNAL;
+		float EAKONLCHEPF;
+		float LNIDLJCFKHJ;
+		float DNIDGEEMBKI;
+		float ONNNCKCCADK;
+		int32_t HEBINALHJFF;
+		float PGOHCCOHLGK;
+		float HMLJKNHEEPH;
+		int32_t DGLICJBJGLD;
+		int32_t OIHDIOADOFH;
+		float OBHBOAAHBJB;
+		float BBDAMOMBIBD;
+		int32_t HBJGMALLHAH;
+		int32_t BOIOGMCKDGF;
+		int32_t EPEMFIJMFBB;
+		int32_t FOHONLBJCCO;
+		int32_t MFMDNBDAADK;
+		int32_t IFGHIPABEHD;
+		int32_t EDHJDGKBFKJ;
+		int32_t CPICGLLGMNC;
+		float LGBDCIFJHOD;
+		float ACAPEILLAAJ;
+		float PKGBGIFPKEE;
+		float BAMCJMKBGPP;
+		float BLGAMCNBPDF;
+		int32_t HOAIHIAPFAH;
+		float CKBCGGGGINJ;
+		int32_t AJJPMEKKMHM;
+		float KCEHHDAFGPM;
+		float JKINIEBJAFB;
+		float NKHCNNFGBPH;
+		float NGNCPNOODLJ;
+		float GEDAAFNNJIJ;
+		float GNJAACJLDOF;
+		struct List_1_List_1_System_Single_* BDAPGIACPAG;
+		struct List_1_List_1_System_Single_* NMPKCGBEGJJ;
+		int32_t BOGAJNJNMPK;
+	};
+
+	struct IFCGLMJJCGF
+	{
+		struct IFCGLMJJCGF__Class* klass;
+		MonitorData* monitor;
+		struct IFCGLMJJCGF__Fields fields;
+	};
+
+	struct GameFrameWork__Fields
+	{
+		struct MonoBehaviour__Fields _;
+		bool IsQuit;
+		NCMFGLJMIFJ_OFGDNPNIFOJ__Enum SceneMode;
+		struct AudioListener* pkAudioListener;
+		struct Camera* pkMainCamera;
+		struct Camera* pkUICamera;
+		struct Camera* pkSubCamera;
+		struct Canvas* pkSpineCanvas;
+		struct GameObject* pkSpineLetterBox;
+		struct GameObject* pkRootCanvas;
+		struct GameObject* pkEffectRoot;
+		struct GameObject* pkSoundRoot;
+		struct GameObject* pkSpawnPoolsRoot;
+		struct GameObject* pkProjectileRoot;
+		struct Text* pkVersion;
+		struct GameObject* pkBillboardRoot;
+		struct LightingPlanData* defaultLightingPlanData;
+		struct VolumeProfile* volumeFXProfile;
+		struct GameObject* pkScreenUITouchEffect;
+		struct GameObject* pkScreenUILongTouchEffect;
+		struct UITooltip* pkUITooltip;
+		bool m_bIsFocusOut;
+	};
+
+	struct GameFrameWork
+	{
+		struct GameFrameWork__Class* klass;
+		MonitorData* monitor;
+		struct GameFrameWork__Fields fields;
 	};
 
 #if !defined(_GHIDRA_) && !defined(_IDA_)

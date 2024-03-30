@@ -3,10 +3,18 @@
 ### Features
 - No Cooldown
 - God Mode
-- Damage Hack
+- Damage Hack (Works for certain weapons only)
 - Dumb Enemies (They don't attack you)
-- Mission Time
+- Mission Time 
 - Time Scale
+- FPS Unlocker
+- Skip Intro Movie
 
 ### Building
-- Make sure to change the game directory in **Post-Build Event**
+- ``git clone --recurse-submodules https://github.com/Taiga74164/SLA-Cheeto``
+- First time building and seeing this error?
+![error](error.png)
+- Replace **{PATH_TO_GAME}** with the actual path to your game.
+- OR before building, you can initially just create a PostBuildEvent.cmd with:
+  ``xcopy /f /y "D:\Git\Project74164\SoloLevelling\x64\Release\SoloLevelling.dll" "{PATH_TO_GAME}\winhttp.dll*" ``
+  Keep in mind to replace **{PATH_TO_GAME}** with the actual path to your game.

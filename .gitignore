@@ -376,3 +376,5 @@ ModelChanger.cpp
 !/blackbone-modified/DIA/x64/
 !/blackbone-modified/DIA/Win32/
 /deploy
+
+PostBuildEvent.cmd

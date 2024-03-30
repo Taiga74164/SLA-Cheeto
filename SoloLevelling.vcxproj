@@ -58,8 +58,19 @@
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /f /y "$(TargetDir)$(ProjectName).dll" "X:\Games\Netmarble Game\sololv\winhttp.dll*"</Command>
+      <Command>findstr "{PATH_TO_GAME}" "$(ProjectDir)PostBuildEvent.cmd"
+if %errorlevel% == 0 (
+    echo Error: PostBuildEvent.cmd still contains the placeholder "{PATH_TO_GAME}". Please replace it to the path to Solo Leveling.
+    exit 1
+) else (
+    cmd /c "$(ProjectDir)PostBuildEvent.cmd"
+)</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if not exist "$(ProjectDir)PostBuildEvent.cmd" (
+    echo xcopy /f /y "$(TargetDir)$(ProjectName).dll" "{PATH_TO_GAME}\winhttp.dll*" &gt; "$(ProjectDir)PostBuildEvent.cmd"
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="appdata\helpers.cpp" />
