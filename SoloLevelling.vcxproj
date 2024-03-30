@@ -58,7 +58,7 @@
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /f /y "$(TargetDir)$(ProjectName).dll" "D:\Games\SoloLevelling\Netmarble Game\sololv\winhttp.dll*"</Command>
+      <Command>xcopy /f /y "$(TargetDir)$(ProjectName).dll" "X:\Games\Netmarble Game\sololv\winhttp.dll*"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -68,6 +68,7 @@
     <ClCompile Include="cheat\features\DamageHack.cpp" />
     <ClCompile Include="cheat\features\DumbEnemies.cpp" />
     <ClCompile Include="cheat\features\MissionTime.cpp" />
+    <ClCompile Include="cheat\features\FPSUnlock.cpp" />
     <ClCompile Include="cheat\features\NoCooldown.cpp" />
     <ClCompile Include="cheat\features\PlayerSpeed.cpp" />
     <ClCompile Include="cheat\features\SkipIntroMovie.cpp" />
@@ -112,6 +113,7 @@
     <ClInclude Include="cheat\features\DamageHack.h" />
     <ClInclude Include="cheat\features\DumbEnemies.h" />
     <ClInclude Include="cheat\features\MissionTime.h" />
+    <ClInclude Include="cheat\features\FPSUnlock.h" />
     <ClInclude Include="cheat\features\NoCooldown.h" />
     <ClInclude Include="cheat\features\PlayerSpeed.h" />
     <ClInclude Include="cheat\features\SkipIntroMovie.h" />

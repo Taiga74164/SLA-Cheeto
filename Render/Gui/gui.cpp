@@ -66,6 +66,10 @@ void Gui::Render()
 			ImGui::CheckboxFill("Time Scale", &vars.b_TimeScale);
 			if (vars.b_TimeScale)
 				ImGui::SliderFloat("Speed", &vars.f_TimeScaleSpeed, 1.0f, 10.0f, "%.1f");
+
+			ImGui::CheckboxFill("FPS Unlock", &vars.b_FPSUnlock);
+			if (vars.b_FPSUnlock)
+				ImGui::SliderInt("FPS", &vars.i_FPS, 5, 360, "%d");
 			
 			ImGui::EndGroup();
 			ImGui::PopStyleVar();
