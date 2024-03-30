@@ -9,6 +9,10 @@ using namespace app;
 DO_APP_FUNC(0x0202DAF0, String*, Marshal_PtrToStringAnsi, (void* ptr, MethodInfo* method));
 DO_APP_FUNC(0x0202DB10, String*, Marshal_PtrToStringUni, (void* ptr, MethodInfo* method));
 
+// FPSUnlock
+DO_APP_FUNC(0x03015A20, void, Application_set_targetFrameRate, (int value, MethodInfo* method));
+
+// TimeScale
 DO_APP_FUNC(0x03071EC0, float, Time_get_timeScale, (MethodInfo* method));
 DO_APP_FUNC(0x03071FB0, void, Time_set_timeScale, (float value, MethodInfo* method));
 

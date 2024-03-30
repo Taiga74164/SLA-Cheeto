@@ -6,6 +6,7 @@
 #include "features/NoCooldown.h"
 #include "features/DamageHack.h"
 #include "features/DumbEnemies.h"
+#include "features/FPSUnlock.h"
 #include "features/MissionTime.h"
 #include "features/TimeScale.h"
 #include "features/SkipIntroMovie.h"
@@ -24,6 +25,7 @@ void init_cheat()
 	REGISTER(MissionTime);
 	REGISTER(TimeScale);
 	REGISTER(SkipIntroMovie);
+	REGISTER(FPSUnlock);
 #undef REGISTER
 
 	manager.LoadAllModules();

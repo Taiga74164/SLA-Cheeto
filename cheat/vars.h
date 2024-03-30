@@ -11,6 +11,8 @@ struct Vars
 	int i_InfiniteMissionTimeMs = 180000;
 	bool b_TimeScale;
 	float f_TimeScaleSpeed = 2.0f;
+	bool b_FPSUnlock;
+	int i_FPS = 60;
 
 	bool b_SkipIntroMovie = true;
 };
