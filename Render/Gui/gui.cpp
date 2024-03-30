@@ -54,6 +54,7 @@ void Gui::Render()
 			ImGui::CheckboxFill("Damage Hack", &vars.b_DamageHack);
 			if (vars.b_DamageHack)
 				ImGui::SliderFloat("Value", &vars.f_DamageHackValue, 200.0f, 5000.0f, "%1.0f");
+			ImGui::CheckboxFill("Dumb Enemies", &vars.b_DumbEnemies);
 			ImGui::CheckboxFill("Infinite Mission Time", &vars.b_InfiniteMissionTime);
 			ImGui::CheckboxFill("Time Scale", &vars.b_TimeScale);
 			if (vars.b_TimeScale)

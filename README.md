@@ -5,7 +5,7 @@
 - God Mode
 - Damage Hack
 - Dumb Enemies (They don't attack you)
-- Infinite Dungeon Time
+- Infinite Mission Time
 - Time Scale
 
 ### Building
