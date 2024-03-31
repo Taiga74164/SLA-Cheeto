@@ -366,15 +366,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-enc_temp_folder/
-debugger.cpp
-ModelChanger.h
-ModelChanger.cpp
-/scripts/utility/genshin_resource/temp.lua
-
-!/blackbone-modified/src/3rd_party/AsmJit/x86/
-!/blackbone-modified/DIA/x64/
-!/blackbone-modified/DIA/Win32/
-/deploy
-
 PostBuildEvent.cmd
