@@ -40,7 +40,7 @@ void init_cheat()
 void run_cheat()
 {
 	SAFE_BEGIN();
-	ModuleManager::GetInstance().UpdateAllModules();
+	//ModuleManager::GetInstance().UpdateAllModules();
 	SAFE_EEND();
 }
 

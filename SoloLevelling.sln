@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoloLevelling", "SoloLevelling.vcxproj", "{41503935-0CD8-44F5-BD2C-3A4F46E0D197}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoloLevelling", "src/SoloLevelling.vcxproj", "{41503935-0CD8-44F5-BD2C-3A4F46E0D197}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
