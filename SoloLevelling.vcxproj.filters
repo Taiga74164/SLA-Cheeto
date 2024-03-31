@@ -141,6 +141,9 @@
     <ClCompile Include="cheat\features\SkipIntroMovie.cpp">
       <Filter>features</Filter>
     </ClCompile>
+    <ClCompile Include="cheat\features\FPSUnlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Core.h">
@@ -328,6 +331,9 @@
     </ClInclude>
     <ClInclude Include="cheat\features\SkipIntroMovie.h">
       <Filter>features</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\features\FPSUnlock.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
