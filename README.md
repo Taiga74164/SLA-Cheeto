@@ -29,7 +29,7 @@ The DLL will automatically be loaded by the game itself if the dll is in the gam
 
 ## Building
 - Clone the repository: `git clone --recurse-submodules https://github.com/Taiga74164/SLA-Cheeto`.
-- If you encounter the error depicted in the [screenshot](src/res.error.png), replace **{PATH_TO_GAME}** with the actual path to your game in `PostBuildEvent.cmd`.
+- If you encounter the error depicted in the [screenshot](src/res/error.png), replace **{PATH_TO_GAME}** with the actual path to your game in `PostBuildEvent.cmd`.
 - **_OR_** before building, you can initially create a `PostBuildEvent.cmd` with: `xcopy /f /y "{PROJECT_PATH}\x64\Release\winhttp.dll" "{PATH_TO_GAME}\winhttp.dll*"`.
 - Remember to replace the placeholders with your own paths.
 
