@@ -25,7 +25,7 @@ The DLL will automatically be loaded by the game itself if the dll is in the gam
 - Skip Intro Movie
 
 ## Screenshot
-![menu](src\res\Solo_Leveling_ARISE_4BRSUmbeJd.png)\
+![menu](src\res\Solo_Leveling_ARISE_4BRSUmbeJd.png)
 
 ## Building
 - Clone the repository: `git clone --recurse-submodules https://github.com/Taiga74164/SLA-Cheeto`.
