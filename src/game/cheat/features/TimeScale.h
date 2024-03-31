@@ -1,15 +1,17 @@
 #pragma once
-#include "ModuleManager.h"
+#include "Singleton.h"
 #include "global.h"
 
 namespace Cheat::Features
 {
-	class TimeScale : public Module
+	class TimeScale : public Singleton<TimeScale>
 	{
 	public:
-		TimeScale() = default;
+		TimeScale();
 
-		void Load() override {}
-		void Update() override;
+		void OnGameUpdate();
+
+	private:
+		bool m_DidSpeed;
 	};
 }

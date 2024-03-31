@@ -18,16 +18,8 @@ void Core::Start()
 	}
 
 	Init(Renderer::DXVersion::D3D11);
-
 	init_il2cpp();
 	init_cheat();
-
-	while (true)
-	{
-		run_cheat();
-
-		Sleep(50);
-	}
 }
 
 #pragma region Initialization and DLL proxy stuff

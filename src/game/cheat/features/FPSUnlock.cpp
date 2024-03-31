@@ -2,23 +2,26 @@
 #include "HookManager.h"
 #include "Utils.h"
 #include "game-utils.hpp"
+#include "events.h"
 
 namespace Cheat::Features
 {
-    static bool _lastEnabledStatus = false;
-    static int _originFPS = 30;
+	FPSUnlock::FPSUnlock() : m_LastEnableStatus(false), m_OriginFPS(60)
+	{
+		events::GameUpdateEvent += MY_METHOD_HANDLER(FPSUnlock::OnGameUpdate);
+	}
     
-    void FPSUnlock::Update()
+    void FPSUnlock::OnGameUpdate()
     {
-        if (_lastEnabledStatus && !vars.b_FPSUnlock)
+        if (m_LastEnableStatus && !vars.b_FPSUnlock)
         {
-            app::Application_set_targetFrameRate(_originFPS, nullptr);
+            app::Application_set_targetFrameRate(m_OriginFPS, nullptr);
         }
-        else if (!_lastEnabledStatus && vars.b_FPSUnlock)
+        else if (!m_LastEnableStatus && vars.b_FPSUnlock)
         {
-            _originFPS = app::Application_get_targetFrameRate(nullptr);
+            m_OriginFPS = app::Application_get_targetFrameRate(nullptr);
         }
-        _lastEnabledStatus = vars.b_FPSUnlock;
+        m_LastEnableStatus = vars.b_FPSUnlock;
         if (vars.b_FPSUnlock)
         {
             app::Application_set_targetFrameRate(vars.i_FPS, nullptr);

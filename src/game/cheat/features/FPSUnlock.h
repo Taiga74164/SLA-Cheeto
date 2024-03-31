@@ -1,15 +1,18 @@
 #pragma once
-#include "ModuleManager.h"
+#include "Singleton.h"
 #include "global.h"
 
 namespace Cheat::Features
 {
-    class FPSUnlock : public Module
+    class FPSUnlock : public Singleton<FPSUnlock>
     {
     public:
-        FPSUnlock() = default;
+		FPSUnlock();
 
-        void Load() override {}
-        void Update() override;
+		void OnGameUpdate();
+
+    private:
+		bool m_LastEnableStatus = false;
+		int m_OriginFPS = 30;
     };
 }

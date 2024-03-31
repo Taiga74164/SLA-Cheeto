@@ -1,7 +1,7 @@
 #include "cheat.h"
-#include "ModuleManager.h"
 #include "global.h"
 #include "HookManager.h"
+#include "events.h"
 
 #include "features/PlayerSpeed.h"
 #include "features/NoCooldown.h"
@@ -18,43 +18,24 @@ static void GameFrameWork_Update_Hook(app::GameFrameWork* __this, MethodInfo* me
 
 void init_cheat()
 {
-	auto& manager = ModuleManager::GetInstance();
-
-#define REGISTER(Class) ModuleManager::GetInstance().RegisterModule(std::make_unique<Class>());
-	REGISTER(PlayerSpeed);
-	REGISTER(NoCooldown);
-	REGISTER(DamageHack);
-	REGISTER(DumbEnemies);
-	REGISTER(MissionTime);
-	REGISTER(TimeScale);
-	REGISTER(SkipIntroMovie);
-	REGISTER(FPSUnlock);
-#undef REGISTER
-
-	manager.LoadAllModules();
+#define INIT_FEATURE(feature) feature::GetInstance()
+	INIT_FEATURE(PlayerSpeed);
+	INIT_FEATURE(NoCooldown);
+	INIT_FEATURE(DamageHack);
+	INIT_FEATURE(DumbEnemies);
+	INIT_FEATURE(MissionTime);
+	INIT_FEATURE(TimeScale);
+	INIT_FEATURE(SkipIntroMovie);
+	INIT_FEATURE(FPSUnlock);
+#undef INIT_FEATURE
 
 	HookManager::install(app::GameFrameWork_Update, GameFrameWork_Update_Hook);
 }
 
-// TODO: Replace this later with event system
-void run_cheat()
-{
-	SAFE_BEGIN();
-	//ModuleManager::GetInstance().UpdateAllModules();
-	SAFE_EEND();
-}
-
-// Event Handler
 void GameFrameWork_Update_Hook(app::GameFrameWork* __this, MethodInfo* method)
 {
 	SAFE_BEGIN();
-	//LOG("GameFrameWork::Update");
-	//LOG("ITS LOGGING GOOD JOB WOW !!!!!!!!!!");
-	//LOG("ITS LOGGING GOOD JOB WOW !!!!!!!!!!");
-	//LOG("ITS LOGGING GOOD JOB WOW !!!!!!!!!!");
-	//LOG("ITS LOGGING GOOD JOB WOW !!!!!!!!!!");
-	//LOG("ITS LOGGING GOOD JOB WOW !!!!!!!!!!");
-	//LOG("ITS LOGGING GOOD JOB WOW !!!!!!!!!!");
+	events::GameUpdateEvent();
 	SAFE_EEND();
 	CALL_ORIGIN(GameFrameWork_Update_Hook, __this, method);
 }

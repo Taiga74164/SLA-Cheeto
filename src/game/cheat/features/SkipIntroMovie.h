@@ -1,16 +1,13 @@
 #pragma once
-#include "ModuleManager.h"
+#include "Singleton.h"
 #include "global.h"
 
 namespace Cheat::Features
 {
-	class SkipIntroMovie : public Module
+	class SkipIntroMovie : public Singleton<SkipIntroMovie>
 	{
 	public:
 		SkipIntroMovie();
-
-		void Load() override {}
-		void Update() override {}
 
 	private:
 		static void GameMovie_Update_Hook(app::GameMovie* __this, MethodInfo* method);

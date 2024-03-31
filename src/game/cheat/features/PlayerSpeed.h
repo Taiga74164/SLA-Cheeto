@@ -1,17 +1,12 @@
 #pragma once
-#include "ModuleManager.h"
+#include "Singleton.h"
 #include "global.h"
 
 namespace Cheat::Features
 {
-	class PlayerSpeed : public Module
+	class PlayerSpeed : public Singleton<PlayerSpeed>
 	{
 	public:
 		PlayerSpeed();
-
-		void Load() override {}
-		void Update() override {}
-
-	private:
 	};
 }
