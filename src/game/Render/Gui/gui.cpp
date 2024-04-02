@@ -79,7 +79,7 @@ void Gui::Render()
 				ImGui::SliderInt("FPS", &vars.i_FPS, 5, 360, "%d");
 			ImGui::CheckboxFill("Fov Changer", &vars.b_FovChanger);
 			if (vars.b_FovChanger)
-				ImGui::SliderFloat("Fov", &vars.i_Fov, 1.0f, 360.0f, "%.1f");
+				ImGui::SliderFloat("Fov", &vars.f_Fov, 1.0f, 360.0f, "%.1f");
 
 			ImGui::CheckboxFill("Skip Intro Movie", &vars.b_SkipIntroMovie); HELPMAKER("This will skip the intro movie when you start the game");
 
