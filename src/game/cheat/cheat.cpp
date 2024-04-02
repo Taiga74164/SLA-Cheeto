@@ -7,6 +7,7 @@
 #include "features/NoCooldown.h"
 #include "features/DamageHack.h"
 #include "features/DumbEnemies.h"
+#include "features/FovChanger.h"
 #include "features/FPSUnlock.h"
 #include "features/MissionTime.h"
 #include "features/TimeScale.h"
@@ -27,6 +28,7 @@ void init_cheat()
 	INIT_FEATURE(TimeScale);
 	INIT_FEATURE(SkipIntroMovie);
 	INIT_FEATURE(FPSUnlock);
+	INIT_FEATURE(FovChanger);
 #undef INIT_FEATURE
 
 	HookManager::install(app::GameFrameWork_Update, GameFrameWork_Update_Hook);

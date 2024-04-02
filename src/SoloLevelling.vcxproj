@@ -91,6 +91,7 @@ if %errorlevel% == 0 (
     <ClInclude Include="game\cheat\cheat.h" />
     <ClInclude Include="game\cheat\features\DamageHack.h" />
     <ClInclude Include="game\cheat\features\DumbEnemies.h" />
+    <ClInclude Include="game\cheat\features\FovChanger.h" />
     <ClInclude Include="game\cheat\features\FPSUnlock.h" />
     <ClInclude Include="game\cheat\features\MissionTime.h" />
     <ClInclude Include="game\cheat\features\NoCooldown.h" />
@@ -166,6 +167,7 @@ if %errorlevel% == 0 (
     <ClCompile Include="game\cheat\cheat.cpp" />
     <ClCompile Include="game\cheat\features\DamageHack.cpp" />
     <ClCompile Include="game\cheat\features\DumbEnemies.cpp" />
+    <ClCompile Include="game\cheat\features\FovChanger.cpp" />
     <ClCompile Include="game\cheat\features\FPSUnlock.cpp" />
     <ClCompile Include="game\cheat\features\MissionTime.cpp" />
     <ClCompile Include="game\cheat\features\NoCooldown.cpp" />
