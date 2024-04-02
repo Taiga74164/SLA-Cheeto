@@ -14,6 +14,8 @@ struct Vars
 	float f_TimeScaleSpeed = 2.0f;
 	bool b_FPSUnlock = true;
 	int i_FPS = 120;
+	bool b_FovChanger = false;
+	float f_Fov = 60.0f;
 
 	bool b_SkipIntroMovie = true;
 };
