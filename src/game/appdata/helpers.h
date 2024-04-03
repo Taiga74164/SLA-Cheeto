@@ -14,6 +14,7 @@
 
 #define IS_SINGLETON_LOADED(className) (/**app::Singleton_1_## className ##___TypeInfo != nullptr &&*/ *app::TSingleton_1_ ## className ## __get_Instance__MethodInfo != nullptr)
 #define GET_SINGLETON(name) IS_SINGLETON_LOADED(name) ? reinterpret_cast<app:: ## name ## *>(app::TSingleton_GetInstance(*app::TSingleton_1_ ## name ## __get_Instance__MethodInfo)) : nullptr
+#define GET_SINGLETON_1(name) IS_SINGLETON_LOADED(name) ? reinterpret_cast<app:: ## name ## *>(app::TSingleton_1_System_Object__get_Instance(*app::TSingleton_1_ ## name ## __get_Instance__MethodInfo)) : nullptr
 
 #define SAFE_BEGIN() __try {
 #define SAFE_ERROR() } __except (EXCEPTION_EXECUTE_HANDLER) { \

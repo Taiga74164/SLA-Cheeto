@@ -22,4 +22,5 @@ public:
 	CONFIG_ENTRY(bool, FovChanger, false);
 	CONFIG_ENTRY(float, Fov, 60.0f);
 	CONFIG_ENTRY(bool, SkipIntroMovie, true);
+	CONFIG_ENTRY(bool, DisableWebView, true);
 };

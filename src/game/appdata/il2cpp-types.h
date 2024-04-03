@@ -4850,6 +4850,36 @@ namespace app
 		struct GameFrameWork__Fields fields;
 	};
 
+	enum class EGLGAPIAANF__Enum : int32_t
+	{
+		None = 0x00000000,
+		EnterBattleReqProcess = 0x00000001,
+		ShowBattleEnterUI = 0x00000002,
+		EnterBattleReq = 0x00000003,
+		EnterBattle = 0x00000004,
+		RetryBattle = 0x00000005,
+		NextStageBattle = 0x00000006,
+		LeaveBattle = 0x00000007,
+		BattleResultReq = 0x00000008,
+		CompleteBattle = 0x00000009,
+		StageStart = 0x0000000a,
+	};
+
+	struct __declspec(align(8)) JIBDAHKJHOG__Fields
+	{
+		struct JJIJKBGACGB *LCPFKKDHDGD;
+		struct LJAKACHOOMI *LLOEJODNEDM;
+		EGLGAPIAANF__Enum ODBFJKNANFA;
+		struct List_1_JPGHFENPLMH_ *PLMEENHOBMB;
+	};
+
+	struct JIBDAHKJHOG
+	{
+		struct JIBDAHKJHOG__Class *klass;
+		MonitorData *monitor;
+		struct JIBDAHKJHOG__Fields fields;
+	};
+
 #if !defined(_GHIDRA_) && !defined(_IDA_)
 }
 #endif

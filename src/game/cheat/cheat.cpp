@@ -12,6 +12,7 @@
 #include "features/MissionTime.h"
 #include "features/TimeScale.h"
 #include "features/SkipIntroMovie.h"
+#include "features/DisableWebView.h"
 
 using namespace Cheat::Features;
 
@@ -29,6 +30,7 @@ void init_cheat()
 	INIT_FEATURE(SkipIntroMovie);
 	INIT_FEATURE(FPSUnlock);
 	INIT_FEATURE(FovChanger);
+	INIT_FEATURE(DisableWebView);
 #undef INIT_FEATURE
 
 	HookManager::install(app::GameFrameWork_Update, GameFrameWork_Update_Hook);
