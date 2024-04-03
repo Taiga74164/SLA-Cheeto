@@ -11,15 +11,16 @@ This project is created and shared for educational purposes only. I do not condo
 
 ## Features
 - No Cooldown
+- No Cooldown Shadow (Enable only if you have shadow feature available)
 - God Mode
-- Damage Hack (Works for certain weapons only)
+- Damage Hack
 - Dumb Enemies (They don't attack you)
-- Mission Time 
+- Mission Time (Enable this before starting a mission)
 - Time Scale
 - FPS Unlocker
 - Fov Changer
-- Skip Intro Movie
-- Disable WebView
+- Skip Intro Movie (Loads the game faster)
+- Disable WebView (Disables annoying web pop-up when entering the game)
 
 ## Screenshot
 ![menu](src/res/Solo_Leveling_ARISE_4BRSUmbeJd.png)
@@ -27,6 +28,7 @@ This project is created and shared for educational purposes only. I do not condo
 ## Building
 1. Clone the repository: `git clone --recurse-submodules https://github.com/Taiga74164/SLA-Cheeto`.
 2. Build with your preferred IDE.
+3. Output will be in bin/
 
 ## Contributing
 1. Fork the repo (<https://github.com/Taiga74164/SLA-Cheeto/fork>).

@@ -9,7 +9,6 @@ namespace Cheat::Features
 	DamageHack::DamageHack()
 	{
 		HookManager::install(app::PIPHNBOBFEF_KBCIIEFLPGB, PIPHNBOBFEF_KBCIIEFLPGB_Hook);
-		HookManager::install(app::GHINOEFFMPN_EKHGIHBHEPL, GHINOEFFMPN_EKHGIHBHEPL_Hook);
 	}
 
 	void DamageHack::PIPHNBOBFEF_KBCIIEFLPGB_Hook(app::PIPHNBOBFEF* __this, app::ESpecialState__Enum specialState, int64_t someInt1, int64_t someInt2, int64_t someInt3, app::String* buffName, MethodInfo* method)
@@ -46,7 +45,8 @@ namespace Cheat::Features
 			if (entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::ENEMY)
 			{
 				if (vars.DamageHack.value())
-					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::CriticalRate, 2i64, 99999999i64, 0i64, buffName, method);
+					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::FixDamage, static_cast<int64_t>(vars.DamageHackValue.value()), 0i64, 0i64, buffName, method);
+
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Crash, 2i64, 99999999i64, 0i64, buffName, method);
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Stun, 2i64, 1000i64, 0i64, buffName, method);
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::BodyStop, 2i64, 1000i64, 0i64, buffName, method);
@@ -54,68 +54,5 @@ namespace Cheat::Features
 		}
 
 		CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, specialState, someInt1, someInt2, someInt3, buffName, method);
-	}
-
-	int32_t DamageHack::GHINOEFFMPN_EKHGIHBHEPL_Hook(app::SkillIdentity* skillIdentity, void* FKJDKGJBGOD, app::TargetHitData* targetHitData, MethodInfo* method)
-	{
-		auto& vars = Vars::GetInstance();
-		
-		if (skillIdentity->fields.entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
-		{
-			//auto skillRange = skillIdentity->fields.SkillRange;
-			//auto skillMinRange = skillIdentity->fields.SkillMinRange;
-			//auto reaction = targetHitData->fields._reaction;
-			//auto preventSkillCancel = targetHitData->fields.PreventSkillCancel;
-			//auto damageRatio = targetHitData->fields.damageRatio;
-			//auto damageRatioTotalValue = targetHitData->fields.damageRatioTotalValue;
-
-			//LOG("Player:");
-			//LOG("skillRange %f", skillRange);
-			//LOG("skillMinRange %f", skillMinRange);
-			//LOG("reaction %s", magic_enum::enum_name(reaction).data());
-			//LOG("preventSkillCancel %s", preventSkillCancel ? "true" : "false");
-			//LOG("damageRatio %f", damageRatio);
-			//LOG("damageRatioTotalValue %f", damageRatioTotalValue);
-
-			if (vars.DamageHack.value())
-			{
-				skillIdentity->fields.SkillRange = 500.0f;
-				skillIdentity->fields.SkillMinRange = 500.0f;
-				targetHitData->fields._reaction = app::eReactionType__Enum::Float;
-				targetHitData->fields.PreventSkillCancel = true;
-				targetHitData->fields.damageRatio = 500.0f;
-				targetHitData->fields.damageRatioTotalValue = 500.0f;
-			}
-		}
-
-		if (skillIdentity->fields.entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::ENEMY || 
-			skillIdentity->fields.entity->fields.AJEHLIOMMJN == app::ECharacterType__Enum::Monster)
-		{
-			//auto skillRange = skillIdentity->fields.SkillRange;
-			//auto skillMinRange = skillIdentity->fields.SkillMinRange;
-			//auto reaction = targetHitData->fields._reaction;
-			//auto preventSkillCancel = targetHitData->fields.PreventSkillCancel;
-			//auto damageRatio = targetHitData->fields.damageRatio;
-			//auto damageRatioTotalValue = targetHitData->fields.damageRatioTotalValue;
-
-			//LOG("Enemy:");
-			//LOG("skillRange %f", skillRange);
-			//LOG("skillMinRange %f", skillMinRange);
-			//LOG("reaction %s", magic_enum::enum_name(reaction).data());
-			//LOG("preventSkillCancel %s", preventSkillCancel ? "true" : "false");
-			//LOG("damageRatio %f", damageRatio);
-			//LOG("damageRatioTotalValue %f", damageRatioTotalValue);
-
-			if (vars.GodMode.value())
-			{
-				skillIdentity->fields.SkillRange = -1.0f;
-				skillIdentity->fields.SkillMinRange = -1.0f;
-				targetHitData->fields._reaction = app::eReactionType__Enum::None;
-				targetHitData->fields.damageRatio = std::numeric_limits<float>::infinity() * -1.0f;
-				targetHitData->fields.damageRatioTotalValue = std::numeric_limits<float>::infinity() * -1.0f;
-			}
-		}
-
-		return CALL_ORIGIN(GHINOEFFMPN_EKHGIHBHEPL_Hook, skillIdentity, FKJDKGJBGOD, targetHitData, method);
 	}
 }

@@ -8,5 +8,12 @@ namespace Cheat::Features
 	{
 	public:
 		PlayerSpeed();
+
+		void OnGameUpdate();
+
+	private:
+		static void JIBDAHKJHOG_KPDGECAFJKA_Hook(app::JIBDAHKJHOG * __this, MethodInfo * method);
+		static void JIBDAHKJHOG_HLLNLMAECBD_Hook(app::JIBDAHKJHOG * __this, void * JONOLJGMLBE, void * BHMPNNCBFGN, MethodInfo * method);
+		static void JIBDAHKJHOG_COLDHPFDOHG_Hook(app::JIBDAHKJHOG * __this, MethodInfo * method);
 	};
 }

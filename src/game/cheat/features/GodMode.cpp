@@ -1,0 +1,61 @@
+#include "GodMode.h"
+#include "HookManager.h"
+#include "Utils.h"
+#include "game-utils.hpp"
+#include "limits.h"
+
+namespace Cheat::Features
+{
+	GodMode::GodMode()
+	{
+		HookManager::install(app::GHINOEFFMPN_EKHGIHBHEPL, GHINOEFFMPN_EKHGIHBHEPL_Hook);
+	}
+
+	int32_t GodMode::GHINOEFFMPN_EKHGIHBHEPL_Hook(app::SkillIdentity* skillIdentity, void* FKJDKGJBGOD, app::TargetHitData* targetHitData, MethodInfo* method)
+	{
+		auto& vars = Vars::GetInstance();
+
+		//auto skillRange = skillIdentity->fields.SkillRange;
+		//auto skillMinRange = skillIdentity->fields.SkillMinRange;
+		//auto reaction = targetHitData->fields._reaction;
+		//auto preventSkillCancel = targetHitData->fields.PreventSkillCancel;
+		//auto damageRatio = targetHitData->fields.damageRatio;
+		//auto damageRatioTotalValue = targetHitData->fields.damageRatioTotalValue;
+
+		//LOG("%s", magic_enum::enum_name(skillIdentity->fields.entity->fields.FHNGHHPLPGD).data());
+		//LOG("skillRange %f", skillRange);
+		//LOG("skillMinRange %f", skillMinRange);
+		//LOG("reaction %s", magic_enum::enum_name(reaction).data());
+		//LOG("preventSkillCancel %s", preventSkillCancel ? "true" : "false");
+		//LOG("damageRatio %f", damageRatio);
+		//LOG("damageRatioTotalValue %f", damageRatioTotalValue);
+
+		//if (skillIdentity->fields.entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
+		//{
+		//	if (vars.GodMode.value())
+		//	{
+		//		skillIdentity->fields.SkillRange = 500.0f;
+		//		skillIdentity->fields.SkillMinRange = 500.0f;
+		//		targetHitData->fields._reaction = app::eReactionType__Enum::Float;
+		//		targetHitData->fields.PreventSkillCancel = true;
+		//		targetHitData->fields.damageRatio = 500.0f;
+		//		targetHitData->fields.damageRatioTotalValue = 500.0f;
+		//	}
+		//}
+
+		if (skillIdentity->fields.entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::ENEMY || 
+			skillIdentity->fields.entity->fields.AJEHLIOMMJN == app::ECharacterType__Enum::Monster)
+		{
+			if (vars.GodMode.value())
+			{
+				skillIdentity->fields.SkillRange = -1.0f;
+				skillIdentity->fields.SkillMinRange = -1.0f;
+				targetHitData->fields._reaction = app::eReactionType__Enum::None;
+				targetHitData->fields.damageRatio = std::numeric_limits<float>::infinity() * -1.0f;
+				targetHitData->fields.damageRatioTotalValue = std::numeric_limits<float>::infinity() * -1.0f;
+			}
+		}
+
+		return CALL_ORIGIN(GHINOEFFMPN_EKHGIHBHEPL_Hook, skillIdentity, FKJDKGJBGOD, targetHitData, method);
+	}
+}

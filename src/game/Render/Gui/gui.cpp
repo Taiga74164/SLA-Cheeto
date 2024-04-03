@@ -53,13 +53,13 @@ void Gui::Render()
 
 			ImGui::CheckboxFill("No Cooldown", &vars.NoCooldown.value());
 
-			ImGui::CheckboxFill("No Cooldown Shadow", &vars.NoCooldownShadow.value());
+			ImGui::CheckboxFill("No Cooldown Shadow", &vars.NoCooldownShadow.value()); HELPMAKER("Enable only if you have shadow feature available");
 
 			ImGui::CheckboxFill("God Mode", &vars.GodMode.value());
 
-			ImGui::CheckboxFill("Damage Hack", &vars.DamageHack.value()); HELPMAKER("Only works for certain weapons");
+			ImGui::CheckboxFill("Damage Hack", &vars.DamageHack.value());
 			if (vars.DamageHack.value())
-				ImGui::SliderFloat("Value", &vars.DamageHackValue.value(), 200.0f, 5000.0f, "%1.0f");
+				ImGui::SliderInt("Value", &vars.DamageHackValue.value(), 10000, 100000000, "%d");
 
 			ImGui::CheckboxFill("Dumb Enemies", &vars.DumbEnemies.value()); HELPMAKER("This will prevent enemies from attacking or moving towards you");
 
