@@ -8,7 +8,6 @@ using namespace app;
 
 DO_APP_FUNC(0x00454960, void, GameFrameWork_Update, (GameFrameWork* __this, MethodInfo* method));
 
-
 DO_APP_FUNC(0x0202DAF0, String*, Marshal_PtrToStringAnsi, (void* ptr, MethodInfo* method));
 DO_APP_FUNC(0x0202DB10, String*, Marshal_PtrToStringUni, (void* ptr, MethodInfo* method));
 
@@ -64,8 +63,8 @@ DO_APP_FUNC(0x00837510, void, JIBDAHKJHOG_HLLNLMAECBD, (JIBDAHKJHOG* __this, voi
 DO_APP_FUNC(0x00836650, void, JIBDAHKJHOG_EJLDBPGJGPN, (JIBDAHKJHOG* __this, MethodInfo* method)); // NextStageBattle
 DO_APP_FUNC(0x00836410, void, JIBDAHKJHOG_COLDHPFDOHG, (JIBDAHKJHOG* __this, MethodInfo* method)); // StageStart
 
-//Shadow Cooldown And Limit
-DO_APP_FUNC(0x009A41E0, void, JLLMICINIDA__LFCGJLAFFOM, (JLLMICINIDA* __this, MethodInfo* method));
+// Shadow Cooldown And Limit
+DO_APP_FUNC(0x009A41E0, void, JLLMICINIDA_LFCGJLAFFOM, (JLLMICINIDA* __this, MethodInfo* method));
 
 // Singletons
 DO_APP_FUNC(0x00344840, void*, TSingleton_GetInstance, (MethodInfo* method)); // Search for this in IDA
