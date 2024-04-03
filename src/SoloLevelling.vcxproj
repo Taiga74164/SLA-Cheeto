@@ -35,7 +35,8 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <TargetName>winhttp</TargetName>
+    <TargetName>SLA_Cheeto</TargetName>
+    <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -57,22 +58,17 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <ModuleDefinitionFile>$(ProjectDir)game\Exports\Exports.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>findstr "{PATH_TO_GAME}" "$(SolutionDir)PostBuildEvent.cmd"
-if %errorlevel% == 0 (
-    echo Error: PostBuildEvent.cmd still contains the placeholder "{PATH_TO_GAME}". Please replace it to the path to Solo Leveling.
-    exit 1
-) else (
-    cmd /c "$(SolutionDir)PostBuildEvent.cmd"
-)</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>if not exist "$(SolutionDir)PostBuildEvent.cmd" (
-    echo xcopy /f /y "$(TargetDir)$(TargetName).dll" "{PATH_TO_GAME}\winhttp.dll*" &gt; "$(SolutionDir)PostBuildEvent.cmd"
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -102,7 +98,6 @@ if %errorlevel% == 0 (
     <ClInclude Include="game\cheat\vars.h" />
     <ClInclude Include="game\ConfigEntry.hpp" />
     <ClInclude Include="game\ConfigManager.hpp" />
-    <ClInclude Include="game\Core\Core.h" />
     <ClInclude Include="game\events.h" />
     <ClInclude Include="game\events\event.hpp" />
     <ClInclude Include="game\events\handlers\abstracteventhandler.hpp" />
@@ -118,11 +113,10 @@ if %errorlevel% == 0 (
     <ClInclude Include="game\events\joins\eventjoinwrapper.hpp" />
     <ClInclude Include="game\events\joins\handlereventjoin.h" />
     <ClInclude Include="game\events\joins\handlereventjoin.hpp" />
-    <ClInclude Include="game\Exports\Exports.h" />
-    <ClInclude Include="game\Exports\Resources.h" />
     <ClInclude Include="game\game-utils.hpp" />
     <ClInclude Include="game\global.h" />
     <ClInclude Include="game\HookManager.h" />
+    <ClInclude Include="game\main.h" />
     <ClInclude Include="game\Memory.h" />
     <ClInclude Include="game\Module.h" />
     <ClInclude Include="game\ModuleManager.h" />
@@ -178,12 +172,11 @@ if %errorlevel% == 0 (
     <ClCompile Include="game\cheat\features\PlayerSpeed.cpp" />
     <ClCompile Include="game\cheat\features\SkipIntroMovie.cpp" />
     <ClCompile Include="game\cheat\features\TimeScale.cpp" />
-    <ClCompile Include="game\Core\Core.cpp" />
     <ClCompile Include="game\dllmain.cpp" />
     <ClCompile Include="game\events.cpp" />
     <ClCompile Include="game\events\joins\abstracteventjoin.cpp" />
     <ClCompile Include="game\events\joins\eventjoinwrapper.cpp" />
-    <ClCompile Include="game\Exports\Exports.cpp" />
+    <ClCompile Include="game\main.cpp" />
     <ClCompile Include="game\Memory.cpp" />
     <ClCompile Include="game\Render\Backend\DX11Hook.cpp" />
     <ClCompile Include="game\Render\Backend\DX12Hook.cpp" />
@@ -205,15 +198,6 @@ if %errorlevel% == 0 (
     <ClCompile Include="vendor\imgui\imgui_tables.cpp" />
     <ClCompile Include="vendor\imgui\imgui_widgets.cpp" />
     <ClCompile Include="vendor\imgui\misc\cpp\imgui_stdlib.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="game\Exports\Exports.def" />
-  </ItemGroup>
-  <ItemGroup>
-    <MASM Include="game\Exports\psapi.asm" />
-    <MASM Include="game\Exports\version.asm" />
-    <MASM Include="game\Exports\winhttp.asm" />
-    <MASM Include="game\Exports\winmm.asm" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="vendor\detours\detours-x64.lib" />

@@ -76,6 +76,7 @@ private:
 		// o << config_.dump(4);
 		std::ofstream file(configPath_);
 		file << config_.dump(4);
+		file.flush();
 		file.close();
 	}
 };

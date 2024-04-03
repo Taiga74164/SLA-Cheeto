@@ -5,14 +5,9 @@ This project is created and shared for educational purposes only. I do not condo
 
 ## Usage
 
-#### DLL Proxy
-The DLL will automatically be loaded by the game itself if the dll is in the game directory. You may only rename the dll to `version.dll`, `winhttp.dll` or `winmm.dll`.
-
-#### How to Run
-**Note:** If you're [building](#building), skip to #2
-1. Move `winhttp.dll` into the game directory in `/sololv`
-2. Start the game
-3. Press insert to show the menu
+### How to Run
+1. Inject the DLL to the game with your preferred injector.
+2. Press insert to show the menu
 
 ## Features
 - No Cooldown
@@ -30,10 +25,8 @@ The DLL will automatically be loaded by the game itself if the dll is in the gam
 ![menu](src/res/Solo_Leveling_ARISE_4BRSUmbeJd.png)
 
 ## Building
-- Clone the repository: `git clone --recurse-submodules https://github.com/Taiga74164/SLA-Cheeto`.
-- If you encounter the error depicted in the [screenshot](src/res/error.png), replace **{PATH_TO_GAME}** with the actual path to your game in `PostBuildEvent.cmd`.
-- **_OR_** before building, you can initially create a `PostBuildEvent.cmd` with: `xcopy /f /y "{PROJECT_PATH}\x64\Release\winhttp.dll" "{PATH_TO_GAME}\winhttp.dll*"`.
-- Remember to replace the placeholders with your own paths.
+1. Clone the repository: `git clone --recurse-submodules https://github.com/Taiga74164/SLA-Cheeto`.
+2. Build with your preferred IDE.
 
 ## Contributing
 1. Fork the repo (<https://github.com/Taiga74164/SLA-Cheeto/fork>).

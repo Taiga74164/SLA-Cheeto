@@ -123,12 +123,6 @@
     <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_utility.hpp">
       <Filter>vendor\magic_enum</Filter>
     </ClInclude>
-    <ClInclude Include="game\Exports\Exports.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="game\Exports\Resources.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="game\Render\Backend\DX11Hook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -234,9 +228,6 @@
     <ClInclude Include="game\cheat\vars.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="game\Core\Core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="res\resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -297,6 +288,9 @@
     <ClInclude Include="game\cheat\features\DisableWebView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="game\main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vendor\CommandMenu\src\Menu.cpp">
@@ -340,9 +334,6 @@
     </ClCompile>
     <ClCompile Include="vendor\imgui\backends\imgui_impl_win32.cpp">
       <Filter>vendor\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="game\Exports\Exports.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="game\Render\Backend\DX11Hook.cpp">
       <Filter>Source Files</Filter>
@@ -401,9 +392,6 @@
     <ClCompile Include="game\cheat\features\TimeScale.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="game\Core\Core.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="game\events\joins\abstracteventjoin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -419,24 +407,8 @@
     <ClCompile Include="game\cheat\features\DisableWebView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="game\Exports\Exports.def">
+    <ClCompile Include="game\main.cpp">
       <Filter>Source Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <MASM Include="game\Exports\psapi.asm">
-      <Filter>Source Files</Filter>
-    </MASM>
-    <MASM Include="game\Exports\version.asm">
-      <Filter>Source Files</Filter>
-    </MASM>
-    <MASM Include="game\Exports\winhttp.asm">
-      <Filter>Source Files</Filter>
-    </MASM>
-    <MASM Include="game\Exports\winmm.asm">
-      <Filter>Source Files</Filter>
-    </MASM>
+    </ClCompile>
   </ItemGroup>
 </Project>
