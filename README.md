@@ -24,6 +24,7 @@ The DLL will automatically be loaded by the game itself if the dll is in the gam
 - FPS Unlocker
 - Fov Changer
 - Skip Intro Movie
+- Disable WebView
 
 ## Screenshot
 ![menu](src/res/Solo_Leveling_ARISE_4BRSUmbeJd.png)

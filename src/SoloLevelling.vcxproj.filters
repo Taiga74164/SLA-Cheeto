@@ -285,6 +285,18 @@
     <ClInclude Include="game\events.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="game\cheat\features\FovChanger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game\ConfigEntry.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game\ConfigManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game\cheat\features\DisableWebView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vendor\CommandMenu\src\Menu.cpp">
@@ -389,9 +401,6 @@
     <ClCompile Include="game\cheat\features\TimeScale.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="game\cheat\vars.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="game\Core\Core.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -402,6 +411,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="game\events.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\cheat\features\FovChanger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\cheat\features\DisableWebView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

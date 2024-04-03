@@ -25,7 +25,7 @@ DO_APP_FUNC(0x3039880, void, QualitySettings_set_vSyncCount, (int value, MethodI
 DO_APP_FUNC(0x03071EC0, float, Time_get_timeScale, (MethodInfo* method));
 DO_APP_FUNC(0x03071FB0, void, Time_set_timeScale, (float value, MethodInfo* method));
 
-// Unity Stuff
+// Unity & C# Stuff
 DO_APP_FUNC(0x03060E70, GameObject*, GameObject_Find, (String* name, MethodInfo* method));
 DO_APP_FUNC(0x03061EC0, Transform*, GameObject_get_transform, (GameObject* __this, MethodInfo* method));
 DO_APP_FUNC(0x030610C0, Component*, GameObject_GetComponent, (GameObject* __this, Type* type, MethodInfo* method));;
@@ -38,6 +38,7 @@ DO_APP_FUNC(0x02045210, Assembly*, Assembly_LoadWithPartialName, (String* partia
 DO_APP_FUNC(0x020450F0, Type*, Assembly_GetType, (Assembly* __this, String* name, MethodInfo* method));
 DO_APP_FUNC(0x0308E5B0, Scene, SceneManager_GetActiveScene, (MethodInfo* method));
 DO_APP_FUNC(0x0308FBE0, String*, Scene_GetNameInternal, (int32_t sceneHandle, MethodInfo* method));
+DO_APP_FUNC(0x030651F0, void, Object_1_Destroy_1, (Object_1* obj, MethodInfo* method));
 
 DO_APP_FUNC(0x0040E5D0, void/*CharResourceData*/*, ENNEJEPMJLJ_GNAPBJPBKIO, (ENNEJEPMJLJ* __this, MethodInfo* method));
 DO_APP_FUNC(0x0075EF00, void/*KAAIFMKPKAG*/*, KAAIFMKPKAG_IOFMGMJCCFO, (KAAIFMKPKAG* __this, bool DEJNILEHENL, MethodInfo* method));
@@ -53,10 +54,21 @@ DO_APP_FUNC(0x00D8BA20, void, StoryQuestChapterPage_EnterUI, (StoryQuestChapterP
 // Intro Movie
 DO_APP_FUNC(0x00A9AE20, void, GameMovie_Update, (GameMovie* __this, MethodInfo* method));
 DO_APP_FUNC(0x00A9C720, void, IntroMovie_Update, (IntroMovie* __this, MethodInfo* method));
+// Disable Web View
+DO_APP_FUNC(0x02287AD0, void, WebViewDialog_Show, (void* __this, MethodInfo* method));
+DO_APP_FUNC(0x02289840, void, WebViewUI_RefreshSize, (void* __this, MethodInfo* method));
+
+DO_APP_FUNC(0x00430040, EGLGAPIAANF__Enum, JIBDAHKJHOG_PCLINKFFGNE, (JIBDAHKJHOG* __this, MethodInfo* method));
+DO_APP_FUNC(0x00837FE0, void, JIBDAHKJHOG_KPDGECAFJKA, (JIBDAHKJHOG* __this, MethodInfo* method));
+DO_APP_FUNC(0x00837510, void, JIBDAHKJHOG_HLLNLMAECBD, (JIBDAHKJHOG* __this, void* JONOLJGMLBE, void* BHMPNNCBFGN, MethodInfo* method)); // EnterBattleReq
+DO_APP_FUNC(0x00836650, void, JIBDAHKJHOG_EJLDBPGJGPN, (JIBDAHKJHOG* __this, MethodInfo* method)); // NextStageBattle
+DO_APP_FUNC(0x00836410, void, JIBDAHKJHOG_COLDHPFDOHG, (JIBDAHKJHOG* __this, MethodInfo* method)); // StageStart
 
 //Shadow Cooldown And Limit
 DO_APP_FUNC(0x009A41E0, void, JLLMICINIDA__LFCGJLAFFOM, (JLLMICINIDA* __this, MethodInfo* method));
 
 // Singletons
 DO_APP_FUNC(0x00344840, void*, TSingleton_GetInstance, (MethodInfo* method)); // Search for this in IDA
+DO_APP_FUNC(0x0042C0E0, Object*, TSingleton_1_System_Object__get_Instance, (MethodInfo* method)); // Get the instance of the singleton
+DO_APP_FUNC_METHODINFO(0x04038380, TSingleton_1_JIBDAHKJHOG__get_Instance__MethodInfo);
 // DO_APP_FUNC_METHODINFO(0x0403AC70, TSingleton_1_PJKMAOEINNH__get_Instance__MethodInfo); // Probably EntityManager or something similar

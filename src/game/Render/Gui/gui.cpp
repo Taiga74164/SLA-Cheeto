@@ -86,6 +86,8 @@ void Gui::Render()
 
 			ImGui::CheckboxFill("Skip Intro Movie", &vars.SkipIntroMovie.value()); HELPMAKER("This will skip the intro movie when you start the game");
 
+			ImGui::CheckboxFill("Disable WebView", &vars.DisableWebView.value()); HELPMAKER("Disables WebView pop-up every time you enter the game");
+
 			ImGui::EndGroup();
 			ImGui::PopStyleVar();
 			break;
