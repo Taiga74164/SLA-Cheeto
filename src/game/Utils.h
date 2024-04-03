@@ -1,4 +1,6 @@
 #pragma once
+
+#include <Windows.h>
 #include <string>
 #include <filesystem>
 
@@ -42,4 +44,9 @@ namespace Utils
 	{
 		memcpy(hexPtr, &value, sizeof(T));
 	}
+
+	std::string GetModulePath(HMODULE hModule = nullptr);
+
+	void SetCurrentPath(const std::filesystem::path& curren_path);
+	std::filesystem::path GetCurrentPath();
 }

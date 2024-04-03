@@ -49,7 +49,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)game\;$(ProjectDir)vendor\CommandMenu\include\;$(ProjectDir)vendor\imgui\;$(ProjectDir)vendor\detours\;$(ProjectDir)vendor\magic_enum\include\magic_enum</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)game\;$(ProjectDir)vendor\CommandMenu\include\;$(ProjectDir)vendor\imgui\;$(ProjectDir)vendor\detours\;$(ProjectDir)vendor\magic_enum\include\magic_enum;$(ProjectDir)vendor\json\single_include\nlohmann</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -99,6 +99,8 @@ if %errorlevel% == 0 (
     <ClInclude Include="game\cheat\features\SkipIntroMovie.h" />
     <ClInclude Include="game\cheat\features\TimeScale.h" />
     <ClInclude Include="game\cheat\vars.h" />
+    <ClInclude Include="game\ConfigEntry.hpp" />
+    <ClInclude Include="game\ConfigManager.hpp" />
     <ClInclude Include="game\Core\Core.h" />
     <ClInclude Include="game\events.h" />
     <ClInclude Include="game\events\event.hpp" />
@@ -174,7 +176,6 @@ if %errorlevel% == 0 (
     <ClCompile Include="game\cheat\features\PlayerSpeed.cpp" />
     <ClCompile Include="game\cheat\features\SkipIntroMovie.cpp" />
     <ClCompile Include="game\cheat\features\TimeScale.cpp" />
-    <ClCompile Include="game\cheat\vars.cpp" />
     <ClCompile Include="game\Core\Core.cpp" />
     <ClCompile Include="game\dllmain.cpp" />
     <ClCompile Include="game\events.cpp" />

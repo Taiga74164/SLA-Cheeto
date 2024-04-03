@@ -1,0 +1,456 @@
+diff --git a/.gitmodules b/.gitmodules
+index 47b2a88..ffb57fa 100644
+--- a/.gitmodules
++++ b/.gitmodules
+@@ -10,3 +10,6 @@
+ [submodule "src/vendor/imgui"]
+ 	path = src/vendor/imgui
+ 	url = https://github.com/Taiga74164/imgui
++[submodule "src/vendor/json"]
++	path = src/vendor/json
++	url = https://github.com/nlohmann/json
+diff --git a/src/SoloLevelling.vcxproj b/src/SoloLevelling.vcxproj
+index 172a403..ef99dde 100644
+--- a/src/SoloLevelling.vcxproj
++++ b/src/SoloLevelling.vcxproj
+@@ -49,7 +49,7 @@
+       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+       <LanguageStandard>stdcpp20</LanguageStandard>
+-      <AdditionalIncludeDirectories>$(ProjectDir)game\;$(ProjectDir)vendor\CommandMenu\include\;$(ProjectDir)vendor\imgui\;$(ProjectDir)vendor\detours\;$(ProjectDir)vendor\magic_enum\include\magic_enum</AdditionalIncludeDirectories>
++      <AdditionalIncludeDirectories>$(ProjectDir)game\;$(ProjectDir)vendor\CommandMenu\include\;$(ProjectDir)vendor\imgui\;$(ProjectDir)vendor\detours\;$(ProjectDir)vendor\magic_enum\include\magic_enum;$(ProjectDir)vendor\json\single_include\nlohmann</AdditionalIncludeDirectories>
+     </ClCompile>
+     <Link>
+       <SubSystem>Windows</SubSystem>
+@@ -99,6 +99,8 @@ if %errorlevel% == 0 (
+     <ClInclude Include="game\cheat\features\SkipIntroMovie.h" />
+     <ClInclude Include="game\cheat\features\TimeScale.h" />
+     <ClInclude Include="game\cheat\vars.h" />
++    <ClInclude Include="game\ConfigEntry.hpp" />
++    <ClInclude Include="game\ConfigManager.hpp" />
+     <ClInclude Include="game\Core\Core.h" />
+     <ClInclude Include="game\events.h" />
+     <ClInclude Include="game\events\event.hpp" />
+@@ -174,7 +176,6 @@ if %errorlevel% == 0 (
+     <ClCompile Include="game\cheat\features\PlayerSpeed.cpp" />
+     <ClCompile Include="game\cheat\features\SkipIntroMovie.cpp" />
+     <ClCompile Include="game\cheat\features\TimeScale.cpp" />
+-    <ClCompile Include="game\cheat\vars.cpp" />
+     <ClCompile Include="game\Core\Core.cpp" />
+     <ClCompile Include="game\dllmain.cpp" />
+     <ClCompile Include="game\events.cpp" />
+diff --git a/src/game/ConfigEntry.hpp b/src/game/ConfigEntry.hpp
+index 7b9637e..6e2a56e 100644
+--- a/src/game/ConfigEntry.hpp
++++ b/src/game/ConfigEntry.hpp
+@@ -1 +1,37 @@
+-#pragma once
+\ No newline at end of file
++#pragma once
++
++#include "ConfigManager.hpp"
++#include <string>
++
++using json = nlohmann::json;
++
++#define CONFIG_ENTRY(Type, Name, DefaultValue) ConfigEntry<Type> Name = { #Name, DefaultValue }
++
++template<typename T>
++class ConfigEntry
++{
++public:
++	ConfigEntry(const std::string& name, const T& defaultValue)
++		: name_(name), value_(defaultValue)
++	{
++		value_ = ConfigManager::GetInstance().Get<T>(name, defaultValue);
++	}
++
++	T& value() { return value_; }
++
++	void SetValue(const T& value)
++	{
++		value_ = value;
++		ConfigManager::GetInstance().Set(name_, value);
++	}
++
++	ConfigEntry& operator=(const T& newValue)
++	{
++		SetValue(newValue);
++		return *this;
++	}
++
++private:
++	std::string name_;
++	T value_;
++};
+\ No newline at end of file
+diff --git a/src/game/ConfigManager.hpp b/src/game/ConfigManager.hpp
+index 17c91df..bd22e55 100644
+--- a/src/game/ConfigManager.hpp
++++ b/src/game/ConfigManager.hpp
+@@ -1,6 +1,66 @@
+ ﻿#pragma once
+ 
+-class ConfigManager {
++#include <json.hpp>
++#include <Windows.h>
++#include <fstream>
++#include <string>
++
++#include "Singleton.h"
++
++using json = nlohmann::json;
++
++class ConfigManager : public Singleton<ConfigManager>
++{
+ public:
++	ConfigManager()
++	{
++	}
+ 	
++	void InitializeConfig(const std::string& path)
++	{
++		configPath_ = path;
++		LoadConfig();
++		if (config_.empty())
++			SaveConfig();
++	}
++	
++	template<typename T>
++	T Get(const std::string& name, const T& defaultValue)
++	{
++		LoadConfig();
++		return config_.value(name, defaultValue);
++	}
++
++	template<typename T>
++	void Set(const std::string& name, const T& value)
++	{
++		// json newConfig;
++		// newConfig[name] = value;
++		// SaveConfig(newConfig);
++		config_[name] = value;
++		SaveConfig();
++	}
++	
++
++private:
++	json config_;
++	std::string configPath_;
++
++	void LoadConfig()
++	{
++		std::ifstream file(configPath_);
++		if (file)
++			file >> config_;
++	}
++
++	void SaveConfig()
++	{
++		// for (auto& it : newConfig.items())
++		// 	config_[it.key()] = it.value();
++		//
++		// std::ofstream o(configPath_);
++		// o << config_.dump(4);
++		std::ofstream file(configPath_);
++		file << config_.dump(4);
++	}
+ };
+diff --git a/src/game/Core/Core.cpp b/src/game/Core/Core.cpp
+index 381e3be..e797a71 100644
+--- a/src/game/Core/Core.cpp
++++ b/src/game/Core/Core.cpp
+@@ -3,23 +3,30 @@
+ #include <codecvt>
+ #include <psapi.h>
+ #include <Utils.h>
++
++#include "ConfigManager.hpp"
+ #include "Memory.h"
+ 
+ #include "appdata/il2cpp-init.h"
+ #include "cheat/cheat.h"
+ #include "Render/Renderer.h"
+ 
+-void Core::Start()
++void Core::Start(HMODULE hModule)
+ {
+ 	while (!GetModuleHandleA("GameAssembly.dll") && !FindWindowA("UnityWndClass", nullptr))
+ 	{
+ 		LOG("[SoloLevelling] game not found, waiting 3 seconds...");
+ 		Sleep(3000);
+ 	}
+-
++	
++	Utils::SetCurrentPath(Utils::GetModulePath(hModule));
++	ConfigManager::GetInstance().InitializeConfig((Utils::GetCurrentPath() / "config.json").string());
++	
+ 	Init(Renderer::DXVersion::D3D11);
+ 	init_il2cpp();
+ 	init_cheat();
++
++	LOG("Config path is at %s", (Utils::GetCurrentPath() / "cfg.json").string().c_str());
+ }
+ 
+ #pragma region Initialization and DLL proxy stuff
+@@ -33,7 +40,7 @@ void Core::Initialize(HINSTANCE hModule)
+ 	LOG("[SoloLevelling] Initializing...");
+ 	// Get execution path
+ 	std::vector<char> pathBuf;
+-	DWORD copied = 0;
++	DWORD copied;
+ 	do
+ 	{
+ 		pathBuf.resize(pathBuf.size() + MAX_PATH);
+diff --git a/src/game/Core/Core.h b/src/game/Core/Core.h
+index 40bec43..0f7189c 100644
+--- a/src/game/Core/Core.h
++++ b/src/game/Core/Core.h
+@@ -6,7 +6,7 @@ class Core
+ {
+ public:
+ 	static void Initialize(HINSTANCE hModule);
+-	static void Start();
++	static void Start(HMODULE hModule);
+ 	
+ private:
+ 	static HMODULE LoadOriginalProxy(const std::filesystem::path& proxyFilepath, const std::wstring& proxyFilepathNoExt);
+diff --git a/src/game/Render/Gui/gui.cpp b/src/game/Render/Gui/gui.cpp
+index b234136..f8bea74 100644
+--- a/src/game/Render/Gui/gui.cpp
++++ b/src/game/Render/Gui/gui.cpp
+@@ -5,6 +5,8 @@
+ 
+ void Gui::Render()
+ {
++	auto& vars = Vars::GetInstance();
++	
+     ImGui::Begin("##Taiga74164", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar);
+     {
+         ImGui::BeginGroup();
+@@ -49,6 +51,8 @@ void Gui::Render()
+ 			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(2, 2));
+ 			ImGui::BeginGroup();
+ 
++			// ImGui::CheckboxFill("Test", &vars.b_Test.value());
++
+ 			ImGui::CheckboxFill("No Cooldown", &vars.b_NoCooldown);
+ 
+ 			ImGui::CheckboxFill("God Mode", &vars.b_GodMode);
+diff --git a/src/game/Utils.cpp b/src/game/Utils.cpp
+index 2e6b62a..517bd2b 100644
+--- a/src/game/Utils.cpp
++++ b/src/game/Utils.cpp
+@@ -1,5 +1,4 @@
+ #include "Utils.h"
+-#include <Windows.h>
+ #include <iostream>
+ #include <TlHelp32.h>
+ #include <codecvt>
+@@ -179,4 +178,23 @@ namespace Utils
+     {
+     	ShellExecuteA(nullptr, "open", url.c_str(), nullptr, nullptr, SW_SHOWNORMAL);
+ 	}
++
++	std::string GetModulePath(HMODULE hModule /*= nullptr*/)
++    {
++    	char pathOut[MAX_PATH] = {};
++    	GetModuleFileNameA(hModule, pathOut, MAX_PATH);
++
++    	return std::filesystem::path(pathOut).parent_path().string();
++    }
++
++	static std::filesystem::path _currentPath;
++	void SetCurrentPath(const std::filesystem::path& current_path)
++	{
++		_currentPath = current_path;
++	}
++
++	std::filesystem::path GetCurrentPath()
++	{
++		return _currentPath;
++	}
+ }
+diff --git a/src/game/Utils.h b/src/game/Utils.h
+index e97792b..22d1c14 100644
+--- a/src/game/Utils.h
++++ b/src/game/Utils.h
+@@ -1,4 +1,6 @@
+ #pragma once
++
++#include <Windows.h>
+ #include <string>
+ #include <filesystem>
+ 
+@@ -42,4 +44,9 @@ namespace Utils
+ 	{
+ 		memcpy(hexPtr, &value, sizeof(T));
+ 	}
++
++	std::string GetModulePath(HMODULE hModule = nullptr);
++
++	void SetCurrentPath(const std::filesystem::path& curren_path);
++	std::filesystem::path GetCurrentPath();
+ }
+\ No newline at end of file
+diff --git a/src/game/cheat/features/DamageHack.cpp b/src/game/cheat/features/DamageHack.cpp
+index 31a474e..a61e8da 100644
+--- a/src/game/cheat/features/DamageHack.cpp
++++ b/src/game/cheat/features/DamageHack.cpp
+@@ -14,6 +14,8 @@ namespace Cheat::Features
+ 
+ 	void DamageHack::PIPHNBOBFEF_KBCIIEFLPGB_Hook(app::PIPHNBOBFEF* __this, app::ESpecialState__Enum specialState, int64_t someInt1, int64_t someInt2, int64_t someInt3, app::String* buffName, MethodInfo* method)
+ 	{
++		auto& vars = Vars::GetInstance();
++		
+ 		if (__this->fields.IGFILCLEFHH->fields.EJBODHBGPMG != nullptr)
+ 		{
+ 			auto entity = __this->fields.IGFILCLEFHH->fields.EJBODHBGPMG;
+@@ -56,6 +58,8 @@ namespace Cheat::Features
+ 
+ 	int32_t DamageHack::GHINOEFFMPN_EKHGIHBHEPL_Hook(app::SkillIdentity* skillIdentity, void* FKJDKGJBGOD, app::TargetHitData* targetHitData, MethodInfo* method)
+ 	{
++		auto& vars = Vars::GetInstance();
++		
+ 		if (skillIdentity->fields.entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
+ 		{
+ 			//auto skillRange = skillIdentity->fields.SkillRange;
+diff --git a/src/game/cheat/features/DumbEnemies.cpp b/src/game/cheat/features/DumbEnemies.cpp
+index 0c9e23a..933219b 100644
+--- a/src/game/cheat/features/DumbEnemies.cpp
++++ b/src/game/cheat/features/DumbEnemies.cpp
+@@ -12,6 +12,8 @@ namespace Cheat::Features
+ 
+ 	void DumbEnemies::EvadeProxy_Init_Hook(app::EvadeProxy* __this, app::ENNEJEPMJLJ* character, app::EvadePenetration* DHPMEMDBDMC, MethodInfo* method)
+ 	{
++		auto& vars = Vars::GetInstance();
++		
+ 		// Dumb Enemies
+ 		if (character->fields.FHNGHHPLPGD == app::eCharGroup__Enum::ENEMY ||
+ 			character->fields.AJEHLIOMMJN == app::ECharacterType__Enum::Monster)
+diff --git a/src/game/cheat/features/FPSUnlock.cpp b/src/game/cheat/features/FPSUnlock.cpp
+index 8b1c669..a348cf2 100644
+--- a/src/game/cheat/features/FPSUnlock.cpp
++++ b/src/game/cheat/features/FPSUnlock.cpp
+@@ -13,6 +13,8 @@ namespace Cheat::Features
+     
+     void FPSUnlock::OnGameUpdate()
+     {
++		auto& vars = Vars::GetInstance();
++		
+         if (m_LastEnableStatus && !vars.b_FPSUnlock)
+         {
+             app::Application_set_targetFrameRate(m_OriginFPS, nullptr);
+diff --git a/src/game/cheat/features/FPSUnlock.h b/src/game/cheat/features/FPSUnlock.h
+index b97530f..0348538 100644
+--- a/src/game/cheat/features/FPSUnlock.h
++++ b/src/game/cheat/features/FPSUnlock.h
+@@ -13,6 +13,6 @@ namespace Cheat::Features
+ 
+     private:
+ 		bool m_LastEnableStatus = false;
+-		int m_OriginFPS = 30;
++		int m_OriginFPS = 60;
+     };
+ }
+diff --git a/src/game/cheat/features/FovChanger.cpp b/src/game/cheat/features/FovChanger.cpp
+index a253dee..bc5be91 100644
+--- a/src/game/cheat/features/FovChanger.cpp
++++ b/src/game/cheat/features/FovChanger.cpp
+@@ -13,6 +13,8 @@ namespace Cheat::Features
+     
+     void FovChanger::Camera_set_fieldOfView_Hook(void* __this, float value, MethodInfo* method)
+     {
++    	auto& vars = Vars::GetInstance();
++    	
+     	if (vars.b_FovChanger)
+     		value = vars.f_Fov;
+ 		CALL_ORIGIN(Camera_set_fieldOfView_Hook, __this, value, method);
+diff --git a/src/game/cheat/features/MissionTime.cpp b/src/game/cheat/features/MissionTime.cpp
+index e2c411c..466bccb 100644
+--- a/src/game/cheat/features/MissionTime.cpp
++++ b/src/game/cheat/features/MissionTime.cpp
+@@ -12,6 +12,8 @@ namespace Cheat::Features
+ 
+ 	void MissionTime::StageReadyPage_EnterUI_Hook(app::StageReadyPage* __this, MethodInfo* method)
+ 	{
++		auto& vars = Vars::GetInstance();
++		
+ 		if (vars.b_MissionTime)
+ 			__this->fields.FHMGDAMDBHG->fields.m_Timelimit = vars.i_MissionTimeMs;
+ 
+diff --git a/src/game/cheat/features/NoCooldown.cpp b/src/game/cheat/features/NoCooldown.cpp
+index a654907..bda877f 100644
+--- a/src/game/cheat/features/NoCooldown.cpp
++++ b/src/game/cheat/features/NoCooldown.cpp
+@@ -10,6 +10,8 @@ namespace Cheat::Features
+ 
+ 	void* NoCooldown::KAAIFMKPKAG_IOFMGMJCCFO_Hook(app::KAAIFMKPKAG* __this, bool DEJNILEHENL, MethodInfo* method)
+ 	{
++		auto& vars = Vars::GetInstance();
++		
+ 		if (vars.b_NoCooldown)
+ 		{
+ 			__this->fields.HPHOOEPCBOJ = 0;
+diff --git a/src/game/cheat/features/TimeScale.cpp b/src/game/cheat/features/TimeScale.cpp
+index c374934..a6656d9 100644
+--- a/src/game/cheat/features/TimeScale.cpp
++++ b/src/game/cheat/features/TimeScale.cpp
+@@ -13,6 +13,8 @@ namespace Cheat::Features
+ 	
+ 	void TimeScale::OnGameUpdate()
+ 	{
++		auto& vars = Vars::GetInstance();
++		
+ 		if (vars.b_TimeScale)
+ 		{
+ 			app::Time_set_timeScale(vars.f_TimeScaleSpeed, nullptr);
+diff --git a/src/game/cheat/features/TimeScale.h b/src/game/cheat/features/TimeScale.h
+index 880aefe..57b9d2b 100644
+--- a/src/game/cheat/features/TimeScale.h
++++ b/src/game/cheat/features/TimeScale.h
+@@ -10,7 +10,7 @@ namespace Cheat::Features
+ 		TimeScale();
+ 
+ 		void OnGameUpdate();
+-
++		
+ 	private:
+ 		bool m_DidSpeed;
+ 	};
+diff --git a/src/game/cheat/vars.h b/src/game/cheat/vars.h
+index b330a49..3c3a965 100644
+--- a/src/game/cheat/vars.h
++++ b/src/game/cheat/vars.h
+@@ -1,7 +1,18 @@
+ #pragma once
+ 
+-struct Vars
++#include "ConfigEntry.hpp"
++
++class Vars final // : public Singleton<Vars>
+ {
++public:
++	static ConfigManager& GetInstance() {
++		static ConfigManager instance;
++		return instance;
++	}
++	
++	CONFIG_ENTRY(bool, b_Test, true);
++	CONFIG_ENTRY(bool, b_Test2, true);
++	CONFIG_ENTRY(bool, b_Test3, true);
+ 	bool b_PlayerSpeed = true;
+ 	bool b_NoCooldown = true;
+ 	bool b_GodMode = true;
+@@ -18,6 +29,6 @@ struct Vars
+ 	float f_Fov = 60.0f;
+ 
+ 	bool b_SkipIntroMovie = true;
+-};
+-
+-extern Vars vars;
+\ No newline at end of file
++private:
++	Vars() = default;
++};
+\ No newline at end of file

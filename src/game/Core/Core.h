@@ -6,7 +6,7 @@ class Core
 {
 public:
 	static void Initialize(HINSTANCE hModule);
-	static void Start();
+	static void Start(HMODULE hModule);
 	
 private:
 	static HMODULE LoadOriginalProxy(const std::filesystem::path& proxyFilepath, const std::wstring& proxyFilepathNoExt);

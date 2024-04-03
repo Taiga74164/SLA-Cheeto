@@ -1,23 +1,25 @@
 #pragma once
 
-struct Vars
+#include "ConfigEntry.hpp"
+
+class Vars final : public Singleton<Vars>
 {
-	bool b_PlayerSpeed = true;
-	bool b_NoCooldown = true;
-	bool b_GodMode = true;
-	bool b_DamageHack = true;
-	float f_DamageHackValue = 500.0f;
-	bool b_DumbEnemies = true;
-	bool b_MissionTime = true;
-	int i_MissionTimeMs = 180000;
-	bool b_TimeScale;
-	float f_TimeScaleSpeed = 2.0f;
-	bool b_FPSUnlock = true;
-	int i_FPS = 120;
-	bool b_FovChanger = false;
-	float f_Fov = 60.0f;
-
-	bool b_SkipIntroMovie = true;
+public:
+	Vars() = default;
+	
+	CONFIG_ENTRY(bool, PlayerSpeed, true);
+	CONFIG_ENTRY(bool, NoCooldown, true);
+	CONFIG_ENTRY(bool, GodMode, true);
+	CONFIG_ENTRY(bool, DamageHack, true);
+	CONFIG_ENTRY(float, DamageHackValue, 500.0f);
+	CONFIG_ENTRY(bool, DumbEnemies, true);
+	CONFIG_ENTRY(bool, MissionTime, true);
+	CONFIG_ENTRY(int, MissionTimeMs, 180000);
+	CONFIG_ENTRY(bool, TimeScale, false);
+	CONFIG_ENTRY(float, TimeScaleSpeed, 2.0f);
+	CONFIG_ENTRY(bool, FPSUnlock, true);
+	CONFIG_ENTRY(int, FPSValue, 120);
+	CONFIG_ENTRY(bool, FovChanger, false);
+	CONFIG_ENTRY(float, Fov, 60.0f);
+	CONFIG_ENTRY(bool, SkipIntroMovie, true);
 };
-
-extern Vars vars;

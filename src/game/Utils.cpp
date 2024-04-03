@@ -1,5 +1,4 @@
 #include "Utils.h"
-#include <Windows.h>
 #include <iostream>
 #include <TlHelp32.h>
 #include <codecvt>
@@ -178,5 +177,24 @@ namespace Utils
 	void OpenURL(const std::string& url)
     {
     	ShellExecuteA(nullptr, "open", url.c_str(), nullptr, nullptr, SW_SHOWNORMAL);
+	}
+
+	std::string GetModulePath(HMODULE hModule /*= nullptr*/)
+    {
+    	char pathOut[MAX_PATH] = {};
+    	GetModuleFileNameA(hModule, pathOut, MAX_PATH);
+
+    	return std::filesystem::path(pathOut).parent_path().string();
+    }
+
+	static std::filesystem::path _currentPath;
+	void SetCurrentPath(const std::filesystem::path& current_path)
+	{
+		_currentPath = current_path;
+	}
+
+	std::filesystem::path GetCurrentPath()
+	{
+		return _currentPath;
 	}
 }
