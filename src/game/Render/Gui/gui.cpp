@@ -53,6 +53,8 @@ void Gui::Render()
 
 			ImGui::CheckboxFill("No Cooldown", &vars.NoCooldown.value());
 
+			ImGui::CheckboxFill("No Cooldown Shadow", &vars.NoCooldownShadow.value());
+
 			ImGui::CheckboxFill("God Mode", &vars.GodMode.value());
 
 			ImGui::CheckboxFill("Damage Hack", &vars.DamageHack.value()); HELPMAKER("Only works for certain weapons");

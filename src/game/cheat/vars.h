@@ -9,6 +9,7 @@ public:
 	
 	CONFIG_ENTRY(bool, PlayerSpeed, true);
 	CONFIG_ENTRY(bool, NoCooldown, true);
+	CONFIG_ENTRY(bool, NoCooldownShadow, true);
 	CONFIG_ENTRY(bool, GodMode, true);
 	CONFIG_ENTRY(bool, DamageHack, true);
 	CONFIG_ENTRY(float, DamageHackValue, 500.0f);
