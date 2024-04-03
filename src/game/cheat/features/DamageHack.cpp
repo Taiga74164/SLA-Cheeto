@@ -14,6 +14,8 @@ namespace Cheat::Features
 
 	void DamageHack::PIPHNBOBFEF_KBCIIEFLPGB_Hook(app::PIPHNBOBFEF* __this, app::ESpecialState__Enum specialState, int64_t someInt1, int64_t someInt2, int64_t someInt3, app::String* buffName, MethodInfo* method)
 	{
+		auto& vars = Vars::GetInstance();
+		
 		if (__this->fields.IGFILCLEFHH->fields.EJBODHBGPMG != nullptr)
 		{
 			auto entity = __this->fields.IGFILCLEFHH->fields.EJBODHBGPMG;
@@ -28,7 +30,7 @@ namespace Cheat::Features
 			if (entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
 			{
 				// God Mode
-				if (vars.b_GodMode)
+				if (vars.GodMode.value())
 				{
 					if (specialState == app::ESpecialState__Enum::None ||
 						specialState == app::ESpecialState__Enum::DotDamage)
@@ -43,7 +45,7 @@ namespace Cheat::Features
 
 			if (entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::ENEMY)
 			{
-				if (vars.b_DamageHack)
+				if (vars.DamageHack.value())
 					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::CriticalRate, 2i64, 99999999i64, 0i64, buffName, method);
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Crash, 2i64, 99999999i64, 0i64, buffName, method);
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Stun, 2i64, 1000i64, 0i64, buffName, method);
@@ -56,6 +58,8 @@ namespace Cheat::Features
 
 	int32_t DamageHack::GHINOEFFMPN_EKHGIHBHEPL_Hook(app::SkillIdentity* skillIdentity, void* FKJDKGJBGOD, app::TargetHitData* targetHitData, MethodInfo* method)
 	{
+		auto& vars = Vars::GetInstance();
+		
 		if (skillIdentity->fields.entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
 		{
 			//auto skillRange = skillIdentity->fields.SkillRange;
@@ -73,7 +77,7 @@ namespace Cheat::Features
 			//LOG("damageRatio %f", damageRatio);
 			//LOG("damageRatioTotalValue %f", damageRatioTotalValue);
 
-			if (vars.b_DamageHack)
+			if (vars.DamageHack.value())
 			{
 				skillIdentity->fields.SkillRange = 500.0f;
 				skillIdentity->fields.SkillMinRange = 500.0f;
@@ -102,7 +106,7 @@ namespace Cheat::Features
 			//LOG("damageRatio %f", damageRatio);
 			//LOG("damageRatioTotalValue %f", damageRatioTotalValue);
 
-			if (vars.b_GodMode)
+			if (vars.GodMode.value())
 			{
 				skillIdentity->fields.SkillRange = -1.0f;
 				skillIdentity->fields.SkillMinRange = -1.0f;

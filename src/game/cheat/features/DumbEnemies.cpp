@@ -12,11 +12,13 @@ namespace Cheat::Features
 
 	void DumbEnemies::EvadeProxy_Init_Hook(app::EvadeProxy* __this, app::ENNEJEPMJLJ* character, app::EvadePenetration* DHPMEMDBDMC, MethodInfo* method)
 	{
+		auto& vars = Vars::GetInstance();
+		
 		// Dumb Enemies
 		if (character->fields.FHNGHHPLPGD == app::eCharGroup__Enum::ENEMY ||
 			character->fields.AJEHLIOMMJN == app::ECharacterType__Enum::Monster)
 		{
-			if (vars.b_DumbEnemies)
+			if (vars.DumbEnemies.value())
 			{
 				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_SidewalkMinTime = std::numeric_limits<float>::infinity() * -1.0f;
 				character->fields.KFIFBINFDPB->fields.m_pCharBattleInfo->fields.m_SidewalkMaxTime = std::numeric_limits<float>::infinity() * -1.0f;

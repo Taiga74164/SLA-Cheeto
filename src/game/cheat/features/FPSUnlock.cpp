@@ -13,18 +13,20 @@ namespace Cheat::Features
     
     void FPSUnlock::OnGameUpdate()
     {
-        if (m_LastEnableStatus && !vars.b_FPSUnlock)
+		auto& vars = Vars::GetInstance();
+		
+        if (m_LastEnableStatus && !vars.FPSUnlock.value())
         {
             app::Application_set_targetFrameRate(m_OriginFPS, nullptr);
         }
-        else if (!m_LastEnableStatus && vars.b_FPSUnlock)
+        else if (!m_LastEnableStatus && vars.FPSUnlock.value())
         {
             m_OriginFPS = app::Application_get_targetFrameRate(nullptr);
         }
-        m_LastEnableStatus = vars.b_FPSUnlock;
-        if (vars.b_FPSUnlock)
+        m_LastEnableStatus = vars.FPSUnlock.value();
+        if (vars.FPSUnlock.value())
         {
-            app::Application_set_targetFrameRate(vars.i_FPS, nullptr);
+            app::Application_set_targetFrameRate(vars.FPSValue.value(), nullptr);
             app::QualitySettings_set_vSyncCount(0, nullptr);
         }
     }

@@ -10,7 +10,7 @@ namespace Cheat::Features
 		TimeScale();
 
 		void OnGameUpdate();
-
+		
 	private:
 		bool m_DidSpeed;
 	};

@@ -18,7 +18,9 @@ namespace Cheat::Features
 	}
 	void SkipIntroMovie::IntroMovie_Update_Hook(app::IntroMovie* __this, MethodInfo* method)
 	{
-		if (vars.b_SkipIntroMovie)
+		auto& vars = Vars::GetInstance();
+		
+		if (vars.SkipIntroMovie.value())
 			__this->fields.GFOGMEGIEJN = app::IntroMovie_MHCMCCIDDCE__Enum::FINISH;
 		CALL_ORIGIN(IntroMovie_Update_Hook, __this, method);
 	}

@@ -13,9 +13,11 @@ namespace Cheat::Features
 	
 	void TimeScale::OnGameUpdate()
 	{
-		if (vars.b_TimeScale)
+		auto& vars = Vars::GetInstance();
+		
+		if (vars.TimeScale.value())
 		{
-			app::Time_set_timeScale(vars.f_TimeScaleSpeed, nullptr);
+			app::Time_set_timeScale(vars.TimeScaleSpeed.value(), nullptr);
 			m_DidSpeed = true;
 		}
 		else

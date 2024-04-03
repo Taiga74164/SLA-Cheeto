@@ -3,23 +3,30 @@
 #include <codecvt>
 #include <psapi.h>
 #include <Utils.h>
+
+#include "ConfigManager.hpp"
 #include "Memory.h"
 
 #include "appdata/il2cpp-init.h"
 #include "cheat/cheat.h"
 #include "Render/Renderer.h"
 
-void Core::Start()
+void Core::Start(HMODULE hModule)
 {
 	while (!GetModuleHandleA("GameAssembly.dll") && !FindWindowA("UnityWndClass", nullptr))
 	{
 		LOG("[SoloLevelling] game not found, waiting 3 seconds...");
 		Sleep(3000);
 	}
-
+	
+	Utils::SetCurrentPath(Utils::GetModulePath(hModule));
+	ConfigManager::GetInstance().InitializeConfig((Utils::GetCurrentPath() / "config.json").string());
+	
 	Init(Renderer::DXVersion::D3D11);
 	init_il2cpp();
 	init_cheat();
+
+	LOG("Config path is at %s", (Utils::GetCurrentPath() / "cfg.json").string().c_str());
 }
 
 #pragma region Initialization and DLL proxy stuff
@@ -33,7 +40,7 @@ void Core::Initialize(HINSTANCE hModule)
 	LOG("[SoloLevelling] Initializing...");
 	// Get execution path
 	std::vector<char> pathBuf;
-	DWORD copied = 0;
+	DWORD copied;
 	do
 	{
 		pathBuf.resize(pathBuf.size() + MAX_PATH);

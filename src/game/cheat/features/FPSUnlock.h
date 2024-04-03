@@ -13,6 +13,6 @@ namespace Cheat::Features
 
     private:
 		bool m_LastEnableStatus = false;
-		int m_OriginFPS = 30;
+		int m_OriginFPS = 60;
     };
 }

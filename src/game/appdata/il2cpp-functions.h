@@ -12,6 +12,9 @@ DO_APP_FUNC(0x00454960, void, GameFrameWork_Update, (GameFrameWork* __this, Meth
 DO_APP_FUNC(0x0202DAF0, String*, Marshal_PtrToStringAnsi, (void* ptr, MethodInfo* method));
 DO_APP_FUNC(0x0202DB10, String*, Marshal_PtrToStringUni, (void* ptr, MethodInfo* method));
 
+// FovChanger
+DO_APP_FUNC(0x0301C600, void, Camera_set_fieldOfView, (void* __this, float value, MethodInfo* method));
+
 // FPSUnlock
 DO_APP_FUNC(0x03015300, int, Application_get_targetFrameRate, (MethodInfo* method));
 DO_APP_FUNC(0x03015A20, void, Application_set_targetFrameRate, (int value, MethodInfo* method));

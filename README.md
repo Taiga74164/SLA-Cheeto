@@ -22,6 +22,7 @@ The DLL will automatically be loaded by the game itself if the dll is in the gam
 - Mission Time 
 - Time Scale
 - FPS Unlocker
+- Fov Changer
 - Skip Intro Movie
 
 ## Screenshot

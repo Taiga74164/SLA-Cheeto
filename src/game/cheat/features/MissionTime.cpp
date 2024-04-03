@@ -12,8 +12,10 @@ namespace Cheat::Features
 
 	void MissionTime::StageReadyPage_EnterUI_Hook(app::StageReadyPage* __this, MethodInfo* method)
 	{
-		if (vars.b_MissionTime)
-			__this->fields.FHMGDAMDBHG->fields.m_Timelimit = vars.i_MissionTimeMs;
+		auto& vars = Vars::GetInstance();
+		
+		if (vars.MissionTime.value())
+			__this->fields.FHMGDAMDBHG->fields.m_Timelimit = vars.MissionTimeMs.value();
 
 		CALL_ORIGIN(StageReadyPage_EnterUI_Hook, __this, method);
 	}
