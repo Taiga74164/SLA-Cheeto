@@ -3470,6 +3470,29 @@ namespace app
 		struct KAAIFMKPKAG__Fields fields;
 	};
 
+	struct __declspec(align(8)) PHAMLKDDCGJ_Fields {
+		struct UnityEngine_GameObject_o* GDIOINPJJPJ;
+		struct System_Collections_Generic_List_ENNEJEPMJLJ__o* NHLIIJEJNHK;
+		struct System_Collections_Generic_List_PHAMLKDDCGJ__o* LFCGEIMEIPH;
+		struct System_Collections_Generic_List_ENNEJEPMJLJ__o* LJLCMHCDIFM;
+		struct System_Collections_Generic_List_Collider__o* EMAMJGPHNBN;
+	};
+
+	struct JLLMICINIDA_Fields : PHAMLKDDCGJ_Fields {
+		float DGPHADJBCDJ;
+		bool DONILLPJMFC;
+		int32_t KBDEBMKCNPD;
+		int32_t KKEDBBAMIJL;
+		float _HGHNGDFFJBD_k__BackingField;
+	};
+
+	struct JLLMICINIDA
+	{
+		struct JLLMICINIDA__Class* klass;
+		MonitorData* monitor;
+		struct JLLMICINIDA_Fields fields;
+	};
+
 	struct __declspec(align(8)) PJKMAOEINNH__Fields
 	{
 		bool FAGLAHOBJPM;
@@ -4541,6 +4564,39 @@ namespace app
 		struct StageReadyPage__Class* klass;
 		MonitorData* monitor;
 		struct StageReadyPage__Fields fields;
+	};
+
+	struct StoryQuestChapterPage_Fields {
+		struct UIPage__Fields _;
+		struct UIContentsUnlockItem_o* ContentsUnlockItem;
+		struct UIGraph_o* HLMFGMDDAKK;
+		struct StoryQuestChapterListItem* FCBKMDAAGJM;
+		struct StoryQuestChapterListItem* OGKFCDNBFKF;
+		struct StoryQuestChapterListItem* ScrollListNoticeChapterItem;
+		struct StoryQuestDifficultyTypeGroup* HPGPMDGOBDH;
+		struct UI_Button* HEIJCLLJFPG;
+		struct UI_Button* BtnProgressFocus;
+		struct UIMusicPlayer_array* MusicPlayerList;
+		struct StoryQuestChpaterModeInfo* NCHNBMHIPEJ;
+		uint8_t KELBEBBNPDA; uint8_t PGNMMGJMGPI;
+		struct ContentMenuTabGroup* m_ContentMenuTabGroup;
+		struct UI_Image_array* backGroundImages;
+		struct PGCIJEIMPKB_o* DKDPEDKNJHN;
+		struct PHFECEJNAML_o* NLBDIENNAEJ;
+		bool NKBDMIPCCPA;
+		struct Vector3 FLCIAGINIBG;
+		struct Coroutine* PMNPICKHKKK;
+		struct RectTransform_o* CFPOEKLCAFD;
+		struct AnimationCurve_o* focusSpeedCurve;
+		struct RectTransform_o* MHODEEBGDDA;
+	};
+
+
+	struct StoryQuestChapterPage
+	{
+		struct StoryQuestChapterPage__Class* klass;
+		MonitorData* monitor;
+		struct StoryQuestChapterPage_Fields fields;
 	};
 
 	enum class GameMovie_PHMCJCHPFEF__Enum : int32_t
