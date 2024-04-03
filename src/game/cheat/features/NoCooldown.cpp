@@ -13,7 +13,7 @@ namespace Cheat::Features
 	{
 		auto& vars = Vars::GetInstance();
 
-		if (vars.NoCooldown.value() && __this)
+		if (vars.NoCooldownShadow.value() && __this)
 		{
 			__this->fields.DGPHADJBCDJ = 0.0f;
 			__this->fields.KKEDBBAMIJL = 1;
