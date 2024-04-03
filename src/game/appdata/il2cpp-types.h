@@ -3470,6 +3470,39 @@ namespace app
 		struct KAAIFMKPKAG__Fields fields;
 	};
 
+	struct __declspec(align(8)) PHAMLKDDCGJ__Fields
+	{
+		struct GameObject* GDIOINPJJPJ;
+		struct List_1_ENNEJEPMJLJ_* NHLIIJEJNHK;
+		struct List_1_PHAMLKDDCGJ_* LFCGEIMEIPH;
+		struct List_1_ENNEJEPMJLJ_* LJLCMHCDIFM;
+		struct List_1_UnityEngine_Collider_* EMAMJGPHNBN;
+	};
+
+	struct PHAMLKDDCGJ
+	{
+		struct PHAMLKDDCGJ__Class* klass;
+		MonitorData* monitor;
+		struct PHAMLKDDCGJ__Fields fields;
+	};
+
+	struct JLLMICINIDA__Fields
+	{
+		struct PHAMLKDDCGJ__Fields _;
+		float DGPHADJBCDJ;
+		bool DONILLPJMFC;
+		int32_t KBDEBMKCNPD;
+		int32_t KKEDBBAMIJL;
+		float _HGHNGDFFJBD_k__BackingField;
+	};
+
+	struct JLLMICINIDA
+	{
+		struct JLLMICINIDA__Class* klass;
+		MonitorData* monitor;
+		struct JLLMICINIDA__Fields fields;
+	};
+
 	struct __declspec(align(8)) PJKMAOEINNH__Fields
 	{
 		bool FAGLAHOBJPM;
@@ -4541,6 +4574,60 @@ namespace app
 		struct StageReadyPage__Class* klass;
 		MonitorData* monitor;
 		struct StageReadyPage__Fields fields;
+	};
+
+	enum class EQuestStoryModeType__Enum : uint8_t
+	{
+		None = 0x00,
+		Default = 0x01,
+		Reverse = 0x02,
+		Max = 0x03,
+	};
+
+	enum class EQuestStoryDifficultyType__Enum : uint8_t
+	{
+		None = 0x00,
+		Normal = 0x01,
+		Hard = 0x02,
+		VeryHard = 0x03,
+		Reverse = 0x04,
+		ReverseHard = 0x05,
+		ReverseVeryHard = 0x06,
+		Max = 0x07,
+	};
+
+	struct StoryQuestChapterPage__Fields
+	{
+		struct UIPage__Fields _;
+		struct UIContentsUnlockItem* ContentsUnlockItem;
+		struct UIGraph* HLMFGMDDAKK;
+		struct StoryQuestChapterListItem* FCBKMDAAGJM;
+		struct StoryQuestChapterListItem* OGKFCDNBFKF;
+		struct StoryQuestChapterListItem* ScrollListNoticeChapterItem;
+		struct StoryQuestDifficultyTypeGroup* HPGPMDGOBDH;
+		struct Button* HEIJCLLJFPG;
+		struct Button* BtnProgressFocus;
+		struct UIMusicPlayer__Array* MusicPlayerList;
+		struct StoryQuestChpaterModeInfo* NCHNBMHIPEJ;
+		EQuestStoryModeType__Enum KELBEBBNPDA;
+		EQuestStoryDifficultyType__Enum PGNMMGJMGPI;
+		struct ContentMenuTabGroup* m_ContentMenuTabGroup;
+		struct Image__Array* backGroundImages;
+		struct PGCIJEIMPKB* DKDPEDKNJHN;
+		struct PHFECEJNAML* NLBDIENNAEJ;
+		bool NKBDMIPCCPA;
+		struct Vector3 FLCIAGINIBG;
+		struct Coroutine* PMNPICKHKKK;
+		struct RectTransform* CFPOEKLCAFD;
+		struct AnimationCurve* focusSpeedCurve;
+		struct RectTransform* MHODEEBGDDA;
+	};
+
+	struct StoryQuestChapterPage
+	{
+		struct StoryQuestChapterPage__Class* klass;
+		MonitorData* monitor;
+		struct StoryQuestChapterPage__Fields fields;
 	};
 
 	enum class GameMovie_PHMCJCHPFEF__Enum : int32_t

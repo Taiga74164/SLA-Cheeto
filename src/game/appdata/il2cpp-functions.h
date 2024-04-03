@@ -49,6 +49,7 @@ DO_APP_FUNC(0x00998A00, bool, PCILGJOEPJM_PPAKPBOJLIP, (ENNEJEPMJLJ* IGBKKNODEGM
 
 // Mission Time
 DO_APP_FUNC(0x00D87DD0, void, StageReadyPage_EnterUI, (StageReadyPage* __this, MethodInfo* method));
+DO_APP_FUNC(0x00D8BA20, void, StoryQuestChapterPage_EnterUI, (StoryQuestChapterPage* __this,MethodInfo* method));
 // Intro Movie
 DO_APP_FUNC(0x00A9AE20, void, GameMovie_Update, (GameMovie* __this, MethodInfo* method));
 DO_APP_FUNC(0x00A9C720, void, IntroMovie_Update, (IntroMovie* __this, MethodInfo* method));
@@ -61,6 +62,9 @@ DO_APP_FUNC(0x00837FE0, void, JIBDAHKJHOG_KPDGECAFJKA, (JIBDAHKJHOG* __this, Met
 DO_APP_FUNC(0x00837510, void, JIBDAHKJHOG_HLLNLMAECBD, (JIBDAHKJHOG* __this, void* JONOLJGMLBE, void* BHMPNNCBFGN, MethodInfo* method)); // EnterBattleReq
 DO_APP_FUNC(0x00836650, void, JIBDAHKJHOG_EJLDBPGJGPN, (JIBDAHKJHOG* __this, MethodInfo* method)); // NextStageBattle
 DO_APP_FUNC(0x00836410, void, JIBDAHKJHOG_COLDHPFDOHG, (JIBDAHKJHOG* __this, MethodInfo* method)); // StageStart
+
+// Shadow Cooldown And Limit
+DO_APP_FUNC(0x009A41E0, void, JLLMICINIDA_LFCGJLAFFOM, (JLLMICINIDA* __this, MethodInfo* method));
 
 // Singletons
 DO_APP_FUNC(0x00344840, void*, TSingleton_GetInstance, (MethodInfo* method)); // Search for this in IDA
