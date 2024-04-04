@@ -3216,6 +3216,167 @@ namespace app
 		Max = 0x07,
 	};
 
+	enum class ESpecialState__Enum : int32_t
+	{
+		None = 0x00000000,
+		DotMpChange = 0x00000001,
+		Dispel = 0x00000002,
+		MoveAnimationSpeed = 0x00000003,
+		HPConditionBuffControl = 0x00000004,
+		DamageReduce = 0x00000005,
+		SkillDamageIncreaseOnBuffedTarget = 0x00000006,
+		DotDamage = 0x00000007,
+		DotPgChange = 0x00000008,
+		DamageDistribution = 0x00000009,
+		SkillCast = 0x0000000a,
+		AfterCoolTimeSkill = 0x0000000b,
+		DecreaseCoolTime = 0x0000000c,
+		Barrier = 0x0000000d,
+		HpRecovery = 0x0000000e,
+		MpRecovery = 0x0000000f,
+		Stigmatization = 0x00000010,
+		AttackReactiveGiveBuff = 0x00000011,
+		AttackGiveBuff = 0x00000012,
+		CanNotTargetable = 0x00000013,
+		Crash = 0x00000014,
+		Stun = 0x00000015,
+		BodyStop = 0x00000016,
+		ForbidAll = 0x00000017,
+		Invincible = 0x00000018,
+		MesImmune = 0x00000019,
+		ReactionImmune = 0x0000001a,
+		ForcedMoveImmune = 0x0000001b,
+		DamageImmune = 0x0000001c,
+		SkillChange = 0x0000001d,
+		OnlyProjectileDamageAble = 0x0000001e,
+		PeriodGiveBuff = 0x0000001f,
+		ElementResistanceWeak = 0x00000020,
+		ElementResistanceStrong = 0x00000021,
+		ElementResistanceImmune = 0x00000022,
+		Suicide = 0x00000023,
+		SkillMaxCoolReduce = 0x00000024,
+		Shield = 0x00000025,
+		FixDamage = 0x00000026,
+		Undying = 0x00000027,
+		ObjectSpawn = 0x00000028,
+		PgRecovery = 0x00000029,
+		ForcePlayerBuff = 0x0000002a,
+		ForceCharBuff = 0x0000002b,
+		EnhanceSkillDamage = 0x0000002c,
+		BuffSubtitle = 0x0000002d,
+		CrashImmune = 0x0000002e,
+		StatConversion = 0x0000002f,
+		PGGainRate = 0x00000030,
+		FastRun = 0x00000031,
+		DotBreak = 0x00000032,
+		EvadeOff = 0x00000033,
+		BlockExtremeAvoid = 0x00000034,
+		DashMaxCount = 0x00000035,
+		HideSkillIndicator = 0x00000036,
+		EnhanceHpRecovery = 0x00000037,
+		AddCG = 0x00000038,
+		LimitSkillUseCount = 0x00000039,
+		EnhanceMpRecovery = 0x0000003a,
+		DecreaseHpRecovery = 0x0000003b,
+		DecreaseMpRecovery = 0x0000003c,
+		IncreaseDotDamage = 0x0000003d,
+		ChangeDamageOnBuffTypeCount = 0x0000003e,
+		ChangeDamageOnElementType = 0x0000003f,
+		AddBuffInRange = 0x00000040,
+		ForceApplyReactionOnAttack = 0x00000041,
+		BaseStatConversion = 0x00000042,
+		BuffStatAdd = 0x00000043,
+		Stealth = 0x00000044,
+		AbsorbElementDamage = 0x00000045,
+		InstantBarrier = 0x00000046,
+		ReflectDamage = 0x00000047,
+		ReflectDebuff = 0x00000048,
+		Fear = 0x00000049,
+		MonsterGradeDamage = 0x0000004a,
+		CriticalRate = 0x0000004b,
+		MPUseAmount = 0x0000004c,
+		DamageOnReaction = 0x0000004d,
+		HPCheckLow = 0x0000004e,
+		BaseStatConversionOnSkillDamage = 0x0000004f,
+		BreakModifier = 0x00000050,
+		BreakRecovery = 0x00000051,
+		RemainHpDamageUp = 0x00000052,
+		RemainHpHitDamageUp = 0x00000053,
+		WeaknessElementDamage = 0x00000054,
+		ForceCG = 0x00000055,
+		DefPenOnSkill = 0x00000056,
+		BuffGroupDuration = 0x00000057,
+		EnhanceBackDamage = 0x00000058,
+		EnhanceDotDamage = 0x00000059,
+		IncreaseDamageByTargetBuff = 0x0000005a,
+		DamageByDistance = 0x0000005b,
+		EnhanceTypeDamage = 0x0000005c,
+		MonsterGradeHitDamage = 0x0000005d,
+		WeaknessElementSkillDamage = 0x0000005e,
+		WeaknessElementBreakModifier = 0x0000005f,
+		WeaknessElementCriRate = 0x00000060,
+		WeaknessElementCriDamage = 0x00000061,
+		CriRateOnBuffedTarget = 0x00000062,
+		CriDamOnBuffedTarget = 0x00000063,
+		IncreaseDamageByTargetSpecialState = 0x00000064,
+		StackDispel = 0x00000065,
+		PGGainRateAdd = 0x00000066,
+		AddOrDispel = 0x00000067,
+		AddShadowBuff = 0x00000068,
+		ShadowStatIncrease = 0x00000069,
+		SkillTypeMaxCoolReduce = 0x0000006a,
+		EnhanceSkillTypeDamage = 0x0000006b,
+		HPRateHitReceiveBuff = 0x0000006c,
+		Resurrection = 0x0000006d,
+		ShieldModifier = 0x0000006e,
+		EnhanceSkillDamageByStat = 0x0000006f,
+		HPRecoveryByDamegeRate = 0x00000070,
+		CheckBuff = 0x00000071,
+		DamageByDamageRate = 0x00000072,
+		HPComparisonDamage = 0x00000073,
+		IncreaseHitDamageBySkillType = 0x00000074,
+		ManaLeak = 0x00000075,
+		IncreaseMHP = 0x00000076,
+		IncreaseMMP = 0x00000077,
+		FixReaction = 0x00000078,
+		DispelSpecialState = 0x00000079,
+		ActiveQTESkill = 0x0000007a,
+		Max = 0x0000007b,
+	};
+
+	struct ESpecialState__Enum__Array
+	{
+		struct ESpecialState__Enum__Array__Class* klass;
+		MonitorData* monitor;
+		Il2CppArrayBounds* bounds;
+		il2cpp_array_size_t max_length;
+		ESpecialState__Enum vector[32];
+	};
+
+	struct KPBLHMGMKMK__Array
+	{
+		struct KPBLHMGMKMK__Array__Class* klass;
+		MonitorData* monitor;
+		Il2CppArrayBounds* bounds;
+		il2cpp_array_size_t max_length;
+		struct KPBLHMGMKMK* vector[32];
+	};
+
+	struct __declspec(align(8)) List_1_KPBLHMGMKMK___Fields
+	{
+		struct KPBLHMGMKMK__Array* _items;
+		int32_t _size;
+		int32_t _version;
+		struct Object* _syncRoot;
+	};
+
+	struct List_1_KPBLHMGMKMK_
+	{
+		struct List_1_KPBLHMGMKMK___Class* klass;
+		MonitorData* monitor;
+		struct List_1_KPBLHMGMKMK___Fields fields;
+	};
+
 	struct __declspec(align(8)) CharBattleInfoData__Fields
 	{
 		struct List_1_KPBLHMGMKMK_* m_startBuffDataList;
@@ -3338,6 +3499,39 @@ namespace app
 		DialogPageCall = 0x00000004,
 		DungeonPotal = 0x00000008,
 		CharGroupHideCode = 0x00000010,
+	};
+
+	struct CharResourceContainer__Fields
+	{
+		struct MonoBehaviour__Fields _;
+		struct Animator* m_pkAnimator;
+		struct NavMeshAgent* m_pkNavAgent;
+		struct CapsuleCollider* m_pkCollider;
+		struct BehaviorTree* m_pkBehaviorTree;
+		struct CapsuleCollider__Array* CHBACHOLCOI;
+		struct List_1_UnityEngine_CapsuleCollider_* FOIDMHEDKLB;
+		struct Transform* m_pApplyTranslateAxisY;
+		struct CharCustomResourceObject* HJDDFMPNILE;
+	};
+
+	struct CharResourceContainer
+	{
+		struct CharResourceContainer__Class* klass;
+		MonitorData* monitor;
+		struct CharResourceContainer__Fields fields;
+	};
+
+	struct __declspec(align(8)) CCOAEFGKDKM__Fields
+	{
+		struct GameObject* HOAFECEANLC; // Character GameObject
+		struct Dictionary_2_NCommon_eCharPivotType_UnityEngine_Transform_* BIPIHHBGDDK;
+	};
+
+	struct CCOAEFGKDKM
+	{
+		struct CCOAEFGKDKM__Class* klass;
+		MonitorData* monitor;
+		struct CCOAEFGKDKM__Fields fields;
 	};
 
 	struct __declspec(align(8)) CDCHBPIDJCD__Fields
@@ -3662,134 +3856,6 @@ namespace app
 		struct PIPHNBOBFEF__Class* klass;
 		MonitorData* monitor;
 		struct PIPHNBOBFEF__Fields fields;
-	};
-
-	enum class ESpecialState__Enum : int32_t
-	{
-		None = 0x00000000,
-		DotMpChange = 0x00000001,
-		Dispel = 0x00000002,
-		MoveAnimationSpeed = 0x00000003,
-		HPConditionBuffControl = 0x00000004,
-		DamageReduce = 0x00000005,
-		SkillDamageIncreaseOnBuffedTarget = 0x00000006,
-		DotDamage = 0x00000007,
-		DotPgChange = 0x00000008,
-		DamageDistribution = 0x00000009,
-		SkillCast = 0x0000000a,
-		AfterCoolTimeSkill = 0x0000000b,
-		DecreaseCoolTime = 0x0000000c,
-		Barrier = 0x0000000d,
-		HpRecovery = 0x0000000e,
-		MpRecovery = 0x0000000f,
-		Stigmatization = 0x00000010,
-		AttackReactiveGiveBuff = 0x00000011,
-		AttackGiveBuff = 0x00000012,
-		CanNotTargetable = 0x00000013,
-		Crash = 0x00000014,
-		Stun = 0x00000015,
-		BodyStop = 0x00000016,
-		ForbidAll = 0x00000017,
-		Invincible = 0x00000018,
-		MesImmune = 0x00000019,
-		ReactionImmune = 0x0000001a,
-		ForcedMoveImmune = 0x0000001b,
-		DamageImmune = 0x0000001c,
-		SkillChange = 0x0000001d,
-		OnlyProjectileDamageAble = 0x0000001e,
-		PeriodGiveBuff = 0x0000001f,
-		ElementResistanceWeak = 0x00000020,
-		ElementResistanceStrong = 0x00000021,
-		ElementResistanceImmune = 0x00000022,
-		Suicide = 0x00000023,
-		SkillMaxCoolReduce = 0x00000024,
-		Shield = 0x00000025,
-		FixDamage = 0x00000026,
-		Undying = 0x00000027,
-		ObjectSpawn = 0x00000028,
-		PgRecovery = 0x00000029,
-		ForcePlayerBuff = 0x0000002a,
-		ForceCharBuff = 0x0000002b,
-		EnhanceSkillDamage = 0x0000002c,
-		BuffSubtitle = 0x0000002d,
-		CrashImmune = 0x0000002e,
-		StatConversion = 0x0000002f,
-		PGGainRate = 0x00000030,
-		FastRun = 0x00000031,
-		DotBreak = 0x00000032,
-		EvadeOff = 0x00000033,
-		BlockExtremeAvoid = 0x00000034,
-		DashMaxCount = 0x00000035,
-		HideSkillIndicator = 0x00000036,
-		EnhanceHpRecovery = 0x00000037,
-		AddCG = 0x00000038,
-		LimitSkillUseCount = 0x00000039,
-		EnhanceMpRecovery = 0x0000003a,
-		DecreaseHpRecovery = 0x0000003b,
-		DecreaseMpRecovery = 0x0000003c,
-		IncreaseDotDamage = 0x0000003d,
-		ChangeDamageOnBuffTypeCount = 0x0000003e,
-		ChangeDamageOnElementType = 0x0000003f,
-		AddBuffInRange = 0x00000040,
-		ForceApplyReactionOnAttack = 0x00000041,
-		BaseStatConversion = 0x00000042,
-		BuffStatAdd = 0x00000043,
-		Stealth = 0x00000044,
-		AbsorbElementDamage = 0x00000045,
-		InstantBarrier = 0x00000046,
-		ReflectDamage = 0x00000047,
-		ReflectDebuff = 0x00000048,
-		Fear = 0x00000049,
-		MonsterGradeDamage = 0x0000004a,
-		CriticalRate = 0x0000004b,
-		MPUseAmount = 0x0000004c,
-		DamageOnReaction = 0x0000004d,
-		HPCheckLow = 0x0000004e,
-		BaseStatConversionOnSkillDamage = 0x0000004f,
-		BreakModifier = 0x00000050,
-		BreakRecovery = 0x00000051,
-		RemainHpDamageUp = 0x00000052,
-		RemainHpHitDamageUp = 0x00000053,
-		WeaknessElementDamage = 0x00000054,
-		ForceCG = 0x00000055,
-		DefPenOnSkill = 0x00000056,
-		BuffGroupDuration = 0x00000057,
-		EnhanceBackDamage = 0x00000058,
-		EnhanceDotDamage = 0x00000059,
-		IncreaseDamageByTargetBuff = 0x0000005a,
-		DamageByDistance = 0x0000005b,
-		EnhanceTypeDamage = 0x0000005c,
-		MonsterGradeHitDamage = 0x0000005d,
-		WeaknessElementSkillDamage = 0x0000005e,
-		WeaknessElementBreakModifier = 0x0000005f,
-		WeaknessElementCriRate = 0x00000060,
-		WeaknessElementCriDamage = 0x00000061,
-		CriRateOnBuffedTarget = 0x00000062,
-		CriDamOnBuffedTarget = 0x00000063,
-		IncreaseDamageByTargetSpecialState = 0x00000064,
-		StackDispel = 0x00000065,
-		PGGainRateAdd = 0x00000066,
-		AddOrDispel = 0x00000067,
-		AddShadowBuff = 0x00000068,
-		ShadowStatIncrease = 0x00000069,
-		SkillTypeMaxCoolReduce = 0x0000006a,
-		EnhanceSkillTypeDamage = 0x0000006b,
-		HPRateHitReceiveBuff = 0x0000006c,
-		Resurrection = 0x0000006d,
-		ShieldModifier = 0x0000006e,
-		EnhanceSkillDamageByStat = 0x0000006f,
-		HPRecoveryByDamegeRate = 0x00000070,
-		CheckBuff = 0x00000071,
-		DamageByDamageRate = 0x00000072,
-		HPComparisonDamage = 0x00000073,
-		IncreaseHitDamageBySkillType = 0x00000074,
-		ManaLeak = 0x00000075,
-		IncreaseMHP = 0x00000076,
-		IncreaseMMP = 0x00000077,
-		FixReaction = 0x00000078,
-		DispelSpecialState = 0x00000079,
-		ActiveQTESkill = 0x0000007a,
-		Max = 0x0000007b,
 	};
 
 	struct SkillIdentity__Fields
@@ -4965,6 +5031,214 @@ namespace app
 		struct JIBDAHKJHOG__Class *klass;
 		MonitorData *monitor;
 		struct JIBDAHKJHOG__Fields fields;
+	};
+
+	enum class EBuffLargeType__Enum : int32_t
+	{
+		None = 0x00000000,
+		Buff = 0x00000001,
+		DeBuff = 0x00000002,
+		Passive = 0x00000003,
+		Special = 0x00000004,
+		ShadowOnly = 0x00000005,
+		Max = 0x00000006,
+	};
+
+	enum class EStatType__Enum : uint8_t
+	{
+		None = 0x00,
+		Att = 0x01,
+		AddAtt = 0x02,
+		AttR = 0x03,
+		AttFR = 0x04,
+		Arm = 0x05,
+		ArmR = 0x06,
+		AddArm = 0x07,
+		ArmFR = 0x08,
+		MHP = 0x09,
+		MHPR = 0x0a,
+		AddMHP = 0x0b,
+		MHPFR = 0x0c,
+		Critical = 0x0d,
+		CriticalP = 0x0e,
+		CriticalRes = 0x0f,
+		CriDam = 0x10,
+		CriDamP = 0x11,
+		CriDamRes = 0x12,
+		Precision = 0x13,
+		PrecisionP = 0x14,
+		MMP = 0x15,
+		MMPR = 0x16,
+		AddMMP = 0x17,
+		MPRegen = 0x18,
+		MPRegenR = 0x19,
+		MPCostRedu = 0x1a,
+		MPCostReduP = 0x1b,
+		MoveSpd = 0x1c,
+		MoveSpdR = 0x1d,
+		AttSpd = 0x1e,
+		AttSpdP = 0x1f,
+		CoolRedu = 0x20,
+		CoolReduP = 0x21,
+		ArmPen = 0x22,
+		ArmPenP = 0x23,
+		Dam = 0x24,
+		DamP = 0x25,
+		DamRedu = 0x26,
+		DamReduP = 0x27,
+		ReceiveHealIncre = 0x28,
+		ReceiveHealIncreP = 0x29,
+		HealIncre = 0x2a,
+		HealIncreP = 0x2b,
+		DebuffRecovery = 0x2c,
+		DebuffRecoveryP = 0x2d,
+		ElementDamFire = 0x2e,
+		ElementDamFireP = 0x2f,
+		ElementDamWater = 0x30,
+		ElementDamWaterP = 0x31,
+		ElementDamWind = 0x32,
+		ElementDamWindP = 0x33,
+		ElementDamLight = 0x34,
+		ElementDamLightP = 0x35,
+		ElementDamDarkness = 0x36,
+		ElementDamDarknessP = 0x37,
+		CriChanceWeight = 0x38,
+		DebuffStateIgnoreP = 0x39,
+		DebuffStateDurationReduP = 0x3a,
+		HealP = 0x3b,
+		CriticalResP = 0x3c,
+		CriticalDamResP = 0x3d,
+		Max = 0x3e,
+	};
+
+	enum class EStatStandard__Enum : uint8_t
+	{
+		Target = 0x00,
+		Caster = 0x01,
+		Max = 0x02,
+	};
+
+	enum class ETriggeredBuffCondition__Enum : uint8_t
+	{
+		None = 0x00,
+		CastSkill = 0x01,
+		CastDash = 0x02,
+		HitTarget = 0x03,
+		Hit = 0x04,
+		CriticalHitTarget = 0x05,
+		CriticalHit = 0x06,
+		Die = 0x07,
+		EnemyDie = 0x08,
+		BuffStackCount = 0x09,
+		BuffOff = 0x0a,
+		HpCheck = 0x0b,
+		MpCheck = 0x0c,
+		Dispel = 0x0d,
+		HitReaction = 0x0e,
+		HitTargetAC = 0x0f,
+		HitAC = 0x10,
+		CriticalHitTargetAC = 0x11,
+		CriticalHitAC = 0x12,
+		TagIn = 0x13,
+		TagOut = 0x14,
+		HitTargetBuffGroup = 0x15,
+		CriticalHitTargetBuffGroup = 0x16,
+		HitTargetACBuffGroup = 0x17,
+		CriticalHitTargetACBuffGroup = 0x18,
+		HitBuffGroup = 0x19,
+		CriticalHitBuffGroup = 0x1a,
+		HitACBuffGroup = 0x1b,
+		CriticalHitACBuffGroup = 0x1c,
+		SpecialCancel = 0x1d,
+		BackAttackHitTarget = 0x1e,
+		CriticalHitMonsterGrade = 0x1f,
+		CriticalHitACMonsterGrade = 0x20,
+		ShieldOn = 0x21,
+		ShieldOff = 0x22,
+		HitTargetBreakBarrier = 0x23,
+		HitBreakBarrier = 0x24,
+		BreakHitTargetBuffGroup = 0x25,
+		BreakHitTargetACBuffGroup = 0x26,
+		BodyStopOn = 0x27,
+		HitMainPcTarget = 0x28,
+		HitMainPcTargetAC = 0x29,
+		Max = 0x2a,
+	};
+
+	struct __declspec(align(8)) KPBLHMGMKMK__Fields
+	{
+		int64_t BPCIGFKCFCI;
+		int64_t EMGCBJJLLOD;
+		int32_t FIHELFIMKHO;
+		struct String* EDJBLODMLBO;
+		bool LOMMEDCNAHL;
+		int32_t IEBJKOGEDMM;
+		struct String* FAONGKOGAJI;
+		EBuffLargeType__Enum CALDGMDGFLO;
+		bool LLNAMEPPOCH;
+		int32_t OMPONCANEDE;
+		bool IGAFCNECCHC;
+		int32_t PJELOKAGJDI;
+		int32_t LEBPOCIOJCK;
+		int32_t PNADADLNDIF;
+		EStatType__Enum MJNNMKGNAAB;
+		int32_t NJDPHNEBLEK;
+		EStatStandard__Enum FHDGDOIADBH;
+		EStatType__Enum ECNPKGPPGIH;
+		int32_t OGFIOGCHJFH;
+		EStatStandard__Enum CCCMIMLMPEO;
+		EStatType__Enum MDKGGAAHKMO;
+		int32_t KMGECGEGEPC;
+		EStatStandard__Enum ELFBOMFFGJB;
+		struct ESpecialState__Enum__Array* GJFKHGJCOCF;
+		struct String__Array* CFENJKJPHDE;
+		ESpecialState__Enum NCCOIJKJNLO;
+		int64_t EPPGAOJILJL;
+		int64_t BCFGDHOKJPI;
+		int64_t HPKEEOFMHCH;
+		struct String* HHKMKCNDFNC;
+		ESpecialState__Enum CAFNJABEDFF;
+		int64_t HOKBDAOGGEK;
+		int64_t LLFABICDAEB;
+		int64_t OMCCDCJJHLK;
+		struct String* KMEMJFHNNAM;
+		ESpecialState__Enum FMDPJKICDMF;
+		int64_t CMJDEPGEELJ;
+		int64_t BLBAFGPEGAF;
+		int64_t ENLNBJGAOPN;
+		struct String* EFGEONAHHLN;
+		ETriggeredBuffCondition__Enum FHOOOCHPEHP;
+		bool DKCFNAFGION;
+		struct Int64__Array* FINHHLNECFE;
+		int32_t CKNDJLADOCB;
+		int32_t BAFDNKDMDHA;
+		int32_t COPFMFIFPLO;
+		int64_t OMKGNFFCNPF;
+		int64_t KMKLEMALLOL;
+		int64_t OPKLLHCMFNC;
+		int64_t KGHCMCIBMHJ;
+		int64_t HGJOHLFHJEL;
+		struct String* LONCAAFCDFF;
+		struct String* JHJNLIFGNDB;
+	};
+
+	struct KPBLHMGMKMK
+	{
+		struct KPBLHMGMKMK__Class* klass;
+		MonitorData* monitor;
+		struct KPBLHMGMKMK__Fields fields;
+	};
+
+	struct Animator__Fields
+	{
+		struct Behaviour__Fields _;
+	};
+
+	struct Animator
+	{
+		struct Animator__Class* klass;
+		MonitorData* monitor;
+		struct Animator__Fields fields;
 	};
 
 #if !defined(_GHIDRA_) && !defined(_IDA_)

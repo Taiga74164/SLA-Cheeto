@@ -63,6 +63,8 @@ void Gui::Render()
 
 			ImGui::CheckboxFill("Dumb Enemies", &vars.DumbEnemies.value()); HELPMAKER("This will prevent enemies from attacking or moving towards you");
 
+			ImGui::CheckboxFill("Mob Vacuum", &vars.MobVacuum.value()); HELPMAKER("You have to go to the checkpoint before killing them");
+
 			ImGui::CheckboxFill("Mission Time", &vars.MissionTime.value()); HELPMAKER("Make sure this is enabled before starting a mission");
 			if (vars.MissionTime.value())
 				ImGui::SliderInt("Time (ms)", &vars.MissionTimeMs.value(), 180000, 3600000, "%d");

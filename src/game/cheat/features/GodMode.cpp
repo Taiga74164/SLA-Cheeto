@@ -1,4 +1,5 @@
 #include "GodMode.h"
+#include "events.h"
 #include "HookManager.h"
 #include "Utils.h"
 #include "game-utils.hpp"
@@ -15,6 +16,7 @@ namespace Cheat::Features
 	{
 		auto& vars = Vars::GetInstance();
 
+		auto entity = skillIdentity->fields.entity;
 		//auto skillRange = skillIdentity->fields.SkillRange;
 		//auto skillMinRange = skillIdentity->fields.SkillMinRange;
 		//auto reaction = targetHitData->fields._reaction;
@@ -30,18 +32,18 @@ namespace Cheat::Features
 		//LOG("damageRatio %f", damageRatio);
 		//LOG("damageRatioTotalValue %f", damageRatioTotalValue);
 
-		//if (skillIdentity->fields.entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
-		//{
-		//	if (vars.GodMode.value())
-		//	{
-		//		skillIdentity->fields.SkillRange = 500.0f;
-		//		skillIdentity->fields.SkillMinRange = 500.0f;
-		//		targetHitData->fields._reaction = app::eReactionType__Enum::Float;
-		//		targetHitData->fields.PreventSkillCancel = true;
-		//		targetHitData->fields.damageRatio = 500.0f;
-		//		targetHitData->fields.damageRatioTotalValue = 500.0f;
-		//	}
-		//}
+		if (skillIdentity->fields.entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
+		{
+			//if (vars.DamageHack.value())
+			//{
+			//	skillIdentity->fields.SkillRange = static_cast<float>(vars.DamageHackValue.value());
+			//	skillIdentity->fields.SkillMinRange = static_cast<float>(vars.DamageHackValue.value());
+			//	targetHitData->fields._reaction = app::eReactionType__Enum::Float;
+			//	targetHitData->fields.PreventSkillCancel = true;
+			//	targetHitData->fields.damageRatio = static_cast<float>(vars.DamageHackValue.value());
+			//	targetHitData->fields.damageRatioTotalValue = static_cast<float>(vars.DamageHackValue.value());
+			//}
+		}
 
 		if (skillIdentity->fields.entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::ENEMY || 
 			skillIdentity->fields.entity->fields.AJEHLIOMMJN == app::ECharacterType__Enum::Monster)

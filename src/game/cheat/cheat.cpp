@@ -7,6 +7,7 @@
 #include "features/NoCooldown.h"
 #include "features/DamageHack.h"
 #include "features/GodMode.h"
+#include "features/MobVacuum.h"
 #include "features/DumbEnemies.h"
 #include "features/FovChanger.h"
 #include "features/FPSUnlock.h"
@@ -26,6 +27,7 @@ void init_cheat()
 	INIT_FEATURE(NoCooldown);
 	INIT_FEATURE(DamageHack);
 	INIT_FEATURE(GodMode);
+	INIT_FEATURE(MobVacuum);
 	INIT_FEATURE(DumbEnemies);
 	INIT_FEATURE(MissionTime);
 	INIT_FEATURE(TimeScale);
