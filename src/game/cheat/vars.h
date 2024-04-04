@@ -11,6 +11,7 @@ public:
 	CONFIG_ENTRY(bool, NoCooldown, true);
 	CONFIG_ENTRY(bool, NoCooldownShadow, true);
 	CONFIG_ENTRY(bool, GodMode, true);
+	CONFIG_ENTRY(bool, KillAura, true);
 	CONFIG_ENTRY(bool, DamageHack, true);
 	CONFIG_ENTRY(int, DamageHackValue, 20000);
 	CONFIG_ENTRY(bool, DumbEnemies, true);
@@ -24,4 +25,5 @@ public:
 	CONFIG_ENTRY(float, Fov, 60.0f);
 	CONFIG_ENTRY(bool, SkipIntroMovie, true);
 	CONFIG_ENTRY(bool, DisableWebView, true);
+	
 };
