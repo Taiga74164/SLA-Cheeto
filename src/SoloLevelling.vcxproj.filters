@@ -297,6 +297,12 @@
     <ClInclude Include="game\cheat\features\MobVacuum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="game\Hotkey.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game\HotkeyManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vendor\CommandMenu\src\Menu.cpp">
@@ -420,6 +426,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="game\cheat\features\MobVacuum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\Hotkey.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

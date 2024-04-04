@@ -1,6 +1,8 @@
 #include "DX11Hook.h"
 
+#include "events.h"
 #include "HookManager.h"
+#include "imgui.h"
 #include "Utils.h"
 
 #pragma comment(lib, "D3dcompiler.lib")
@@ -36,10 +38,54 @@ namespace Backend
 
 	LRESULT WINAPI WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
-		if (ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wParam, lParam))
+		//if (ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wParam, lParam))
+		//	return true;
+
+		//return CallWindowProcA(oWndProc, hWnd, uMsg, wParam, lParam);
+		ImGuiIO& io = ImGui::GetIO();
+		POINT mPos;
+		GetCursorPos(&mPos);
+		ScreenToClient(hWnd, &mPos);
+		ImGui::GetIO().MousePos.x = static_cast<float>(mPos.x);
+		ImGui::GetIO().MousePos.y = static_cast<float>(mPos.y);
+
+		ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wParam, lParam);
+
+		if (!events::WndProcEvent(hWnd, uMsg, wParam, lParam))
 			return true;
 
-		return CallWindowProcA(oWndProc, hWnd, uMsg, wParam, lParam);
+		short key;
+		bool keyUpEvent = true;
+		switch (uMsg)
+		{
+		case WM_LBUTTONUP:
+			key = VK_LBUTTON;
+			break;
+		case WM_RBUTTONUP:
+			key = VK_RBUTTON;
+			break;
+		case WM_MBUTTONUP:
+			key = VK_MBUTTON;
+			break;
+		case WM_XBUTTONUP:
+			key = GET_XBUTTON_WPARAM(wParam) == XBUTTON1 ? VK_XBUTTON1 : VK_XBUTTON2;
+			break;
+		case WM_KEYUP:
+			key = static_cast<short>(wParam);
+			break;
+		default:
+			keyUpEvent = false;
+			break;
+		}
+
+		bool canceled = false;
+		if (keyUpEvent)
+			canceled = !events::KeyUpEvent(key);
+
+		if (canceled)
+			return true;
+
+		return CallWindowProc(oWndProc, hWnd, uMsg, wParam, lParam);
 	}
 
 	HRESULT __stdcall DX11Hook::PresentHook(IDXGISwapChain* pSwapChain, UINT syncInterval, UINT flags)

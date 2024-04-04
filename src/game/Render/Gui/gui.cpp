@@ -33,7 +33,8 @@ void Gui::Render()
 
 			MENU_MODULES("Features", 0);
 			MENU_MODULES("Misc", 1);
-			MENU_MODULES("About", 2);
+			MENU_MODULES("Hotkeys", 2);
+			MENU_MODULES("About", 3);
 
 #undef MENU_MODULES
 		}
@@ -98,7 +99,25 @@ void Gui::Render()
 			ImGui::EndGroup();
 			ImGui::PopStyleVar();
 			break;
-		case 2: // About
+		case 2: // Hotkeys
+			ImGui::HotkeyButton("PlayerSpeed", vars.PlayerSpeedHotkey, vars.PlayerSpeed.value());
+			ImGui::HotkeyButton("NoCooldown", vars.NoCooldownHotkey, vars.NoCooldown.value());
+			ImGui::HotkeyButton("NoCooldownShadow", vars.NoCooldownShadowHotkey, vars.NoCooldownShadow.value());
+			ImGui::HotkeyButton("GodMode", vars.GodModeHotkey, vars.GodMode.value());
+			ImGui::HotkeyButton("DamageHack", vars.DamageHackHotkey, vars.DamageHack.value());
+			//ImGui::HotkeyButton("DamagePercentage", vars.DamagePercentageHotkey, vars.DamagePercentage.value());
+			//ImGui::HotkeyButton("DamageFixed", vars.DamageFixedHotkey, vars.DamageFixed.value());
+			ImGui::HotkeyButton("MobVacuum", vars.MobVacuumHotkey, vars.MobVacuum.value());
+			ImGui::HotkeyButton("DumbEnemies", vars.DumbEnemiesHotkey, vars.DumbEnemies.value());
+			ImGui::HotkeyButton("MissionTime", vars.MissionTimeHotkey, vars.MissionTime.value());
+			ImGui::HotkeyButton("TimeScale", vars.TimeScaleHotkey, vars.TimeScale.value());
+			ImGui::HotkeyButton("FPSUnlock", vars.FPSUnlockHotkey, vars.FPSUnlock.value());
+			ImGui::HotkeyButton("FovChanger", vars.FovChangerHotkey, vars.FovChanger.value());
+			ImGui::HotkeyButton("SkipIntroMovie", vars.SkipIntroMovieHotkey, vars.SkipIntroMovie.value());
+			ImGui::HotkeyButton("DisableWebView", vars.DisableWebViewHotkey, vars.DisableWebView.value());
+
+			break;
+		case 3: // About
 			ImGui::Spacing();
 			ImGui::Text("Created by: Taiga74164");
 			ImGui::TextURL("Unknown Cheats thread", "https://www.unknowncheats.me/forum/other-mmorpg-and-strategy/629636-solo-leveling-arise-cheeto.html");

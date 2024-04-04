@@ -2,6 +2,7 @@
 #include "global.h"
 #include "HookManager.h"
 #include "events.h"
+#include "HotkeyManager.h"
 
 #include "features/PlayerSpeed.h"
 #include "features/NoCooldown.h"
@@ -44,6 +45,7 @@ void GameFrameWork_Update_Hook(app::GameFrameWork* __this, MethodInfo* method)
 {
 	SAFE_BEGIN();
 	events::GameUpdateEvent();
+	HotkeyManager::GetInstance().CheckForKeyPress();
 	SAFE_EEND();
 	CALL_ORIGIN(GameFrameWork_Update_Hook, __this, method);
 }

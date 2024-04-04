@@ -1,5 +1,28 @@
 #include "gui-util.hpp"
+
+#include "HotkeyManager.h"
 #include "Utils.h"
+
+Hotkey hotkey;
+
+void ImGui::HotkeyButton(const char* label, Hotkey& hotkey, bool& toggleVar)
+{
+	Text("%s", label);
+	SameLine();
+	std::string buttonText = "SET";
+	if (hotkey.IsListening())
+		buttonText = "PRESS ANY KEY";
+	else if (!hotkey.GetKeyString().empty())
+		buttonText = hotkey.GetKeyString();
+	
+	if (Button(buttonText.c_str(), ImVec2(GuiUtil::GetX(), 0)))
+	{
+		if (!hotkey.IsListening())
+			hotkey.ListenForNextKeyPress(&hotkey);
+	}
+
+	HotkeyManager::GetInstance().RegisterKey(hotkey, &toggleVar);
+}
 
 void ImGui::TextURL(const char* text, const char* url)
 {
