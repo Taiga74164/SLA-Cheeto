@@ -92,6 +92,7 @@
     <ClInclude Include="game\cheat\features\FPSUnlock.h" />
     <ClInclude Include="game\cheat\features\GodMode.h" />
     <ClInclude Include="game\cheat\features\MissionTime.h" />
+    <ClInclude Include="game\cheat\features\MobVacuum.h" />
     <ClInclude Include="game\cheat\features\NoCooldown.h" />
     <ClInclude Include="game\cheat\features\PlayerSpeed.h" />
     <ClInclude Include="game\cheat\features\SkipIntroMovie.h" />
@@ -170,6 +171,7 @@
     <ClCompile Include="game\cheat\features\FPSUnlock.cpp" />
     <ClCompile Include="game\cheat\features\GodMode.cpp" />
     <ClCompile Include="game\cheat\features\MissionTime.cpp" />
+    <ClCompile Include="game\cheat\features\MobVacuum.cpp" />
     <ClCompile Include="game\cheat\features\NoCooldown.cpp" />
     <ClCompile Include="game\cheat\features\PlayerSpeed.cpp" />
     <ClCompile Include="game\cheat\features\SkipIntroMovie.cpp" />

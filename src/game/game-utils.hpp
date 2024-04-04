@@ -33,3 +33,9 @@ inline bool IsPlayerRootEmpty()
 
 	return true;
 }
+
+template<typename T>
+std::string GetName(T obj)
+{
+	return il2cppi_to_string(app::Object_1_get_name(reinterpret_cast<app::Object_1*>(obj), nullptr));
+}

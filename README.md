@@ -14,6 +14,7 @@ This project is created and shared for educational purposes only. I do not condo
 - No Cooldown Shadow (Enable only if you have shadow feature available)
 - God Mode
 - Damage Hack
+- Mob Vacuum
 - Dumb Enemies (They don't attack you)
 - Mission Time (Enable this before starting a mission)
 - Time Scale
