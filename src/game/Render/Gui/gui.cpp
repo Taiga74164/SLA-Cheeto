@@ -59,7 +59,7 @@ void Gui::Render()
 
 			ImGui::CheckboxFill("Damage Hack", &vars.DamageHack.value());
 			if (vars.DamageHack.value())
-				ImGui::DragInt("Value", &vars.DamageHackValue.value(), 10000, 100000000);
+				ImGui::DragInt("Value", &vars.DamageHackValue.value(), 10.0f, 10000, 100000000);
 
 			ImGui::CheckboxFill("Dumb Enemies", &vars.DumbEnemies.value()); HELPMAKER("This will prevent enemies from attacking or moving towards you");
 
@@ -70,11 +70,11 @@ void Gui::Render()
 			
 			ImGui::CheckboxFill("Mission Time", &vars.MissionTime.value()); HELPMAKER("Make sure this is enabled before starting a mission");
 			if (vars.MissionTime.value())
-				ImGui::DragInt("Time (ms)", &vars.MissionTimeMs.value(), 180000, 3600000);
+				ImGui::DragInt("Time (ms)", &vars.MissionTimeMs.value(), 10.0f, 180000, 3600000);
 
 			ImGui::CheckboxFill("Time Scale", &vars.TimeScale.value());
 			if (vars.TimeScale.value())
-				ImGui::DragFloat("Speed", &vars.TimeScaleSpeed.value(), 1.0f, 10.0f);
+				ImGui::DragFloat("Speed", &vars.TimeScaleSpeed.value(), 1.0f, 1.0f, 10.0f);
 
 			ImGui::EndGroup();
 			ImGui::PopStyleVar();
@@ -85,11 +85,11 @@ void Gui::Render()
 
 			ImGui::CheckboxFill("FPS Unlock", &vars.FPSUnlock.value());
 			if (vars.FPSUnlock.value())
-				ImGui::DragInt("FPS", &vars.FPSValue.value(), 5, 360);
+				ImGui::DragInt("FPS", &vars.FPSValue.value(), 1.0f, 5, 360);
 			
 			ImGui::CheckboxFill("Fov Changer", &vars.FovChanger.value());
 			if (vars.FovChanger.value())
-				ImGui::DragFloat("Fov", &vars.Fov.value(), 1.0f, 360.0f);
+				ImGui::DragFloat("Fov", &vars.Fov.value(), 1.0f, 1.0f, 360.0f);
 
 			ImGui::CheckboxFill("Skip Intro Movie", &vars.SkipIntroMovie.value()); HELPMAKER("This will skip the intro movie when you start the game");
 
