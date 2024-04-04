@@ -58,14 +58,8 @@ void Gui::Render()
 			ImGui::CheckboxFill("God Mode", &vars.GodMode.value());
 
 			ImGui::CheckboxFill("Damage Hack", &vars.DamageHack.value());
-			if (vars.DamageHack.value()) {
-				ImGui::SliderInt("Value", &vars.DamageHackValue.value(), 10000, 100000000, "%d");
-
-				ImGui::SameLine();
-				ImGui::PushID(0);
-				ImGui::InputInt("", &vars.DamageHackValue.value());
-				ImGui::PopID();
-			}
+			if (vars.DamageHack.value())
+				ImGui::DragInt("Value", &vars.DamageHackValue.value(), 10000, 100000000);
 
 			ImGui::CheckboxFill("Dumb Enemies", &vars.DumbEnemies.value()); HELPMAKER("This will prevent enemies from attacking or moving towards you");
 
@@ -73,26 +67,14 @@ void Gui::Render()
 			// Add distance check.
 			// Add offset to the player position.
 			ImGui::CheckboxFill("Mob Vacuum", &vars.MobVacuum.value()); HELPMAKER("You have to go to the checkpoint before killing them");
-
+			
 			ImGui::CheckboxFill("Mission Time", &vars.MissionTime.value()); HELPMAKER("Make sure this is enabled before starting a mission");
-			if (vars.MissionTime.value()) {
-				ImGui::SliderInt("Time (ms)", &vars.MissionTimeMs.value(), 180000, 3600000, "%d");
-
-				ImGui::SameLine();
-				ImGui::PushID(1);
-				ImGui::InputInt("", &vars.MissionTimeMs.value());
-				ImGui::PopID();
-			}
+			if (vars.MissionTime.value())
+				ImGui::DragInt("Time (ms)", &vars.MissionTimeMs.value(), 180000, 3600000);
 
 			ImGui::CheckboxFill("Time Scale", &vars.TimeScale.value());
-			if (vars.TimeScale.value()) {
-				ImGui::SliderFloat("Speed", &vars.TimeScaleSpeed.value(), 1.0f, 10.0f, "%.1f");
-
-				ImGui::SameLine();
-				ImGui::PushID(2);
-				ImGui::InputFloat("", &vars.Fov.value());
-				ImGui::PopID();
-			}
+			if (vars.TimeScale.value())
+				ImGui::DragFloat("Speed", &vars.TimeScaleSpeed.value(), 1.0f, 10.0f);
 
 			ImGui::EndGroup();
 			ImGui::PopStyleVar();
@@ -102,24 +84,12 @@ void Gui::Render()
 			ImGui::BeginGroup();
 
 			ImGui::CheckboxFill("FPS Unlock", &vars.FPSUnlock.value());
-			if (vars.FPSUnlock.value()) {
-				ImGui::SliderInt("FPS", &vars.FPSValue.value(), 5, 360, "%d");
-
-				ImGui::SameLine();
-				ImGui::PushID(3);
-				ImGui::InputInt("", &vars.FPSValue.value());
-				ImGui::PopID();
-			}
+			if (vars.FPSUnlock.value())
+				ImGui::DragInt("FPS", &vars.FPSValue.value(), 5, 360);
 			
 			ImGui::CheckboxFill("Fov Changer", &vars.FovChanger.value());
-			if (vars.FovChanger.value()) {
-				ImGui::SliderFloat("Fov", &vars.Fov.value(), 1.0f, 360.0f, "%.1f");
-
-				ImGui::SameLine();
-				ImGui::PushID(4);
-				ImGui::InputFloat("", &vars.Fov.value());
-				ImGui::PopID();
-			}
+			if (vars.FovChanger.value())
+				ImGui::DragFloat("Fov", &vars.Fov.value(), 1.0f, 360.0f);
 
 			ImGui::CheckboxFill("Skip Intro Movie", &vars.SkipIntroMovie.value()); HELPMAKER("This will skip the intro movie when you start the game");
 
