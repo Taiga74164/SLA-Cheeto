@@ -18,8 +18,10 @@ inline bool IsInLoginScene()
 {
 	auto scene = app::SceneManager_GetActiveScene(nullptr);
 	auto sceneName = il2cppi_to_string(app::Scene_GetNameInternal(scene.m_Handle, nullptr));
-	LOG("Scene name: %s", sceneName.c_str());
-	if (sceneName == "LoginScene") return true;
+	// LOG("Scene name: %s", sceneName.c_str());
+	if (sceneName == "SceneIntro" ||
+		sceneName == "SceneLogin")
+		return true;
 
 	return false;
 }
