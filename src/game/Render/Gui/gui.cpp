@@ -63,6 +63,9 @@ void Gui::Render()
 
 			ImGui::CheckboxFill("Dumb Enemies", &vars.DumbEnemies.value()); HELPMAKER("This will prevent enemies from attacking or moving towards you");
 
+			// TODO:
+			// Add distance check.
+			// Add offset to the player position.
 			ImGui::CheckboxFill("Mob Vacuum", &vars.MobVacuum.value()); HELPMAKER("You have to go to the checkpoint before killing them");
 
 			ImGui::CheckboxFill("Mission Time", &vars.MissionTime.value()); HELPMAKER("Make sure this is enabled before starting a mission");
