@@ -3761,6 +3761,11 @@ namespace app
 		MonitorData* monitor;
 	};
 
+	enum class AHPHDBJOAGF__Enum : int32_t
+	{
+		IsObstacle = 0x00000000,
+	};
+
 	struct Char3DIdentity__Fields
 	{
 		struct MonoBehaviour__Fields _;
@@ -5239,6 +5244,34 @@ namespace app
 		struct Animator__Class* klass;
 		MonitorData* monitor;
 		struct Animator__Fields fields;
+	};
+
+	struct __declspec(align(8)) OKDBDHFKIKF__Fields
+	{
+		int32_t GKCDKEJJPFP;
+		struct List_1_ENNEJEPMJLJ_* KKKLEDCOGAH;
+	};
+
+	struct OKDBDHFKIKF
+	{
+		struct OKDBDHFKIKF__Class* klass;
+		MonitorData* monitor;
+		struct OKDBDHFKIKF__Fields fields;
+	};
+
+	struct PNECDHFEEGD__Fields
+	{
+		struct ENNEJEPMJLJ__Fields _;
+		struct CharMonsterData* KAHOMEPMEFG;
+		struct CharResourceData* DGNOCKOMMMD;
+		struct List_1_ENNEJEPMJLJ_* DABFJBKNFOO;
+	};
+
+	struct PNECDHFEEGD
+	{
+		struct PNECDHFEEGD__Class* klass;
+		MonitorData* monitor;
+		struct PNECDHFEEGD__Fields fields;
 	};
 
 #if !defined(_GHIDRA_) && !defined(_IDA_)

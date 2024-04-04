@@ -15,7 +15,7 @@ namespace Cheat::Features
 	void DisableWebView::WebViewDialog_Show_Hook(void* __this, MethodInfo* method)
 	{
 		auto& vars = Vars::GetInstance();
-		if (!vars.DisableWebView.value())
+		if (!vars.DisableWebView.value() || IsInLoginScene())
 			CALL_ORIGIN(WebViewDialog_Show_Hook, __this, method);
 
 		return;
@@ -24,7 +24,7 @@ namespace Cheat::Features
 	void DisableWebView::WebViewUI_RefreshSize_Hook(void* __this, MethodInfo* method)
 	{
 		auto& vars = Vars::GetInstance();
-		if (!vars.DisableWebView.value())
+		if (!vars.DisableWebView.value() || IsInLoginScene())
 			CALL_ORIGIN(WebViewUI_RefreshSize_Hook, __this, method);
 
 		return;
