@@ -59,6 +59,7 @@ namespace Cheat::Features
 					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::DotDamage, 2i64, 99999999i64, 0i64, buffName, method);
 					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Shield, 2i64, -99999999i64, 0i64, buffName, method);
 					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::DotBreak, 2i64, 99999999i64, 0i64, buffName, method);
+					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::DotDamage, 2i64, 99999999i64, 0i64, buffName, method);
 				}
 
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Crash, 2i64, 99999999i64, 0i64, buffName, method);
