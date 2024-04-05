@@ -118,6 +118,8 @@
     <ClInclude Include="game\game-utils.hpp" />
     <ClInclude Include="game\global.h" />
     <ClInclude Include="game\HookManager.h" />
+    <ClInclude Include="game\Hotkey.h" />
+    <ClInclude Include="game\HotkeyManager.h" />
     <ClInclude Include="game\main.h" />
     <ClInclude Include="game\Memory.h" />
     <ClInclude Include="game\Module.h" />
@@ -180,6 +182,7 @@
     <ClCompile Include="game\events.cpp" />
     <ClCompile Include="game\events\joins\abstracteventjoin.cpp" />
     <ClCompile Include="game\events\joins\eventjoinwrapper.cpp" />
+    <ClCompile Include="game\Hotkey.cpp" />
     <ClCompile Include="game\main.cpp" />
     <ClCompile Include="game\Memory.cpp" />
     <ClCompile Include="game\Render\Backend\DX11Hook.cpp" />

@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include "color.hpp"
+#include "Hotkey.h"
 
 #pragma warning(disable: 26812 26815)
 
@@ -24,6 +25,7 @@ const int WINDOW_HEIGHT = 900;
 
 namespace ImGui
 {
+	void HotkeyButton(const char* label, Hotkey& hotkey, bool& toggleVar);
 	void TextURL(const char* label, const char* url);
 	bool CheckboxFill(const char* label, bool* v);
     // Combo box helper allowing to pass an array of strings.

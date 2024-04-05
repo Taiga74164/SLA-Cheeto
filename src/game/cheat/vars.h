@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ConfigEntry.hpp"
+#include "Hotkey.h"
 
 class Vars final : public Singleton<Vars>
 {
@@ -32,5 +33,21 @@ public:
 	CONFIG_ENTRY(float, Fov, 60.0f);
 	CONFIG_ENTRY(bool, SkipIntroMovie, true);
 	CONFIG_ENTRY(bool, DisableWebView, true);
-	
+
+	// Debug
+	Hotkey PlayerSpeedHotkey;
+	Hotkey NoCooldownHotkey;
+	Hotkey NoCooldownShadowHotkey;
+	Hotkey GodModeHotkey;
+	Hotkey DamageHackHotkey;
+	Hotkey DamagePercentageHotkey;
+	Hotkey DamageFixedHotkey;
+	Hotkey MobVacuumHotkey;
+	Hotkey DumbEnemiesHotkey;
+	Hotkey MissionTimeHotkey;
+	Hotkey TimeScaleHotkey;
+	Hotkey FPSUnlockHotkey;
+	Hotkey FovChangerHotkey;
+	Hotkey SkipIntroMovieHotkey;
+	Hotkey DisableWebViewHotkey;
 };
