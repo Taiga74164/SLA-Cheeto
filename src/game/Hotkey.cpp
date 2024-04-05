@@ -438,6 +438,11 @@ void Hotkey::OnKeyUp(short key, bool& canceled)
 {
 	if (m_IsListeningForHotkey && m_CurrentListeningHotkey != nullptr)
 	{
+		if (key == VK_ESCAPE) {
+			StopListening();
+			return;
+		}
+
 		m_CurrentListeningHotkey->SetKey(key);
 		StopListening();
 	}
