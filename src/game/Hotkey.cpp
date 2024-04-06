@@ -438,7 +438,7 @@ void Hotkey::OnKeyUp(short key, bool& canceled)
 {
 	if (m_IsListeningForHotkey && m_CurrentListeningHotkey != nullptr)
 	{
-		if (key == VK_ESCAPE) {
+		if (key == VK_ESCAPE || key == VK_LBUTTON || key == VK_RBUTTON || key == VK_INSERT) {
 			StopListening();
 			return;
 		}
