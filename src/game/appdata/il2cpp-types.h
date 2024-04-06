@@ -3612,6 +3612,136 @@ namespace app
 		struct ENNEJEPMJLJ__Fields fields;
 	};
 
+	enum class ESkillType__Enum : uint8_t
+	{
+		None = 0x00,
+		BaseAttack = 0x01,
+		CoreAttack = 0x02,
+		NormalSkill = 0x03,
+		UltimateSkill = 0x04,
+		Roll = 0x05,
+		EmergencyAvoidSkill = 0x06,
+		QTE = 0x07,
+		ExtremeAvoidSkill = 0x08,
+		Supporter = 0x09,
+		SummonShadow = 0x0a,
+		TriggerActive = 0x0b,
+		HunterQTE = 0x0c,
+		RuneAttack = 0x0d,
+		Max = 0x0e,
+	};
+
+	enum class ESkillControlType__Enum : int32_t
+	{
+		None = 0x00000000,
+		Magazine = 0x00000001,
+		Channeling = 0x00000002,
+		KeyHold = 0x00000003,
+		Max = 0x00000004,
+	};
+
+	enum class ESkillSpecialType__Enum : int32_t
+	{
+		None = 0x00000000,
+		QTE_Airborne = 0x00000001,
+		QTE_Down = 0x00000002,
+		QTE_ExtremeDash = 0x00000003,
+		Suppoter = 0x00000004,
+		QTE_BuffGroup = 0x00000005,
+		HunterQTE = 0x00000006,
+		SpecialCancel = 0x00000007,
+		Max = 0x00000008,
+	};
+
+	enum class ePCSkillSlotType__Enum : int32_t
+	{
+		Active1 = 0x00000000,
+		Active2 = 0x00000001,
+		USkill = 0x00000002,
+		Max = 0x00000003,
+	};
+
+	enum class ECooldownType__Enum : int32_t
+	{
+		Normal = 0x00000000,
+		AfterCool = 0x00000001,
+		AfterBuffCool = 0x00000002,
+		Max = 0x00000003,
+	};
+
+	struct __declspec(align(8)) OIAMFLMIEGP__Fields
+	{
+		int64_t _JPEAOEPAFMA_k__BackingField;
+		int64_t _FJGGBBAKIIG_k__BackingField;
+		ESkillType__Enum _CMBACPMAHHB_k__BackingField;
+		struct List_1_System_Int32_* _LIIEIENHADE_k__BackingField;
+		ESkillControlType__Enum _GAPILFEKGDJ_k__BackingField;
+		ESkillSpecialType__Enum _CGCEOEFAECA_k__BackingField;
+		ePCSkillSlotType__Enum _IFOCIAJGNFL_k__BackingField;
+		EElementType__Enum _GKABKMADCGD_k__BackingField;
+		int32_t _OGCHCCBDEHK_k__BackingField;
+		int32_t _LKCDCADIBBJ_k__BackingField;
+		struct String* _JFBMFDPMOJB_k__BackingField;
+		struct String* _DBIKMNPPPEE_k__BackingField;
+		bool _KMDAAMMLEGP_k__BackingField;
+		int32_t _JFONMDNMHKA_k__BackingField;
+		int32_t _HFMCMNOCJGB_k__BackingField;
+		int32_t _IIDECIIJMMI_k__BackingField;
+		int32_t _HEFHDKCIFJD_k__BackingField;
+		int32_t _HAGHJIHNDEA_k__BackingField;
+		int32_t _BCBKKNGJOKJ_k__BackingField;
+		int32_t _JLMMDMFECAJ_k__BackingField;
+		ECooldownType__Enum _NNLELLGDMIF_k__BackingField;
+		float _IDCNBMNPAJI_k__BackingField;
+		int32_t _GEPNEOEHMCO_k__BackingField;
+		float _BCKEJKNJOAN_k__BackingField;
+		float _LJOJMLLDONJ_k__BackingField;
+		float _ELMPBGOALGP_k__BackingField;
+		float _HBPDDJGEGPC_k__BackingField;
+		float _PPHJHMJILEC_k__BackingField;
+		float _CCDKHGHOPFK_k__BackingField;
+		float _CBBNJBAOOHK_k__BackingField;
+		float _OEEEPNOLCAH_k__BackingField;
+		int64_t _CPGILGKNKPJ_k__BackingField;
+		int64_t _NOBNNKJLKAE_k__BackingField;
+		struct Dictionary_2_System_Int32_System_Int64_* NNHLFGEHFKL;
+		struct List_1_System_Int64_* _KOGPAGFMHPL_k__BackingField;
+		struct List_1_System_Int64_* _NLACGPPNNBK_k__BackingField;
+		float _DNBGEDEBBKP_k__BackingField;
+		int32_t _BLOGAHIANHO_k__BackingField;
+		struct Int64__Array* _GKLAOHBLBJJ_k__BackingField;
+		bool _EOPIKKKEHOJ_k__BackingField;
+		bool _HCHJLIDEDJD_k__BackingField;
+		int32_t _LKNEBDEACBH_k__BackingField;
+		int32_t _IDANHHIDFLL_k__BackingField;
+		float _JNGECPDNKEG_k__BackingField;
+		float _HGFKCGJBFKE_k__BackingField;
+		int32_t _BDCEDKCELHC_k__BackingField;
+		int32_t _GJCLKHLJIPL_k__BackingField;
+		bool _NMHJBBINBBC_k__BackingField;
+		bool _IOAOMHGAAAL_k__BackingField;
+		float _EPDAFHLKLIK_k__BackingField;
+		int32_t _PMJJMKEFNBO_k__BackingField;
+		bool _MNFPAGGFLGJ_k__BackingField;
+		bool _AFLEBMBOANH_k__BackingField;
+		bool _HPIMMEFBJCN_k__BackingField;
+		bool _GFJKLFJAMGK_k__BackingField;
+		int32_t _EHCJNOEGAMB_k__BackingField;
+		bool _AGIDKKFMCFM_k__BackingField;
+		bool _KONKEIKMECK_k__BackingField;
+		float _AAMHKEPEMCK_k__BackingField;
+		float _NHGJMOOHBKP_k__BackingField;
+		bool _NHOCLILHABG_k__BackingField;
+		bool _ACIAJIGCMBP_k__BackingField;
+	};
+
+	struct OIAMFLMIEGP
+	{
+		struct OIAMFLMIEGP__Class* klass;
+		MonitorData* monitor;
+		struct OIAMFLMIEGP__Fields fields;
+	};
+
 	struct __declspec(align(8)) KAAIFMKPKAG__Fields
 	{
 		struct ENNEJEPMJLJ* KCBLLGODKIE;
@@ -5272,6 +5402,23 @@ namespace app
 		struct PNECDHFEEGD__Class* klass;
 		MonitorData* monitor;
 		struct PNECDHFEEGD__Fields fields;
+	};
+
+	struct InGameObject__Fields
+	{
+		struct MonoBehaviour__Fields _;
+		struct ENNEJEPMJLJ* GMLNFEKCPDB;
+		eCharGroup__Enum m_charGroup;
+		float m_fDuration;
+		struct List_1_UnityEngine_Collider_* FOOFKMKMMBK;
+		float LAMGMNNOCBI;
+	};
+
+	struct InGameObject
+	{
+		struct InGameObject__Class* klass;
+		MonitorData* monitor;
+		struct InGameObject__Fields fields;
 	};
 
 #if !defined(_GHIDRA_) && !defined(_IDA_)

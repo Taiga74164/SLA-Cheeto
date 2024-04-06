@@ -21,7 +21,6 @@ namespace Cheat::Features
 		if (__this->fields.IGFILCLEFHH->fields.EJBODHBGPMG != nullptr)
 		{
 			auto entity = __this->fields.IGFILCLEFHH->fields.EJBODHBGPMG;
-			auto entityFields = entity->fields;
 			//LOG("%s", magic_enum::enum_name(entity->fields.FHNGHHPLPGD).data());
 			//LOG("resourceName %s", il2cppi_to_string(entity->fields.PEFKKKBMDKN->fields.m_ResourceName).c_str());
 			//LOG("specialState %s", magic_enum::enum_name(specialState).data());

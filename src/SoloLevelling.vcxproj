@@ -86,6 +86,7 @@
     <ClInclude Include="game\appdata\il2cpp-types.h" />
     <ClInclude Include="game\cheat\cheat.h" />
     <ClInclude Include="game\cheat\features\DamageHack.h" />
+    <ClInclude Include="game\cheat\features\Debug.h" />
     <ClInclude Include="game\cheat\features\DisableWebView.h" />
     <ClInclude Include="game\cheat\features\DumbEnemies.h" />
     <ClInclude Include="game\cheat\features\FovChanger.h" />
@@ -167,6 +168,7 @@
     <ClCompile Include="game\appdata\il2cpp-init.cpp" />
     <ClCompile Include="game\cheat\cheat.cpp" />
     <ClCompile Include="game\cheat\features\DamageHack.cpp" />
+    <ClCompile Include="game\cheat\features\Debug.cpp" />
     <ClCompile Include="game\cheat\features\DisableWebView.cpp" />
     <ClCompile Include="game\cheat\features\DumbEnemies.cpp" />
     <ClCompile Include="game\cheat\features\FovChanger.cpp" />

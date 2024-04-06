@@ -25,11 +25,18 @@ namespace Cheat::Features
 	void* NoCooldown::KAAIFMKPKAG_IOFMGMJCCFO_Hook(app::KAAIFMKPKAG* __this, bool DEJNILEHENL, MethodInfo* method)
 	{
 		auto& vars = Vars::GetInstance();
-		
-		if (vars.NoCooldown.value())
+
+		if (__this->fields.KCBLLGODKIE != nullptr)
 		{
-			__this->fields.HPHOOEPCBOJ = 0;
-			__this->fields.JCJJDJGOBJL = 0;
+			auto entity = __this->fields.KCBLLGODKIE;
+			if (entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
+			{
+				if (vars.NoCooldown.value())
+				{
+					__this->fields.HPHOOEPCBOJ = 0;
+					__this->fields.JCJJDJGOBJL = 0;
+				}
+			}
 		}
 
 		return CALL_ORIGIN(KAAIFMKPKAG_IOFMGMJCCFO_Hook, __this, DEJNILEHENL, method);
