@@ -6,8 +6,9 @@ This project is created and shared for educational purposes only. I do not condo
 ## Usage
 
 ### How to Run
-1. Inject the DLL to the game with your preferred injector.
-2. Press insert to show the menu
+1. [Build](#Building) or [Download from GitHub Actions](https://nightly.link/Taiga74164/SLA-Cheeto/workflows/main/main/build-artifact.zip)
+2. Inject the DLL to the game with your preferred injector.
+3. Press insert to show the menu
 
 ## Features
 - No Cooldown
