@@ -18,24 +18,18 @@ namespace Cheat::Features
 		auto& em = EntityManager::GetInstance();
 		auto& vars = Vars::GetInstance();
 
-		if (em.m_pEnemiesVec.empty())
+		if (em.GetEnemies().empty())
 			return;
 
-		if (em.m_pPlayer == nullptr || em.m_pPlayerGO == nullptr)
+		if (em.GetPlayer() == nullptr || em.GetPlayerGO() == nullptr)
 			return;
 
 		auto targetPosition = CalcMobOffset();
 		if (IsVectorZero(targetPosition))
 			return;
 
-		for (auto& enemy : em.m_pEnemiesVec)
+		for (auto& enemy : em.GetEnemies())
 		{
-			if (!app::PCILGJOEPJM_PPAKPBOJLIP(enemy, nullptr))
-			{
-				em.m_pEnemiesVec.erase(std::remove(em.m_pEnemiesVec.begin(), em.m_pEnemiesVec.end(), enemy), em.m_pEnemiesVec.end());
-				continue;
-			}
-
 			if (vars.MobVacuum.value())
 			{
 				auto someBaseClass = enemy->fields.NKONPDBOBAG;
@@ -50,7 +44,7 @@ namespace Cheat::Features
 				if (enemyTransform == nullptr)
 					continue;
 				
-				auto playerTransform = app::GameObject_get_transform(em.m_pPlayerGO, nullptr);
+				auto playerTransform = app::GameObject_get_transform(em.GetPlayerGO(), nullptr);
 				if (IsMobInRange(enemyTransform, playerTransform, vars.VacuumRange.value()))
 					app::Transform_set_position(enemyTransform, targetPosition, nullptr);
 			}
@@ -74,7 +68,7 @@ namespace Cheat::Features
 		auto& em = EntityManager::GetInstance();
 		auto& vars = Vars::GetInstance();
 
-		auto playerTransform = app::GameObject_get_transform(em.m_pPlayerGO, nullptr);
+		auto playerTransform = app::GameObject_get_transform(em.GetPlayerGO(), nullptr);
 		if (playerTransform == nullptr)
 			return {};
 

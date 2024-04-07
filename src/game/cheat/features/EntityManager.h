@@ -4,15 +4,17 @@
 
 namespace Cheat::Features
 {
-	class MobVacuum;
-
 	class EntityManager : public Singleton<EntityManager>
 	{
-		friend class MobVacuum;
 	public:
 		EntityManager();
 
-		void OnGameUpdate();
+		void OnPlayerUpdate();
+		void OnEnemyUpdate();
+
+		app::ENNEJEPMJLJ* GetPlayer() const;
+		app::GameObject* GetPlayerGO() const;
+		std::vector<app::ENNEJEPMJLJ*> GetEnemies() const;
 
 	private:
 		static void ENHPKNIEKMI_MIFDFEHDDDD_Hook(app::ENHPKNIEKMI* __this, MethodInfo* method);

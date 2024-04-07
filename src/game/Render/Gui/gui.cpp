@@ -68,7 +68,7 @@ void Gui::Render()
 			if (vars.MobVacuum.value())
 			{
 				ImGui::SliderFloat("Range", &vars.VacuumRange.value(), 1.0f, 50.0f, "%.1f");
-				ImGui::SliderFloat("Offset", &vars.VacuumDistance.value(), 1.0f, 10.0f, "%.1f");
+				ImGui::SliderFloat("Distance", &vars.VacuumDistance.value(), 1.0f, 10.0f, "%.1f");
 			}
 
 			ImGui::CheckboxFill("Mission Time", &vars.MissionTime.value()); HELPMAKER("Make sure this is enabled before starting a mission");
