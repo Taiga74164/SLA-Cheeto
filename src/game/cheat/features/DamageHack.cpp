@@ -43,9 +43,6 @@ namespace Cheat::Features
 						specialState == app::ESpecialState__Enum::PgRecovery)
 						CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, specialState, 2i64, 99999999i64, 0i64, buffName, method);
 				}
-
-				vacuum.m_pPlayer = entity;
-				vacuum.m_pPlayerGO = entity->fields.NKONPDBOBAG->fields.IALANALADIL->fields.HOAFECEANLC;
 			}
 
 			if (entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::ENEMY)
@@ -56,9 +53,6 @@ namespace Cheat::Features
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Crash, 2i64, 99999999i64, 0i64, buffName, method);
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Stun, 2i64, 1000i64, 0i64, buffName, method);
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::BodyStop, 2i64, 1000i64, 0i64, buffName, method);
-
-				if (std::find(vacuum.m_pEnemiesVec.begin(), vacuum.m_pEnemiesVec.end(), entity) == vacuum.m_pEnemiesVec.end())
-					vacuum.m_pEnemiesVec.push_back(entity);
 			}
 		}
 
