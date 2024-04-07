@@ -52,6 +52,10 @@ void Gui::Render()
 			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(2, 2));
 			ImGui::BeginGroup();
 
+			//ImGui::CheckboxFill("Animation Speed", &vars.PlayerSpeed.value());
+			//if (vars.PlayerSpeed.value())
+			//	ImGui::SliderFloat("Speed", &vars.PlayerSpeedValue.value(), 1.0f, 20.0f, "%.1f");
+
 			ImGui::CheckboxFill("No Cooldown", &vars.NoCooldown.value());
 
 			ImGui::CheckboxFill("No Cooldown Shadow", &vars.NoCooldownShadow.value()); HELPMAKER("Enable only if you have shadow feature available");

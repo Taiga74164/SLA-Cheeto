@@ -39,6 +39,7 @@ DO_APP_FUNC(0x0308E5B0, Scene, SceneManager_GetActiveScene, (MethodInfo* method)
 DO_APP_FUNC(0x0308FBE0, String*, Scene_GetNameInternal, (int32_t sceneHandle, MethodInfo* method));
 DO_APP_FUNC(0x030651F0, void, Object_1_Destroy_1, (Object_1* obj, MethodInfo* method));
 DO_APP_FUNC(0x03067140, String*, Object_1_get_name, (Object_1* __this, MethodInfo* method));
+DO_APP_FUNC(0x0300C190, float, Animator_get_speed, (Animator* __this, MethodInfo* method));
 DO_APP_FUNC(0x0300CBF0, void, Animator_set_speed, (Animator* __this, float value, MethodInfo* method));
 DO_APP_FUNC(0x03076A50, Vector3, Transform_get_position, (Transform* __this, MethodInfo* method));
 DO_APP_FUNC(0x030772C0, void, Transform_set_position, (Transform* __this, Vector3 value, MethodInfo* method));

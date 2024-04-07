@@ -5440,6 +5440,30 @@ namespace app
 		struct ENHPKNIEKMI__Fields fields;
 	};
 
+	struct ModelContainer__Fields
+	{
+		struct MonoBehaviour__Fields _;
+		struct CachedComponent_1_UnityEngine_Transform_* CGMBGKPEHDL;
+		struct CachedComponent_1_UnityEngine_Transform_* CKIAKFKBKFI;
+		struct CachedComponent_1_UnityEngine_Transform_* AOOKBIBLNPF;
+		struct CachedComponent_1_UnityEngine_Collider_* BOIKMOCLICI;
+		struct CachedComponent_1_UnityEngine_Animator_* EMKPLCDDJAF;
+		struct CachedComponent_1_UnityEngine_Transform_* JFIPHCCEKFE;
+		struct CachedComponent_1_UnityEngine_Transform_* IMFMNGPHIAH;
+		struct CachedComponent_1_UnityEngine_SkinnedMeshRenderer_* GPFCIAOIAMO;
+		struct CachedComponent_1_UnityEngine_SkinnedMeshRenderer_* CMGFGABAECP;
+		struct CachedComponent_1_UnityEngine_Transform_* DDEKGOLFLIF;
+		struct CachedComponent_1_UnityEngine_Transform_* KPNKKCDGHHD;
+		struct CachedComponent_1_UnityEngine_Transform_* FBJGBNNGELP;
+	};
+
+	struct ModelContainer
+	{
+		struct ModelContainer__Class* klass;
+		MonitorData* monitor;
+		struct ModelContainer__Fields fields;
+	};
+
 #if !defined(_GHIDRA_) && !defined(_IDA_)
 }
 #endif

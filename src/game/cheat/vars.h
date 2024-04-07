@@ -10,6 +10,7 @@ public:
 
 	// Features
 	CONFIG_ENTRY(bool, PlayerSpeed, true);
+	CONFIG_ENTRY(float, PlayerSpeedValue, 5.0f);
 	CONFIG_ENTRY(bool, NoCooldown, true);
 	CONFIG_ENTRY(bool, NoCooldownShadow, false);
 	CONFIG_ENTRY(bool, GodMode, true);
@@ -25,7 +26,6 @@ public:
 	CONFIG_ENTRY(int, MissionTimeMs, 180000);
 	CONFIG_ENTRY(bool, TimeScale, false);
 	CONFIG_ENTRY(float, TimeScaleSpeed, 2.0f);
-
 
 	// Misc
 	CONFIG_ENTRY(bool, FPSUnlock, true);

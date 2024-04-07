@@ -12,6 +12,8 @@ namespace Cheat::Features
 		void OnPlayerUpdate();
 		void OnEnemyUpdate();
 
+		bool IsCharacterAlive(app::ENNEJEPMJLJ* character);
+
 		app::ENNEJEPMJLJ* GetPlayer() const;
 		app::GameObject* GetPlayerGO() const;
 		std::vector<app::ENNEJEPMJLJ*> GetEnemies() const;

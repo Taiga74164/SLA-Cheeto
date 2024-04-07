@@ -20,9 +20,9 @@ namespace Cheat::Features
 		if (m_pPlayer == nullptr)
 			return;
 
-		if (!app::PCILGJOEPJM_PPAKPBOJLIP(m_pPlayer, nullptr))
+		if (!IsCharacterAlive(m_pPlayer))
 		{
-			LOG("PCILGJOEPJM_PPAKPBOJLIP failed, Player is probably not in battle");
+			LOG("IsCharacterAlive returned false, Player is probably not in battle");
 			m_pPlayer = nullptr;
 			m_pPlayerGO = nullptr;
 			m_pEnemiesVec.clear();
@@ -32,7 +32,7 @@ namespace Cheat::Features
 
 	void EntityManager::OnEnemyUpdate()
 	{
-		if (m_pEnemiesVec.empty())
+		if (m_pPlayer && m_pEnemiesVec.empty())
 			return;
 
 		for (auto& enemy : m_pEnemiesVec)
@@ -44,13 +44,18 @@ namespace Cheat::Features
 			if (name == nullptr)
 				continue;
 
-			if (!app::PCILGJOEPJM_PPAKPBOJLIP(enemy, nullptr))
+			if (!IsCharacterAlive(enemy))
 			{
-				LOG("PCILGJOEPJM_PPAKPBOJLIP failed, Enemy: %s probably died or some shit", il2cppi_to_string(name).c_str());
+				LOG("IsCharacterAlive returned false, Enemy: %s probably died or some shit", il2cppi_to_string(name).c_str());
 				m_pEnemiesVec.erase(std::remove(m_pEnemiesVec.begin(), m_pEnemiesVec.end(), enemy), m_pEnemiesVec.end());
 				continue;
 			}
 		}
+	}
+
+	bool EntityManager::IsCharacterAlive(app::ENNEJEPMJLJ* character)
+	{
+		return app::PCILGJOEPJM_PPAKPBOJLIP(character, nullptr);
 	}
 
 	void EntityManager::ENHPKNIEKMI_MIFDFEHDDDD_Hook(app::ENHPKNIEKMI* __this, MethodInfo* method)

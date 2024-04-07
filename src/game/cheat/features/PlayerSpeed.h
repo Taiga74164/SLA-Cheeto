@@ -12,5 +12,8 @@ namespace Cheat::Features
 		void OnGameUpdate();
 
 	private:
+		app::Animator* m_pAnimator;
+		float m_InitialSpeed;
+		bool m_DidSpeed;
 	};
 }
