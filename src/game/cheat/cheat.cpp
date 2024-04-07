@@ -16,6 +16,8 @@
 #include "features/TimeScale.h"
 #include "features/SkipIntroMovie.h"
 #include "features/DisableWebView.h"
+#include "features/Debug.h"
+#include "features/EntityManager.h"
 
 using namespace Cheat::Features;
 
@@ -36,6 +38,8 @@ void init_cheat()
 	INIT_FEATURE(FPSUnlock);
 	INIT_FEATURE(FovChanger);
 	INIT_FEATURE(DisableWebView);
+	INIT_FEATURE(Debug);
+	INIT_FEATURE(EntityManager);
 #undef INIT_FEATURE
 
 	HookManager::install(app::GameFrameWork_Update, GameFrameWork_Update_Hook);

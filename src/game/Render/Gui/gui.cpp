@@ -52,6 +52,10 @@ void Gui::Render()
 			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(2, 2));
 			ImGui::BeginGroup();
 
+			//ImGui::CheckboxFill("Animation Speed", &vars.PlayerSpeed.value());
+			//if (vars.PlayerSpeed.value())
+			//	ImGui::SliderFloat("Speed", &vars.PlayerSpeedValue.value(), 1.0f, 20.0f, "%.1f");
+
 			ImGui::CheckboxFill("No Cooldown", &vars.NoCooldown.value());
 
 			ImGui::CheckboxFill("No Cooldown Shadow", &vars.NoCooldownShadow.value()); HELPMAKER("Enable only if you have shadow feature available");
@@ -66,10 +70,12 @@ void Gui::Render()
 
 			ImGui::CheckboxFill("Dumb Enemies", &vars.DumbEnemies.value()); HELPMAKER("This will prevent enemies from attacking or moving towards you");
 
-			// TODO:
-			// Add distance check.
-			// Add offset to the player position.
 			ImGui::CheckboxFill("Mob Vacuum", &vars.MobVacuum.value()); HELPMAKER("You have to go to the checkpoint before killing them");
+			if (vars.MobVacuum.value())
+			{
+				ImGui::SliderFloat("Range", &vars.VacuumRange.value(), 1.0f, 50.0f, "%.1f");
+				ImGui::SliderFloat("Distance", &vars.VacuumDistance.value(), 1.0f, 10.0f, "%.1f");
+			}
 
 			ImGui::CheckboxFill("Mission Time", &vars.MissionTime.value()); HELPMAKER("Make sure this is enabled before starting a mission");
 			if (vars.MissionTime.value())

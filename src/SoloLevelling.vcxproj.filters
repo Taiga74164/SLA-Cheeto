@@ -303,6 +303,12 @@
     <ClInclude Include="game\HotkeyManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="game\cheat\features\Debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game\cheat\features\EntityManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vendor\CommandMenu\src\Menu.cpp">
@@ -429,6 +435,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="game\Hotkey.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\cheat\features\Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\cheat\features\EntityManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

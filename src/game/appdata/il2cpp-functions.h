@@ -39,6 +39,7 @@ DO_APP_FUNC(0x0308E5B0, Scene, SceneManager_GetActiveScene, (MethodInfo* method)
 DO_APP_FUNC(0x0308FBE0, String*, Scene_GetNameInternal, (int32_t sceneHandle, MethodInfo* method));
 DO_APP_FUNC(0x030651F0, void, Object_1_Destroy_1, (Object_1* obj, MethodInfo* method));
 DO_APP_FUNC(0x03067140, String*, Object_1_get_name, (Object_1* __this, MethodInfo* method));
+DO_APP_FUNC(0x0300C190, float, Animator_get_speed, (Animator* __this, MethodInfo* method));
 DO_APP_FUNC(0x0300CBF0, void, Animator_set_speed, (Animator* __this, float value, MethodInfo* method));
 DO_APP_FUNC(0x03076A50, Vector3, Transform_get_position, (Transform* __this, MethodInfo* method));
 DO_APP_FUNC(0x030772C0, void, Transform_set_position, (Transform* __this, Vector3 value, MethodInfo* method));
@@ -64,12 +65,18 @@ DO_APP_FUNC(0x030770C0, void, Transform_set_localRotation, (Transform* __this, Q
 DO_APP_FUNC(0x0305B760, float, Vector3_Distance, (Vector3 a, Vector3 b, MethodInfo* method));
 DO_APP_FUNC(0x0305B9D0, Vector3, Vector3_Lerp, (Vector3 a, Vector3 b, float t, MethodInfo* method));
 
-DO_APP_FUNC(0x0040E5D0, void/*CharResourceData*/*, ENNEJEPMJLJ_GNAPBJPBKIO, (ENNEJEPMJLJ* __this, MethodInfo* method));
+// No Cooldown
 DO_APP_FUNC(0x0075EF00, void/*KAAIFMKPKAG*/*, KAAIFMKPKAG_IOFMGMJCCFO, (KAAIFMKPKAG* __this, bool DEJNILEHENL, MethodInfo* method));
-// DO_APP_FUNC(0x00521CC0, List_1_ENNEJEPMJLJ_*, PJKMAOEINNH_BGEJLBHLGJP, (PJKMAOEINNH* __this, MethodInfo* method)); // Probably EntityManager or something similar
+// Damage Hack
 DO_APP_FUNC(0x0073D410, void, PIPHNBOBFEF_KBCIIEFLPGB, (PIPHNBOBFEF* __this, ESpecialState__Enum OCKAHFDGNEL, int64_t MGFPJFANLBG, int64_t DIACKALMMKH, int64_t PBAPBJGDAPJ, String* DLOACPLHGMP, MethodInfo* method));
+// God Mode
 DO_APP_FUNC(0x00956020, int32_t, GHINOEFFMPN_EKHGIHBHEPL, (SkillIdentity* EKPKPIJBPKE, void/*IEnumerable_1_UnityEngine_Component_*/* FKJDKGJBGOD, TargetHitData* COFCDKGCOGJ, MethodInfo* method));
-DO_APP_FUNC(0x009E4270, void, EvadeProxy_Init, (EvadeProxy* __this, ENNEJEPMJLJ* IGBKKNODEGM, EvadePenetration* DHPMEMDBDMC, MethodInfo* method)); // Can hook this for Entity Manager
+// Dumb Enemies
+DO_APP_FUNC(0x009E4270, void, EvadeProxy_Init, (EvadeProxy* __this, ENNEJEPMJLJ* IGBKKNODEGM, EvadePenetration* DHPMEMDBDMC, MethodInfo* method));
+
+// EntityManager
+DO_APP_FUNC(0x00756780, void, ENHPKNIEKMI_MIFDFEHDDDD, (ENHPKNIEKMI* __this, MethodInfo* method));
+DO_APP_FUNC(0x009833C0, ENHPKNIEKMI*, ENNEJEPMJLJ_FIGHFBNIDJA, (ENNEJEPMJLJ* __this, MethodInfo* method));
 DO_APP_FUNC(0x00998A00, bool, PCILGJOEPJM_PPAKPBOJLIP, (ENNEJEPMJLJ* IGBKKNODEGM, MethodInfo* method)); // Check if Entity is alive????
 
 // Mission Time
@@ -92,7 +99,7 @@ DO_APP_FUNC(0x00836410, void, JIBDAHKJHOG_COLDHPFDOHG, (JIBDAHKJHOG* __this, Met
 DO_APP_FUNC(0x009A41E0, void, JLLMICINIDA_LFCGJLAFFOM, (JLLMICINIDA* __this, MethodInfo* method));
 
 // Singletons
-DO_APP_FUNC(0x00344840, void*, TSingleton_GetInstance, (MethodInfo* method)); // Search for this in IDA
+DO_APP_FUNC(0x00344840, void*, TSingleton_GetInstance, (MethodInfo* method)); // Search for this in IDA. Seems to be Singleton<T> class
 DO_APP_FUNC(0x0042C0E0, Object*, TSingleton_1_System_Object__get_Instance, (MethodInfo* method)); // Get the instance of the singleton
 DO_APP_FUNC_METHODINFO(0x04038380, TSingleton_1_JIBDAHKJHOG__get_Instance__MethodInfo);
 // DO_APP_FUNC_METHODINFO(0x0403AC70, TSingleton_1_PJKMAOEINNH__get_Instance__MethodInfo); // Probably EntityManager or something similar

@@ -1,4 +1,6 @@
 #include "PlayerSpeed.h"
+
+#include "EntityManager.h"
 #include "HookManager.h"
 #include "Utils.h"
 #include "game-utils.hpp"
@@ -6,44 +8,84 @@
 
 namespace Cheat::Features
 {
-	PlayerSpeed::PlayerSpeed()
+	PlayerSpeed::PlayerSpeed() : m_pAnimator(nullptr), m_InitialSpeed(-1.0f), m_DidSpeed(false)
 	{
-		//events::GameUpdateEvent += MY_METHOD_HANDLER(PlayerSpeed::OnGameUpdate);
-		//HookManager::install(app::JIBDAHKJHOG_KPDGECAFJKA, JIBDAHKJHOG_KPDGECAFJKA_Hook);
-		//HookManager::install(app::JIBDAHKJHOG_HLLNLMAECBD, JIBDAHKJHOG_HLLNLMAECBD_Hook);
-		//HookManager::install(app::JIBDAHKJHOG_COLDHPFDOHG, JIBDAHKJHOG_COLDHPFDOHG_Hook);
+		events::GameUpdateEvent += MY_METHOD_HANDLER(PlayerSpeed::OnGameUpdate);
 	}
-
 
 	void PlayerSpeed::OnGameUpdate()
 	{
-		// auto instance = GET_SINGLETON_1(JIBDAHKJHOG);
-		// if (instance == nullptr)
-		// {
-		// 	LOG("Instance JIBDAHKJHOG is null");
-		// 	return;
-		// }
-	}
-	
-	void PlayerSpeed::JIBDAHKJHOG_KPDGECAFJKA_Hook(app::JIBDAHKJHOG * __this, MethodInfo * method)
-	{
-		LOG("JIBDAHKJHOG_KPDGECAFJKA_Hook");
+		//auto& em = EntityManager::GetInstance();
+		//auto& vars = Vars::GetInstance();
 
-		CALL_ORIGIN(JIBDAHKJHOG_KPDGECAFJKA_Hook, __this, method);
-	}
-	void PlayerSpeed::JIBDAHKJHOG_HLLNLMAECBD_Hook(app::JIBDAHKJHOG * __this, void * JONOLJGMLBE, void * BHMPNNCBFGN, MethodInfo * method)
-	{
-		LOG("JIBDAHKJHOG_HLLNLMAECBD_Hook: %s", magic_enum::enum_name(__this->fields.ODBFJKNANFA).data());
-		app::JIBDAHKJHOG_EJLDBPGJGPN(__this, nullptr);
-		__this->fields.ODBFJKNANFA = app::EGLGAPIAANF__Enum::CompleteBattle;
-		CALL_ORIGIN(JIBDAHKJHOG_HLLNLMAECBD_Hook, __this, JONOLJGMLBE, BHMPNNCBFGN, method);
-	}
-	void PlayerSpeed::JIBDAHKJHOG_COLDHPFDOHG_Hook(app::JIBDAHKJHOG * __this, MethodInfo * method)
-	{
-		LOG("JIBDAHKJHOG_COLDHPFDOHG_Hook: %s", magic_enum::enum_name(__this->fields.ODBFJKNANFA).data());
-		app::JIBDAHKJHOG_EJLDBPGJGPN(__this, nullptr);
-		__this->fields.ODBFJKNANFA = app::EGLGAPIAANF__Enum::CompleteBattle;
-		CALL_ORIGIN(JIBDAHKJHOG_COLDHPFDOHG_Hook, __this, method);
-	}
+		//auto player = em.GetPlayer();
+		//if (player == nullptr)
+		//{
+		//	m_pAnimator = nullptr;
+		//	m_DidSpeed = false;
+		//	return;
+		//}
 
+		//auto resourceData = player->fields.PEFKKKBMDKN;
+		//if (resourceData == nullptr)
+		//	return;
+
+		//auto battleInfoData = player->fields.KFIFBINFDPB->fields.m_pCharBattleInfo;
+		//if (battleInfoData == nullptr)
+		//	return;
+
+		//auto modelContainer = player->fields.NKONPDBOBAG->fields.JOJBJOHCOAI; //player->fields.NKONPDBOBAG->fields.BLHAMCDGFPB->fields.m_pkAnimator;
+		//if (modelContainer == nullptr)
+		//{
+		//	LOG("PlayerSpeed::OnGameUpdate: modelContainer is null");
+		//	return;
+		//}
+
+		//auto animator = app::ModelContainer_get_animator(modelContainer, nullptr);
+		//if (animator == nullptr)
+		//{
+		//	LOG("PlayerSpeed::OnGameUpdate: animator is null");
+		//	return;
+		//}
+
+		//if (m_InitialSpeed == -1.0f)
+		//	m_InitialSpeed = app::Animator_get_speed(animator, nullptr);
+
+		//m_pAnimator = animator;
+
+		//if (vars.PlayerSpeed.value())
+		//{
+			//app::Animator_set_speed(animator, vars.PlayerSpeedValue.value(), nullptr);
+			//m_DidSpeed = true;
+			//resourceData->fields.m_WalkSpeed = vars.PlayerSpeedValue.value();
+			//resourceData->fields.m_MoveSpd = vars.PlayerSpeedValue.value();
+			//resourceData->fields.m_SidewalkSpeed = vars.PlayerSpeedValue.value();
+			//resourceData->fields.m_BackwalkSpeed = vars.PlayerSpeedValue.value();
+
+			//battleInfoData->fields.m_SidewalkMinTime = vars.PlayerSpeedValue.value();
+			//battleInfoData->fields.m_SidewalkMaxTime = vars.PlayerSpeedValue.value();
+			//battleInfoData->fields.m_BackwalkMinTime = vars.PlayerSpeedValue.value();
+			//battleInfoData->fields.m_BackwalkMaxTime = vars.PlayerSpeedValue.value();
+			//battleInfoData->fields.m_DetectingRange = vars.PlayerSpeedValue.value();
+			//battleInfoData->fields.m_BattleDistance = vars.PlayerSpeedValue.value();
+			//battleInfoData->fields.m_WalkDistance = vars.PlayerSpeedValue.value();
+			//battleInfoData->fields.m_CloseRangeJudgment = vars.PlayerSpeedValue.value();
+			//battleInfoData->fields.m_ProbabilityCloseRangeAttack = vars.PlayerSpeedValue.value();
+			//battleInfoData->fields.m_ProbabilityCloseRangeWander = vars.PlayerSpeedValue.value();
+			//battleInfoData->fields.m_ProbabilityCloseRangeBackWalk = vars.PlayerSpeedValue.value();
+			//battleInfoData->fields.m_ImpossibleWanderCloseRange = vars.PlayerSpeedValue.value();
+			//battleInfoData->fields.m_ProbabilityLongRangeAttack = vars.PlayerSpeedValue.value();
+			//battleInfoData->fields.m_ProbabilityLongRangeWander = vars.PlayerSpeedValue.value();
+			//battleInfoData->fields.m_ProbabilityLongRangeBackWalk = vars.PlayerSpeedValue.value();
+			//battleInfoData->fields.m_ImpossibleWanderLongRange = vars.PlayerSpeedValue.value();
+		//}
+		//else
+		//{
+			//if (m_DidSpeed)
+			//{
+			//	app::Animator_set_speed(animator, m_InitialSpeed, nullptr);
+			//	m_DidSpeed = false;
+			//}
+		//}
+	}
 }

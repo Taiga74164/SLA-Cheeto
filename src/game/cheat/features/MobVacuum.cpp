@@ -4,53 +4,32 @@
 #include "Utils.h"
 #include "game-utils.hpp"
 
+#include "EntityManager.h"
+
 namespace Cheat::Features
 {
-	MobVacuum::MobVacuum() :
-		m_pPlayer(nullptr), m_pPlayerGO(nullptr)
+	MobVacuum::MobVacuum()
 	{
-		events::GameUpdateEvent += MY_METHOD_HANDLER(MobVacuum::OnPlayerUpdate);
-		events::GameUpdateEvent += MY_METHOD_HANDLER(MobVacuum::OnEnemyUpdate);
+		events::GameUpdateEvent += MY_METHOD_HANDLER(MobVacuum::OnGameUpdate);
 	}
 
-	void MobVacuum::OnPlayerUpdate()
+	void MobVacuum::OnGameUpdate()
 	{
-		if (m_pPlayer == nullptr)
-			return;
-
-		if (!app::PCILGJOEPJM_PPAKPBOJLIP(m_pPlayer, nullptr))
-		{
-			m_pPlayer = nullptr;
-			m_pPlayerGO = nullptr;
-			return;
-		}
-
-		//auto someBaseClass = m_pPlayer->fields.NKONPDBOBAG;
-		//auto char3d = someBaseClass->fields.KCGPELIKJKK;
-		//auto charResourceContainer = someBaseClass->fields.BLHAMCDGFPB;
-		//auto playerObj = someBaseClass->fields.IALANALADIL->fields.HOAFECEANLC;
-
-		// LOG("Obj name: %s", GetName(playerObj).c_str());
-	}
-
-	void MobVacuum::OnEnemyUpdate()
-	{
-		if (m_pEnemiesVec.empty())
-			return;
-
-		if (m_pPlayer == nullptr || m_pPlayerGO == nullptr)
-			return;
-
+		auto& em = EntityManager::GetInstance();
 		auto& vars = Vars::GetInstance();
 
-		for (auto& enemy : m_pEnemiesVec)
-		{
-			if (!app::PCILGJOEPJM_PPAKPBOJLIP(enemy, nullptr))
-			{
-				m_pEnemiesVec.erase(std::remove(m_pEnemiesVec.begin(), m_pEnemiesVec.end(), enemy), m_pEnemiesVec.end());
-				continue;
-			}
+		if (em.GetEnemies().empty())
+			return;
 
+		if (em.GetPlayer() == nullptr || em.GetPlayerGO() == nullptr)
+			return;
+
+		auto targetPosition = CalcMobOffset();
+		if (IsVectorZero(targetPosition))
+			return;
+
+		for (auto& enemy : em.GetEnemies())
+		{
 			if (vars.MobVacuum.value())
 			{
 				auto someBaseClass = enemy->fields.NKONPDBOBAG;
@@ -64,20 +43,38 @@ namespace Cheat::Features
 				auto enemyTransform = app::GameObject_get_transform(enemyObj, nullptr);
 				if (enemyTransform == nullptr)
 					continue;
-
-				auto enemyPosition = app::Transform_get_position(enemyTransform, nullptr);
-				auto playerTransform = app::GameObject_get_transform(m_pPlayerGO, nullptr);
-				auto playerPosition = app::Transform_get_position(playerTransform, nullptr);
-				auto playerForward = app::Transform_get_forward(playerTransform, nullptr);
-
-				// TODO:
-				// Add distance check.
-				// Add offset to the player position.
-				auto distance = app::Vector3_Distance(enemyPosition, playerPosition, nullptr);
-
-				// Set the enemy position to the player position + the forward vector
-				app::Transform_set_position(enemyTransform, playerPosition + (playerForward * 1.5f), nullptr);
+				
+				auto playerTransform = app::GameObject_get_transform(em.GetPlayerGO(), nullptr);
+				if (IsMobInRange(enemyTransform, playerTransform, vars.VacuumRange.value()))
+					app::Transform_set_position(enemyTransform, targetPosition, nullptr);
 			}
 		}
+	}
+
+	bool MobVacuum::IsMobInRange(app::Transform* enemyTransform, app::Transform* playerTransform, float offset)
+	{
+		if (enemyTransform == nullptr || playerTransform == nullptr)
+			return false;
+
+		auto enemyPosition = app::Transform_get_position(enemyTransform, nullptr);
+		auto playerPosition = app::Transform_get_position(playerTransform, nullptr);
+		auto distance = app::Vector3_Distance(enemyPosition, playerPosition, nullptr);
+
+		return distance <= offset;
+	}
+
+	app::Vector3 MobVacuum::CalcMobOffset()
+	{
+		auto& em = EntityManager::GetInstance();
+		auto& vars = Vars::GetInstance();
+
+		auto playerTransform = app::GameObject_get_transform(em.GetPlayerGO(), nullptr);
+		if (playerTransform == nullptr)
+			return {};
+
+		auto playerPosition = app::Transform_get_position(playerTransform, nullptr);
+		auto playerForward = app::Transform_get_forward(playerTransform, nullptr);
+
+		return playerPosition + playerForward * vars.VacuumDistance.value();
 	}
 }
