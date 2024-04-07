@@ -5421,6 +5421,25 @@ namespace app
 		struct InGameObject__Fields fields;
 	};
 
+	struct __declspec(align(8)) ENHPKNIEKMI__Fields
+	{
+		struct NMOJHKDGBKI* BJNPPIBEHDC;
+		struct NMOJHKDGBKI* HEDKOOOBALG;
+		struct NMOJHKDGBKI* LCPAKHGCIIO;
+		struct NMOJHKDGBKI* PJHNJFECEDK;
+		struct NMOJHKDGBKI* EJEPDHJAHFF;
+		struct NMOJHKDGBKI* FACECGELJJK;
+		float LNPIOKPPIGM;
+		float FKHANCNMKNH;
+	};
+
+	struct ENHPKNIEKMI
+	{
+		struct ENHPKNIEKMI__Class* klass;
+		MonitorData* monitor;
+		struct ENHPKNIEKMI__Fields fields;
+	};
+
 #if !defined(_GHIDRA_) && !defined(_IDA_)
 }
 #endif

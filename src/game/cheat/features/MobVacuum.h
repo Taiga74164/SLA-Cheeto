@@ -4,20 +4,14 @@
 
 namespace Cheat::Features
 {
-	class DamageHack;
-
 	class MobVacuum : public Singleton<MobVacuum>
 	{
-		friend class DamageHack;
 	public:
 		MobVacuum();
+		
+		void OnGameUpdate();
 
-		void OnPlayerUpdate();
-		void OnEnemyUpdate();
-
-	private:
-		app::ENNEJEPMJLJ* m_pPlayer;
-		app::GameObject* m_pPlayerGO;
-		std::vector<app::ENNEJEPMJLJ*> m_pEnemiesVec;
+		bool IsMobInRange(app::Transform* enemyTransform, app::Transform* playerTransform, float offset);
+		app::Vector3 CalcMobOffset();
 	};
 }
