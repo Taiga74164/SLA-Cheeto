@@ -9,7 +9,9 @@
 #include <string>
 #include <vector>
 #include "color.hpp"
+#include "ConfigEntry.hpp"
 #include "Hotkey.h"
+#include "HotkeyManager.h"
 
 #pragma warning(disable: 26812 26815)
 
@@ -25,7 +27,44 @@ const int WINDOW_HEIGHT = 900;
 
 namespace ImGui
 {
-	void HotkeyButton(const char* label, Hotkey& hotkey, bool& toggleVar);
+	bool HotkeyWidget(const char* label, Hotkey& hotkey, const ImVec2& size);
+	// Slightly Modified version of Callow's InputHotkey function
+	template<typename T>
+	bool InputHotkey(const char* label, ConfigEntry<T>& configEntry, bool clearable = true)
+	{
+		Hotkey& hotkeyRef = configEntry.hotkey();
+		bool& toggleVar = configEntry.value();
+
+		char hotkeyBuffer[50];
+		auto hotkeyString = std::string(hotkeyRef);
+		memcpy(hotkeyBuffer, hotkeyString.c_str(), hotkeyString.size() + 1);
+
+		bool changed = false;
+
+		if (clearable)
+		{
+			char labelBuffer[128];
+			std::snprintf(labelBuffer, sizeof(labelBuffer), "%s ## %s_1", "Clear", label);
+
+			if (ImGui::Button(labelBuffer, ImVec2(75, 0)))
+			{
+				hotkeyRef = Hotkey();
+				changed = true;
+			}
+			ImGui::SameLine();
+		}
+
+		changed = ImGui::HotkeyWidget(label, hotkeyRef, ImVec2(200, 0)) || changed;
+
+		if (changed)
+		{
+			HotkeyManager::GetInstance().RegisterKey(hotkeyRef, &toggleVar);
+			configEntry.SetHotkey(hotkeyRef);
+		}
+
+		return changed;
+	}
+	
 	void TextURL(const char* label, const char* url);
 	bool CheckboxFill(const char* label, bool* v);
     // Combo box helper allowing to pass an array of strings.

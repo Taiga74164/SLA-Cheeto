@@ -9,47 +9,30 @@ public:
 	Vars() = default;
 
 	// Features
-	CONFIG_ENTRY(bool, PlayerSpeed, true);
+	CONFIG_ENTRY_HOTKEY(bool, PlayerSpeed, true, Hotkey());
 	CONFIG_ENTRY(float, PlayerSpeedValue, 5.0f);
-	CONFIG_ENTRY(bool, NoCooldown, true);
-	CONFIG_ENTRY(bool, NoCooldownShadow, false);
-	CONFIG_ENTRY(bool, GodMode, true);
-	CONFIG_ENTRY(bool, KillAura, true);
-	CONFIG_ENTRY(bool, DamageHack, true);
-	//CONFIG_ENTRY(bool, DamagePercentage, false);
-	//CONFIG_ENTRY(bool, DamageFixed, true);
+	CONFIG_ENTRY_HOTKEY(bool, NoCooldown, true, Hotkey());
+	CONFIG_ENTRY_HOTKEY(bool, NoCooldownShadow, false, Hotkey());
+	CONFIG_ENTRY_HOTKEY(bool, GodMode, true, Hotkey());
+	CONFIG_ENTRY_HOTKEY(bool, KillAura, true, Hotkey());
+	CONFIG_ENTRY_HOTKEY(bool, DamageHack, true, Hotkey());
+	//CONFIG_ENTRY_HOTKEY(bool, DamagePercentage, false, Hotkey());
+	//CONFIG_ENTRY_HOTKEY(bool, DamageFixed, true, Hotkey());
 	CONFIG_ENTRY(int, DamageHackValue, 20000);
-	CONFIG_ENTRY(bool, MobVacuum, true);
+	CONFIG_ENTRY_HOTKEY(bool, MobVacuum, true, Hotkey());
 	CONFIG_ENTRY(float, VacuumRange, 5.0f);
 	CONFIG_ENTRY(float, VacuumDistance, 3.0f);
-	CONFIG_ENTRY(bool, DumbEnemies, true);
-	CONFIG_ENTRY(bool, MissionTime, true);
+	CONFIG_ENTRY_HOTKEY(bool, DumbEnemies, true, Hotkey());
+	CONFIG_ENTRY_HOTKEY(bool, MissionTime, true, Hotkey());
 	CONFIG_ENTRY(int, MissionTimeMs, 180000);
-	CONFIG_ENTRY(bool, TimeScale, false);
+	CONFIG_ENTRY_HOTKEY(bool, TimeScale, false, Hotkey());
 	CONFIG_ENTRY(float, TimeScaleSpeed, 2.0f);
 
 	// Misc
-	CONFIG_ENTRY(bool, FPSUnlock, true);
+	CONFIG_ENTRY_HOTKEY(bool, FPSUnlock, true, Hotkey());
 	CONFIG_ENTRY(int, FPSValue, 240);
-	CONFIG_ENTRY(bool, FovChanger, false);
+	CONFIG_ENTRY_HOTKEY(bool, FovChanger, false, Hotkey());
 	CONFIG_ENTRY(float, Fov, 60.0f);
-	CONFIG_ENTRY(bool, SkipIntroMovie, true);
-	CONFIG_ENTRY(bool, DisableWebView, true);
-
-	// Hotkeys
-	Hotkey PlayerSpeedHotkey;
-	Hotkey NoCooldownHotkey;
-	Hotkey NoCooldownShadowHotkey;
-	Hotkey GodModeHotkey;
-	Hotkey DamageHackHotkey;
-	Hotkey DamagePercentageHotkey;
-	Hotkey DamageFixedHotkey;
-	Hotkey MobVacuumHotkey;
-	Hotkey DumbEnemiesHotkey;
-	Hotkey MissionTimeHotkey;
-	Hotkey TimeScaleHotkey;
-	Hotkey FPSUnlockHotkey;
-	Hotkey FovChangerHotkey;
-	Hotkey SkipIntroMovieHotkey;
-	Hotkey DisableWebViewHotkey;
+	CONFIG_ENTRY_HOTKEY(bool, SkipIntroMovie, true, Hotkey());
+	CONFIG_ENTRY_HOTKEY(bool, DisableWebView, true, Hotkey());
 };

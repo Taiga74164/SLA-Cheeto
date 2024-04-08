@@ -13,6 +13,7 @@ This project is created and shared for educational purposes only. I do not condo
 - No Cooldown
 - No Cooldown Shadow (Enable only if you have shadow feature available)
 - God Mode
+- Kill Aura
 - Damage Hack
 - Mob Vacuum
 - Dumb Enemies (They don't attack you)

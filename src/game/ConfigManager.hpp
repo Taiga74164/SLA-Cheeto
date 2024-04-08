@@ -1,11 +1,11 @@
 ﻿#pragma once
 
 #include <json.hpp>
-#include <Windows.h>
 #include <fstream>
 #include <string>
 
 #include "Singleton.h"
+#include "Hotkey.h"
 
 using json = nlohmann::json;
 
@@ -15,6 +15,8 @@ public:
 	ConfigManager()
 	{
 	}
+
+	Hotkey hotkey;
 	
 	void InitializeConfig(const std::string& path)
 	{
@@ -39,13 +41,33 @@ public:
 	template<typename T>
 	void Set(const std::string& name, const T& value)
 	{
-		// json newConfig;
-		// newConfig[name] = value;
-		// SaveConfig(newConfig);
+		// If the value is the same, don't save it.
+		if (config_[name] == value) return;
+
 		config_[name] = value;
 		SaveConfig();
 	}
-	
+
+	Hotkey GetHotkey(const std::string& name, const Hotkey& defaultHotkey)
+	{
+		LoadConfig();
+		if (!config_.contains(name))
+		{
+			SetHotkey(name, defaultHotkey);
+			SaveConfig();
+		}
+
+		return hotkey.FromString(config_.value(name, defaultHotkey.ToString()));
+	}
+
+	void SetHotkey(const std::string& name, const Hotkey& hotkey)
+	{
+		// If the value is the same, don't save it.
+		if (config_[name] == hotkey.ToString()) return;
+
+		config_[name] = hotkey.ToString();
+		SaveConfig();
+	}
 
 private:
 	json config_;
@@ -69,11 +91,6 @@ private:
 
 	void SaveConfig()
 	{
-		// for (auto& it : newConfig.items())
-		// 	config_[it.key()] = it.value();
-		//
-		// std::ofstream o(configPath_);
-		// o << config_.dump(4);
 		std::ofstream file(configPath_);
 		file << config_.dump(4);
 		file.flush();

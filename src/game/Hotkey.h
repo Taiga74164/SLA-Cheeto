@@ -5,6 +5,7 @@
 
 #include "events/event.hpp"
 
+// Slightly modified version of Callow's Hotkey class
 class Hotkey 
 {
 public:
@@ -17,6 +18,7 @@ public:
 
 	Hotkey& operator=(Hotkey& hotkey) noexcept;
 	Hotkey& operator=(Hotkey&& hotkey) noexcept;
+	Hotkey& operator=(const Hotkey& hotkey) noexcept;
 
 	bool operator== (const Hotkey& c2) const;
 	bool operator!= (const Hotkey& c2) const;
@@ -31,6 +33,7 @@ public:
     std::vector<short> GetKeys() const;
 	void SetKey(short key);
 	std::string ToString() const;
+	Hotkey FromString(const std::string& str);
 
 	void ListenForNextKeyPress(Hotkey* targetHotkey);
 	void StopListening();

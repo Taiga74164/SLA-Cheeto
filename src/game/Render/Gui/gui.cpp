@@ -108,21 +108,21 @@ void Gui::Render()
 			ImGui::PopStyleVar();
 			break;
 		case 2: // Hotkeys
-			ImGui::HotkeyButton("PlayerSpeed", vars.PlayerSpeedHotkey, vars.PlayerSpeed.value());
-			ImGui::HotkeyButton("NoCooldown", vars.NoCooldownHotkey, vars.NoCooldown.value());
-			ImGui::HotkeyButton("NoCooldownShadow", vars.NoCooldownShadowHotkey, vars.NoCooldownShadow.value());
-			ImGui::HotkeyButton("GodMode", vars.GodModeHotkey, vars.GodMode.value());
-			ImGui::HotkeyButton("DamageHack", vars.DamageHackHotkey, vars.DamageHack.value());
-			//ImGui::HotkeyButton("DamagePercentage", vars.DamagePercentageHotkey, vars.DamagePercentage.value());
-			//ImGui::HotkeyButton("DamageFixed", vars.DamageFixedHotkey, vars.DamageFixed.value());
-			ImGui::HotkeyButton("MobVacuum", vars.MobVacuumHotkey, vars.MobVacuum.value());
-			ImGui::HotkeyButton("DumbEnemies", vars.DumbEnemiesHotkey, vars.DumbEnemies.value());
-			ImGui::HotkeyButton("MissionTime", vars.MissionTimeHotkey, vars.MissionTime.value());
-			ImGui::HotkeyButton("TimeScale", vars.TimeScaleHotkey, vars.TimeScale.value());
-			ImGui::HotkeyButton("FPSUnlock", vars.FPSUnlockHotkey, vars.FPSUnlock.value());
-			ImGui::HotkeyButton("FovChanger", vars.FovChangerHotkey, vars.FovChanger.value());
-			ImGui::HotkeyButton("SkipIntroMovie", vars.SkipIntroMovieHotkey, vars.SkipIntroMovie.value());
-			ImGui::HotkeyButton("DisableWebView", vars.DisableWebViewHotkey, vars.DisableWebView.value());
+			//ImGui::InputHotkey("PlayerSpeed", vars.PlayerSpeed);
+			ImGui::InputHotkey("NoCooldown", vars.NoCooldown);
+			ImGui::InputHotkey("NoCooldownShadow", vars.NoCooldownShadow);
+			ImGui::InputHotkey("GodMode", vars.GodMode);
+			ImGui::InputHotkey("DamageHack", vars.DamageHack);
+			//ImGui::InputHotkey("DamagePercentage", vars.DamagePercentage);
+			//ImGui::InputHotkey("DamageFixed",& vars.DamageFixedHotkey, vars.DamageFixed);
+			ImGui::InputHotkey("MobVacuum", vars.MobVacuum);
+			ImGui::InputHotkey("DumbEnemies", vars.DumbEnemies);
+			ImGui::InputHotkey("MissionTime", vars.MissionTime);
+			ImGui::InputHotkey("TimeScale", vars.TimeScale);
+			ImGui::InputHotkey("FPSUnlock", vars.FPSUnlock);
+			ImGui::InputHotkey("FovChanger", vars.FovChanger);
+			ImGui::InputHotkey("SkipIntroMovie", vars.SkipIntroMovie);
+			ImGui::InputHotkey("DisableWebView", vars.DisableWebView);
 
 			break;
 		case 3: // About
