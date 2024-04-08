@@ -62,6 +62,8 @@ void Gui::Render()
 
 			ImGui::CheckboxFill("God Mode", &vars.GodMode.value());
 
+			ImGui::CheckboxFill("Kill Aura", &vars.KillAura.value());
+
 			ImGui::CheckboxFill("Damage Hack", &vars.DamageHack.value());
 			if (vars.DamageHack.value())
 				ImGui::SliderInt("Value", &vars.DamageHackValue.value(), 10000, 100000000, "%d");

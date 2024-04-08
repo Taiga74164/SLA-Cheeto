@@ -14,6 +14,7 @@ public:
 	CONFIG_ENTRY(bool, NoCooldown, true);
 	CONFIG_ENTRY(bool, NoCooldownShadow, false);
 	CONFIG_ENTRY(bool, GodMode, true);
+	CONFIG_ENTRY(bool, KillAura, true);
 	CONFIG_ENTRY(bool, DamageHack, true);
 	//CONFIG_ENTRY(bool, DamagePercentage, false);
 	//CONFIG_ENTRY(bool, DamageFixed, true);

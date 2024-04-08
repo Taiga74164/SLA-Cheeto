@@ -50,6 +50,13 @@ namespace Cheat::Features
 				if (vars.DamageHack.value())
 					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::FixDamage, static_cast<int64_t>(vars.DamageHackValue.value()), 0i64, 0i64, buffName, method);
 
+				if (vars.KillAura.value())
+				{
+					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::DotDamage, 2i64, 99999999i64, 0i64, buffName, method);
+					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Shield, 2i64, -99999999i64, 0i64, buffName, method);
+					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::DotBreak, 2i64, 99999999i64, 0i64, buffName, method);
+				}
+
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Crash, 2i64, 99999999i64, 0i64, buffName, method);
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Stun, 2i64, 1000i64, 0i64, buffName, method);
 				// CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::BodyStop, 2i64, 1000i64, 0i64, buffName, method);
