@@ -56,6 +56,8 @@ void Gui::Render()
 			//if (vars.PlayerSpeed.value())
 			//	ImGui::SliderFloat("Speed", &vars.PlayerSpeedValue.value(), 1.0f, 20.0f, "%.1f");
 
+			ImGui::CheckboxFill("Instant Regen", &vars.InstantRegen.value()); HELPMAKER("Press Run");
+
 			ImGui::CheckboxFill("No Cooldown", &vars.NoCooldown.value());
 
 			ImGui::CheckboxFill("No Cooldown Shadow", &vars.NoCooldownShadow.value()); HELPMAKER("Enable only if you have shadow feature available");
@@ -102,27 +104,28 @@ void Gui::Render()
 
 			ImGui::CheckboxFill("Skip Intro Movie", &vars.SkipIntroMovie.value()); HELPMAKER("This will skip the intro movie when you start the game");
 
-			ImGui::CheckboxFill("Disable WebView", &vars.DisableWebView.value()); HELPMAKER("Disables WebView pop-up every time you enter the game");
+			ImGui::CheckboxFill("Disable Web View", &vars.DisableWebView.value()); HELPMAKER("Disables WebView pop-up every time you enter the game");
 
 			ImGui::EndGroup();
 			ImGui::PopStyleVar();
 			break;
 		case 2: // Hotkeys
 			//ImGui::InputHotkey("PlayerSpeed", vars.PlayerSpeed);
-			ImGui::InputHotkey("NoCooldown", vars.NoCooldown);
-			ImGui::InputHotkey("NoCooldownShadow", vars.NoCooldownShadow);
-			ImGui::InputHotkey("GodMode", vars.GodMode);
-			ImGui::InputHotkey("DamageHack", vars.DamageHack);
+			ImGui::InputHotkey("Instant Regen", vars.InstantRegen);
+			ImGui::InputHotkey("No Cooldown", vars.NoCooldown);
+			ImGui::InputHotkey("No Cooldown Shadow", vars.NoCooldownShadow);
+			ImGui::InputHotkey("God Mode", vars.GodMode);
+			ImGui::InputHotkey("Damage Hack", vars.DamageHack);
 			//ImGui::InputHotkey("DamagePercentage", vars.DamagePercentage);
 			//ImGui::InputHotkey("DamageFixed",& vars.DamageFixedHotkey, vars.DamageFixed);
-			ImGui::InputHotkey("MobVacuum", vars.MobVacuum);
-			ImGui::InputHotkey("DumbEnemies", vars.DumbEnemies);
-			ImGui::InputHotkey("MissionTime", vars.MissionTime);
-			ImGui::InputHotkey("TimeScale", vars.TimeScale);
-			ImGui::InputHotkey("FPSUnlock", vars.FPSUnlock);
-			ImGui::InputHotkey("FovChanger", vars.FovChanger);
-			ImGui::InputHotkey("SkipIntroMovie", vars.SkipIntroMovie);
-			ImGui::InputHotkey("DisableWebView", vars.DisableWebView);
+			ImGui::InputHotkey("Mob Vacuum", vars.MobVacuum);
+			ImGui::InputHotkey("Dumb Enemies", vars.DumbEnemies);
+			ImGui::InputHotkey("Mission Time", vars.MissionTime);
+			ImGui::InputHotkey("Time Scale", vars.TimeScale);
+			ImGui::InputHotkey("FPS Unlock", vars.FPSUnlock);
+			ImGui::InputHotkey("Fov Changer", vars.FovChanger);
+			ImGui::InputHotkey("Skip Intro Movie", vars.SkipIntroMovie);
+			ImGui::InputHotkey("Disable Web View", vars.DisableWebView);
 
 			break;
 		case 3: // About

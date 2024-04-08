@@ -5,7 +5,7 @@
 
 #define IM_VK_KEYPAD_ENTER      (VK_RETURN + 256)
 
-// Slightly modified version of Callow's Hotkey class
+// Slightly modified version. All credits to Callow
 static ImGuiKey LegacyToInput(short key)
 {
 	switch (key)
@@ -540,13 +540,9 @@ Hotkey Hotkey::FromString(const std::string& hotkeyString)
 		ImGuiKey imguiKey = StringToImGuiKey(trimmedKey);
 		if (imguiKey != ImGuiKey_None)
 		{
-			// Now convert ImGuiKey back to legacy VK_ code.
-			// This requires a reverse mapping function similar to `InputToLegacy`, which might need to be manually implemented.
 			short legacyKey = ImGuiKeyToLegacy(imguiKey);
 			if (legacyKey != -1)
-			{ // Assuming -1 indicates an unmappable key
 				hotkey.m_Keys.insert(legacyKey);
-			}
 		}
 	}
 	return hotkey;

@@ -28,7 +28,7 @@ const int WINDOW_HEIGHT = 900;
 namespace ImGui
 {
 	bool HotkeyWidget(const char* label, Hotkey& hotkey, const ImVec2& size);
-	// Slightly Modified version of Callow's InputHotkey function
+	// Slightly modified version function. All credits to Callow
 	template<typename T>
 	bool InputHotkey(const char* label, ConfigEntry<T>& configEntry, bool clearable = true)
 	{

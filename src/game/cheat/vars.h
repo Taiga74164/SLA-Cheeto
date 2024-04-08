@@ -11,6 +11,7 @@ public:
 	// Features
 	CONFIG_ENTRY_HOTKEY(bool, PlayerSpeed, true, Hotkey());
 	CONFIG_ENTRY(float, PlayerSpeedValue, 5.0f);
+	CONFIG_ENTRY_HOTKEY(bool, InstantRegen, false, Hotkey());
 	CONFIG_ENTRY_HOTKEY(bool, NoCooldown, true, Hotkey());
 	CONFIG_ENTRY_HOTKEY(bool, NoCooldownShadow, false, Hotkey());
 	CONFIG_ENTRY_HOTKEY(bool, GodMode, true, Hotkey());

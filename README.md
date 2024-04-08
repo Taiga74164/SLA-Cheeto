@@ -10,6 +10,7 @@ This project is created and shared for educational purposes only. I do not condo
 2. Press insert to show the menu
 
 ## Features
+- Instant Regen (Running can trigger this)
 - No Cooldown
 - No Cooldown Shadow (Enable only if you have shadow feature available)
 - God Mode
@@ -22,7 +23,7 @@ This project is created and shared for educational purposes only. I do not condo
 - FPS Unlocker
 - Fov Changer
 - Skip Intro Movie (Loads the game faster)
-- Disable WebView (Disables annoying web pop-up when entering the game)
+- Disable Web View (Disables annoying web pop-up when entering the game)
 
 ## Screenshot
 ![menu](src/res/Solo_Leveling_ARISE_4BRSUmbeJd.png)

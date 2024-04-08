@@ -5,7 +5,7 @@
 
 #include "events/event.hpp"
 
-// Slightly modified version of Callow's Hotkey class
+// Slightly modified version. All credits to Callow
 class Hotkey 
 {
 public:

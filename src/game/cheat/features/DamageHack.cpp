@@ -31,17 +31,20 @@ namespace Cheat::Features
 
 			if (entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
 			{
-				// God Mode
-				if (vars.GodMode.value())
+				// TODO: Change later
+				if (vars.InstantRegen.value())
 				{
-					if (specialState == app::ESpecialState__Enum::None ||
-						specialState == app::ESpecialState__Enum::DotDamage)
-						CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Invincible, someInt1, 3500i64, 4000i64, buffName, method);
+					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::HpRecovery, 2i64, 99999999i64, 0i64, buffName, method);
+					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::MpRecovery, 2i64, 99999999i64, 0i64, buffName, method);
+					CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::PgRecovery, 2i64, 99999999i64, 0i64, buffName, method);
+				}
 
-					if (specialState == app::ESpecialState__Enum::HpRecovery ||
-						specialState == app::ESpecialState__Enum::MpRecovery ||
-						specialState == app::ESpecialState__Enum::PgRecovery)
-						CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, specialState, 2i64, 99999999i64, 0i64, buffName, method);
+				if (specialState == app::ESpecialState__Enum::None ||
+					specialState == app::ESpecialState__Enum::DotDamage)
+				{
+					// God Mode
+					if (vars.GodMode.value())
+						CALL_ORIGIN(PIPHNBOBFEF_KBCIIEFLPGB_Hook, __this, app::ESpecialState__Enum::Invincible, someInt1, 3500i64, 4000i64, buffName, method);
 				}
 			}
 
