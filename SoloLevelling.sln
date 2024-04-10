@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoloLevelling", "src/SoloLevelling.vcxproj", "{41503935-0CD8-44F5-BD2C-3A4F46E0D197}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoloLevelling", "cheat\SoloLevelling.vcxproj", "{41503935-0CD8-44F5-BD2C-3A4F46E0D197}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3E8902D1-1959-46B1-8D60-59D2D9A64139} = {3E8902D1-1959-46B1-8D60-59D2D9A64139}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Injector", "injector\Injector.vcxproj", "{3E8902D1-1959-46B1-8D60-59D2D9A64139}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,6 +17,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{41503935-0CD8-44F5-BD2C-3A4F46E0D197}.Release|x64.ActiveCfg = Release|x64
 		{41503935-0CD8-44F5-BD2C-3A4F46E0D197}.Release|x64.Build.0 = Release|x64
+		{3E8902D1-1959-46B1-8D60-59D2D9A64139}.Release|x64.ActiveCfg = Release|x64
+		{3E8902D1-1959-46B1-8D60-59D2D9A64139}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

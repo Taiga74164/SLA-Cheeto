@@ -6,7 +6,7 @@ This project is created and shared for educational purposes only. I do not condo
 ## Usage
 
 ### How to Run
-1. Inject the DLL to the game with your preferred injector.
+1. Run the provided Injector or Inject the DLL to the game with your preferred injector
 2. Press insert to show the menu
 
 ## Features
@@ -26,7 +26,7 @@ This project is created and shared for educational purposes only. I do not condo
 - Disable Web View (Disables annoying web pop-up when entering the game)
 
 ## Screenshot
-![menu](src/res/Solo_Leveling_ARISE_4BRSUmbeJd.png)
+![menu](cheat/res/Solo_Leveling_ARISE_4BRSUmbeJd.png)
 
 ## Building
 1. Clone the repository: `git clone --recurse-submodules https://github.com/Taiga74164/SLA-Cheeto`.

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{41503935-0cd8-44f5-bd2c-3a4f46e0d197}</ProjectGuid>
+    <RootNamespace>SoloLevelling</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>SoloLevelling</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>SLA_Cheeto</TargetName>
+    <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;SoloLevelling_EXPORTS;_WINDOWS;_USRDLL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\;$(ProjectDir)vendor\CommandMenu\include\;$(ProjectDir)vendor\imgui\;$(ProjectDir)vendor\detours\;$(ProjectDir)vendor\magic_enum\include\magic_enum;$(ProjectDir)vendor\json\single_include\nlohmann</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\SoloLevelling.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\appdata\helpers.h" />
+    <ClInclude Include="src\appdata\il2cpp-api-functions-ptr.h" />
+    <ClInclude Include="src\appdata\il2cpp-api-functions.h" />
+    <ClInclude Include="src\appdata\il2cpp-appdata.h" />
+    <ClInclude Include="src\appdata\il2cpp-functions.h" />
+    <ClInclude Include="src\appdata\il2cpp-init.h" />
+    <ClInclude Include="src\appdata\il2cpp-metadata-version.h" />
+    <ClInclude Include="src\appdata\il2cpp-types-ptr.h" />
+    <ClInclude Include="src\appdata\il2cpp-types.h" />
+    <ClInclude Include="src\cheat\cheat.h" />
+    <ClInclude Include="src\cheat\features\DamageHack.h" />
+    <ClInclude Include="src\cheat\features\Debug.h" />
+    <ClInclude Include="src\cheat\features\DisableWebView.h" />
+    <ClInclude Include="src\cheat\features\DumbEnemies.h" />
+    <ClInclude Include="src\cheat\features\EntityManager.h" />
+    <ClInclude Include="src\cheat\features\FovChanger.h" />
+    <ClInclude Include="src\cheat\features\FPSUnlock.h" />
+    <ClInclude Include="src\cheat\features\GodMode.h" />
+    <ClInclude Include="src\cheat\features\MissionTime.h" />
+    <ClInclude Include="src\cheat\features\MobVacuum.h" />
+    <ClInclude Include="src\cheat\features\NoCooldown.h" />
+    <ClInclude Include="src\cheat\features\PlayerSpeed.h" />
+    <ClInclude Include="src\cheat\features\SkipIntroMovie.h" />
+    <ClInclude Include="src\cheat\features\TimeScale.h" />
+    <ClInclude Include="src\cheat\vars.h" />
+    <ClInclude Include="src\ConfigEntry.hpp" />
+    <ClInclude Include="src\ConfigManager.hpp" />
+    <ClInclude Include="src\events.h" />
+    <ClInclude Include="src\events\event.hpp" />
+    <ClInclude Include="src\events\handlers\abstracteventhandler.hpp" />
+    <ClInclude Include="src\events\handlers\eventhandlerptr.h" />
+    <ClInclude Include="src\events\handlers\functoreventhandler.hpp" />
+    <ClInclude Include="src\events\handlers\handlercast.hpp" />
+    <ClInclude Include="src\events\handlers\helpers\innerholder.hpp" />
+    <ClInclude Include="src\events\handlers\helpers\objectsaver.hpp" />
+    <ClInclude Include="src\events\handlers\methodeventhandler.hpp" />
+    <ClInclude Include="src\events\helpers\is_equatable.hpp" />
+    <ClInclude Include="src\events\joins\abstracteventjoin.h" />
+    <ClInclude Include="src\events\joins\eventjoinwrapper.h" />
+    <ClInclude Include="src\events\joins\eventjoinwrapper.hpp" />
+    <ClInclude Include="src\events\joins\handlereventjoin.h" />
+    <ClInclude Include="src\events\joins\handlereventjoin.hpp" />
+    <ClInclude Include="src\game-utils.hpp" />
+    <ClInclude Include="src\global.h" />
+    <ClInclude Include="src\HookManager.h" />
+    <ClInclude Include="src\Hotkey.h" />
+    <ClInclude Include="src\HotkeyManager.h" />
+    <ClInclude Include="src\main.h" />
+    <ClInclude Include="src\Memory.h" />
+    <ClInclude Include="src\Module.h" />
+    <ClInclude Include="src\ModuleManager.h" />
+    <ClInclude Include="src\Render\Backend\DX11Hook.h" />
+    <ClInclude Include="src\Render\Backend\DX12Hook.h" />
+    <ClInclude Include="src\Render\Gui\fonts\cousine.hpp" />
+    <ClInclude Include="src\Render\Gui\fonts\DejaVuSansMono.hpp" />
+    <ClInclude Include="src\Render\Gui\gui.h" />
+    <ClInclude Include="src\Render\Gui\utils\color.hpp" />
+    <ClInclude Include="src\Render\Gui\utils\gui-util.hpp" />
+    <ClInclude Include="src\Render\Renderer.h" />
+    <ClInclude Include="src\Singleton.h" />
+    <ClInclude Include="src\Utils.h" />
+    <ClInclude Include="res\resource.h" />
+    <ClInclude Include="vendor\detours\detours.h" />
+    <ClInclude Include="vendor\detours\detver.h" />
+    <ClInclude Include="vendor\imgui\backends\imgui_impl_dx11.h" />
+    <ClInclude Include="vendor\imgui\backends\imgui_impl_dx12.h" />
+    <ClInclude Include="vendor\imgui\backends\imgui_impl_win32.h" />
+    <ClInclude Include="vendor\imgui\imconfig.h" />
+    <ClInclude Include="vendor\imgui\imgui.h" />
+    <ClInclude Include="vendor\imgui\imgui_internal.h" />
+    <ClInclude Include="vendor\imgui\misc\cpp\imgui_stdlib.h" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_all.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_containers.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_flags.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_format.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_fuse.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_iostream.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_switch.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_utility.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\appdata\helpers.cpp" />
+    <ClCompile Include="src\appdata\il2cpp-init.cpp" />
+    <ClCompile Include="src\cheat\cheat.cpp" />
+    <ClCompile Include="src\cheat\features\DamageHack.cpp" />
+    <ClCompile Include="src\cheat\features\Debug.cpp" />
+    <ClCompile Include="src\cheat\features\DisableWebView.cpp" />
+    <ClCompile Include="src\cheat\features\DumbEnemies.cpp" />
+    <ClCompile Include="src\cheat\features\EntityManager.cpp" />
+    <ClCompile Include="src\cheat\features\FovChanger.cpp" />
+    <ClCompile Include="src\cheat\features\FPSUnlock.cpp" />
+    <ClCompile Include="src\cheat\features\GodMode.cpp" />
+    <ClCompile Include="src\cheat\features\MissionTime.cpp" />
+    <ClCompile Include="src\cheat\features\MobVacuum.cpp" />
+    <ClCompile Include="src\cheat\features\NoCooldown.cpp" />
+    <ClCompile Include="src\cheat\features\PlayerSpeed.cpp" />
+    <ClCompile Include="src\cheat\features\SkipIntroMovie.cpp" />
+    <ClCompile Include="src\cheat\features\TimeScale.cpp" />
+    <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="src\events.cpp" />
+    <ClCompile Include="src\events\joins\abstracteventjoin.cpp" />
+    <ClCompile Include="src\events\joins\eventjoinwrapper.cpp" />
+    <ClCompile Include="src\Hotkey.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Memory.cpp" />
+    <ClCompile Include="src\Render\Backend\DX11Hook.cpp" />
+    <ClCompile Include="src\Render\Backend\DX12Hook.cpp" />
+    <ClCompile Include="src\Render\Gui\gui.cpp" />
+    <ClCompile Include="src\Render\Gui\utils\gui-util.cpp" />
+    <ClCompile Include="src\Render\Renderer.cpp" />
+    <ClCompile Include="src\Utils.cpp" />
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_dx11.cpp" />
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_dx12.cpp" />
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_win32.cpp" />
+    <ClCompile Include="vendor\imgui\imgui.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_draw.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_tables.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="vendor\imgui\misc\cpp\imgui_stdlib.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="vendor\detours\detours-x64.lib" />
+    <Library Include="vendor\detours\detours-x86.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

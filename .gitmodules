@@ -1,15 +1,12 @@
-[submodule "src/vendor/CommandMenu"]
-	path = src/vendor/CommandMenu
-	url = https://github.com/Taiga74164/CommandMenu
-[submodule "src/vendor/src/imgui"]
-	path = src/vendor/imgui
-	url = https://github.com/Taiga74164/imgui.git
-[submodule "src/vendor/magic_enum"]
-	path = src/vendor/magic_enum
-	url = https://github.com/Neargye/magic_enum
-[submodule "src/vendor/imgui"]
-	path = src/vendor/imgui
+[submodule "cheat/vendor/imgui"]
+	path = cheat/vendor/imgui
 	url = https://github.com/Taiga74164/imgui
-[submodule "src/vendor/json"]
-	path = src/vendor/json
+[submodule "cheat/vendor/magic_enum"]
+	path = cheat/vendor/magic_enum
+	url = https://github.com/Neargye/magic_enum
+[submodule "cheat/vendor/json"]
+	path = cheat/vendor/json
 	url = https://github.com/nlohmann/json
+[submodule "injector/vendor/simpleini"]
+	path = injector/vendor/simpleini
+	url = https://github.com/brofield/simpleini.git
