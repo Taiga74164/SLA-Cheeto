@@ -130,6 +130,7 @@
     <ClInclude Include="src\Render\Backend\DX12Hook.h" />
     <ClInclude Include="src\Render\Gui\fonts\cousine.hpp" />
     <ClInclude Include="src\Render\Gui\fonts\DejaVuSansMono.hpp" />
+    <ClInclude Include="src\Render\Gui\fonts\Rubik.hpp" />
     <ClInclude Include="src\Render\Gui\gui.h" />
     <ClInclude Include="src\Render\Gui\utils\color.hpp" />
     <ClInclude Include="src\Render\Gui\utils\gui-util.hpp" />

@@ -10,6 +10,9 @@
 #include "Backend/DX12Hook.h"
 #include "Utils.h"
 #include "Gui/gui.h"
+#include "Gui/fonts/DejaVuSansMono.hpp"
+#include "Gui/fonts/cousine.hpp"
+#include "Gui/fonts/Rubik.hpp"
 
 namespace Renderer
 {
@@ -24,6 +27,7 @@ namespace Renderer
 		ImFontConfig fontConfig;
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 		io.ImeWindowHandle = hWnd;
+		io.Fonts->AddFontFromMemoryCompressedTTF(Rubik_compressed_data, *Rubik_compressed_data, 15.0f, &fontConfig);
 
 		ImGui_ImplWin32_Init(hWnd);
 		ImGui_ImplDX11_Init(pDevice, pContext);
@@ -133,7 +137,7 @@ namespace Renderer
 		ImGuiStyle& Style = ImGui::GetStyle();
 		auto colors = Style.Colors;
 		Style.WindowPadding = ImVec2(10, 10);              // Padding within a window
-		Style.WindowMinSize = ImVec2(600, 340);            // Minimum window size
+		Style.WindowMinSize = ImVec2(600, 420);            // Minimum window size
 		Style.WindowRounding = 5.0f;                       // Radius of window corners rounding. Set to 0.0f to have rectangular windows
 		Style.WindowTitleAlign = ImVec2(0.5f, 0.5f);       // Alignment for title bar text
 		Style.FramePadding = ImVec2(3, 3);                 // Padding within a framed rectangle (used by most widgets)

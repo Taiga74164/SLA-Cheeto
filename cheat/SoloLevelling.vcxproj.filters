@@ -286,6 +286,9 @@
     <ClInclude Include="src\cheat\vars.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Render\Gui\fonts\Rubik.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vendor\imgui\misc\cpp\imgui_stdlib.cpp">
