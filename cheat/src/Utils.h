@@ -49,4 +49,6 @@ namespace Utils
 
 	void SetCurrentPath(const std::filesystem::path& curren_path);
 	std::filesystem::path GetCurrentPath();
+
+	std::string GenerateRandomString(size_t length);
 }

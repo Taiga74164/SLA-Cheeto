@@ -1,6 +1,7 @@
 #include "util.h"
 
 #include <commdlg.h>
+#include <random>
 
 std::optional<std::string> util::SelectFile(const char* filter, const char* title)
 {
@@ -42,4 +43,23 @@ std::string util::GetLastErrorAsString(DWORD errorId)
 	std::string message(messageBuffer, size);
 	LocalFree(messageBuffer);
 	return message;
+}
+
+std::string util::ShuffleDllName(const std::string& path)
+{
+	size_t lastSlash = path.find_last_of("\\");
+	size_t lastDot = path.find_last_of(".");
+
+	if (lastSlash == std::string::npos || lastDot == std::string::npos || lastDot <= lastSlash)
+		return path;
+
+	std::string directory = path.substr(0, lastSlash + 1);
+	std::string filename = path.substr(lastSlash + 1, lastDot - lastSlash - 1);
+	std::string extension = path.substr(lastDot);
+
+	std::random_device rd;
+	std::mt19937 g(rd());
+	std::shuffle(filename.begin(), filename.end(), g);
+
+	return directory + filename + extension;
 }

@@ -69,6 +69,8 @@ int main()
 
 	if (!config.DLLPath_1.empty())
 	{
+		auto shuffledPath = util::ShuffleDllName(config.DLLPath_1);
+		std::cout << "Shuffled DLL 1 path: " << shuffledPath << std::endl;
 		if (!Inject(hProcess, config.DLLPath_1))
 			std::cerr << "Failed to inject DLL 1" << std::endl;
 	}
@@ -85,7 +87,7 @@ int main()
 			std::cerr << "Failed to inject DLL 3" << std::endl;
 	}
 	
-	Sleep(2000);
+	Sleep(3000);
 	ResumeThread(hThread);
 	CloseHandle(hProcess);
 	return 0;
