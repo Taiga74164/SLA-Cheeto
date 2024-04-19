@@ -39,7 +39,7 @@ namespace Cheat::Features
 			}
 		}
 
-		// LOG("resourceName %s", il2cppi_to_string(character->fields.PEFKKKBMDKN->fields.m_ResourceName).c_str());
+		// LOG(xorstr("resourceName %s"), il2cppi_to_string(character->fields.PEFKKKBMDKN->fields.m_ResourceName).c_str());
 
 		CALL_ORIGIN(EvadeProxy_Init_Hook, __this, character, DHPMEMDBDMC, method);
 	}

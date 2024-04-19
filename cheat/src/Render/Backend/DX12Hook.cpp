@@ -63,7 +63,7 @@ namespace Backend
 		if (!init && m_instance->OnInit)
 		{
 			const auto result = (HRESULT)pSwapChain->GetDevice(__uuidof(DirectX12Interface::Device), reinterpret_cast<void**>(&DirectX12Interface::Device));
-			LOG("Result of GetDevice: %x", HRESULT_CODE(result));
+			LOG(xorstr("Result of GetDevice: %x"), HRESULT_CODE(result));
 			if (SUCCEEDED(result))
 			{
 				DXGI_SWAP_CHAIN_DESC desc;
@@ -314,24 +314,24 @@ namespace Backend
 
 	void DX12Hook::InitializeHooks()
 	{
-		LOG("Initialized DX12Hook.");
+		LOG(xorstr("Initialized DX12Hook."));
 		
 		DirectX12MainFunctions functions;
 		if (!FindFunctions(functions))
 		{
-			LOG("Failed to find Present function for DX12.");
+			LOG(xorstr("Failed to find Present function for DX12."));
 			return;
 		}
 
-		LOG("IDXGISwapChainPresent: 0x%p", functions.presentFunc);
-		LOG("DrawInstanced: 0x%p", functions.drawInstancedFunc);
-		LOG("DrawIndexedInstanced: 0x%p", functions.drawIndexedInstancedFunc);
-		LOG("ExecuteCommandLists: 0x%p", functions.executeCommandListFunc);
+		LOG(xorstr("IDXGISwapChainPresent: 0x%p"), functions.presentFunc);
+		LOG(xorstr("DrawInstanced: 0x%p"), functions.drawInstancedFunc);
+		LOG(xorstr("DrawIndexedInstanced: 0x%p"), functions.drawIndexedInstancedFunc);
+		LOG(xorstr("ExecuteCommandLists: 0x%p"), functions.executeCommandListFunc);
 
 		HookManager::install(functions.presentFunc, PresentHook);
 		HookManager::install(functions.executeCommandListFunc, ExecuteCommandListsHook);
 		
-		LOG("D3D12 Hooks installed.");
+		LOG(xorstr("D3D12 Hooks installed."));
 	}
 	
 }

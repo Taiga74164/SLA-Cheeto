@@ -37,14 +37,14 @@ namespace Cheat::Features
 		//auto modelContainer = player->fields.NKONPDBOBAG->fields.JOJBJOHCOAI; //player->fields.NKONPDBOBAG->fields.BLHAMCDGFPB->fields.m_pkAnimator;
 		//if (modelContainer == nullptr)
 		//{
-		//	LOG("PlayerSpeed::OnGameUpdate: modelContainer is null");
+		//	LOG(xorstr("PlayerSpeed::OnGameUpdate: modelContainer is null");
 		//	return;
 		//}
 
 		//auto animator = app::ModelContainer_get_animator(modelContainer, nullptr);
 		//if (animator == nullptr)
 		//{
-		//	LOG("PlayerSpeed::OnGameUpdate: animator is null");
+		//	LOG(xorstr("PlayerSpeed::OnGameUpdate: animator is null");
 		//	return;
 		//}
 

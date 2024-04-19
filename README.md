@@ -6,7 +6,7 @@ This project is created and shared for educational purposes only. I do not condo
 ## Usage
 
 ### How to Run
-1. Run the provided Injector or Inject the DLL to the game with your preferred injector
+1. Inject the DLL to the game with your preferred injector
 2. Press insert to show the menu
 
 ## Features

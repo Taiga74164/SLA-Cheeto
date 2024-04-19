@@ -16,18 +16,17 @@ namespace Cheat::Features
 	void DamageHack::PIPHNBOBFEF_KBCIIEFLPGB_Hook(app::PIPHNBOBFEF* __this, app::ESpecialState__Enum specialState, int64_t someInt1, int64_t someInt2, int64_t someInt3, app::String* buffName, MethodInfo* method)
 	{
 		auto& vars = Vars::GetInstance();
-		auto& vacuum = MobVacuum::GetInstance();
 
 		if (__this->fields.IGFILCLEFHH->fields.EJBODHBGPMG != nullptr)
 		{
 			auto entity = __this->fields.IGFILCLEFHH->fields.EJBODHBGPMG;
-			//LOG("%s", magic_enum::enum_name(entity->fields.FHNGHHPLPGD).data());
-			//LOG("resourceName %s", il2cppi_to_string(entity->fields.PEFKKKBMDKN->fields.m_ResourceName).c_str());
-			//LOG("specialState %s", magic_enum::enum_name(specialState).data());
-			//LOG("int1 %d", someInt1);
-			//LOG("int2 %d", someInt2);
-			//LOG("int3 %d", someInt3);
-			//LOG("someStr %s", il2cppi_to_string(buffName).c_str());
+			//LOG(xorstr("%s"), magic_enum::enum_name(entity->fields.FHNGHHPLPGD).data());
+			//LOG(xorstr("resourceName %s"), il2cppi_to_string(entity->fields.PEFKKKBMDKN->fields.m_ResourceName).c_str());
+			//LOG(xorstr("specialState %s"), magic_enum::enum_name(specialState).data());
+			//LOG(xorstr("int1 %d"), someInt1);
+			//LOG(xorstr("int2 %d"), someInt2);
+			//LOG(xorstr("int3 %d"), someInt3);
+			//LOG(xorstr("someStr %s"), il2cppi_to_string(buffName).c_str());
 
 			if (entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
 			{

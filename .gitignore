@@ -367,3 +367,6 @@ MigrationBackup/
 FodyWeavers.xsd
 
 PostBuildEvent.cmd
+
+manual-map.h
+manual-map.cpp

@@ -10,9 +10,9 @@ void Run(HMODULE hModule)
 {
 	il2cppi_new_console();
 	
-	while (!GetModuleHandleA("GameAssembly.dll") && !FindWindowA("UnityWndClass", nullptr))
+	while (!GetModuleHandleA(xorstr("GameAssembly.dll")) && !FindWindowA(xorstr("UnityWndClass"), nullptr))
 	{
-		LOG("[SoloLevelling] game not found, waiting 3 seconds...");
+		LOG(xorstr("[SoloLevelling] game not found, waiting 3 seconds..."));
 		Sleep(3000);
 	}
 	
@@ -23,5 +23,5 @@ void Run(HMODULE hModule)
 	init_il2cpp();
 	init_cheat();
 
-	LOG("Config path is at %s", (Utils::GetCurrentPath() / "config.json").string().c_str());
+	LOG(xorstr("Config path is at %s"), (Utils::GetCurrentPath() / xorstr("config.json")).string().c_str());
 }

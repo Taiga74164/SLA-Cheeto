@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <string>
 #include <filesystem>
+#include "xorstr.h"
 
 #define LOG(fmt, ...)   Utils::ConsolePrint(__FILE__, __LINE__, fmt, __VA_ARGS__)
 

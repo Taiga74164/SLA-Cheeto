@@ -175,17 +175,17 @@ namespace Backend
 
 	void DX11Hook::InitializeHooks()
 	{
-		LOG("Initialized DX11Hook.");
+		LOG(xorstr("Initialized DX11Hook."));
 		
 		fnIDXGISwapChainPresent = FindPresent();
 		if (fnIDXGISwapChainPresent == nullptr)
 		{
-			LOG("Failed to find Present function for DX11.");
+			LOG(xorstr("Failed to find Present function for DX11."));
 			return;
 		}
 
 		HookManager::install(fnIDXGISwapChainPresent, PresentHook);
 		
-		LOG("DX11Hook Hooks installed.");
+		LOG(xorstr("DX11Hook Hooks installed."));
 	}
 }

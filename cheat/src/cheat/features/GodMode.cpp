@@ -24,13 +24,13 @@ namespace Cheat::Features
 		//auto damageRatio = targetHitData->fields.damageRatio;
 		//auto damageRatioTotalValue = targetHitData->fields.damageRatioTotalValue;
 
-		//LOG("%s", magic_enum::enum_name(skillIdentity->fields.entity->fields.FHNGHHPLPGD).data());
-		//LOG("skillRange %f", skillRange);
-		//LOG("skillMinRange %f", skillMinRange);
-		//LOG("reaction %s", magic_enum::enum_name(reaction).data());
-		//LOG("preventSkillCancel %s", preventSkillCancel ? "true" : "false");
-		//LOG("damageRatio %f", damageRatio);
-		//LOG("damageRatioTotalValue %f", damageRatioTotalValue);
+		//LOG(xorstr("%s", magic_enum::enum_name(skillIdentity->fields.entity->fields.FHNGHHPLPGD).data());
+		//LOG(xorstr("skillRange %f", skillRange);
+		//LOG(xorstr("skillMinRange %f", skillMinRange);
+		//LOG(xorstr("reaction %s", magic_enum::enum_name(reaction).data());
+		//LOG(xorstr("preventSkillCancel %s", preventSkillCancel ? "true" : "false");
+		//LOG(xorstr("damageRatio %f", damageRatio);
+		//LOG(xorstr("damageRatioTotalValue %f", damageRatioTotalValue);
 
 		if (skillIdentity->fields.entity->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
 		{

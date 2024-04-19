@@ -21,7 +21,7 @@
 
 using namespace Cheat::Features;
 
-static void GameFrameWork_Update_Hook(app::GameFrameWork* __this, MethodInfo* method);
+static void GameFrameWork_Update_Hook(void* __this, MethodInfo* method);
 
 void init_cheat()
 {
@@ -45,7 +45,7 @@ void init_cheat()
 	HookManager::install(app::GameFrameWork_Update, GameFrameWork_Update_Hook);
 }
 
-void GameFrameWork_Update_Hook(app::GameFrameWork* __this, MethodInfo* method)
+void GameFrameWork_Update_Hook(void* __this, MethodInfo* method)
 {
 	SAFE_BEGIN();
 	events::GameUpdateEvent();

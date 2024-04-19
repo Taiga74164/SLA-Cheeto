@@ -258,7 +258,7 @@ static short InputToLegacy(ImGuiKey inputkey)
 		return VK_XBUTTON2;
 	}
 
-	LOG("Failed to find legacy input");
+	LOG(xorstr("Failed to find legacy input"));
 	return -1;
 }
 
@@ -521,10 +521,27 @@ std::string Trim(const std::string& str)
 	return str.substr(first, (last - first + 1));
 }
 
-ImGuiKey StringToImGuiKey(const std::string& keyName)
+std::string ToLower(const std::string& str)
 {
-	auto keyEnum = magic_enum::enum_cast<ImGuiKey_>(keyName);
-	return keyEnum.has_value() ? keyEnum.value() : ImGuiKey_None;
+	std::string result = str;
+	std::transform(result.begin(), result.end(), result.begin(), [](unsigned char c) { return std::tolower(c); });
+	return result;
+}
+
+ImGuiKey_ StringToImGuiKey(const std::string& keyName)
+{
+	std::string lowercaseKeyName = ToLower(keyName);
+
+	for (int i = 0; i < ImGuiKey_COUNT; ++i)
+	{
+		std::string enumName = "ImGuiKey_" + std::to_string(i);
+		if (ToLower(enumName) == lowercaseKeyName)
+		{
+			return static_cast<ImGuiKey_>(i);
+		}
+	}
+
+	return ImGuiKey_None;
 }
 
 

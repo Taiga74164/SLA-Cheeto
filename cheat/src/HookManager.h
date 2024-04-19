@@ -22,7 +22,7 @@ public:
 	static Fn getOrigin(Fn handler, const char* callerName = nullptr) noexcept
 	{
 		if (holderMap.count(reinterpret_cast<void*>(handler)) == 0) {
-			LOG("Origin not found for handler: %s. Maybe racing bug.", callerName == nullptr ? "<Unknown>" : callerName);
+			LOG(xorstr("Origin not found for handler: %s. Maybe racing bug."), callerName == nullptr ? "<Unknown>" : callerName);
 			return nullptr;
 		}
 		return reinterpret_cast<Fn>(holderMap[reinterpret_cast<void*>(handler)]);

@@ -18,7 +18,7 @@
 
 #define SAFE_BEGIN() __try {
 #define SAFE_ERROR() } __except (EXCEPTION_EXECUTE_HANDLER) { \
-    LOG("Exception 0x%08x.", GetExceptionCode());
+    LOG(xorstr("Exception 0x%08x."), GetExceptionCode());
 
 #define SAFE_END() }
 #define SAFE_EEND() SAFE_ERROR(); SAFE_END();

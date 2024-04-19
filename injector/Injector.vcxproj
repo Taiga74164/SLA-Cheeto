@@ -82,7 +82,9 @@
       <AdditionalIncludeDirectories>D:\Git\SLA-Cheeto\src\vendor\imgui\;D:\Git\SLA-Cheeto\Injector\vendor\simpleini;D:\Git\Akebi-PacketSniffer\vcpkg\installed\x64-windows\include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="src\load-library.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\manual-map.cpp" />
     <ClCompile Include="src\util.cpp">
       <AssemblerOutput>NoListing</AssemblerOutput>
       <AssemblerListingLocation>x64\Release\</AssemblerListingLocation>
@@ -162,6 +164,8 @@
   <ItemGroup>
     <ClInclude Include="src\config.hpp" />
     <ClInclude Include="src\inject.h" />
+    <ClInclude Include="src\load-library.h" />
+    <ClInclude Include="src\manual-map.h" />
     <ClInclude Include="src\util.h" />
     <ClInclude Include="vendor\simpleini\SimpleIni.h" />
   </ItemGroup>

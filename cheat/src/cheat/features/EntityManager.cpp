@@ -22,7 +22,7 @@ namespace Cheat::Features
 
 		if (!IsCharacterAlive(m_pPlayer))
 		{
-			LOG("IsCharacterAlive returned false, Player is probably not in battle");
+			LOG(xorstr("IsCharacterAlive returned false, Player is probably not in battle"));
 			m_pPlayer = nullptr;
 			m_pPlayerGO = nullptr;
 			m_pEnemiesVec.clear();
@@ -46,7 +46,7 @@ namespace Cheat::Features
 
 			if (!IsCharacterAlive(enemy))
 			{
-				LOG("IsCharacterAlive returned false, Enemy: %s probably died or some shit", il2cppi_to_string(name).c_str());
+				LOG(xorstr("IsCharacterAlive returned false, Enemy: %s probably died or some shit"), il2cppi_to_string(name).c_str());
 				m_pEnemiesVec.erase(std::remove(m_pEnemiesVec.begin(), m_pEnemiesVec.end(), enemy), m_pEnemiesVec.end());
 				continue;
 			}
@@ -60,7 +60,7 @@ namespace Cheat::Features
 
 	void EntityManager::ENHPKNIEKMI_MIFDFEHDDDD_Hook(app::ENHPKNIEKMI* __this, MethodInfo* method)
 	{
-		LOG("ENHPKNIEKMI_MIFDFEHDDDD_Hook");
+		LOG(xorstr("ENHPKNIEKMI_MIFDFEHDDDD_Hook"));
 
 		CALL_ORIGIN(ENHPKNIEKMI_MIFDFEHDDDD_Hook, __this, method);
 	}
@@ -88,8 +88,8 @@ namespace Cheat::Features
 		if (__this != nullptr &&
 			__this->fields.NKONPDBOBAG->fields.IALANALADIL->fields.HOAFECEANLC->fields._.m_CachedPtr != nullptr)
 		{
-			//LOG("resourceName %s", il2cppi_to_string(__this->fields.PEFKKKBMDKN->fields.m_ResourceName).c_str());
-			//LOG("CharType %s", magic_enum::enum_name(__this->fields.AJEHLIOMMJN).data());
+			//LOG(xorstr("resourceName %s"), il2cppi_to_string(__this->fields.PEFKKKBMDKN->fields.m_ResourceName).c_str());
+			//LOG(xorstr("CharType %s"), magic_enum::enum_name(__this->fields.AJEHLIOMMJN).data());
 
 			if (__this->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER)
 			{
