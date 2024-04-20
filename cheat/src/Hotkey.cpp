@@ -397,7 +397,7 @@ bool Hotkey::operator==(const Hotkey& c2) const
 std::string GetKeyName(short key)
 {
     if (key > 5)
-        return ImGui::GetKeyName(key);
+		return ImGui::GetKeyName(key);
     
     switch (key)
     {
@@ -521,32 +521,137 @@ std::string Trim(const std::string& str)
 	return str.substr(first, (last - first + 1));
 }
 
-std::string ToLower(const std::string& str)
+// Temporary. IDK why magic_enum::enum_cast is returning 0
+ImGuiKey StringToImGuiKey_1(const std::string& keyName)
 {
-	std::string result = str;
-	std::transform(result.begin(), result.end(), result.begin(), [](unsigned char c) { return std::tolower(c); });
-	return result;
-}
-
-ImGuiKey_ StringToImGuiKey(const std::string& keyName)
-{
-	std::string lowercaseKeyName = ToLower(keyName);
-
-	for (int i = 0; i < ImGuiKey_COUNT; ++i)
+	switch (hash(keyName.c_str()))
 	{
-		std::string enumName = "ImGuiKey_" + std::to_string(i);
-		if (ToLower(enumName) == lowercaseKeyName)
-		{
-			return static_cast<ImGuiKey_>(i);
-		}
+	case hash("ImGuiKey_Tab"): return ImGuiKey_Tab;
+	case hash("ImGuiKey_LeftArrow"): return ImGuiKey_LeftArrow;
+	case hash("ImGuiKey_RightArrow"): return ImGuiKey_RightArrow;
+	case hash("ImGuiKey_UpArrow"): return ImGuiKey_UpArrow;
+	case hash("ImGuiKey_DownArrow"): return ImGuiKey_DownArrow;
+	case hash("ImGuiKey_PageUp"): return ImGuiKey_PageUp;
+	case hash("ImGuiKey_PageDown"): return ImGuiKey_PageDown;
+	case hash("ImGuiKey_Home"): return ImGuiKey_Home;
+	case hash("ImGuiKey_End"): return ImGuiKey_End;
+	case hash("ImGuiKey_Insert"): return ImGuiKey_Insert;
+	case hash("ImGuiKey_Delete"): return ImGuiKey_Delete;
+	case hash("ImGuiKey_Backspace"): return ImGuiKey_Backspace;
+	case hash("ImGuiKey_Space"): return ImGuiKey_Space;
+	case hash("ImGuiKey_Enter"): return ImGuiKey_Enter;
+	case hash("ImGuiKey_Escape"): return ImGuiKey_Escape;
+	case hash("ImGuiKey_Apostrophe"): return ImGuiKey_Apostrophe;
+	case hash("ImGuiKey_Comma"): return ImGuiKey_Comma;
+	case hash("ImGuiKey_Minus"): return ImGuiKey_Minus;
+	case hash("ImGuiKey_Period"): return ImGuiKey_Period;
+	case hash("ImGuiKey_Slash"): return ImGuiKey_Slash;
+	case hash("ImGuiKey_Semicolon"): return ImGuiKey_Semicolon;
+	case hash("ImGuiKey_Equal"): return ImGuiKey_Equal;
+	case hash("ImGuiKey_LeftBracket"): return ImGuiKey_LeftBracket;
+	case hash("ImGuiKey_Backslash"): return ImGuiKey_Backslash;
+	case hash("ImGuiKey_RightBracket"): return ImGuiKey_RightBracket;
+	case hash("ImGuiKey_GraveAccent"): return ImGuiKey_GraveAccent;
+	case hash("ImGuiKey_CapsLock"): return ImGuiKey_CapsLock;
+	case hash("ImGuiKey_ScrollLock"): return ImGuiKey_ScrollLock;
+	case hash("ImGuiKey_NumLock"): return ImGuiKey_NumLock;
+	case hash("ImGuiKey_PrintScreen"): return ImGuiKey_PrintScreen;
+	case hash("ImGuiKey_Pause"): return ImGuiKey_Pause;
+	case hash("ImGuiKey_Keypad0"): return ImGuiKey_Keypad0;
+	case hash("ImGuiKey_Keypad1"): return ImGuiKey_Keypad1;
+	case hash("ImGuiKey_Keypad2"): return ImGuiKey_Keypad2;
+	case hash("ImGuiKey_Keypad3"): return ImGuiKey_Keypad3;
+	case hash("ImGuiKey_Keypad4"): return ImGuiKey_Keypad4;
+	case hash("ImGuiKey_Keypad5"): return ImGuiKey_Keypad5;
+	case hash("ImGuiKey_Keypad6"): return ImGuiKey_Keypad6;
+	case hash("ImGuiKey_Keypad7"): return ImGuiKey_Keypad7;
+	case hash("ImGuiKey_Keypad8"): return ImGuiKey_Keypad8;
+	case hash("ImGuiKey_Keypad9"): return ImGuiKey_Keypad9;
+	case hash("ImGuiKey_KeypadDecimal"): return ImGuiKey_KeypadDecimal;
+	case hash("ImGuiKey_KeypadDivide"): return ImGuiKey_KeypadDivide;
+	case hash("ImGuiKey_KeypadMultiply"): return ImGuiKey_KeypadMultiply;
+	case hash("ImGuiKey_KeypadSubtract"): return ImGuiKey_KeypadSubtract;
+	case hash("ImGuiKey_KeypadAdd"): return ImGuiKey_KeypadAdd;
+	case hash("ImGuiKey_KeypadEnter"): return ImGuiKey_KeypadEnter;
+	case hash("ImGuiKey_LeftShift"): return ImGuiKey_LeftShift;
+	case hash("ImGuiKey_LeftCtrl"): return ImGuiKey_LeftCtrl;
+	case hash("ImGuiKey_LeftAlt"): return ImGuiKey_LeftAlt;
+	case hash("ImGuiKey_LeftSuper"): return ImGuiKey_LeftSuper;
+	case hash("ImGuiKey_RightShift"): return ImGuiKey_RightShift;
+	case hash("ImGuiKey_RightCtrl"): return ImGuiKey_RightCtrl;
+	case hash("ImGuiKey_RightAlt"): return ImGuiKey_RightAlt;
+	case hash("ImGuiKey_RightSuper"): return ImGuiKey_RightSuper;
+	case hash("ImGuiKey_Menu"): return ImGuiKey_Menu;
+	case hash("ImGuiKey_0"): return ImGuiKey_0;
+	case hash("ImGuiKey_1"): return ImGuiKey_1;
+	case hash("ImGuiKey_2"): return ImGuiKey_2;
+	case hash("ImGuiKey_3"): return ImGuiKey_3;
+	case hash("ImGuiKey_4"): return ImGuiKey_4;
+	case hash("ImGuiKey_5"): return ImGuiKey_5;
+	case hash("ImGuiKey_6"): return ImGuiKey_6;
+	case hash("ImGuiKey_7"): return ImGuiKey_7;
+	case hash("ImGuiKey_8"): return ImGuiKey_8;
+	case hash("ImGuiKey_9"): return ImGuiKey_9;
+	case hash("ImGuiKey_A"): return ImGuiKey_A;
+	case hash("ImGuiKey_B"): return ImGuiKey_B;
+	case hash("ImGuiKey_C"): return ImGuiKey_C;
+	case hash("ImGuiKey_D"): return ImGuiKey_D;
+	case hash("ImGuiKey_E"): return ImGuiKey_E;
+	case hash("ImGuiKey_F"): return ImGuiKey_F;
+	case hash("ImGuiKey_G"): return ImGuiKey_G;
+	case hash("ImGuiKey_H"): return ImGuiKey_H;
+	case hash("ImGuiKey_I"): return ImGuiKey_I;
+	case hash("ImGuiKey_J"): return ImGuiKey_J;
+	case hash("ImGuiKey_K"): return ImGuiKey_K;
+	case hash("ImGuiKey_L"): return ImGuiKey_L;
+	case hash("ImGuiKey_M"): return ImGuiKey_M;
+	case hash("ImGuiKey_N"): return ImGuiKey_N;
+	case hash("ImGuiKey_O"): return ImGuiKey_O;
+	case hash("ImGuiKey_P"): return ImGuiKey_P;
+	case hash("ImGuiKey_Q"): return ImGuiKey_Q;
+	case hash("ImGuiKey_R"): return ImGuiKey_R;
+	case hash("ImGuiKey_S"): return ImGuiKey_S;
+	case hash("ImGuiKey_T"): return ImGuiKey_T;
+	case hash("ImGuiKey_U"): return ImGuiKey_U;
+	case hash("ImGuiKey_V"): return ImGuiKey_V;
+	case hash("ImGuiKey_W"): return ImGuiKey_W;
+	case hash("ImGuiKey_X"): return ImGuiKey_X;
+	case hash("ImGuiKey_Y"): return ImGuiKey_Y;
+	case hash("ImGuiKey_Z"): return ImGuiKey_Z;
+	case hash("ImGuiKey_F1"): return ImGuiKey_F1;
+	case hash("ImGuiKey_F2"): return ImGuiKey_F2;
+	case hash("ImGuiKey_F3"): return ImGuiKey_F3;
+	case hash("ImGuiKey_F4"): return ImGuiKey_F4;
+	case hash("ImGuiKey_F5"): return ImGuiKey_F5;
+	case hash("ImGuiKey_F6"): return ImGuiKey_F6;
+	case hash("ImGuiKey_F7"): return ImGuiKey_F7;
+	case hash("ImGuiKey_F8"): return ImGuiKey_F8;
+	case hash("ImGuiKey_F9"): return ImGuiKey_F9;
+	case hash("ImGuiKey_F10"): return ImGuiKey_F10;
+	case hash("ImGuiKey_F11"): return ImGuiKey_F11;
+	case hash("ImGuiKey_F12"): return ImGuiKey_F12;
+	case hash("ImGuiMouseButton_Left"): return ImGuiMouseButton_Left;
+	case hash("ImGuiMouseButton_Right"): return ImGuiMouseButton_Right;
+	case hash("ImGuiMouseButton_Middle"): return ImGuiMouseButton_Middle;
+	default: return ImGuiKey_None;
 	}
-
-	return ImGuiKey_None;
 }
 
+ImGuiKey StringToImGuiKey(const std::string& keyName)
+{
+	LOG(xorstr("StringToImGuiKey: %s"), keyName.c_str());
+	auto keyEnum = magic_enum::enum_cast<ImGuiKey_>(keyName);
+	auto ret = keyEnum.has_value() ? keyEnum.value() : ImGuiKey_None;
+	LOG(xorstr("StringToImGuiKey ret: %s"), magic_enum::enum_name(ret).data());
+	return ret;
+}
 
 Hotkey Hotkey::FromString(const std::string& hotkeyString)
 {
+	//LOG(xorstr("Hotkey::FromString: %s"), hotkeyString.c_str());
+	if (hotkeyString == "None")
+		return Hotkey();
+
 	Hotkey hotkey;
 	std::istringstream stream(hotkeyString);
 	std::string keyName;
@@ -554,14 +659,21 @@ Hotkey Hotkey::FromString(const std::string& hotkeyString)
 	while (std::getline(stream, keyName, '+'))
 	{
 		std::string trimmedKey = Trim(keyName);
-		ImGuiKey imguiKey = StringToImGuiKey(trimmedKey);
-		if (imguiKey != ImGuiKey_None)
-		{
-			short legacyKey = ImGuiKeyToLegacy(imguiKey);
-			if (legacyKey != -1)
-				hotkey.m_Keys.insert(legacyKey);
-		}
+		trimmedKey = (trimmedKey.find("ImGuiKey_") == std::string::npos) ? "ImGuiKey_" + trimmedKey : trimmedKey;
+		ImGuiKey imguiKey = StringToImGuiKey_1(trimmedKey);
+		short legacyKey = ImGuiKeyToLegacy(imguiKey);
+
+		//LOG("Parsed key: %s, ImGuiKey: %d, LegacyKey: %d", trimmedKey.c_str(), imguiKey, legacyKey);
+
+		if (legacyKey != -1)
+			hotkey.m_Keys.insert(legacyKey);
 	}
+
+	//if (hotkey.IsEmpty())
+	//	LOG("Hotkey parsed is empty.");
+	//else
+	//	LOG("Hotkey parsed successfully: %s", hotkey.ToString().c_str());
+
 	return hotkey;
 }
 

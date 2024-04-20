@@ -6,6 +6,8 @@
 
 #include "Singleton.h"
 #include "Hotkey.h"
+#include "HotkeyManager.h"
+#include "Utils.h"
 
 using json = nlohmann::json;
 
@@ -57,7 +59,9 @@ public:
 			SaveConfig();
 		}
 
-		return hotkey.FromString(config_.value(name, defaultHotkey.ToString()));
+		auto val = hotkey.FromString(config_.value(name, defaultHotkey.ToString()));
+		// LOG("%s: %s", name.c_str(), val.ToString().c_str());
+		return val;
 	}
 
 	void SetHotkey(const std::string& name, const Hotkey& hotkey)

@@ -7,8 +7,6 @@
 using namespace app;
 
 DO_APP_FUNC(0x00455F30, void, GameFrameWork_Update, (void/*GameFrameWork*/* __this, MethodInfo* method));
-DO_APP_FUNC(0x00DF1DA0, void, InputManager_Update, (void/*InputManager*/* __this, MethodInfo* method));
-DO_APP_FUNC(0x02C18F90, void, InputManager_1_Update, (void/*InputManager_1*/* __this, MethodInfo* method));
 
 DO_APP_FUNC(0x0208ABF0, String*, Marshal_PtrToStringAnsi, (void* ptr, MethodInfo* method));
 DO_APP_FUNC(0x0208AC10, String*, Marshal_PtrToStringUni, (void* ptr, MethodInfo* method));

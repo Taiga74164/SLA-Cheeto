@@ -132,7 +132,7 @@ void Gui::Render()
 		case 3: // About
 			ImGui::Spacing();
 			ImGui::Text(xorstr("Created by: Taiga74164"));
-			ImGui::TextURL(xorstr("Unknown Cheats thread"), "https://www.unknowncheats.me/forum/other-mmorpg-and-strategy/629636-solo-leveling-arise-cheeto.html");
+			ImGui::TextURL(xorstr("Unknown Cheats thread"), xorstr("https://www.unknowncheats.me/forum/other-mmorpg-and-strategy/629636-solo-leveling-arise-cheeto.html"));
 			break;
 		}
 
