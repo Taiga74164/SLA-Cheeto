@@ -74,7 +74,7 @@ int main()
 #ifdef USE_MANUAL_MAP
 		Inject(hProcess, config.DLLPath_1, InjectionType::ManualMap);
 #else
-		Inject(hProcess, config.DLLPath_1, InjectionType::LoadLibraryDLL);
+		Inject(hProcess, config.DLLPath_1);
 #endif
 	}
 
@@ -83,7 +83,7 @@ int main()
 #ifdef USE_MANUAL_MAP
 		Inject(hProcess, config.DLLPath_2, InjectionType::ManualMap);
 #else
-		Inject(hProcess, config.DLLPath_2, InjectionType::LoadLibraryDLL);
+		Inject(hProcess, config.DLLPath_2);
 #endif
 	}
 
@@ -92,7 +92,7 @@ int main()
 #ifdef USE_MANUAL_MAP
 		Inject(hProcess, config.DLLPath_3, InjectionType::ManualMap);
 #else
-		Inject(hProcess, config.DLLPath_3, InjectionType::LoadLibraryDLL);
+		Inject(hProcess, config.DLLPath_3);
 #endif
 	}
 	

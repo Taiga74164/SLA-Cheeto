@@ -7,7 +7,7 @@
 #ifdef USE_MANUAL_MAP
 #include "manual-map.h"
 #else
-#error "USE_MANUAL_MAP is defined but manual-map.h is not included. Uncomment the "#define USE_MANUAL_MAP" line in main.cpp and remove manual-map from the project."
+#error "USE_MANUAL_MAP is defined but manual-map.h is not included. Uncomment the "#define USE_MANUAL_MAP" line in inject.h and remove manual-map from the project."
 #endif
 
 enum class InjectionType

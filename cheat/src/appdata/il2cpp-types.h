@@ -3168,21 +3168,21 @@ namespace app
 		Max = 0x07,
 	};
 
-	enum class ECharacterType__Enum : uint8_t
+	enum class ECharacterType__Enum : int32_t
 	{
-		None = 0x00,
-		Hunter = 0x01,
-		Monster = 0x02,
-		Shadow = 0x03,
-		Object = 0x04,
-		NPC = 0x05,
-		Dialog = 0x06,
-		MainPC = 0x07,
-		SystemPlayHunter = 0x08,
-		SystemPlayShadow = 0x09,
-		SystemPlayPC = 0x0a,
-		Part = 0x0b,
-		Max = 0x0c,
+		None = 0x00000000,
+		Hunter = 0x00000001,
+		Monster = 0x00000002,
+		Shadow = 0x00000003,
+		Object = 0x00000004,
+		NPC = 0x00000005,
+		Dialog = 0x00000006,
+		MainPC = 0x00000007,
+		SystemPlayHunter = 0x00000008,
+		SystemPlayShadow = 0x00000009,
+		SystemPlayPC = 0x0000000a,
+		Part = 0x0000000b,
+		Max = 0x0000000c,
 	};
 
 	enum class eCharDeadStep__Enum : uint8_t
@@ -3342,6 +3342,7 @@ namespace app
 		DispelSpecialState = 0x00000079,
 		ActiveQTESkill = 0x0000007a,
 		Max = 0x0000007b,
+		LBADFENHNJL = 0x0000007c,
 	};
 
 	struct ESpecialState__Enum__Array
@@ -3741,7 +3742,8 @@ namespace app
 		MonitorData* monitor;
 		struct OIAMFLMIEGP__Fields fields;
 	};
-
+	
+	// new DAICCIIPJPK__Fields
 	struct __declspec(align(8)) KAAIFMKPKAG__Fields
 	{
 		struct ENNEJEPMJLJ* KCBLLGODKIE;
@@ -3787,6 +3789,7 @@ namespace app
 		struct IJIAGCJJCJC* _DBFNJAMNBNI_k__BackingField;
 	};
 
+	// new DAICCIIPJPK
 	struct KAAIFMKPKAG
 	{
 		struct KAAIFMKPKAG__Class* klass;
@@ -5096,6 +5099,7 @@ namespace app
 		struct List_1_List_1_System_Single_* BDAPGIACPAG;
 		struct List_1_List_1_System_Single_* NMPKCGBEGJJ;
 		int32_t BOGAJNJNMPK;
+		float MAEGOMCEFNN;
 	};
 
 	struct IFCGLMJJCGF
