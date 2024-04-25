@@ -11,7 +11,7 @@
 #include "color.hpp"
 #include "ConfigEntry.hpp"
 #include "Hotkey.h"
-#include "HotkeyManager.h"
+#include "HotkeyManager.hpp"
 
 #pragma warning(disable: 26812 26815)
 

@@ -33,5 +33,5 @@ jobs:
       uses: actions/upload-artifact@v3.1.0
       with:
         name: build-artifact
-        path: .cheat/bin/Release-x64/SLA_Cheeto.dll
+        path: ./cheat/bin/Release-x64/SLA_Cheeto.dll
         if-no-files-found: error

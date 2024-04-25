@@ -2,7 +2,7 @@
 #include "global.h"
 #include "HookManager.h"
 #include "events.h"
-#include "HotkeyManager.h"
+#include "HotkeyManager.hpp"
 
 #include "features/PlayerSpeed.h"
 #include "features/NoCooldown.h"

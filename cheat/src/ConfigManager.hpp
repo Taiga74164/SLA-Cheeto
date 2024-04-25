@@ -6,7 +6,7 @@
 
 #include "Singleton.h"
 #include "Hotkey.h"
-#include "HotkeyManager.h"
+#include "HotkeyManager.hpp"
 #include "Utils.h"
 
 using json = nlohmann::json;

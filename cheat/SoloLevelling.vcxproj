@@ -121,7 +121,7 @@
     <ClInclude Include="src\global.h" />
     <ClInclude Include="src\HookManager.h" />
     <ClInclude Include="src\Hotkey.h" />
-    <ClInclude Include="src\HotkeyManager.h" />
+    <ClInclude Include="src\HotkeyManager.hpp" />
     <ClInclude Include="src\main.h" />
     <ClInclude Include="src\Memory.h" />
     <ClInclude Include="src\Module.h" />
