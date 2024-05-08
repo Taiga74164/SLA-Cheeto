@@ -50,7 +50,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)src\;$(ProjectDir)vendor\CommandMenu\include\;$(ProjectDir)vendor\imgui\;$(ProjectDir)vendor\detours\;$(ProjectDir)vendor\magic_enum\include\magic_enum;$(ProjectDir)vendor\json\single_include\nlohmann;$(ProjectDir)vendor\xorstr</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\;$(ProjectDir)vendor\CommandMenu\include\;$(ProjectDir)vendor\imgui\;$(ProjectDir)vendor\detours\;$(ProjectDir)vendor\magic_enum\include\magic_enum;$(ProjectDir)vendor\json\single_include\nlohmann;$(ProjectDir)vendor\xorstr;$(ProjectDir)vendor\UnityResolve</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -136,6 +136,7 @@
     <ClInclude Include="src\Render\Gui\utils\gui-util.hpp" />
     <ClInclude Include="src\Render\Renderer.h" />
     <ClInclude Include="src\Singleton.h" />
+    <ClInclude Include="src\Unity\methods.hpp" />
     <ClInclude Include="src\Utils.h" />
     <ClInclude Include="res\resource.h" />
     <ClInclude Include="vendor\detours\detours.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_iostream.hpp" />
     <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_switch.hpp" />
     <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_utility.hpp" />
+    <ClInclude Include="vendor\UnityResolve\UnityResolve.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\appdata\helpers.cpp" />

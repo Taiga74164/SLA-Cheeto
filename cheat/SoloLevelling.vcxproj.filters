@@ -31,6 +31,9 @@
     <Filter Include="vendor\magic_enum">
       <UniqueIdentifier>{2a119d21-8c9d-4511-8a47-58d1fc8f7710}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vendor\UnityResolve">
+      <UniqueIdentifier>{43f0f444-1a9b-41d8-99cc-395a2a4292dc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\SoloLevelling.rc">
@@ -205,9 +208,6 @@
     <ClInclude Include="src\Hotkey.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\HotkeyManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\appdata\il2cpp-api-functions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -287,6 +287,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Render\Gui\fonts\Rubik.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HotkeyManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\UnityResolve\UnityResolve.hpp">
+      <Filter>vendor\UnityResolve</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unity\methods.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

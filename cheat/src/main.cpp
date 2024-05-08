@@ -15,11 +15,14 @@ void Run(HMODULE hModule)
 		LOG(xorstr("[SoloLevelling] game not found, waiting 3 seconds..."));
 		Sleep(3000);
 	}
-	
+
 	Utils::SetCurrentPath(Utils::GetModulePath(hModule));
 	ConfigManager::GetInstance().InitializeConfig((Utils::GetCurrentPath() / "config.json").string());
 	
 	Init(Renderer::DXVersion::D3D11);
+
+	// UnityResolve::Init(GetModuleHandleA(xorstr("GameAssembly.dll")), UnityResolve::Mode::Il2Cpp);
+
 	init_il2cpp();
 	init_cheat();
 

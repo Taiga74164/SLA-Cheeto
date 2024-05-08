@@ -10,3 +10,6 @@
 [submodule "injector/vendor/simpleini"]
 	path = injector/vendor/simpleini
 	url = https://github.com/brofield/simpleini.git
+[submodule "cheat/vendor/UnityResolve"]
+	path = cheat/vendor/UnityResolve
+	url = https://github.com/issuimo/UnityResolve.hpp

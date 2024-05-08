@@ -16,3 +16,5 @@
 #include "events/handlers/functoreventhandler.hpp"
 #include "events/joins/handlereventjoin.hpp"
 #include "events/joins/eventjoinwrapper.hpp"
+
+#include "UnityResolve.hpp"
