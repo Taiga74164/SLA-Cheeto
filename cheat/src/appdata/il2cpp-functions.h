@@ -14,16 +14,6 @@ DO_APP_FUNC(0x028E7240, String*, Marshal_PtrToStringUni, (void* ptr, MethodInfo*
 // FovChanger
 DO_APP_FUNC(0x03953C40, void, Camera_set_fieldOfView, (void* __this, float value, MethodInfo* method));
 
-// FPSUnlock
-DO_APP_FUNC(0x0394C9E0, int, Application_get_targetFrameRate, (MethodInfo* method));
-DO_APP_FUNC(0x0394D100, void, Application_set_targetFrameRate, (int value, MethodInfo* method));
-
-DO_APP_FUNC(0x03970F60, void, QualitySettings_set_vSyncCount, (int value, MethodInfo* method));
-
-// TimeScale
-DO_APP_FUNC(0x039A9F10, float, Time_get_timeScale, (MethodInfo* method));
-DO_APP_FUNC(0x039AA000, void, Time_set_timeScale, (float value, MethodInfo* method));
-
 // C# methods
 DO_APP_FUNC(0x02A29840, Type*, Type_GetType_3, (String* typeName, MethodInfo* method));
 DO_APP_FUNC(0x028FE910, Type*, Assembly_GetType, (Assembly* __this, String* name, MethodInfo* method));
@@ -64,7 +54,6 @@ DO_APP_FUNC(0x00B0AE80, bool, PCILGJOEPJM_PPAKPBOJLIP, (ENNEJEPMJLJ* IGBKKNODEGM
 DO_APP_FUNC(0x00F3A7A0, void, StageReadyPage_EnterUI, (StageReadyPage* __this, MethodInfo* method));
 DO_APP_FUNC(0x00F3E030, void, StoryQuestChapterPage_EnterUI, (StoryQuestChapterPage* __this,MethodInfo* method));
 // Intro Movie
-DO_APP_FUNC(0x00C16180, void, GameMovie_Update, (GameMovie* __this, MethodInfo* method));
 DO_APP_FUNC(0x00C175B0, void, IntroMovie_Update, (IntroMovie* __this, MethodInfo* method));
 // Disable Web View
 DO_APP_FUNC(0x02BD1040, void, WebViewDialog_Show, (void* __this, MethodInfo* method));

@@ -10,7 +10,6 @@ namespace Cheat::Features
 		SkipIntroMovie();
 
 	private:
-		static void GameMovie_Update_Hook(app::GameMovie* __this, MethodInfo* method);
 		static void IntroMovie_Update_Hook(app::IntroMovie* __this, MethodInfo* method);
 	};
 }

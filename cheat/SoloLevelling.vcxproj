@@ -124,6 +124,9 @@
     <ClInclude Include="src\HotkeyManager.hpp" />
     <ClInclude Include="src\main.h" />
     <ClInclude Include="src\Memory.h" />
+    <ClInclude Include="src\methods\Assembly-CSharp.hpp" />
+    <ClInclude Include="src\methods\mscorlib.hpp" />
+    <ClInclude Include="src\methods\UnityEngine.CoreModule.hpp" />
     <ClInclude Include="src\Module.h" />
     <ClInclude Include="src\ModuleManager.h" />
     <ClInclude Include="src\Render\Backend\DX11Hook.h" />
@@ -136,7 +139,6 @@
     <ClInclude Include="src\Render\Gui\utils\gui-util.hpp" />
     <ClInclude Include="src\Render\Renderer.h" />
     <ClInclude Include="src\Singleton.h" />
-    <ClInclude Include="src\Unity\methods.hpp" />
     <ClInclude Include="src\Utils.h" />
     <ClInclude Include="res\resource.h" />
     <ClInclude Include="vendor\detours\detours.h" />

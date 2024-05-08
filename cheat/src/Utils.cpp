@@ -3,10 +3,13 @@
 #include <TlHelp32.h>
 #include <codecvt>
 #include <cstdarg>
+#include <fstream>
 #include <psapi.h>
 #include <mutex>
 #include <random>
 
+std::string logfilepath = "";
+LogType logType = LogType::Console;
 std::mutex mutex;
 
 void Utils::AttachConsole()
@@ -93,6 +96,105 @@ char Utils::ConsoleReadKey()
 
 	//ReadConsoleA(_in, &key, 1, &keysread, nullptr);
 	return std::cin.get();
+}
+
+void LogToFile(std::string& filepath, std::string& msg)
+{
+	std::ofstream myfile;
+	myfile.open(filepath, std::ios::out | std::ios::app | std::ios::binary);
+	myfile << msg << std::endl;
+	myfile.close();
+}
+
+void Utils::Log(const char* filepath, int line, LogLevel level, const char* fmt, ...)
+{
+	char buf[4096];
+	const char* levelStr = "";
+	WORD levelColor, filenameColor = FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY; // Lighter Blue
+	WORD lineColor = FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY; // Lighter Yellow
+
+	// Determine log level string and corresponding color
+	switch (level)
+	{
+	case Debug:
+		levelStr = "Debug";
+		levelColor = FOREGROUND_BLUE | FOREGROUND_RED | FOREGROUND_INTENSITY; // Magenta
+		break;
+	case Error:
+		levelStr = "Error";
+		levelColor = FOREGROUND_RED | FOREGROUND_INTENSITY; // Red
+		break;
+	case Warning:
+		levelStr = "Warning";
+		levelColor = FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY; // Yellow
+		break;
+	}
+
+	va_list va;
+	va_start(va, fmt);
+	vsprintf_s(buf, fmt, va);
+	va_end(va);
+
+	const std::lock_guard<std::mutex> lock(mutex);
+
+	// Print with default color
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_SCREEN_BUFFER_INFO consoleInfo;
+	GetConsoleScreenBufferInfo(hConsole, &consoleInfo);
+	WORD saved_attributes = consoleInfo.wAttributes;
+
+	// Print '[' in default color
+	std::cout << "[";
+
+	auto filename = std::filesystem::path(filepath).filename().string();
+
+	// Print filename in blue
+	SetConsoleTextAttribute(hConsole, filenameColor);
+	std::cout << filename;
+
+	// Print ':' in default color
+	SetConsoleTextAttribute(hConsole, saved_attributes);
+	std::cout << ":";
+
+	// Print line in lighter yellow
+	SetConsoleTextAttribute(hConsole, lineColor);
+	std::cout << line;
+
+	// Reset to default color, print level in its color, and reset again
+	SetConsoleTextAttribute(hConsole, saved_attributes);
+	std::cout << "] [";
+	SetConsoleTextAttribute(hConsole, levelColor);
+	std::cout << levelStr;
+	SetConsoleTextAttribute(hConsole, saved_attributes);
+	std::cout << "] " << buf << std::endl;
+
+	if (logType == LogType::File)
+	{
+
+		auto rawTime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+		struct tm gmtm;
+		gmtime_s(&gmtm, &rawTime);
+		auto logLineFile = string_format("[%02d:%02d:%02d] [%s] [%s:%d] %s", gmtm.tm_hour, gmtm.tm_min, gmtm.tm_sec,
+			levelStr, filename.c_str(), line, buf);
+		LogToFile(logfilepath, logLineFile);
+	}
+}
+
+
+
+void Utils::PrepareFileLogging(std::string directory)
+{
+	auto rawTime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+	struct tm gmtm;
+	gmtime_s(&gmtm, &rawTime);
+
+	if (!std::filesystem::is_directory(directory))
+		std::filesystem::create_directories(directory);
+
+	logfilepath = string_format("%s\\log_%04d-%02d-%02d_%02d-%02d.txt", directory.c_str(),
+		1900 + gmtm.tm_year, gmtm.tm_mon, gmtm.tm_mday, gmtm.tm_hour, gmtm.tm_min);
+
+	logType = LogType::File;
 }
 
 std::string Utils::GetAddressModuleName(uintptr_t address)

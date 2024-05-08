@@ -17,14 +17,14 @@ namespace Cheat::Features
 		
 		if (vars.TimeScale.value())
 		{
-			app::Time_set_timeScale(vars.TimeScaleSpeed.value(), nullptr);
+			UnityResolve::UnityType::Time::SetTimeScale(vars.TimeScaleSpeed.value());
 			m_DidSpeed = true;
 		}
 		else
 		{
 			if (m_DidSpeed)
 			{
-				app::Time_set_timeScale(1.0f, nullptr);
+				UnityResolve::UnityType::Time::SetTimeScale(1.0f);
 				m_DidSpeed = false;
 			}
 		}

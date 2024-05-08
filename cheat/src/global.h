@@ -17,4 +17,6 @@
 #include "events/joins/handlereventjoin.hpp"
 #include "events/joins/eventjoinwrapper.hpp"
 
-#include "UnityResolve.hpp"
+#include "methods/Assembly-CSharp.hpp"
+#include "methods/mscorlib.hpp"
+#include "methods/UnityEngine.CoreModule.hpp"
