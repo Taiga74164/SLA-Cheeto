@@ -365,8 +365,3 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-
-PostBuildEvent.cmd
-
-manual-map.h
-manual-map.cpp
