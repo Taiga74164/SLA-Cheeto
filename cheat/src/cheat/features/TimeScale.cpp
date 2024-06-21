@@ -15,16 +15,16 @@ namespace Cheat::Features
 	{
 		auto& vars = Vars::GetInstance();
 		
-		if (vars.TimeScale.value())
+		if (vars.TimeScale.value() && !m_DidSpeed)
 		{
-			UnityResolve::UnityType::Time::SetTimeScale(vars.TimeScaleSpeed.value());
+			app::Time_3_set_timeScale(vars.TimeScaleSpeed.value(), nullptr);
 			m_DidSpeed = true;
 		}
 		else
 		{
 			if (m_DidSpeed)
 			{
-				UnityResolve::UnityType::Time::SetTimeScale(1.0f);
+				app::Time_3_set_timeScale(1.0f, nullptr);
 				m_DidSpeed = false;
 			}
 		}

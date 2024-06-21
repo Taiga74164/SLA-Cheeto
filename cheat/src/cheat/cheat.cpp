@@ -30,7 +30,7 @@ void init_cheat()
 	INIT_FEATURE(NoCooldown);
 	INIT_FEATURE(DamageHack);
 	INIT_FEATURE(GodMode);
-	INIT_FEATURE(MobVacuum);
+	//INIT_FEATURE(MobVacuum);
 	INIT_FEATURE(DumbEnemies);
 	INIT_FEATURE(MissionTime);
 	INIT_FEATURE(TimeScale);

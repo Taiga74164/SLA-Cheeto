@@ -17,11 +17,11 @@ namespace Cheat::Features
 
 		if (m_LastEnableStatus && !vars.FPSUnlock.value())
 		{
-			methods::Application::SetTargetFrameRate(m_OriginFPS);
+			app::Application_set_targetFrameRate(m_OriginFPS, nullptr);
 		}
 		else if (!m_LastEnableStatus && vars.FPSUnlock.value())
 		{
-			m_OriginFPS = methods::Application::GetTargetFrameRate();
+			m_OriginFPS = app::Application_get_targetFrameRate(nullptr);
 		}
 		m_LastEnableStatus = vars.FPSUnlock.value();
 		if (vars.FPSUnlock.value())

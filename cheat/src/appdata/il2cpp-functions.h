@@ -35,6 +35,9 @@ DO_APP_FUNC(0x03A12E40, void, Transform_set_forward, (Transform* __this, Vector3
 DO_APP_FUNC(0x03A11F70, int32_t, Transform_get_childCount, (Transform* __this, MethodInfo* method));
 DO_APP_FUNC(0x03A2C200, String*, Scene_GetNameInternal, (int32_t sceneHandle, MethodInfo* method));
 DO_APP_FUNC(0x03A2ABD0, Scene, SceneManager_GetActiveScene, (MethodInfo* method));
+DO_APP_FUNC(0x039B6E20, int32_t, Application_get_targetFrameRate, (MethodInfo* method));
+DO_APP_FUNC(0x039B7540, void, Application_set_targetFrameRate, (int32_t value, MethodInfo* method));
+DO_APP_FUNC(0x03A0E380, void, Time_3_set_timeScale, (float value, MethodInfo* method));
 
 // No Cooldown
 DO_APP_FUNC(0x009B7980, void/*KAAIFMKPKAG*/*, KAAIFMKPKAG_IOFMGMJCCFO, (KAAIFMKPKAG* __this, bool DEJNILEHENL, MethodInfo* method));
