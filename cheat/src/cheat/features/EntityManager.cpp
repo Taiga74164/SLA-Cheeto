@@ -89,9 +89,13 @@ namespace Cheat::Features
 		auto& em = EntityManager::GetInstance();
 		auto ret = CALL_ORIGIN(ENNEJEPMJLJ_FIGHFBNIDJA_Hook, __this, method);
 
-		if (__this != nullptr &&
+		if (__this != nullptr && 
+			__this->fields.NKONPDBOBAG != nullptr && 
+			__this->fields.NKONPDBOBAG->fields.IALANALADIL != nullptr && 
+			__this->fields.NKONPDBOBAG->fields.IALANALADIL->fields.HOAFECEANLC != nullptr && 
 			__this->fields.NKONPDBOBAG->fields.IALANALADIL->fields.HOAFECEANLC->fields._.m_CachedPtr != nullptr &&
 			__this->fields.AJEHLIOMMJN != app::ECharacterType__Enum::None)
+
 		{
 			//LOG(xorstr("resourceName %s"), il2cppi_to_string(__this->fields.PEFKKKBMDKN->fields.m_ResourceName).c_str());
 			//LOG(xorstr("CharType %s"), magic_enum::enum_name(__this->fields.AJEHLIOMMJN).data());
@@ -99,14 +103,14 @@ namespace Cheat::Features
 			if (__this->fields.FHNGHHPLPGD == app::eCharGroup__Enum::PLAYER &&
 				__this->fields.AJEHLIOMMJN == app::ECharacterType__Enum::Hunter)
 			{
-				//em.m_pPlayer = __this;
-				//em.m_pPlayerGO = __this->fields.NKONPDBOBAG->fields.IALANALADIL->fields.HOAFECEANLC;
+				em.m_pPlayer = __this;
+				em.m_pPlayerGO = __this->fields.NKONPDBOBAG->fields.IALANALADIL->fields.HOAFECEANLC;
 			}
 			else if (__this->fields.FHNGHHPLPGD == app::eCharGroup__Enum::ENEMY &&
 				__this->fields.AJEHLIOMMJN == app::ECharacterType__Enum::Monster)
 			{
-				//if (std::find(em.m_pEnemiesVec.begin(), em.m_pEnemiesVec.end(), __this) == em.m_pEnemiesVec.end())
-				//	em.m_pEnemiesVec.push_back(__this);
+				if (std::find(em.m_pEnemiesVec.begin(), em.m_pEnemiesVec.end(), __this) == em.m_pEnemiesVec.end())
+					em.m_pEnemiesVec.push_back(__this);
 			}
 		}
 
