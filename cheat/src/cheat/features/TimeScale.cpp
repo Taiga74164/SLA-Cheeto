@@ -17,14 +17,14 @@ namespace Cheat::Features
 		
 		if (vars.TimeScale.value() && !m_DidSpeed)
 		{
-			app::Time_3_set_timeScale(vars.TimeScaleSpeed.value(), nullptr);
+			app::Time_4_set_timeScale(vars.TimeScaleSpeed.value(), nullptr);
 			m_DidSpeed = true;
 		}
 		else
 		{
 			if (m_DidSpeed)
 			{
-				app::Time_3_set_timeScale(1.0f, nullptr);
+				app::Time_4_set_timeScale(1.0f, nullptr);
 				m_DidSpeed = false;
 			}
 		}
