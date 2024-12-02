@@ -1,9 +1,6 @@
-// Generated C++ file by Il2CppInspector - http://www.djkaty.com - https://github.com/djkaty
-// Target Unity version: 2021.2.0 - 2021.2.99
-
-// ******************************************************************************
-// * IL2CPP API function pointers
-// ******************************************************************************
+// ****************************************
+// * IL2CPP API function pointers teste
+// ****************************************
 
 #define il2cpp_add_internal_call_ptr 0x00393400
 #define il2cpp_alloc_ptr 0x00393410
