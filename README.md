@@ -23,8 +23,6 @@ This project is created and shared for educational purposes only. I do not condo
 - FPS Unlocker
 - Fov Changer
 - Skip Intro Movie (Loads the game faster)
-- Disable Web View (Disables annoying web pop-up when entering the game)
-
 ## Screenshot
 ![menu](cheat/res/Solo_Leveling_ARISE_4BRSUmbeJd.png)
 
