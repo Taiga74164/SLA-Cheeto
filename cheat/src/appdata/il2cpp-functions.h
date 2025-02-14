@@ -6,39 +6,39 @@
 // ******************************************************************************
 using namespace app;
 
-DO_APP_FUNC(0x00777BA0, void, GameFrameWork_Update, (void/*GameFrameWork*/* __this, MethodInfo* method));
 
-DO_APP_FUNC(0x02EAC330, String*, Marshal_PtrToStringAnsi, (void* ptr, MethodInfo* method));
-DO_APP_FUNC(0x02EAC350, String*, Marshal_PtrToStringUni, (void* ptr, MethodInfo* method));
+DO_APP_FUNC(0x00785F00, void, GameFrameWork_Update, (GameFrameWork* __this, MethodInfo* method));
+DO_APP_FUNC(0x02F05F10, String*, Marshal_PtrToStringAnsi, (void* ptr, MethodInfo* method)); 
+DO_APP_FUNC(0x02F05F30, String*, Marshal_PtrToStringUni, (void* ptr, MethodInfo* method));
 
 // FovChanger
-DO_APP_FUNC(0x03F44C60, void, Camera_set_fieldOfView, (void* __this, float value, MethodInfo* method));
+DO_APP_FUNC(0x04010900, void, Camera_set_fieldOfView, (Camera* __this, float value, MethodInfo* method));
 
 // C# methods
-DO_APP_FUNC(0x02FE4260, Type*, Type_GetType_3, (String* typeName, MethodInfo* method));
+DO_APP_FUNC(0x0303F700, Type*, Type_GetType_3, (String* typeName, MethodInfo* method));
 DO_APP_FUNC(0x02EC02D0, Type*, Assembly_GetType, (Assembly* __this, String* name, MethodInfo* method));
-DO_APP_FUNC(0x02EC07F0, Assembly*, Assembly_LoadWithPartialName, (String* partialName, MethodInfo* method));
-// Unity methods
-DO_APP_FUNC(0x03F3DAF0, int32_t, Application_get_targetFrameRate, (MethodInfo* method));
-DO_APP_FUNC(0x03F3E210, void, Application_set_targetFrameRate, (int32_t value, MethodInfo* method));
-DO_APP_FUNC(0x03F9E810, Vector3, Vector3_Lerp, (Vector3 a, Vector3 b, float t, MethodInfo* method));
-DO_APP_FUNC(0x03F9E5B0, float, Vector3_Distance, (Vector3 a, Vector3 b, MethodInfo* method));
-DO_APP_FUNC(0x03F89490, Transform*, GameObject_get_transform, (GameObject* __this, MethodInfo* method));
-DO_APP_FUNC(0x03F88440, GameObject*, GameObject_Find, (String* name, MethodInfo* method));
-DO_APP_FUNC(0x03F8E0F0, String*, Object_1_get_name, (Object_1* __this, MethodInfo* method));
-DO_APP_FUNC(0x03F96570, void, Time_4_set_timeScale, (float value, MethodInfo* method));
-DO_APP_FUNC(0x03F9A8A0, Vector3, Transform_get_position, (Transform* __this, MethodInfo* method));
-DO_APP_FUNC(0x03F9B480, void, Transform_set_position, (Transform* __this, Vector3 value, MethodInfo* method));
-DO_APP_FUNC(0x03F9A8F0, Vector3, Transform_get_right, (Transform* __this, MethodInfo* method));
-DO_APP_FUNC(0x03F9B4D0, void, Transform_set_right, (Transform* __this, Vector3 value, MethodInfo* method));
-DO_APP_FUNC(0x03F9ABC0, Vector3, Transform_get_up, (Transform* __this, MethodInfo* method));
-DO_APP_FUNC(0x03F9B650, void, Transform_set_up, (Transform* __this, Vector3 value, MethodInfo* method));
-DO_APP_FUNC(0x03F9A110, Vector3, Transform_get_forward, (Transform* __this, MethodInfo* method));
-DO_APP_FUNC(0x03F9AFA0, void, Transform_set_forward, (Transform* __this, Vector3 value, MethodInfo* method));
-DO_APP_FUNC(0x03F99FB0, int32_t, Transform_get_childCount, (Transform* __this, MethodInfo* method));
-DO_APP_FUNC(0x03FB44B0, String*, Scene_GetNameInternal, (int32_t sceneHandle, MethodInfo* method));
-DO_APP_FUNC(0x03FB2E80, Scene, SceneManager_GetActiveScene, (MethodInfo* method));
+DO_APP_FUNC(0x02F1A3D0, Assembly*, Assembly_LoadWithPartialName, (String* partialName, MethodInfo* method));
 
+// Unity methods
+DO_APP_FUNC(0x04009790, int32_t, Application_get_targetFrameRate, (MethodInfo* method)); 
+DO_APP_FUNC(0x04009EB0, void, Application_set_targetFrameRate, (int32_t value, MethodInfo* method)); 
+DO_APP_FUNC(0x0406A4E0, Vector3, Vector3_Lerp, (Vector3 a, Vector3 b, float t, MethodInfo* method));
+DO_APP_FUNC(0x0406A280, float, Vector3_Distance, (Vector3 a, Vector3 b, MethodInfo* method));
+DO_APP_FUNC(0x04055180, Transform*, GameObject_get_transform, (GameObject* __this, MethodInfo* method)); 
+DO_APP_FUNC(0x04054130, GameObject*, GameObject_Find, (String* name, MethodInfo* method)); 
+DO_APP_FUNC(0x04059DE0, String*, Object_1_get_name, (Object_1* __this, MethodInfo* method));
+DDO_APP_FUNC(0x04062260, void, Time_4_set_timeScale, (float value, MethodInfo* method));
+DO_APP_FUNC(0x04066570, Vector3, Transform_get_position, (Transform* __this, MethodInfo* method)); 
+DO_APP_FUNC(0x04067150, void, Transform_set_position, (Transform* __this, Vector3 value, MethodInfo* method)); 
+DO_APP_FUNC(0x040665C0, Vector3, Transform_get_right, (Transform* __this, MethodInfo* method)); 
+DO_APP_FUNC(0x040671A0, void, Transform_set_right, (Transform* __this, Vector3 value, MethodInfo* method)); 
+DO_APP_FUNC(0x04066890, Vector3, Transform_get_up, (Transform* __this, MethodInfo* method)); 
+DO_APP_FUNC(0x04067320, void, Transform_set_up, (Transform* __this, Vector3 value, MethodInfo* method)); 
+DO_APP_FUNC(0x04065DE0, Vector3, Transform_get_forward, (Transform* __this, MethodInfo* method)); 
+DO_APP_FUNC(0x04066C70, void, Transform_set_forward, (Transform* __this, Vector3 value, MethodInfo* method)); 
+DO_APP_FUNC(0x04065C80, int32_t, Transform_get_childCount, (Transform* __this, MethodInfo* method));
+DO_APP_FUNC(0x04080600, String*, Scene_GetNameInternal, (int32_t sceneHandle, MethodInfo* method));
+DO_APP_FUNC(0x0407EFD0, Scene, SceneManager_GetActiveScene, (MethodInfo* method));
 // No Cooldown
 DO_APP_FUNC(0x00CE5BF0, void/*KAAIFMKPKAG*/*, KAAIFMKPKAG_IOFMGMJCCFO, (KAAIFMKPKAG* __this, bool DEJNILEHENL, MethodInfo* method));
 // Damage Hack
